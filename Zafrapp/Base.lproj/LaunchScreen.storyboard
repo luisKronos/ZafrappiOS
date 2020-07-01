@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Bold.ttf">
+            <string>Poppins-Bold</string>
+        </array>
+        <array key="Poppins-Regular.ttf">
+            <string>Poppins-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="www.zafrapp.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXX-oO-b33">
+                                <rect key="frame" x="144" y="86" width="126.5" height="20"/>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oeT-X3-Y8i">
+                                <rect key="frame" x="131" y="184" width="152" height="152"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="152" id="IGI-6U-HeR"/>
+                                    <constraint firstAttribute="height" constant="152" id="NGG-7Y-d1s"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="2vr-JP-tDG">
+                                <rect key="frame" x="161.5" y="214.5" width="91" height="91"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¡BIENVENIDO AL GREMIO AZUCARERO DE MÉXICO!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZOb-ER-qKj">
+                                <rect key="frame" x="40" y="406" width="334" height="56"/>
+                                <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sembrando proyectos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="of8-mx-e51">
+                                <rect key="frame" x="40" y="492" width="334" height="21"/>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="oeT-X3-Y8i" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="E4G-ox-ERW"/>
+                            <constraint firstItem="ZOb-ER-qKj" firstAttribute="top" secondItem="oeT-X3-Y8i" secondAttribute="bottom" constant="70" id="JMs-w7-Lab"/>
+                            <constraint firstItem="of8-mx-e51" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="Poh-Hp-8UR"/>
+                            <constraint firstItem="2vr-JP-tDG" firstAttribute="width" secondItem="oeT-X3-Y8i" secondAttribute="width" multiplier="0.6" id="R7b-4F-6nO"/>
+                            <constraint firstAttribute="trailing" secondItem="ZOb-ER-qKj" secondAttribute="trailing" constant="40" id="S8S-Zf-hKY"/>
+                            <constraint firstItem="of8-mx-e51" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="T06-lR-pvj"/>
+                            <constraint firstItem="WXX-oO-b33" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="42" id="Vi5-iS-Ac2"/>
+                            <constraint firstItem="2vr-JP-tDG" firstAttribute="centerX" secondItem="oeT-X3-Y8i" secondAttribute="centerX" id="YRB-Xe-f92"/>
+                            <constraint firstItem="oeT-X3-Y8i" firstAttribute="top" secondItem="WXX-oO-b33" secondAttribute="bottom" constant="78" id="Ya7-sx-YKk"/>
+                            <constraint firstItem="ZOb-ER-qKj" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="aAf-OA-Tfr"/>
+                            <constraint firstItem="WXX-oO-b33" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="awN-ad-faM"/>
+                            <constraint firstItem="of8-mx-e51" firstAttribute="top" secondItem="ZOb-ER-qKj" secondAttribute="bottom" constant="30" id="bFR-Ng-lNK"/>
+                            <constraint firstItem="ZOb-ER-qKj" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="40" id="cYG-JI-uL9"/>
+                            <constraint firstAttribute="trailing" secondItem="of8-mx-e51" secondAttribute="trailing" constant="40" id="dDn-tN-D6b"/>
+                            <constraint firstItem="2vr-JP-tDG" firstAttribute="height" secondItem="oeT-X3-Y8i" secondAttribute="height" multiplier="0.6" id="kAT-dx-n2Y"/>
+                            <constraint firstItem="2vr-JP-tDG" firstAttribute="centerY" secondItem="oeT-X3-Y8i" secondAttribute="centerY" id="nMt-bP-MkM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Logo" width="124" height="121"/>
+    </resources>
+</document>

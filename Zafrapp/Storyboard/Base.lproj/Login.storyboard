@@ -1,0 +1,1126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3JF-za-9cm">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Bold.ttf">
+            <string>Poppins-Bold</string>
+        </array>
+        <array key="Poppins-Light.ttf">
+            <string>Poppins-Light</string>
+        </array>
+        <array key="Poppins-Medium.ttf">
+            <string>Poppins-Medium</string>
+        </array>
+        <array key="Poppins-Regular.ttf">
+            <string>Poppins-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="qfn-3p-P4P">
+            <objects>
+                <viewController id="uWA-K8-l4H" customClass="Login_ViewController" customModule="Zafrapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IUs-3y-rWW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gQd-XZ-iUM">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SUu-2C-dcv">
+                                <rect key="frame" x="137" y="118" width="140" height="140"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="75J-jZ-gGd"/>
+                                    <constraint firstAttribute="width" constant="140" id="NsJ-5h-Qdt"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Usuario" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HIi-mp-fKP" customClass="ZPDesignableUITextField" customModule="Zafrapp" customModuleProvider="target">
+                                <rect key="frame" x="42" y="288" width="330" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="FHC-cw-qdd"/>
+                                </constraints>
+                                <color key="textColor" name="GreyZafrapp"/>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="leftSpace">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" name="GreyZafrapp"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C2O-BI-J5d" customClass="ZPDesignableUITextField" customModule="Zafrapp" customModuleProvider="target">
+                                <rect key="frame" x="40" y="358" width="334" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="WBI-Fw-gQ0"/>
+                                </constraints>
+                                <color key="textColor" name="GreyZafrapp"/>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" name="GreyZafrapp"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="leftSpace">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="za8-jU-3JS" customClass="ZPDesignableUIButton" customModule="Zafrapp" customModuleProvider="target">
+                                <rect key="frame" x="40" y="428" width="334" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Bdb-Zm-QI0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="17"/>
+                                <state key="normal" title="Entrar">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="btnLog:" destination="uWA-K8-l4H" eventType="touchUpInside" id="H9e-rV-zaj"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tXp-V4-eq3">
+                                <rect key="frame" x="40" y="493" width="334" height="52"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5m0-OY-e8N">
+                                        <rect key="frame" x="0.0" y="0.0" width="167" height="52"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="11"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="     Recordar contraseña">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnRememberPassw:" destination="uWA-K8-l4H" eventType="touchUpInside" id="AVR-eh-ew0"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mFH-7e-Ial">
+                                        <rect key="frame" x="167" y="0.0" width="167" height="52"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="11"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="¿Olvidaste tu contraseña ?">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnForgotPassw:" destination="uWA-K8-l4H" eventType="touchUpInside" id="DQn-OZ-Ily"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconUncheck" translatesAutoresizingMaskIntoConstraints="NO" id="zcO-sC-lxh">
+                                        <rect key="frame" x="0.0" y="16" width="20" height="20"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="eGq-AS-dEV"/>
+                                            <constraint firstAttribute="width" constant="20" id="pWd-5h-282"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                <color key="value" name="BlueZafrapp"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="5m0-OY-e8N" firstAttribute="top" secondItem="tXp-V4-eq3" secondAttribute="top" id="2rW-2y-nL4"/>
+                                    <constraint firstItem="mFH-7e-Ial" firstAttribute="top" secondItem="tXp-V4-eq3" secondAttribute="top" id="3wS-8O-NoB"/>
+                                    <constraint firstAttribute="bottom" secondItem="5m0-OY-e8N" secondAttribute="bottom" id="624-qv-oTF"/>
+                                    <constraint firstItem="5m0-OY-e8N" firstAttribute="leading" secondItem="tXp-V4-eq3" secondAttribute="leading" id="Azh-dg-I8S"/>
+                                    <constraint firstAttribute="trailing" secondItem="mFH-7e-Ial" secondAttribute="trailing" id="Ecu-bQ-pc5"/>
+                                    <constraint firstItem="mFH-7e-Ial" firstAttribute="leading" secondItem="5m0-OY-e8N" secondAttribute="trailing" id="Ljg-tT-OED"/>
+                                    <constraint firstAttribute="bottom" secondItem="mFH-7e-Ial" secondAttribute="bottom" id="Rf0-no-Ehr"/>
+                                    <constraint firstItem="zcO-sC-lxh" firstAttribute="leading" secondItem="tXp-V4-eq3" secondAttribute="leading" id="fJE-Y4-GVu"/>
+                                    <constraint firstAttribute="height" constant="52" id="vUS-vV-elQ"/>
+                                    <constraint firstItem="zcO-sC-lxh" firstAttribute="centerY" secondItem="5m0-OY-e8N" secondAttribute="centerY" id="vad-yg-hUR"/>
+                                    <constraint firstItem="mFH-7e-Ial" firstAttribute="width" secondItem="5m0-OY-e8N" secondAttribute="width" id="xnz-Ma-U18"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ici-Ph-2YO">
+                                <rect key="frame" x="40" y="561" width="334" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="cdy-iC-6aN"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="¿No tienes una cuenta?">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnCreateAccount:" destination="uWA-K8-l4H" eventType="touchUpInside" id="BGm-2k-FNx"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="www.zafrapp.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VHr-Xg-IZZ">
+                                <rect key="frame" x="0.0" y="825.5" width="414" height="16.5"/>
+                                <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6O2-Dl-nSZ">
+                                <rect key="frame" x="207" y="338" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
+                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c6S-Jy-Lvl">
+                                <rect key="frame" x="207" y="408" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
+                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="Sym-dd-jHT">
+                                <rect key="frame" x="162" y="143" width="90" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="E4H-hc-80X"/>
+                                    <constraint firstAttribute="width" constant="90" id="gQz-X2-8RA"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.62352941176470589" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="7vb-E6-TK2" firstAttribute="bottom" secondItem="VHr-Xg-IZZ" secondAttribute="bottom" constant="20" id="01m-0c-45x"/>
+                            <constraint firstItem="SUu-2C-dcv" firstAttribute="top" secondItem="7vb-E6-TK2" secondAttribute="top" constant="30" id="6tR-aV-2rI"/>
+                            <constraint firstItem="7vb-E6-TK2" firstAttribute="trailing" secondItem="VHr-Xg-IZZ" secondAttribute="trailing" id="8g4-WI-cyj"/>
+                            <constraint firstItem="C2O-BI-J5d" firstAttribute="leading" secondItem="7vb-E6-TK2" secondAttribute="leading" constant="40" id="Alw-qt-mdY"/>
+                            <constraint firstItem="C2O-BI-J5d" firstAttribute="top" secondItem="HIi-mp-fKP" secondAttribute="bottom" constant="20" id="Ba6-S3-RMS"/>
+                            <constraint firstItem="Sym-dd-jHT" firstAttribute="centerY" secondItem="SUu-2C-dcv" secondAttribute="centerY" id="DoV-KW-kzc"/>
+                            <constraint firstItem="tXp-V4-eq3" firstAttribute="centerX" secondItem="gQd-XZ-iUM" secondAttribute="centerX" id="Oku-Iq-egK"/>
+                            <constraint firstItem="7vb-E6-TK2" firstAttribute="trailing" secondItem="za8-jU-3JS" secondAttribute="trailing" constant="40" id="R2h-dL-EdU"/>
+                            <constraint firstItem="7vb-E6-TK2" firstAttribute="trailing" secondItem="HIi-mp-fKP" secondAttribute="trailing" constant="42" id="T0X-pm-NGB"/>
+                            <constraint firstItem="VHr-Xg-IZZ" firstAttribute="leading" secondItem="7vb-E6-TK2" secondAttribute="leading" id="TRf-PF-1Zc"/>
+                            <constraint firstItem="7vb-E6-TK2" firstAttribute="trailing" secondItem="gQd-XZ-iUM" secondAttribute="trailing" id="Tb5-lp-XU6"/>
+                            <constraint firstItem="7vb-E6-TK2" firstAttribute="trailing" secondItem="tXp-V4-eq3" secondAttribute="trailing" constant="40" id="VQt-OY-U9p"/>
+                            <constraint firstItem="HIi-mp-fKP" firstAttribute="top" secondItem="SUu-2C-dcv" secondAttribute="bottom" constant="30" id="Wul-Gi-puB"/>
+                            <constraint firstItem="ici-Ph-2YO" firstAttribute="leading" secondItem="7vb-E6-TK2" secondAttribute="leading" constant="40" id="WwD-36-XvH"/>
+                            <constraint firstItem="7vb-E6-TK2" firstAttribute="trailing" secondItem="ici-Ph-2YO" secondAttribute="trailing" constant="40" id="WzU-FZ-NyK"/>
+                            <constraint firstItem="SUu-2C-dcv" firstAttribute="centerX" secondItem="gQd-XZ-iUM" secondAttribute="centerX" id="YNC-pv-Tsf"/>
+                            <constraint firstItem="6O2-Dl-nSZ" firstAttribute="top" secondItem="HIi-mp-fKP" secondAttribute="bottom" id="agO-ua-J8Z"/>
+                            <constraint firstItem="za8-jU-3JS" firstAttribute="top" secondItem="C2O-BI-J5d" secondAttribute="bottom" constant="20" id="bhM-fA-rja"/>
+                            <constraint firstItem="gQd-XZ-iUM" firstAttribute="top" secondItem="7vb-E6-TK2" secondAttribute="top" id="cci-em-OBr"/>
+                            <constraint firstItem="tXp-V4-eq3" firstAttribute="top" secondItem="za8-jU-3JS" secondAttribute="bottom" constant="15" id="da8-79-fwJ"/>
+                            <constraint firstItem="za8-jU-3JS" firstAttribute="leading" secondItem="7vb-E6-TK2" secondAttribute="leading" constant="40" id="fqi-Af-xyC"/>
+                            <constraint firstItem="gQd-XZ-iUM" firstAttribute="leading" secondItem="7vb-E6-TK2" secondAttribute="leading" id="hNc-mZ-pv0"/>
+                            <constraint firstItem="6O2-Dl-nSZ" firstAttribute="centerX" secondItem="gQd-XZ-iUM" secondAttribute="centerX" id="hmB-OX-7CG"/>
+                            <constraint firstItem="HIi-mp-fKP" firstAttribute="leading" secondItem="7vb-E6-TK2" secondAttribute="leading" constant="42" id="rRx-5o-fuL"/>
+                            <constraint firstAttribute="bottom" secondItem="gQd-XZ-iUM" secondAttribute="bottom" id="u9f-03-fF4"/>
+                            <constraint firstItem="ici-Ph-2YO" firstAttribute="top" secondItem="tXp-V4-eq3" secondAttribute="bottom" constant="16" id="wV1-br-FYC"/>
+                            <constraint firstItem="7vb-E6-TK2" firstAttribute="trailing" secondItem="C2O-BI-J5d" secondAttribute="trailing" constant="40" id="xF1-IO-MMc"/>
+                            <constraint firstItem="c6S-Jy-Lvl" firstAttribute="centerX" secondItem="gQd-XZ-iUM" secondAttribute="centerX" id="xYh-yD-lEI"/>
+                            <constraint firstItem="c6S-Jy-Lvl" firstAttribute="top" secondItem="C2O-BI-J5d" secondAttribute="bottom" id="y1Q-yW-Y1i"/>
+                            <constraint firstItem="tXp-V4-eq3" firstAttribute="leading" secondItem="7vb-E6-TK2" secondAttribute="leading" constant="40" id="z71-jw-Xar"/>
+                            <constraint firstItem="Sym-dd-jHT" firstAttribute="centerX" secondItem="SUu-2C-dcv" secondAttribute="centerX" id="zzV-ix-5ok"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7vb-E6-TK2"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="a7p-Ja-ROS">
+                        <barButtonItem key="backBarButtonItem" title="     " id="3np-i7-wOD"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="btnCreateAccountOut" destination="ici-Ph-2YO" id="tDn-sM-SJp"/>
+                        <outlet property="imgRemember" destination="zcO-sC-lxh" id="e9U-Ii-FFx"/>
+                        <outlet property="lblPasswordError" destination="c6S-Jy-Lvl" id="ez3-TJ-LAB"/>
+                        <outlet property="lblUserError" destination="6O2-Dl-nSZ" id="9vM-tl-Oa9"/>
+                        <outlet property="txtPassword" destination="C2O-BI-J5d" id="mud-oh-vcl"/>
+                        <outlet property="txtUser" destination="HIi-mp-fKP" id="rmL-TR-9Ii"/>
+                        <segue destination="YgB-pU-Krn" kind="show" identifier="LogInVcToRegisterVc" id="PPD-rc-X1f"/>
+                        <segue destination="nBx-3p-VlF" kind="show" identifier="LogInVcToPasswordForgotVc" id="CWQ-c0-oQy"/>
+                        <segue destination="kBE-a8-cVd" kind="presentation" identifier="LoginVcToNews" id="VZM-YI-OXW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0IK-AJ-6TW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4931.884057971015" y="164.73214285714286"/>
+        </scene>
+        <!--Create Account View Controller-->
+        <scene sceneID="Hpe-o8-UUj">
+            <objects>
+                <viewController id="YgB-pU-Krn" customClass="CreateAccount_ViewController" customModule="Zafrapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pss-nr-E3m">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x6l-kF-SUZ">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R9s-0E-Hpr">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1396"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vYy-wx-OGs">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="1396"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </imageView>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Departamento" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kMS-e9-3FT" customClass="ZPDesignableUITextField" customModule="Zafrapp" customModuleProvider="target">
+                                                <rect key="frame" x="42" y="930" width="330" height="52"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="52" id="LtZ-sV-cuD"/>
+                                                </constraints>
+                                                <color key="textColor" name="GreyZafrapp"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" name="GreyZafrapp"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="leftSpace">
+                                                        <integer key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                        <integer key="value" value="40"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6rX-Ib-xCn">
+                                                <rect key="frame" x="40" y="776" width="334" height="52"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="     ¿Estás buscando empleo?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZ4-FL-sRk">
+                                                        <rect key="frame" x="5" y="0.0" width="186" height="52"/>
+                                                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
+                                                        <color key="textColor" name="GreyZafrapp"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
+                                                                <integer key="value" value="26"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kND-Sz-ozx">
+                                                        <rect key="frame" x="283" y="10.5" width="51" height="31"/>
+                                                        <color key="onTintColor" name="BlueZafrapp"/>
+                                                    </switch>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="iZ4-FL-sRk" firstAttribute="leading" secondItem="6rX-Ib-xCn" secondAttribute="leading" constant="5" id="7ve-yo-C9m"/>
+                                                    <constraint firstAttribute="trailing" secondItem="kND-Sz-ozx" secondAttribute="trailing" constant="2" id="IhW-qO-ghq"/>
+                                                    <constraint firstAttribute="height" constant="52" id="Q9i-mC-vPX"/>
+                                                    <constraint firstAttribute="bottom" secondItem="iZ4-FL-sRk" secondAttribute="bottom" id="S8d-lD-jZM"/>
+                                                    <constraint firstItem="kND-Sz-ozx" firstAttribute="centerY" secondItem="6rX-Ib-xCn" secondAttribute="centerY" id="eR0-nP-eWz"/>
+                                                    <constraint firstItem="iZ4-FL-sRk" firstAttribute="top" secondItem="6rX-Ib-xCn" secondAttribute="top" id="t7y-Dz-mzz"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
+                                                        <integer key="value" value="26"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Celular" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Uh-2L-LXC" customClass="ZPDesignableUITextField" customModule="Zafrapp" customModuleProvider="target">
+                                                <rect key="frame" x="40" y="448" width="334" height="52"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="52" id="tKH-U3-Eio"/>
+                                                </constraints>
+                                                <color key="textColor" name="GreyZafrapp"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" name="GreyZafrapp"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="leftSpace">
+                                                        <integer key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Fecha de nacimiento" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WZc-Ss-7oV" customClass="ZPDesignableUITextField" customModule="Zafrapp" customModuleProvider="target">
+                                                <rect key="frame" x="40" y="612" width="334" height="52"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="52" id="7um-sm-6OP"/>
+                                                </constraints>
+                                                <color key="textColor" name="GreyZafrapp"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" name="GreyZafrapp"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="leftSpace">
+                                                        <integer key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Profesión" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9fC-QU-PYZ" customClass="ZPDesignableUITextField" customModule="Zafrapp" customModuleProvider="target">
+                                                <rect key="frame" x="40" y="694" width="334" height="52"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="52" id="huR-Nm-E8z"/>
+                                                </constraints>
+                                                <color key="textColor" name="GreyZafrapp"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" name="GreyZafrapp"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="leftSpace">
+                                                        <integer key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                        <integer key="value" value="40"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Departamento en el que trabajas" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fdk-d3-nLi" customClass="ZPDesignableUITextField" customModule="Zafrapp" customModuleProvider="target">
+                                                <rect key="frame" x="42" y="858" width="330" height="52"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="52" id="uCB-l9-Jme"/>
+                                                </constraints>
+                                                <color key="textColor" name="GreyZafrapp"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" name="GreyZafrapp"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="leftSpace">
+                                                        <integer key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Correo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qwm-yl-xKH" customClass="ZPDesignableUITextField" customModule="Zafrapp" customModuleProvider="target">
+                                                <rect key="frame" x="40" y="282" width="334" height="52"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="52" id="GcH-vd-qHA"/>
+                                                </constraints>
+                                                <color key="textColor" name="GreyZafrapp"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" name="GreyZafrapp"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="leftSpace">
+                                                        <integer key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                        <integer key="value" value="50"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zgi-Wr-CHJ" customClass="ZPDesignableUITextField" customModule="Zafrapp" customModuleProvider="target">
+                                                <rect key="frame" x="42" y="200" width="330" height="52"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="52" id="pNm-lM-1Mg"/>
+                                                </constraints>
+                                                <color key="textColor" name="GreyZafrapp"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" name="GreyZafrapp"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="leftSpace">
+                                                        <integer key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                        <integer key="value" value="75"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lki-Pl-ufv" customClass="ZPImageView" customModule="Zafrapp">
+                                                <rect key="frame" x="137" y="30" width="140" height="140"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="140" id="9O9-86-uAj"/>
+                                                    <constraint firstAttribute="height" constant="140" id="wyW-ad-ZXM"/>
+                                                </constraints>
+                                            </imageView>
+                                            <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ingenio en el que trabajas" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Pz-0n-owp" customClass="ZPDesignableUITextField" customModule="Zafrapp" customModuleProvider="target">
+                                                <rect key="frame" x="40" y="1010" width="334" height="52"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="52" id="mpA-ol-S70"/>
+                                                </constraints>
+                                                <color key="textColor" name="GreyZafrapp"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" name="GreyZafrapp"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="leftSpace">
+                                                        <integer key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <view multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gpb-uv-iUC">
+                                                <rect key="frame" x="40" y="530" width="334" height="52"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="     ¿Quieres publicar tu celular?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JbW-pW-GqI">
+                                                        <rect key="frame" x="5" y="0.0" width="198.5" height="52"/>
+                                                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
+                                                        <color key="textColor" name="GreyZafrapp"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cig-52-5oW">
+                                                        <rect key="frame" x="283" y="10.5" width="51" height="31"/>
+                                                        <color key="onTintColor" name="BlueZafrapp"/>
+                                                    </switch>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="JbW-pW-GqI" firstAttribute="leading" secondItem="gpb-uv-iUC" secondAttribute="leading" constant="5" id="DA5-YR-5fo"/>
+                                                    <constraint firstAttribute="height" constant="52" id="Ime-vw-7w1"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Cig-52-5oW" secondAttribute="trailing" constant="2" id="JTS-1S-Mn7"/>
+                                                    <constraint firstAttribute="bottom" secondItem="JbW-pW-GqI" secondAttribute="bottom" id="WKa-ZX-tlo"/>
+                                                    <constraint firstItem="Cig-52-5oW" firstAttribute="centerY" secondItem="gpb-uv-iUC" secondAttribute="centerY" id="rld-Nn-Pck"/>
+                                                    <constraint firstItem="JbW-pW-GqI" firstAttribute="top" secondItem="gpb-uv-iUC" secondAttribute="top" id="uaO-cr-tmv"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
+                                                        <integer key="value" value="26"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BWQ-QG-wWV" customClass="ZPDesignableUIButton" customModule="Zafrapp" customModuleProvider="target">
+                                                <rect key="frame" x="40" y="1192" width="334" height="52"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="52" id="dvA-j6-eug"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
+                                                <state key="normal" title="REGISTRARME">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                                        <integer key="value" value="0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="btnRegister:" destination="YgB-pU-Krn" eventType="touchUpInside" id="xeT-cg-DoX"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZP7-zA-eIq">
+                                                <rect key="frame" x="207" y="252" width="0.0" height="0.0"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="13"/>
+                                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ui-eJ-mvc">
+                                                <rect key="frame" x="207" y="334" width="0.0" height="0.0"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="13"/>
+                                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q3N-o0-Qo0">
+                                                <rect key="frame" x="207" y="500" width="0.0" height="0.0"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="13"/>
+                                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q9f-fg-c7d">
+                                                <rect key="frame" x="207" y="746" width="0.0" height="0.0"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="13"/>
+                                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zjw-9c-8mh">
+                                                <rect key="frame" x="207" y="664" width="0.0" height="0.0"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="13"/>
+                                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EpE-Nz-enB">
+                                                <rect key="frame" x="207" y="910" width="0.0" height="0.0"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="13"/>
+                                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Um-EP-wk2">
+                                                <rect key="frame" x="207" y="1062" width="0.0" height="0.0"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="13"/>
+                                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="8DL-kt-gdG">
+                                                <rect key="frame" x="162" y="55" width="90" height="90"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="90" id="Tr4-uE-8LY"/>
+                                                    <constraint firstAttribute="height" constant="90" id="gsc-sA-ECo"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Al crear una cuenta aceptas nuestros Términos y Condiciones y Políticas de Privacidad" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mzD-j6-0gx">
+                                                <rect key="frame" x="61" y="1325" width="292.5" height="61"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="292.5" id="I6T-R7-QdU"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.70588235294117641" green="0.70588235294117641" blue="0.70588235294117641" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Passsword" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r4Q-A2-IVe" customClass="ZPDesignableUITextField" customModule="Zafrapp" customModuleProvider="target">
+                                                <rect key="frame" x="40" y="364" width="334" height="52"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="52" id="2lg-R5-jFD"/>
+                                                </constraints>
+                                                <color key="textColor" name="GreyZafrapp"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" name="GreyZafrapp"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="leftSpace">
+                                                        <integer key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iu9-oI-fSN">
+                                                <rect key="frame" x="207" y="416" width="0.0" height="0.0"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="13"/>
+                                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gM-7S-a5B">
+                                                <rect key="frame" x="207" y="982" width="0.0" height="0.0"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="13"/>
+                                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FTv-by-Gnm">
+                                                <rect key="frame" x="207" y="1134" width="0.0" height="0.0"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="13"/>
+                                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ingenio" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hhb-O5-OMj" customClass="ZPDesignableUITextField" customModule="Zafrapp" customModuleProvider="target">
+                                                <rect key="frame" x="42" y="1082" width="330" height="52"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="52" id="mkg-Nq-ggy"/>
+                                                </constraints>
+                                                <color key="textColor" name="GreyZafrapp"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" name="GreyZafrapp"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="leftSpace">
+                                                        <integer key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                        <integer key="value" value="40"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="gpb-uv-iUC" firstAttribute="top" secondItem="3Uh-2L-LXC" secondAttribute="bottom" constant="30" id="0SV-G9-gRf"/>
+                                            <constraint firstItem="mzD-j6-0gx" firstAttribute="centerX" secondItem="vYy-wx-OGs" secondAttribute="centerX" id="0fr-3b-bHQ"/>
+                                            <constraint firstItem="8DL-kt-gdG" firstAttribute="centerY" secondItem="lki-Pl-ufv" secondAttribute="centerY" id="3C5-9Q-A2y"/>
+                                            <constraint firstAttribute="trailing" secondItem="kMS-e9-3FT" secondAttribute="trailing" constant="42" id="3eT-uJ-08N"/>
+                                            <constraint firstItem="Q9f-fg-c7d" firstAttribute="centerX" secondItem="vYy-wx-OGs" secondAttribute="centerX" id="3fz-nv-H4M"/>
+                                            <constraint firstItem="qwm-yl-xKH" firstAttribute="top" secondItem="zgi-Wr-CHJ" secondAttribute="bottom" constant="30" id="4fo-9s-W3m"/>
+                                            <constraint firstItem="gpb-uv-iUC" firstAttribute="leading" secondItem="R9s-0E-Hpr" secondAttribute="leading" constant="40" id="5qt-24-le7"/>
+                                            <constraint firstAttribute="trailing" secondItem="9fC-QU-PYZ" secondAttribute="trailing" constant="40" id="6MR-ki-PTQ"/>
+                                            <constraint firstItem="Zjw-9c-8mh" firstAttribute="top" secondItem="WZc-Ss-7oV" secondAttribute="bottom" id="6fF-U1-vxz"/>
+                                            <constraint firstItem="vYy-wx-OGs" firstAttribute="leading" secondItem="R9s-0E-Hpr" secondAttribute="leading" id="92U-wf-RjU"/>
+                                            <constraint firstItem="FTv-by-Gnm" firstAttribute="top" secondItem="hhb-O5-OMj" secondAttribute="bottom" id="Afc-4Z-znQ"/>
+                                            <constraint firstAttribute="bottom" secondItem="vYy-wx-OGs" secondAttribute="bottom" id="Ayt-EB-kQs"/>
+                                            <constraint firstItem="3Uh-2L-LXC" firstAttribute="top" secondItem="r4Q-A2-IVe" secondAttribute="bottom" constant="32" id="BXn-r8-xOi"/>
+                                            <constraint firstItem="lki-Pl-ufv" firstAttribute="top" secondItem="R9s-0E-Hpr" secondAttribute="top" constant="30" id="DL9-3b-4t2"/>
+                                            <constraint firstAttribute="trailing" secondItem="WZc-Ss-7oV" secondAttribute="trailing" constant="40" id="Dmf-dk-xTW"/>
+                                            <constraint firstItem="WZc-Ss-7oV" firstAttribute="leading" secondItem="R9s-0E-Hpr" secondAttribute="leading" constant="40" id="ECm-ah-GRn"/>
+                                            <constraint firstItem="iu9-oI-fSN" firstAttribute="top" secondItem="r4Q-A2-IVe" secondAttribute="bottom" id="F9o-fC-pY3"/>
+                                            <constraint firstItem="gpb-uv-iUC" firstAttribute="centerX" secondItem="vYy-wx-OGs" secondAttribute="centerX" id="FrA-JV-tPP"/>
+                                            <constraint firstItem="BWQ-QG-wWV" firstAttribute="leading" secondItem="R9s-0E-Hpr" secondAttribute="leading" constant="40" id="GdC-X2-9nd"/>
+                                            <constraint firstItem="lki-Pl-ufv" firstAttribute="centerX" secondItem="vYy-wx-OGs" secondAttribute="centerX" id="HuA-tP-s75"/>
+                                            <constraint firstItem="zgi-Wr-CHJ" firstAttribute="top" secondItem="lki-Pl-ufv" secondAttribute="bottom" constant="30" id="JD8-lt-vwF"/>
+                                            <constraint firstItem="EpE-Nz-enB" firstAttribute="centerX" secondItem="vYy-wx-OGs" secondAttribute="centerX" id="K4b-lQ-jAJ"/>
+                                            <constraint firstItem="6rX-Ib-xCn" firstAttribute="leading" secondItem="R9s-0E-Hpr" secondAttribute="leading" constant="40" id="KTj-g4-JbF"/>
+                                            <constraint firstItem="fdk-d3-nLi" firstAttribute="leading" secondItem="R9s-0E-Hpr" secondAttribute="leading" constant="42" id="Kln-su-uwt"/>
+                                            <constraint firstItem="0Pz-0n-owp" firstAttribute="leading" secondItem="R9s-0E-Hpr" secondAttribute="leading" constant="40" id="Nhm-SK-Hfm"/>
+                                            <constraint firstAttribute="trailing" secondItem="vYy-wx-OGs" secondAttribute="trailing" id="QWZ-rO-tMF"/>
+                                            <constraint firstItem="WZc-Ss-7oV" firstAttribute="top" secondItem="gpb-uv-iUC" secondAttribute="bottom" constant="30" id="TEZ-Wo-I0e"/>
+                                            <constraint firstAttribute="trailing" secondItem="6rX-Ib-xCn" secondAttribute="trailing" constant="40" id="TWU-oG-np6"/>
+                                            <constraint firstItem="6rX-Ib-xCn" firstAttribute="centerX" secondItem="vYy-wx-OGs" secondAttribute="centerX" id="TiB-Zl-yaZ"/>
+                                            <constraint firstItem="r4Q-A2-IVe" firstAttribute="leading" secondItem="R9s-0E-Hpr" secondAttribute="leading" constant="40" id="UB9-lr-mWq"/>
+                                            <constraint firstAttribute="trailing" secondItem="0Pz-0n-owp" secondAttribute="trailing" constant="40" id="ULV-Pd-7iP"/>
+                                            <constraint firstItem="Zjw-9c-8mh" firstAttribute="centerX" secondItem="vYy-wx-OGs" secondAttribute="centerX" id="UvH-Wv-rgf"/>
+                                            <constraint firstItem="6gM-7S-a5B" firstAttribute="top" secondItem="kMS-e9-3FT" secondAttribute="bottom" id="VWh-Q2-1HA"/>
+                                            <constraint firstAttribute="trailing" secondItem="BWQ-QG-wWV" secondAttribute="trailing" constant="40" id="Vsh-b2-WXN"/>
+                                            <constraint firstItem="ZP7-zA-eIq" firstAttribute="top" secondItem="zgi-Wr-CHJ" secondAttribute="bottom" id="WV2-iP-LnZ"/>
+                                            <constraint firstItem="3Uh-2L-LXC" firstAttribute="leading" secondItem="R9s-0E-Hpr" secondAttribute="leading" constant="40" id="XKM-Wi-tg7"/>
+                                            <constraint firstItem="qwm-yl-xKH" firstAttribute="leading" secondItem="R9s-0E-Hpr" secondAttribute="leading" constant="40" id="Xw9-FO-2c1"/>
+                                            <constraint firstItem="9fC-QU-PYZ" firstAttribute="leading" secondItem="R9s-0E-Hpr" secondAttribute="leading" constant="40" id="YOq-Vs-FUm"/>
+                                            <constraint firstItem="q3N-o0-Qo0" firstAttribute="top" secondItem="3Uh-2L-LXC" secondAttribute="bottom" id="Yzb-gD-dZr"/>
+                                            <constraint firstItem="6rX-Ib-xCn" firstAttribute="top" secondItem="9fC-QU-PYZ" secondAttribute="bottom" constant="30" id="ac3-vn-eYc"/>
+                                            <constraint firstItem="9Um-EP-wk2" firstAttribute="top" secondItem="0Pz-0n-owp" secondAttribute="bottom" id="bAa-th-XiD"/>
+                                            <constraint firstItem="hhb-O5-OMj" firstAttribute="leading" secondItem="R9s-0E-Hpr" secondAttribute="leading" constant="42" id="bRN-03-h01"/>
+                                            <constraint firstAttribute="bottom" secondItem="mzD-j6-0gx" secondAttribute="bottom" constant="10" id="cMe-SB-BEB"/>
+                                            <constraint firstItem="FTv-by-Gnm" firstAttribute="centerX" secondItem="vYy-wx-OGs" secondAttribute="centerX" id="cRP-uh-zw8"/>
+                                            <constraint firstItem="BWQ-QG-wWV" firstAttribute="top" secondItem="0Pz-0n-owp" secondAttribute="bottom" constant="130" id="cne-2m-pJ0"/>
+                                            <constraint firstItem="8ui-eJ-mvc" firstAttribute="top" secondItem="qwm-yl-xKH" secondAttribute="bottom" id="cy1-UA-dHT"/>
+                                            <constraint firstItem="8ui-eJ-mvc" firstAttribute="centerX" secondItem="vYy-wx-OGs" secondAttribute="centerX" id="dGo-SS-ec2"/>
+                                            <constraint firstItem="r4Q-A2-IVe" firstAttribute="top" secondItem="qwm-yl-xKH" secondAttribute="bottom" constant="30" id="eWA-Mj-q1s"/>
+                                            <constraint firstAttribute="trailing" secondItem="qwm-yl-xKH" secondAttribute="trailing" constant="40" id="eqA-2e-CyS"/>
+                                            <constraint firstAttribute="trailing" secondItem="3Uh-2L-LXC" secondAttribute="trailing" constant="40" id="f1m-5a-P5y"/>
+                                            <constraint firstItem="vYy-wx-OGs" firstAttribute="top" secondItem="R9s-0E-Hpr" secondAttribute="top" id="fcQ-Nw-dPd"/>
+                                            <constraint firstItem="ZP7-zA-eIq" firstAttribute="centerX" secondItem="vYy-wx-OGs" secondAttribute="centerX" id="gKE-qn-x7E"/>
+                                            <constraint firstItem="9fC-QU-PYZ" firstAttribute="top" secondItem="WZc-Ss-7oV" secondAttribute="bottom" constant="30" id="gPB-UT-dxl"/>
+                                            <constraint firstItem="6gM-7S-a5B" firstAttribute="centerX" secondItem="vYy-wx-OGs" secondAttribute="centerX" id="gYF-fh-ikj"/>
+                                            <constraint firstItem="EpE-Nz-enB" firstAttribute="top" secondItem="fdk-d3-nLi" secondAttribute="bottom" id="hg5-xx-IZ5"/>
+                                            <constraint firstAttribute="trailing" secondItem="hhb-O5-OMj" secondAttribute="trailing" constant="42" id="hrd-tn-V99"/>
+                                            <constraint firstItem="Q9f-fg-c7d" firstAttribute="top" secondItem="9fC-QU-PYZ" secondAttribute="bottom" id="ix8-sh-mRk"/>
+                                            <constraint firstAttribute="trailing" secondItem="zgi-Wr-CHJ" secondAttribute="trailing" constant="42" id="j4w-65-zQX"/>
+                                            <constraint firstItem="zgi-Wr-CHJ" firstAttribute="leading" secondItem="R9s-0E-Hpr" secondAttribute="leading" constant="42" id="jOW-LU-cP2"/>
+                                            <constraint firstItem="kMS-e9-3FT" firstAttribute="top" secondItem="fdk-d3-nLi" secondAttribute="bottom" constant="20" id="mkt-7I-Gzg"/>
+                                            <constraint firstItem="hhb-O5-OMj" firstAttribute="top" secondItem="0Pz-0n-owp" secondAttribute="bottom" constant="20" id="nJ9-FD-Wnd"/>
+                                            <constraint firstItem="0Pz-0n-owp" firstAttribute="top" secondItem="fdk-d3-nLi" secondAttribute="bottom" constant="100" id="nKC-1n-T5K"/>
+                                            <constraint firstAttribute="trailing" secondItem="r4Q-A2-IVe" secondAttribute="trailing" constant="40" id="nux-OO-QHD"/>
+                                            <constraint firstItem="8DL-kt-gdG" firstAttribute="centerX" secondItem="lki-Pl-ufv" secondAttribute="centerX" id="nwt-m6-BVs"/>
+                                            <constraint firstAttribute="trailing" secondItem="gpb-uv-iUC" secondAttribute="trailing" constant="40" id="tu1-01-EV6"/>
+                                            <constraint firstItem="kMS-e9-3FT" firstAttribute="leading" secondItem="R9s-0E-Hpr" secondAttribute="leading" constant="42" id="uru-fB-JPC"/>
+                                            <constraint firstItem="9Um-EP-wk2" firstAttribute="centerX" secondItem="vYy-wx-OGs" secondAttribute="centerX" id="vZj-Kn-IHj"/>
+                                            <constraint firstItem="q3N-o0-Qo0" firstAttribute="centerX" secondItem="vYy-wx-OGs" secondAttribute="centerX" id="x7S-Gv-dMP"/>
+                                            <constraint firstItem="fdk-d3-nLi" firstAttribute="top" secondItem="6rX-Ib-xCn" secondAttribute="bottom" constant="30" id="xG9-w6-Fku"/>
+                                            <constraint firstItem="iu9-oI-fSN" firstAttribute="centerX" secondItem="vYy-wx-OGs" secondAttribute="centerX" id="y8s-VN-Q4g"/>
+                                            <constraint firstAttribute="bottom" secondItem="BWQ-QG-wWV" secondAttribute="bottom" constant="152" id="yDx-Wu-g0a"/>
+                                            <constraint firstAttribute="trailing" secondItem="fdk-d3-nLi" secondAttribute="trailing" constant="42" id="ynE-sL-pZH"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="R9s-0E-Hpr" firstAttribute="height" secondItem="x6l-kF-SUZ" secondAttribute="height" priority="250" id="5u7-j3-Ndz"/>
+                                    <constraint firstItem="R9s-0E-Hpr" firstAttribute="top" secondItem="x6l-kF-SUZ" secondAttribute="top" id="FtA-Qi-rD1"/>
+                                    <constraint firstItem="R9s-0E-Hpr" firstAttribute="width" secondItem="x6l-kF-SUZ" secondAttribute="width" id="M1j-eC-xwg"/>
+                                    <constraint firstItem="R9s-0E-Hpr" firstAttribute="leading" secondItem="x6l-kF-SUZ" secondAttribute="leading" id="OBw-lc-RfC"/>
+                                    <constraint firstAttribute="trailing" secondItem="R9s-0E-Hpr" secondAttribute="trailing" id="iUV-YZ-OmV"/>
+                                    <constraint firstAttribute="bottom" secondItem="R9s-0E-Hpr" secondAttribute="bottom" id="utc-Ne-Ldo"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="v5t-5Z-Rqx"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="FAW-th-tDu"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="x6l-kF-SUZ" firstAttribute="top" secondItem="pss-nr-E3m" secondAttribute="top" id="BT9-7m-Kxb"/>
+                            <constraint firstItem="x6l-kF-SUZ" firstAttribute="leading" secondItem="0Xd-u6-2bd" secondAttribute="leading" id="H6K-Ob-p5O"/>
+                            <constraint firstAttribute="bottom" secondItem="x6l-kF-SUZ" secondAttribute="bottom" id="TcW-kN-NZl"/>
+                            <constraint firstItem="x6l-kF-SUZ" firstAttribute="trailing" secondItem="0Xd-u6-2bd" secondAttribute="trailing" id="r8F-xH-uln"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0Xd-u6-2bd"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="1rb-jA-wHB"/>
+                    <size key="freeformSize" width="414" height="896"/>
+                    <connections>
+                        <outlet property="imgBackground" destination="vYy-wx-OGs" id="tu0-g1-nDN"/>
+                        <outlet property="lblErrorBirthDay" destination="Zjw-9c-8mh" id="v3b-do-gxc"/>
+                        <outlet property="lblErrorCurrentJob" destination="EpE-Nz-enB" id="1dk-3w-W6o"/>
+                        <outlet property="lblErrorEmail" destination="8ui-eJ-mvc" id="HzO-0U-8Zj"/>
+                        <outlet property="lblErrorName" destination="ZP7-zA-eIq" id="nF1-ra-gka"/>
+                        <outlet property="lblErrorOtroIngenio" destination="FTv-by-Gnm" id="dGL-Xn-8QG"/>
+                        <outlet property="lblErrorPassword" destination="iu9-oI-fSN" id="5tb-4f-mHX"/>
+                        <outlet property="lblErrorPlaceToWork" destination="9Um-EP-wk2" id="4fA-4o-W8R"/>
+                        <outlet property="lblErrorProfession" destination="Q9f-fg-c7d" id="0RA-mu-4ix"/>
+                        <outlet property="lblErrorotroDepartamento" destination="6gM-7S-a5B" id="1Sm-fB-OwT"/>
+                        <outlet property="lbleErrorCellPhone" destination="q3N-o0-Qo0" id="ckg-oL-KcC"/>
+                        <outlet property="lycHeighDepto" destination="nKC-1n-T5K" id="fXc-Vn-Vwm"/>
+                        <outlet property="lyvHeightIngenio" destination="cne-2m-pJ0" id="8gT-7M-bnz"/>
+                        <outlet property="switchLookingJob" destination="kND-Sz-ozx" id="8sb-82-tuI"/>
+                        <outlet property="switchPublisPhone" destination="Cig-52-5oW" id="l47-oz-Opk"/>
+                        <outlet property="txtBirthDay" destination="WZc-Ss-7oV" id="pWf-wE-oVK"/>
+                        <outlet property="txtCelular" destination="3Uh-2L-LXC" id="1sV-so-u9X"/>
+                        <outlet property="txtDepartmentJob" destination="fdk-d3-nLi" id="FMj-yV-tad"/>
+                        <outlet property="txtEmail" destination="qwm-yl-xKH" id="S5f-2M-yVL"/>
+                        <outlet property="txtName" destination="zgi-Wr-CHJ" id="qfl-Se-qtq"/>
+                        <outlet property="txtOtroDpto" destination="kMS-e9-3FT" id="KPq-Ak-Jla"/>
+                        <outlet property="txtOtroIngenio" destination="hhb-O5-OMj" id="qaz-BX-5A4"/>
+                        <outlet property="txtPassword" destination="r4Q-A2-IVe" id="5lk-OD-WO7"/>
+                        <outlet property="txtPlaceToWork" destination="0Pz-0n-owp" id="Koc-Va-5GJ"/>
+                        <outlet property="txtProfesion" destination="9fC-QU-PYZ" id="9S2-qX-Ujb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AJ9-Bq-Nvq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4034.7826086956525" y="164.73214285714286"/>
+        </scene>
+        <!--Account Succes View Controller-->
+        <scene sceneID="xB7-Vc-0xR">
+            <objects>
+                <viewController storyboardIdentifier="SucessAccountVC" id="WBB-mF-5jZ" customClass="AccountSucces_ViewController" customModule="Zafrapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="a1E-6M-0xk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uBo-l6-zhm">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iSg-Jd-NmR" customClass="ZPDesignableUIButton" customModule="Zafrapp" customModuleProvider="target">
+                                <rect key="frame" x="40" y="780" width="334" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="raC-kr-RnM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="12"/>
+                                <state key="normal" title="CONTINUAR">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="Continue:" destination="WBB-mF-5jZ" eventType="touchUpInside" id="VsE-b6-W8F"/>
+                                    <action selector="btnRegister:" destination="YgB-pU-Krn" eventType="touchUpInside" id="FWi-Rn-ZTd"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkCircle" translatesAutoresizingMaskIntoConstraints="NO" id="oie-vI-GkM">
+                                <rect key="frame" x="153" y="124" width="108" height="108"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="108" id="kIC-jE-YMv"/>
+                                    <constraint firstAttribute="width" constant="108" id="sw5-u3-qT0"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cuenta Registrada!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZaJ-Rv-D1e">
+                                <rect key="frame" x="40" y="322" width="334" height="35"/>
+                                <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¡Tu cuenta ha sido registrada exitosamente, completa tu perfil y descubre todo lo que tenemos para ti!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X96-IP-Wh0">
+                                <rect key="frame" x="40" y="427" width="334" height="63"/>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Continue" translatesAutoresizingMaskIntoConstraints="NO" id="5oM-XG-8Q4">
+                                <rect key="frame" x="324" y="786" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="YRR-3x-Ori"/>
+                                    <constraint firstAttribute="height" constant="40" id="xXm-uF-4Y6"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="8mh-ZD-Inw" firstAttribute="trailing" secondItem="X96-IP-Wh0" secondAttribute="trailing" constant="40" id="0hk-a6-bfe"/>
+                            <constraint firstItem="ZaJ-Rv-D1e" firstAttribute="centerX" secondItem="uBo-l6-zhm" secondAttribute="centerX" id="1ZR-g1-Ki7"/>
+                            <constraint firstItem="8mh-ZD-Inw" firstAttribute="trailing" secondItem="5oM-XG-8Q4" secondAttribute="trailing" constant="50" id="3L3-uI-RLb"/>
+                            <constraint firstItem="oie-vI-GkM" firstAttribute="centerX" secondItem="uBo-l6-zhm" secondAttribute="centerX" id="52H-nQ-viS"/>
+                            <constraint firstItem="5oM-XG-8Q4" firstAttribute="centerY" secondItem="iSg-Jd-NmR" secondAttribute="centerY" id="5mi-33-4HQ"/>
+                            <constraint firstItem="ZaJ-Rv-D1e" firstAttribute="leading" secondItem="8mh-ZD-Inw" secondAttribute="leading" constant="40" id="6aG-O1-jkv"/>
+                            <constraint firstAttribute="trailing" secondItem="ZaJ-Rv-D1e" secondAttribute="trailing" constant="40" id="Ceg-aS-m58"/>
+                            <constraint firstItem="8mh-ZD-Inw" firstAttribute="bottom" secondItem="iSg-Jd-NmR" secondAttribute="bottom" constant="30" id="LqL-QP-4ag"/>
+                            <constraint firstItem="X96-IP-Wh0" firstAttribute="leading" secondItem="8mh-ZD-Inw" secondAttribute="leading" constant="40" id="USd-oY-BH4"/>
+                            <constraint firstItem="8mh-ZD-Inw" firstAttribute="trailing" secondItem="iSg-Jd-NmR" secondAttribute="trailing" constant="40" id="ZrL-1E-vvJ"/>
+                            <constraint firstItem="8mh-ZD-Inw" firstAttribute="trailing" secondItem="uBo-l6-zhm" secondAttribute="trailing" id="bPG-9x-vnl"/>
+                            <constraint firstItem="uBo-l6-zhm" firstAttribute="leading" secondItem="8mh-ZD-Inw" secondAttribute="leading" id="eba-cd-3ww"/>
+                            <constraint firstItem="uBo-l6-zhm" firstAttribute="top" secondItem="8mh-ZD-Inw" secondAttribute="top" id="fxU-3G-1Yv"/>
+                            <constraint firstItem="iSg-Jd-NmR" firstAttribute="leading" secondItem="8mh-ZD-Inw" secondAttribute="leading" constant="40" id="hW9-d4-4FO"/>
+                            <constraint firstItem="X96-IP-Wh0" firstAttribute="top" secondItem="ZaJ-Rv-D1e" secondAttribute="bottom" constant="70" id="igp-RD-OO3"/>
+                            <constraint firstItem="ZaJ-Rv-D1e" firstAttribute="top" secondItem="oie-vI-GkM" secondAttribute="bottom" constant="90" id="oKS-v5-q9I"/>
+                            <constraint firstItem="oie-vI-GkM" firstAttribute="top" secondItem="8mh-ZD-Inw" secondAttribute="top" constant="80" id="wUF-4K-fUj"/>
+                            <constraint firstItem="8mh-ZD-Inw" firstAttribute="bottom" secondItem="uBo-l6-zhm" secondAttribute="bottom" id="yqn-GG-325"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8mh-ZD-Inw"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="UwE-sg-Bd8"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sat-fa-7C2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3133.3333333333335" y="164.73214285714286"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="VnC-pm-yyn">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3JF-za-9cm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3f7-vT-OV7">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="BlueZafrapp"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="uWA-K8-l4H" kind="relationship" relationship="rootViewController" id="Yo1-fV-TJI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CVq-45-iNg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5842.0289855072469" y="164.73214285714286"/>
+        </scene>
+        <!--Forgot Password View Controller-->
+        <scene sceneID="KQM-JR-g01">
+            <objects>
+                <viewController id="nBx-3p-VlF" customClass="forgotPassword_ViewController" customModule="Zafrapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OuY-ZM-g3L">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z2H-FH-sb3">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gdv-Vr-79B" customClass="ZPDesignableUIButton" customModule="Zafrapp" customModuleProvider="target">
+                                <rect key="frame" x="40" y="780" width="334" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="vf5-EM-2Pc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="12"/>
+                                <state key="normal" title="ENVIAR E-MAIL">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="btnRegister:" destination="YgB-pU-Krn" eventType="touchUpInside" id="70t-Ll-VAh"/>
+                                    <action selector="continuar:" destination="uj2-PG-FVh" eventType="touchUpInside" id="6Pr-8n-kEa"/>
+                                    <action selector="continuar:" destination="nBx-3p-VlF" eventType="touchUpInside" id="75u-6G-wLD"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Continue" translatesAutoresizingMaskIntoConstraints="NO" id="XO2-gl-qAz">
+                                <rect key="frame" x="324" y="786" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="ET5-Rh-dez"/>
+                                    <constraint firstAttribute="height" constant="40" id="FeH-XH-3Ks"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Olvide mi contraseña" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ScI-Nm-OZo">
+                                <rect key="frame" x="89" y="238" width="236.5" height="35"/>
+                                <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Ingresa el correo electrónico con el que registraste tu cuenta y te enviaremos un enlace para renovar tu contraseña." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ay-Z5-XdM">
+                                <rect key="frame" x="40" y="343" width="334" height="63"/>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Zs-ke-otN" customClass="ZPDesignableUITextField" customModule="Zafrapp" customModuleProvider="target">
+                                <rect key="frame" x="40" y="481" width="334" height="52"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="Y4G-V6-VJP"/>
+                                </constraints>
+                                <color key="textColor" name="GreyZafrapp"/>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" name="GreyZafrapp"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MlG-nG-Dgc">
+                                <rect key="frame" x="207" y="533" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="13"/>
+                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Z2H-FH-sb3" firstAttribute="top" secondItem="axr-Kl-MvX" secondAttribute="top" id="037-kY-yfO"/>
+                            <constraint firstItem="MlG-nG-Dgc" firstAttribute="top" secondItem="6Zs-ke-otN" secondAttribute="bottom" id="0xU-Nh-N7D"/>
+                            <constraint firstItem="axr-Kl-MvX" firstAttribute="bottom" secondItem="gdv-Vr-79B" secondAttribute="bottom" constant="30" id="3v2-xX-q9H"/>
+                            <constraint firstItem="8ay-Z5-XdM" firstAttribute="leading" secondItem="axr-Kl-MvX" secondAttribute="leading" constant="40" id="4h7-X4-2RV"/>
+                            <constraint firstItem="6Zs-ke-otN" firstAttribute="leading" secondItem="axr-Kl-MvX" secondAttribute="leading" constant="40" id="76y-9O-lRp"/>
+                            <constraint firstItem="axr-Kl-MvX" firstAttribute="trailing" secondItem="8ay-Z5-XdM" secondAttribute="trailing" constant="40" id="9nJ-jv-1ol"/>
+                            <constraint firstItem="Z2H-FH-sb3" firstAttribute="leading" secondItem="axr-Kl-MvX" secondAttribute="leading" id="FmR-vM-jiE"/>
+                            <constraint firstItem="axr-Kl-MvX" firstAttribute="trailing" secondItem="gdv-Vr-79B" secondAttribute="trailing" constant="40" id="Fsm-q8-zsJ"/>
+                            <constraint firstItem="8ay-Z5-XdM" firstAttribute="top" secondItem="ScI-Nm-OZo" secondAttribute="bottom" constant="70" id="Jdf-E9-hdP"/>
+                            <constraint firstItem="ScI-Nm-OZo" firstAttribute="centerX" secondItem="Z2H-FH-sb3" secondAttribute="centerX" id="M19-WK-u0h"/>
+                            <constraint firstItem="axr-Kl-MvX" firstAttribute="trailing" secondItem="Z2H-FH-sb3" secondAttribute="trailing" id="TUK-2s-RFg"/>
+                            <constraint firstItem="6Zs-ke-otN" firstAttribute="top" secondItem="8ay-Z5-XdM" secondAttribute="bottom" constant="75" id="Uhr-gq-s1c"/>
+                            <constraint firstItem="gdv-Vr-79B" firstAttribute="top" secondItem="6Zs-ke-otN" secondAttribute="bottom" constant="247" id="VSH-ii-V4u"/>
+                            <constraint firstItem="axr-Kl-MvX" firstAttribute="bottom" secondItem="Z2H-FH-sb3" secondAttribute="bottom" id="Wbw-7e-qWd"/>
+                            <constraint firstItem="axr-Kl-MvX" firstAttribute="trailing" secondItem="6Zs-ke-otN" secondAttribute="trailing" constant="40" id="bPE-Uz-GbV"/>
+                            <constraint firstItem="XO2-gl-qAz" firstAttribute="centerY" secondItem="gdv-Vr-79B" secondAttribute="centerY" id="gR9-Qp-oVx"/>
+                            <constraint firstItem="ScI-Nm-OZo" firstAttribute="top" relation="lessThanOrEqual" secondItem="axr-Kl-MvX" secondAttribute="top" constant="150" id="geS-2I-Hoy"/>
+                            <constraint firstItem="gdv-Vr-79B" firstAttribute="leading" secondItem="axr-Kl-MvX" secondAttribute="leading" constant="40" id="inY-tF-U4n"/>
+                            <constraint firstItem="axr-Kl-MvX" firstAttribute="trailing" secondItem="XO2-gl-qAz" secondAttribute="trailing" constant="50" id="sn7-yl-BaS"/>
+                            <constraint firstItem="MlG-nG-Dgc" firstAttribute="centerX" secondItem="Z2H-FH-sb3" secondAttribute="centerX" id="zND-6H-6J0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="axr-Kl-MvX"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="656-Si-4d0"/>
+                    <connections>
+                        <outlet property="lblErrorPassword" destination="MlG-nG-Dgc" id="ZTI-ew-zza"/>
+                        <outlet property="lycHeight" destination="VSH-ii-V4u" id="wDO-0Y-hWH"/>
+                        <outlet property="txtEmail" destination="6Zs-ke-otN" id="6zO-rN-gSE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W6o-e7-oYc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="uj2-PG-FVh" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-5801" y="992"/>
+        </scene>
+        <!--Exit Change Email View Controller-->
+        <scene sceneID="kqN-73-n70">
+            <objects>
+                <viewController storyboardIdentifier="SucessChangePasswordVC" id="AaR-yI-o8u" customClass="ExitChangeEmail_ViewController" customModule="Zafrapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AfU-iX-pML">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eMA-EL-cI9">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gMU-A0-l7Y" customClass="ZPDesignableUIButton" customModule="Zafrapp" customModuleProvider="target">
+                                <rect key="frame" x="40" y="780" width="334" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="Qau-jo-uwz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="12"/>
+                                <state key="normal" title="CONTINUAR">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="GoOnAction:" destination="AaR-yI-o8u" eventType="touchUpInside" id="Sma-af-GPb"/>
+                                    <action selector="btnRegister:" destination="YgB-pU-Krn" eventType="touchUpInside" id="v8K-sD-lWY"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Continue" translatesAutoresizingMaskIntoConstraints="NO" id="BPX-Ff-I8O">
+                                <rect key="frame" x="324" y="786" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="33N-On-ZTY"/>
+                                    <constraint firstAttribute="width" constant="40" id="xT7-Lh-we2"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkCircle" translatesAutoresizingMaskIntoConstraints="NO" id="hku-SV-Co0">
+                                <rect key="frame" x="153" y="124" width="108" height="108"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="108" id="Sul-RQ-0T3"/>
+                                    <constraint firstAttribute="height" constant="108" id="cM0-sg-6wd"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enlace enviado" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b25-KN-FvG">
+                                <rect key="frame" x="40" y="322" width="334" height="35"/>
+                                <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¡Revisa tu bandeja de entrada o carpeta de no deseados para renovar tu contraseña!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1E-7q-XJ6">
+                                <rect key="frame" x="40" y="427" width="334" height="42"/>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="b25-KN-FvG" firstAttribute="centerX" secondItem="eMA-EL-cI9" secondAttribute="centerX" id="3xC-Zq-3BI"/>
+                            <constraint firstItem="eMA-EL-cI9" firstAttribute="top" secondItem="7k8-Zv-Zhb" secondAttribute="top" id="4av-Ln-HzU"/>
+                            <constraint firstItem="b25-KN-FvG" firstAttribute="leading" secondItem="7k8-Zv-Zhb" secondAttribute="leading" constant="40" id="5wt-Fs-dRx"/>
+                            <constraint firstItem="7k8-Zv-Zhb" firstAttribute="trailing" secondItem="BPX-Ff-I8O" secondAttribute="trailing" constant="50" id="AfH-TE-2Ir"/>
+                            <constraint firstItem="7k8-Zv-Zhb" firstAttribute="bottom" secondItem="gMU-A0-l7Y" secondAttribute="bottom" constant="30" id="Cxa-7K-Zuo"/>
+                            <constraint firstItem="BPX-Ff-I8O" firstAttribute="centerY" secondItem="gMU-A0-l7Y" secondAttribute="centerY" id="MVu-6M-1us"/>
+                            <constraint firstItem="7k8-Zv-Zhb" firstAttribute="trailing" secondItem="eMA-EL-cI9" secondAttribute="trailing" id="OcN-l1-8mn"/>
+                            <constraint firstItem="7k8-Zv-Zhb" firstAttribute="bottom" secondItem="eMA-EL-cI9" secondAttribute="bottom" id="QEg-Sc-MFw"/>
+                            <constraint firstItem="gMU-A0-l7Y" firstAttribute="leading" secondItem="7k8-Zv-Zhb" secondAttribute="leading" constant="40" id="WLm-Qq-6WG"/>
+                            <constraint firstItem="7k8-Zv-Zhb" firstAttribute="trailing" secondItem="gMU-A0-l7Y" secondAttribute="trailing" constant="40" id="XSH-OT-3NC"/>
+                            <constraint firstItem="hku-SV-Co0" firstAttribute="top" secondItem="7k8-Zv-Zhb" secondAttribute="top" constant="80" id="Z5R-ot-JlW"/>
+                            <constraint firstItem="7k8-Zv-Zhb" firstAttribute="trailing" secondItem="Q1E-7q-XJ6" secondAttribute="trailing" constant="40" id="clP-L5-9ch"/>
+                            <constraint firstItem="b25-KN-FvG" firstAttribute="top" secondItem="hku-SV-Co0" secondAttribute="bottom" constant="90" id="igE-dw-JAw"/>
+                            <constraint firstItem="hku-SV-Co0" firstAttribute="centerX" secondItem="eMA-EL-cI9" secondAttribute="centerX" id="kcz-Is-xk7"/>
+                            <constraint firstAttribute="trailing" secondItem="b25-KN-FvG" secondAttribute="trailing" constant="40" id="mkX-uP-ICy"/>
+                            <constraint firstItem="Q1E-7q-XJ6" firstAttribute="leading" secondItem="7k8-Zv-Zhb" secondAttribute="leading" constant="40" id="rKI-wt-djo"/>
+                            <constraint firstItem="Q1E-7q-XJ6" firstAttribute="top" secondItem="b25-KN-FvG" secondAttribute="bottom" constant="70" id="wNg-UG-iKj"/>
+                            <constraint firstItem="eMA-EL-cI9" firstAttribute="leading" secondItem="7k8-Zv-Zhb" secondAttribute="leading" id="z3P-oB-KU8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7k8-Zv-Zhb"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="UDq-Js-uHl"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GsW-SY-OOl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5007" y="992"/>
+        </scene>
+        <!--TabBarInitial-->
+        <scene sceneID="5I5-io-vKi">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="TabBarInitial" id="kBE-a8-cVd" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="DPn-Gl-9ta"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1HC-VA-s2x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4127" y="667"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Continue" width="30" height="30"/>
+        <image name="Logo" width="124" height="121"/>
+        <image name="checkCircle" width="109" height="109"/>
+        <image name="iconUncheck" width="20" height="20"/>
+        <namedColor name="BlueZafrapp">
+            <color red="0.0" green="0.62352941176470589" blue="0.8901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="GreyZafrapp">
+            <color red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
