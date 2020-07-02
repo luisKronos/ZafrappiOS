@@ -29,7 +29,7 @@
             </objects>
             <point key="canvasLocation" x="966" y="-395"/>
         </scene>
-        <!--Vacancies Saved View Controller-->
+        <!--    -->
         <scene sceneID="rMX-9P-xh1">
             <objects>
                 <viewController id="ESc-VN-QtE" customClass="VacanciesSavedViewController" customModule="Zafrapp" customModuleProvider="target" sceneMemberID="viewController">
@@ -61,7 +61,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="R8W-g4-9tQ"/>
                     </view>
-                    <navigationItem key="navigationItem" id="GlL-cL-Aum"/>
+                    <navigationItem key="navigationItem" title="    " id="GlL-cL-Aum">
+                        <barButtonItem key="backBarButtonItem" title="    " id="mmg-tz-pgR"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="ipB-Bb-705" id="HoV-wI-wF8"/>
                         <outlet property="viewSelection" destination="7wD-ba-ya7" id="bUL-VL-8De"/>
@@ -83,25 +85,25 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jorge.dominguez@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6V-W3-pgt">
-                                        <rect key="frame" x="20" y="325.5" width="374" height="16.5"/>
+                                        <rect key="frame" x="20" y="339" width="374" height="20"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                         <color key="textColor" name="GreyZafrapp"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jorge Domínguez" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgG-Gw-qLL">
-                                        <rect key="frame" x="20" y="281.5" width="374" height="34"/>
+                                        <rect key="frame" x="20" y="288" width="374" height="41"/>
                                         <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="29"/>
                                         <color key="textColor" name="DarkBlue"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mi perfil" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u7P-3o-ufM">
-                                        <rect key="frame" x="20" y="30" width="374" height="31.5"/>
+                                        <rect key="frame" x="20" y="30" width="374" height="38"/>
                                         <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="27"/>
                                         <color key="textColor" name="DarkBlue"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0jE-7i-dW5">
-                                        <rect key="frame" x="122" y="81.5" width="170" height="170"/>
+                                        <rect key="frame" x="122" y="88" width="170" height="170"/>
                                         <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="170" id="QYe-lg-rkJ"/>
@@ -109,7 +111,7 @@
                                         </constraints>
                                     </imageView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pzo-nU-rPX">
-                                        <rect key="frame" x="20" y="372" width="374" height="180"/>
+                                        <rect key="frame" x="20" y="389" width="374" height="180"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="180" id="MqG-vv-uVB"/>
@@ -148,7 +150,7 @@
                         <viewLayoutGuide key="safeArea" id="Mwg-MY-CXm"/>
                     </view>
                     <navigationItem key="navigationItem" id="y0q-GD-nJW">
-                        <barButtonItem key="backBarButtonItem" title="     " id="oIL-bg-oFP"/>
+                        <barButtonItem key="backBarButtonItem" title="    " id="oIL-bg-oFP"/>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -180,13 +182,13 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Elige tu foto de perfil" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ri-3S-O7h">
-                                <rect key="frame" x="40" y="178" width="334" height="29.5"/>
+                                <rect key="frame" x="40" y="178" width="334" height="35"/>
                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d4b-Zs-Y4H">
-                                <rect key="frame" x="129.5" y="277.5" width="155" height="155"/>
+                                <rect key="frame" x="129.5" y="283" width="155" height="155"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Camera" translatesAutoresizingMaskIntoConstraints="NO" id="8v5-Hp-mzE">
                                         <rect key="frame" x="57.5" y="57.5" width="40" height="40"/>
@@ -205,7 +207,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iZf-tP-KwM" customClass="ZPDesignableUIButton" customModule="Zafrapp" customModuleProvider="target">
-                                <rect key="frame" x="147" y="417.5" width="120" height="32"/>
+                                <rect key="frame" x="147" y="423" width="120" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="iqj-Vr-dQX"/>
                                     <constraint firstAttribute="height" constant="32" id="wAt-Qp-EJd"/>
@@ -342,14 +344,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="1300"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h1k-n2-Gix">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1423"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1440"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mxn-44-m83">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="1423"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="1440"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Odz-iB-FcI">
-                                                <rect key="frame" x="40" y="992" width="334" height="130"/>
+                                                <rect key="frame" x="40" y="1009" width="334" height="130"/>
                                                 <subviews>
                                                     <textField opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Teléfono de oficina" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nVS-fS-tNY" customClass="ZPDesignableUITextField" customModule="Zafrapp" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="15" width="334" height="30"/>
@@ -422,13 +424,13 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mi perfil" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cal-E1-Dc0">
-                                                <rect key="frame" x="40" y="10" width="334" height="31.5"/>
+                                                <rect key="frame" x="40" y="10" width="334" height="38"/>
                                                 <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="27"/>
                                                 <color key="textColor" name="DarkBlue"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mNi-4I-jWZ">
-                                                <rect key="frame" x="122" y="61.5" width="170" height="170"/>
+                                                <rect key="frame" x="122" y="68" width="170" height="170"/>
                                                 <color key="backgroundColor" name="GreyZafrapp"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="170" id="5vu-WH-yNR"/>
@@ -441,19 +443,19 @@
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jorge Domínguez" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Vu-38-nwr">
-                                                <rect key="frame" x="40" y="261.5" width="334" height="34"/>
+                                                <rect key="frame" x="40" y="268" width="334" height="41"/>
                                                 <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="29"/>
                                                 <color key="textColor" name="DarkBlue"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jorge.dominguez@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6J-Nq-TeC">
-                                                <rect key="frame" x="40" y="305.5" width="334" height="16.5"/>
+                                                <rect key="frame" x="40" y="319" width="334" height="20"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                                 <color key="textColor" name="GreyZafrapp"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yHc-Aq-Ng6">
-                                                <rect key="frame" x="40" y="342" width="334" height="260"/>
+                                                <rect key="frame" x="40" y="359" width="334" height="260"/>
                                                 <subviews>
                                                     <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Estado" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FXh-XH-fWO" customClass="ZPDesignableUITextField" customModule="Zafrapp" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="334" height="30"/>
@@ -619,7 +621,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4R5-wk-XVj">
-                                                <rect key="frame" x="40" y="602" width="334" height="390"/>
+                                                <rect key="frame" x="40" y="619" width="334" height="390"/>
                                                 <subviews>
                                                     <textField opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Profesión" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BVW-26-tGH" customClass="ZPDesignableUITextField" customModule="Zafrapp" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="10" width="334" height="30"/>
@@ -874,7 +876,7 @@
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5KH-dK-Bxv" customClass="ZPDesignableUIButton" customModule="Zafrapp" customModuleProvider="target">
-                                                <rect key="frame" x="40" y="1341" width="334" height="52"/>
+                                                <rect key="frame" x="40" y="1358" width="334" height="52"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="52" id="F58-mY-DB1"/>
                                                 </constraints>
@@ -892,7 +894,7 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hg8-sk-oN6">
-                                                <rect key="frame" x="40" y="1122" width="334" height="150"/>
+                                                <rect key="frame" x="40" y="1139" width="334" height="150"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    ¿Quieres publicar tu celular?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pFr-xZ-uMl" customClass="ZpLabel" customModule="Zafrapp" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="53" width="334" height="30"/>

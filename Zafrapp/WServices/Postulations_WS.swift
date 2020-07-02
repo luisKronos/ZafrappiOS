@@ -15,10 +15,14 @@ public class getPostulations_WS : NSObject {
     var root = basePath().path(Complement: "get_positions")
     var serviceError = NSError(domain: "Error", code: 0, userInfo: nil)
     
-    public func obtainPostulations(mail: String, with handler : @escaping CompletionBlock){
+    public func obtainPostulations(mail: String, status : Int? = 0 , id_user : Int? = 0, with handler : @escaping CompletionBlock){
           var getInformation = ""
-          getInformation = "mail=\(mail)"
-        
+        if status == 0 {
+           getInformation = "mail=\(mail)"
+        }else {
+            getInformation = "mail=\(mail)&status=\(status ?? 0)&id_user=\(id_user ?? 0)"
+        }
+         
             let headers = ["Content-Type": "application/x-www-form-urlencoded"]
             let postData = NSMutableData(data: getInformation.data(using: String.Encoding.utf8)!)
         
@@ -37,7 +41,7 @@ public class getPostulations_WS : NSObject {
                     DispatchQueue.main.async(execute: {
                         do {
                        if let json = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String:Any] {
-                                handler(self.parseInformation(fromDicResponse: json), self.serviceError)
+                        handler(self.parseInformation(fromDicResponse: json, status: status ?? 0), self.serviceError)
                         }
                     } catch {
                             handler(nil, self.serviceError)
@@ -60,7 +64,7 @@ public class getPostulations_WS : NSObject {
         return [uno!,dos!]
     }
     
-      func parseInformation (fromDicResponse dctResponse: [String : Any]) -> responseLogIn? {
+    func parseInformation (fromDicResponse dctResponse: [String : Any], status : Int) -> responseLogIn? {
               let data = responseLogIn ()
               var allPostulations : [postulations] = []
               data.strStatus = dctResponse["status"] as? String
@@ -90,7 +94,9 @@ public class getPostulations_WS : NSObject {
                     let range = getMinAndmaxSalari (salary : rangeSalari)
                     dataJob.minSalari = range.first ?? 10
                     dataJob.maxSalari = range.last ?? 20
-                    
+                    if status == 1 || status == 2 {
+                     dataJob.bisSaved     = true
+                    }
                     allPostulations.append(dataJob)
                   }
                 

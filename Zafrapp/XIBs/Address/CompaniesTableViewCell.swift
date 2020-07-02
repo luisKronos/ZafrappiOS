@@ -16,7 +16,7 @@ class CompaniesTableViewCell: UITableViewCell {
     @IBOutlet weak var lblEmail: UILabel!
     @IBOutlet weak var lblPhone: UILabel!
     @IBOutlet weak var imgSelection: UIImageView!
-    
+    var imageChecK = false
     
     var dataCompany : company? {
         didSet{
@@ -35,7 +35,7 @@ class CompaniesTableViewCell: UITableViewCell {
             lblPhone.text = "\(dataVacancies?.strRange_Salary ?? "") - \(dataVacancies?.strPucblishDate ?? "")"
             shadowView()
             
-            if dataVacancies?.bIsPostulated ?? false || dataVacancies?.bisSaved ?? false  {
+            if dataVacancies?.bIsPostulated ?? false || dataVacancies?.bisSaved ?? false || imageChecK {
              imgSelection.image = UIImage(named: "check-circle")
             }
         }

@@ -37,12 +37,17 @@ class detailVacanciViewController: ZPMasterViewController {
     var arrIdSaved = [UpdateProfile]()
     var isHePostulated = false
     var heSavedtheJob = false
+    var hideButton = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
       settupInformation()
       createDays()
        retriveIDSaved()
+        if hideButton {
+            btnCheck.isHidden = true
+            btnPostulated.isHidden = true
+        }
     }
     func retriveIDSaved () {
     let placeData = UserDefaults.standard.data(forKey: "IdVacancies\(getIdUserSaved())")

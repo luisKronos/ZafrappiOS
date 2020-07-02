@@ -22,6 +22,7 @@ class SearchJob_ViewController: ZPMasterViewController, UIGestureRecognizerDeleg
     var arrOptionsFilter : [String] = []
     var bShowSection = false
     var iSectionShow = 0
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
