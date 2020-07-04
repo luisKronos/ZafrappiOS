@@ -157,7 +157,7 @@ class EditProfile_ViewController: ZPMasterViewController {
         switchShowCell.transform = CGAffineTransform(scaleX: 0.50, y: 0.50)
         switchIsSearchJob.transform = CGAffineTransform(scaleX: 0.50, y: 0.50)
           self.imgProfile.layer.cornerRadius = imgProfile.frame.size.height / 2
-          self.imgProfile.layer.borderColor = #colorLiteral(red: 0.337254902, green: 0.3882352941, blue: 1, alpha: 1)
+          self.imgProfile.layer.borderColor = #colorLiteral(red: 0.1490196078, green: 0.6, blue: 0.9843137255, alpha: 1)
           self.imgProfile.layer.borderWidth = 2
           self.imgProfile.clipsToBounds = true
         if imageProfile != nil {

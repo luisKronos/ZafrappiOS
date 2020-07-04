@@ -17,9 +17,14 @@ class ProfileCompanyViewController: ZPMasterViewController {
     @IBOutlet weak var lblWhere: UILabel!
     @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var lblOfferJob: UILabel!
+    @IBOutlet weak var lblTitleOffer: UILabel!
+    @IBOutlet weak var lycChange: NSLayoutConstraint!
+    @IBOutlet weak var lycChange2: NSLayoutConstraint!
+    
     var strIdCompany = ""
     var locationManager:CLLocationManager!
     var isIngenio = false
+    var hideServices = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,15 +70,19 @@ class ProfileCompanyViewController: ZPMasterViewController {
         }
     }
     func updateLabel (detail : detailCompany?) {
-        if detail?.strService?.validateUrl() ?? false {
-          imageRound.downloaded(from: detail?.strService ?? "")
-        }else{
-            imageRound.image = #imageLiteral(resourceName: "Logo")
-        }
+          imageRound.downloaded(from: detail?.strImage ?? "")
         titleCompany.text = detail?.strName_Contact
         lblWho.text = detail?.strDescription
-        lblWhere.text = "\(detail?.strStreet ?? ""),\(detail?.strState ?? "")"
-        lblOfferJob.text = detail?.strService
+        lblWhere.text = "\(detail?.strState ?? ""), \(detail?.strMunicipio ?? ""), \(detail?.strStreet ?? ""),\(detail?.strNumber_ST ?? ""), CP. \(detail?.strCP ?? "")"
+        if hideServices {
+         lblOfferJob.text = ""
+         lblTitleOffer.text = ""
+            lycChange.constant = 0
+            lycChange2.constant = 0
+        }else {
+         lblOfferJob.text = detail?.strService
+        }
+       
         var otherPlace = ["19.3014924","-99.20509"]
         if  !(detail?.strMaps?.isEmpty ?? false){
             otherPlace = detail?.strMaps?.components(separatedBy: ",") as! [String]

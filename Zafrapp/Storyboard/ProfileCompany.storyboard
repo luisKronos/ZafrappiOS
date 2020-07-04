@@ -50,12 +50,12 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IB4-uK-1yo">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1190"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="aa2-ES-e6V">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="179"/>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4bt-fY-iat">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4bt-fY-iat">
                                                 <rect key="frame" x="30" y="134" width="90" height="90"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -75,39 +75,38 @@
                                                 <color key="textColor" name="BlueZafrapp"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="luV-TC-gxo">
-                                                <rect key="frame" x="30" y="282.5" width="354" height="19"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="luV-TC-gxo">
+                                                <rect key="frame" x="30" y="282.5" width="354" height="0.0"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                                 <color key="textColor" name="GreyZafrapp"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿DÓNDE NOS ENCONTRAMOS?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DKj-Qi-9fr">
-                                                <rect key="frame" x="30" y="316.5" width="354" height="21"/>
+                                                <rect key="frame" x="30" y="297.5" width="354" height="21"/>
                                                 <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="18"/>
                                                 <color key="textColor" name="BlueZafrapp"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W0e-QH-QzG">
-                                                <rect key="frame" x="30" y="345" width="354" height="20"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W0e-QH-QzG">
+                                                <rect key="frame" x="30" y="326" width="354" height="0.0"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                                                 <color key="textColor" name="GreyZafrapp"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="NiJ-7I-Qot">
-                                                <rect key="frame" x="0.0" y="385" width="414" height="179"/>
+                                                <rect key="frame" x="0.0" y="346" width="414" height="317"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="179" id="Y8s-Cl-iYP"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="180" id="Y8s-Cl-iYP"/>
                                                 </constraints>
                                             </mapView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿QUE OFRECEMOS?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffy-0s-mRD">
-                                                <rect key="frame" x="30" y="594" width="354" height="21"/>
+                                                <rect key="frame" x="30" y="693" width="354" height="21"/>
                                                 <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="18"/>
                                                 <color key="textColor" name="BlueZafrapp"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCN-x1-dHz">
-                                                <rect key="frame" x="30" y="625" width="354" height="515"/>
-                                                <string key="text">Con la ocupación de España y la promulgación de la constitución de 1812, se difundieron ideas de autonomía política en la América española. La Independencia se proclamó formalmente en 1821, y fue definida en la batalla de Ayacucho tres años después.18​ El país se mantuvo en recesión y bajo el caudillismo militar hasta la bonanza y declive de la era del Guano, que culminó poco antes de la Guerra del Pacífico. En la posguerra, se cimentó una política oligárquica que prevaleció hasta el fin del Oncenio. Los sucesivos gobiernos democráticos fueron constantemente interrumpidos por golpes de Estado.19​ En 1968, se impuso una dictadura militar que introdujo diversas y profundas reformas de corte nacionalista.20​ El gobierno democrático y representativo fue restablecido en 1980, aunque también se dieron inicio a un sangriento conflicto armado entre los grupos terroristas de Sendero Luminoso y el MRTA y el Estado en la sierra sur; y a la crisis inflacionaria de fines de la década. En los años 1990 se implementó un modelo económico neoliberal, cuyas bases continúan aún vigentes. </string>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCN-x1-dHz">
+                                                <rect key="frame" x="30" y="724" width="354" height="0.0"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                                                 <color key="textColor" name="GreyZafrapp"/>
                                                 <nil key="highlightedColor"/>
@@ -177,15 +176,18 @@
                     <connections>
                         <outlet property="imageRound" destination="4bt-fY-iat" id="azZ-qg-6Y7"/>
                         <outlet property="lblOfferJob" destination="aCN-x1-dHz" id="ns8-K6-X69"/>
+                        <outlet property="lblTitleOffer" destination="ffy-0s-mRD" id="Ody-3W-X9b"/>
                         <outlet property="lblWhere" destination="W0e-QH-QzG" id="lDs-9v-K2V"/>
                         <outlet property="lblWho" destination="luV-TC-gxo" id="ndF-Pl-1ae"/>
+                        <outlet property="lycChange" destination="AjC-rL-cvg" id="888-Ol-i3e"/>
+                        <outlet property="lycChange2" destination="2OJ-K0-Qe7" id="5rT-kS-FrY"/>
                         <outlet property="map" destination="NiJ-7I-Qot" id="KgI-Ac-HPG"/>
                         <outlet property="titleCompany" destination="56T-40-NoG" id="ref-rj-7rn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YaZ-fi-Bk2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="951" y="893"/>
+            <point key="canvasLocation" x="950.72463768115949" y="892.63392857142856"/>
         </scene>
     </scenes>
     <resources>

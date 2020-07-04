@@ -54,8 +54,8 @@ class VacanciesSavedViewController: ZPMasterViewController {
     func showDetailCompany(vacanciSelected : postulations){
            let storyboard = UIStoryboard(name: "searchJob", bundle: nil)
            let vc = storyboard.instantiateViewController(withIdentifier: "profileVc") as! detailVacanciViewController
-           vc.hideButton = true
            vc.dataVacanci = vacanciSelected
+           vc.changeData = false
            vc.modalPresentationStyle = .fullScreen
            navigationController?.pushViewController(vc,
            animated: true)
@@ -129,6 +129,14 @@ extension VacanciesSavedViewController : UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selected = genericArr?[indexPath.row] ?? postulations()
+        if typeOfData == 0 {
+            selected.bisSaved = true
+            selected.bIsPostulated = false
+        }else if typeOfData == 1{
+            selected.bIsPostulated = true
+            selected.bisSaved = false
+        }
+        
         showDetailCompany(vacanciSelected: selected)
     }
 }

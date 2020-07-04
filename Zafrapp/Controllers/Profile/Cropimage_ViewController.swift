@@ -64,7 +64,7 @@ func executeService (DataUser : updateProfileImage?) {
     
     func saveImage () {
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let fileName = "ProfilePicture\(informationClasify.sharedInstance.data?.arrMessage?.strName ?? "").jpg"
+        let fileName = "ProfilePicture\(informationClasify.sharedInstance.data?.arrMessage?.strId_user ?? "").jpg"
         let fileURL = documentsDirectory.appendingPathComponent(fileName)
         
         if let data = image.image?.jpegData(compressionQuality:  1.0),
@@ -129,7 +129,7 @@ func executeService (DataUser : updateProfileImage?) {
         self.imageCrop.isHidden = true
         let imageAdjust = adjustImage(View: vScreenShoot)
     
-        removeImageLocalPath(localPathName: "ProfilePicture\(informationClasify.sharedInstance.data?.arrMessage?.strName ?? "").jpg")
+        removeImageLocalPath(localPathName: "ProfilePicture\(informationClasify.sharedInstance.data?.arrMessage?.strId_user ?? "").jpg")
         informationProfile.strEmail = informationClasify.sharedInstance.data?.arrMessage?.strEmail
         informationProfile.ImgProfile = imageAdjust
         self.executeService(DataUser: informationProfile)

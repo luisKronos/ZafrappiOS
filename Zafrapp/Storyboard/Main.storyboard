@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -10,7 +10,7 @@
         <scene sceneID="9em-vf-sGP">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="ProfileVc" storyboardName="Profile" referencedIdentifier="ProfileVc" id="WiV-d6-aEC" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="iconPerson" id="di0-Kd-lbu"/>
+                    <tabBarItem key="tabBarItem" title="Perfil" image="iconPerson" id="di0-Kd-lbu"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="po9-9j-Zrf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -40,7 +40,7 @@
         <scene sceneID="Oyt-bZ-Uph">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="NewsVc" storyboardName="News" referencedIdentifier="nvBarNews" id="Ogh-UD-WUc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="iconBook" id="Hp8-4L-bnK"/>
+                    <tabBarItem key="tabBarItem" title="Noticias" image="iconBook" id="Hp8-4L-bnK"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fEb-sT-k9v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -50,7 +50,7 @@
         <scene sceneID="Moj-v1-GWA">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="JobVC" storyboardName="searchJob" referencedIdentifier="JobVC" id="m0a-3v-bKv" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="IconCase" id="8ob-4w-hUX"/>
+                    <tabBarItem key="tabBarItem" title="Bolsa de trabajo" image="IconCase" id="8ob-4w-hUX"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lNW-Va-FPo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

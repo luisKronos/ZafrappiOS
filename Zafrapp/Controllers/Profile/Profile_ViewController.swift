@@ -48,7 +48,7 @@ class Profile_ViewController: UIViewController {
     
     func adjustImageRound () {
         self.imgProfile.layer.cornerRadius = imgProfile.frame.size.height / 2
-        self.imgProfile.layer.borderColor = #colorLiteral(red: 0.337254902, green: 0.3882352941, blue: 1, alpha: 1)
+        self.imgProfile.layer.borderColor = #colorLiteral(red: 0.1490196078, green: 0.6, blue: 0.9843137255, alpha: 1)
         self.imgProfile.layer.borderWidth = 2
         self.imgProfile.clipsToBounds = true
     }
@@ -57,7 +57,7 @@ class Profile_ViewController: UIViewController {
         }
     
     func dataInView () {
-        let imagefromDocuments: UIImage? = getImageFromDocument().fileInDocumentsDirectory(filename: "ProfilePicture\(informationUser?.arrMessage?.strName ?? "").jpg")
+        let imagefromDocuments: UIImage? = getImageFromDocument().fileInDocumentsDirectory(filename: "ProfilePicture\(informationUser?.arrMessage?.strId_user ?? "").jpg")
        
         if  checkIfImageIsSaved(){
          self.imgProfile.image = imagefromDocuments
@@ -75,7 +75,7 @@ class Profile_ViewController: UIViewController {
     func checkIfImageIsSaved()-> Bool {
         let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
         let url = NSURL(fileURLWithPath: path)
-        if let pathComponent = url.appendingPathComponent("ProfilePicture\(informationUser?.arrMessage?.strName ?? "").jpg") {
+        if let pathComponent = url.appendingPathComponent("ProfilePicture\(informationUser?.arrMessage?.strId_user ?? "").jpg") {
             let filePath = pathComponent.path
             let fileManager = FileManager.default
             if fileManager.fileExists(atPath: filePath) {
@@ -106,7 +106,7 @@ class Profile_ViewController: UIViewController {
     
     func saveImage () {
          let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-         let fileName = "ProfilePicture\(informationClasify.sharedInstance.data?.arrMessage?.strName ?? "").jpg"
+         let fileName = "ProfilePicture\(informationClasify.sharedInstance.data?.arrMessage?.strId_user ?? "").jpg"
          let fileURL = documentsDirectory.appendingPathComponent(fileName)
          
          if let data = imgProfile.image?.jpegData(compressionQuality:  1.0),
@@ -181,12 +181,18 @@ extension Profile_ViewController: UITableViewDelegate , UITableViewDataSource {
         case 2:
             self.performSegue(withIdentifier: "segueCVProfile", sender: nil)
         case 3:
+             presentLogIn()
             return
-            // Valorar app
         default:
-            // cerrar sesion
             return
         }
+    }
+    
+    func presentLogIn() {
+       let storyboard = UIStoryboard(name: "Login", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "Login_Nav")
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

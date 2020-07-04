@@ -37,18 +37,34 @@ class detailVacanciViewController: ZPMasterViewController {
     var arrIdSaved = [UpdateProfile]()
     var isHePostulated = false
     var heSavedtheJob = false
-    var hideButton = false
+    var changeData = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
       settupInformation()
       createDays()
-       retriveIDSaved()
-        if hideButton {
-            btnCheck.isHidden = true
-            btnPostulated.isHidden = true
+        if changeData {
+         retriveIDSaved()
+        }else {
+          changeColor()
+        }
+     
+    }
+    
+    func changeColor () {
+        if dataVacanci?.bisSaved ?? false {
+            self.btnCheck.backgroundColor = UIColor.white.withAlphaComponent(0.6)
+            self.btnCheck.isEnabled = false
+            heSavedtheJob = true
+        }
+        if dataVacanci?.bIsPostulated ?? false {
+            self.btnPostulated.backgroundColor = #colorLiteral(red: 0.1490196078, green: 0.6, blue: 0.9843137255, alpha: 1).withAlphaComponent(0.6)
+             self.btnPostulated.isEnabled = false
+             isHePostulated = true
+             btnPostulated.setTitle("POSTULADO", for: .normal)
         }
     }
+    
     func retriveIDSaved () {
     let placeData = UserDefaults.standard.data(forKey: "IdVacancies\(getIdUserSaved())")
           
@@ -56,8 +72,8 @@ class detailVacanciViewController: ZPMasterViewController {
       let placeArray = try! JSONDecoder().decode([UpdateProfile].self, from: placeData)
         arrIdSaved = placeArray
         let results = placeArray.filter {$0.strID == dataVacanci?.strVacant}
-        if results.count > 0 {
-            if results.first?.bisSaved ?? false {
+        if results.count > 0  {
+            if results.first?.bisSaved ?? false  {
                 self.btnCheck.backgroundColor = UIColor.white.withAlphaComponent(0.6)
                 self.btnCheck.isEnabled = false
                 heSavedtheJob = true
@@ -74,6 +90,7 @@ class detailVacanciViewController: ZPMasterViewController {
          }
         }
     }
+    
     func createDays () {
         let days = dataVacanci?.strSchedule_work
         let monday = checkDay(day: "L", bcheck: false)
@@ -137,6 +154,7 @@ class detailVacanciViewController: ZPMasterViewController {
            let vc = storyboard.instantiateViewController(withIdentifier: "profileVc") as! ProfileCompanyViewController
            vc.strIdCompany = data
            vc.isIngenio = true
+           vc.hideServices = true
            vc.modalPresentationStyle = .fullScreen
            navigationController?.pushViewController(vc,
            animated: true)

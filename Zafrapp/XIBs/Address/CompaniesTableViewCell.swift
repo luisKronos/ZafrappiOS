@@ -29,7 +29,7 @@ class CompaniesTableViewCell: UITableViewCell {
     
     var dataVacancies : postulations? {
         didSet{
-         imgLogo.downloaded(from: dataVacancies?.strImage ?? "")
+         imgLogo.downloaded(from: dataVacancies?.strImage ?? "", contentMode: .scaleToFill)
             lblNameCompany.text = dataVacancies?.strPosition
             lblEmail.text = "\(dataVacancies?.strWork_Place ?? "") - \(dataVacancies?.strState ?? "")"
             lblPhone.text = "\(dataVacancies?.strRange_Salary ?? "") - \(dataVacancies?.strPucblishDate ?? "")"

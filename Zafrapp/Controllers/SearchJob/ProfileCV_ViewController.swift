@@ -35,7 +35,7 @@ class ProfileCV_ViewController: ZPMasterViewController {
         vwCv.addGestureRecognizer(tap)
      
      let getName =  informationClasify.sharedInstance.data
-     let imagefromDocuments: UIImage? = getImageFromDocument().fileInDocumentsDirectory(filename: "ProfilePicture\(getName?.arrMessage?.strName ?? "").jpg")
+     let imagefromDocuments: UIImage? = getImageFromDocument().fileInDocumentsDirectory(filename: "ProfilePicture\(getName?.arrMessage?.strId_user ?? "").jpg")
        self.imgProfileCV.image = imagefromDocuments
     }
     @objc func tapFunction(sender:UITapGestureRecognizer) {
@@ -92,6 +92,7 @@ class ProfileCV_ViewController: ZPMasterViewController {
                 }else {
                     self.btnUpdateCV.isEnabled = false
                     self.btnUpdateCV.backgroundColor = #colorLiteral(red: 0.1490196078, green: 0.6, blue: 0.9843137255, alpha: 1).withAlphaComponent(0.6)
+                    self.btnUpdateCV.setTitle("Actualizar", for: .normal)
                     self.btnDelete.setTitle("x", for: .normal)
                     self.btnDelete.setImage(UIImage(named: ""), for: .normal)
                     self.titleCV.text = self.titlePDF
