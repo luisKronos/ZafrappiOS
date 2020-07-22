@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -23,10 +23,6 @@
                                     <constraint firstAttribute="height" constant="50" id="Bs5-bj-4X4"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MSD-oQ-aQZ">
-                                <rect key="frame" x="0.0" y="190" width="414" height="672"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Ut-Tf-NBM">
                                 <rect key="frame" x="0.0" y="140" width="414" height="50"/>
                                 <subviews>
@@ -57,19 +53,45 @@
                                     <constraint firstAttribute="bottom" secondItem="nzi-7J-PR2" secondAttribute="bottom" id="wlt-2g-grR"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dwH-3g-7Zw">
+                                <rect key="frame" x="0.0" y="190" width="414" height="672"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Por ahora el directorio esta vacío, intenta más tarde." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mwe-fW-dAM">
+                                        <rect key="frame" x="20" y="315.5" width="374" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="Mwe-fW-dAM" firstAttribute="centerX" secondItem="dwH-3g-7Zw" secondAttribute="centerX" id="LbQ-Ap-aEN"/>
+                                    <constraint firstAttribute="trailing" secondItem="Mwe-fW-dAM" secondAttribute="trailing" constant="20" id="Suu-LY-rGh"/>
+                                    <constraint firstItem="Mwe-fW-dAM" firstAttribute="leading" secondItem="dwH-3g-7Zw" secondAttribute="leading" constant="20" id="YR0-tR-wCr"/>
+                                    <constraint firstItem="Mwe-fW-dAM" firstAttribute="centerY" secondItem="dwH-3g-7Zw" secondAttribute="centerY" id="lOO-OZ-oFs"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x6S-AT-dNM">
+                                <rect key="frame" x="0.0" y="190" width="414" height="672"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="lFp-R3-bzN" firstAttribute="top" secondItem="0sc-Ne-CY5" secondAttribute="top" id="7p4-ZX-zgw"/>
+                            <constraint firstItem="0sc-Ne-CY5" firstAttribute="bottom" secondItem="dwH-3g-7Zw" secondAttribute="bottom" id="B0Q-2Y-KJ0"/>
+                            <constraint firstItem="0sc-Ne-CY5" firstAttribute="bottom" secondItem="x6S-AT-dNM" secondAttribute="bottom" id="CzD-De-lGT"/>
                             <constraint firstItem="lFp-R3-bzN" firstAttribute="leading" secondItem="0sc-Ne-CY5" secondAttribute="leading" constant="15" id="DWr-58-y9g"/>
-                            <constraint firstItem="0sc-Ne-CY5" firstAttribute="trailing" secondItem="MSD-oQ-aQZ" secondAttribute="trailing" id="IeE-9l-XHM"/>
-                            <constraint firstItem="MSD-oQ-aQZ" firstAttribute="top" secondItem="8Ut-Tf-NBM" secondAttribute="bottom" id="JRX-lG-2e4"/>
+                            <constraint firstItem="0sc-Ne-CY5" firstAttribute="trailing" secondItem="dwH-3g-7Zw" secondAttribute="trailing" id="Lhp-ol-Jwa"/>
                             <constraint firstItem="0sc-Ne-CY5" firstAttribute="trailing" secondItem="8Ut-Tf-NBM" secondAttribute="trailing" id="P21-Bh-fqT"/>
                             <constraint firstItem="8Ut-Tf-NBM" firstAttribute="leading" secondItem="0sc-Ne-CY5" secondAttribute="leading" id="VA0-di-IVp"/>
+                            <constraint firstItem="dwH-3g-7Zw" firstAttribute="top" secondItem="8Ut-Tf-NBM" secondAttribute="bottom" id="Y9p-aI-tuF"/>
+                            <constraint firstItem="x6S-AT-dNM" firstAttribute="leading" secondItem="0sc-Ne-CY5" secondAttribute="leading" id="bdK-nq-XxS"/>
+                            <constraint firstItem="x6S-AT-dNM" firstAttribute="top" secondItem="8Ut-Tf-NBM" secondAttribute="bottom" id="dd4-vB-ovo"/>
                             <constraint firstItem="8Ut-Tf-NBM" firstAttribute="top" secondItem="lFp-R3-bzN" secondAttribute="bottom" constant="2" id="iaU-aR-Sb9"/>
-                            <constraint firstItem="0sc-Ne-CY5" firstAttribute="bottom" secondItem="MSD-oQ-aQZ" secondAttribute="bottom" id="sQk-Ef-CXc"/>
-                            <constraint firstItem="MSD-oQ-aQZ" firstAttribute="leading" secondItem="0sc-Ne-CY5" secondAttribute="leading" id="vQS-8b-SzA"/>
+                            <constraint firstItem="dwH-3g-7Zw" firstAttribute="leading" secondItem="0sc-Ne-CY5" secondAttribute="leading" id="w8i-KO-R1R"/>
                             <constraint firstItem="0sc-Ne-CY5" firstAttribute="trailing" secondItem="lFp-R3-bzN" secondAttribute="trailing" constant="15" id="xrN-LM-IMj"/>
+                            <constraint firstItem="0sc-Ne-CY5" firstAttribute="trailing" secondItem="x6S-AT-dNM" secondAttribute="trailing" id="yys-Zf-lst"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0sc-Ne-CY5"/>
                     </view>
@@ -81,8 +103,9 @@
                         <outlet property="lycViewSelection" destination="Bs5-bj-4X4" id="zve-cO-i6Z"/>
                         <outlet property="search" destination="nzi-7J-PR2" id="qIU-jv-i5u"/>
                         <outlet property="segmentedControllerCustom" destination="lFp-R3-bzN" id="DSo-UX-uhN"/>
-                        <outlet property="tableAccount" destination="MSD-oQ-aQZ" id="UCl-cU-kCI"/>
+                        <outlet property="tableAccount" destination="x6S-AT-dNM" id="szl-UA-XfG"/>
                         <outlet property="vSelection" destination="lFp-R3-bzN" id="HGn-mc-FCB"/>
+                        <outlet property="viewEmpty" destination="dwH-3g-7Zw" id="2Hc-ig-rzF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kUf-3B-s6r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

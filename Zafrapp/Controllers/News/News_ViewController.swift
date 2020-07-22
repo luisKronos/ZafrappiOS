@@ -24,6 +24,24 @@ class News_ViewController: ZPMasterViewController {
         informationSaved = informationClasify.sharedInstance.data
         configTable()
         executeService(interest: informationSaved?.arrMessage?.strAreaInteres ?? "")
+        swipeDown()
+    }
+    
+    func swipeDown () {
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture))
+           swipeDown.direction = .down
+           self.viewEmptyTable.addGestureRecognizer(swipeDown)
+    }
+    
+    @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+    if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+        switch swipeGesture.direction {
+        case .down:
+          executeService(interest: informationSaved?.arrMessage?.strAreaInteres ?? "")
+        default:
+            break
+        }
+     }
     }
     
     func configTable (){
@@ -36,6 +54,7 @@ class News_ViewController: ZPMasterViewController {
     
     
     func executeService (interest : String) {
+        self.tblNews.isHidden = true
         self.activityIndicatorBegin()
        let ws = getNews_WS ()
         ws.getNews(interest: interest) {[weak self] (respService, error) in
@@ -43,21 +62,17 @@ class News_ViewController: ZPMasterViewController {
             self.activityIndicatorEnd()
             if (error! as NSError).code == 0 && respService != nil {
                 if respService?.strStatus == "BAD" {
-                        self.present(ZPAlertGeneric.OneOption(title : "Error", message: respService?.strMessage, actionTitle: "Aceptar"),animated: true)
+                        self.present(ZPAlertGeneric.OneOption(title : "Aún no tienes noticias.", message: respService?.strMessage, actionTitle: "Aceptar"),animated: true)
                 }else {
                     if respService?.arrList?.count ?? 0 > 0 {
-                        self.viewEmptyTable.isHidden = true
+                        self.tblNews.isHidden = false
                     }
                     self.updateBothNews(list: respService?.arrList ?? [])
                 }
             }else if (error! as NSError).code == -1009 {
-                self.present(ZPAlertGeneric.OneOption(title : "Conexion de internet", message: "No tienes conexion a internet", actionTitle: "Intenta de nuevo", actionHandler: {action in
-                    self.executeService(interest: self.informationSaved?.arrMessage?.strAreaInteres ?? "")
-                }),animated: true)
+                self.present(ZPAlertGeneric.OneOption(title : "Conexion de internet", message: "No tienes conexion a internet", actionTitle: "Intenta de nuevo"),animated: true)
             }else {
-                self.present(ZPAlertGeneric.OneOption(title : "Error", message: "Intenta de nuevo", actionTitle: "Aceptar", actionHandler: { action in
-                    self.executeService(interest: self.informationSaved?.arrMessage?.strAreaInteres ?? "")
-                }),animated: true)
+                self.present(ZPAlertGeneric.OneOption(title : "Error", message: "Intenta de nuevo", actionTitle: "Aceptar"),animated: true)
             }
         }
     }
@@ -73,8 +88,6 @@ class News_ViewController: ZPMasterViewController {
                 viewController.detailNews = showNews
             }
         }
-    
-    
     }
     
 }

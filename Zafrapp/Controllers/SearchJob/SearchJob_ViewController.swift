@@ -10,6 +10,8 @@ import UIKit
 
 class SearchJob_ViewController: ZPMasterViewController, UIGestureRecognizerDelegate {
 
+    
+    @IBOutlet weak var vwEmptyTable: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableData: UITableView!
     var arrVacancies : [postulations]? = []
@@ -17,7 +19,7 @@ class SearchJob_ViewController: ZPMasterViewController, UIGestureRecognizerDeleg
     var isSearching = false
     var isFilterSelect = false
     var vacanciSelected : postulations?
-    var optionsFilter = ["Ingenio", "Departamento (área)", "Salario"]
+    var optionsFilter = ["Ingenio", "Área de interes", "Salario"]
     var sortSalari = ["Mayor a menor", "Menor a mayor"]
     var arrOptionsFilter : [String] = []
     var bShowSection = false
@@ -33,6 +35,7 @@ class SearchJob_ViewController: ZPMasterViewController, UIGestureRecognizerDeleg
         super.viewDidLoad()
         executeService()
          settupTable()
+        swipeDown()
     }
     
     func getIdUserSaved() -> String {
@@ -67,12 +70,29 @@ class SearchJob_ViewController: ZPMasterViewController, UIGestureRecognizerDeleg
         tableData.dataSource = self
     }
     
+    func swipeDown () {
+          let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture))
+             swipeDown.direction = .down
+             self.vwEmptyTable.addGestureRecognizer(swipeDown)
+      }
+      
+      @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+      if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+          switch swipeGesture.direction {
+          case .down:
+              executeService()
+          default:
+              break
+          }
+       }
+      }
     func getEmailSaved() -> String {
            let getEmail =  informationClasify.sharedInstance.data
         return  getEmail?.arrMessage?.strEmail ?? ""
              }
     
     func executeService () {
+        self.tableData.isHidden = true
      self.activityIndicatorBegin()
     let ws = getPostulations_WS ()
         ws.obtainPostulations(mail: getEmailSaved()) {[weak self] (respService, error) in
@@ -80,17 +100,18 @@ class SearchJob_ViewController: ZPMasterViewController, UIGestureRecognizerDeleg
             self.activityIndicatorEnd()
          if (error! as NSError).code == 0 && respService != nil {
              if respService?.strStatus == "BAD" {
-                     self.present(ZPAlertGeneric.OneOption(title : "Error", message: respService?.strMessage, actionTitle: "Aceptar"),animated: true)
+                     self.present(ZPAlertGeneric.OneOption(title : "Sin vacantes", message: respService?.strMessage, actionTitle: "Aceptar"),animated: true)
              }else{
                 self.arrVacancies = respService?.allVacants
+                if self.arrVacancies?.count ?? 0 > 0 {
+                    self.tableData.isHidden = false
+                }
                 self.retriveIDSaved()
              }
          }else if (error! as NSError).code == -1009 {
-           self.present(ZPAlertGeneric.OneOption(title : "Conexion de internet", message: "No tienes conexion a internet", actionTitle: "Intenta de nuevo", actionHandler: {action in
-            self.executeService()}), animated: true)
+           self.present(ZPAlertGeneric.OneOption(title : "Conexion de internet", message: "No tienes conexion a internet", actionTitle: "Intenta de nuevo"), animated: true)
          }else {
-           self.present(ZPAlertGeneric.OneOption(title : "Error", message: "Intenta de nuevo", actionTitle: "Aceptar", actionHandler: {action in
-           self.executeService()}),animated: true)
+           self.present(ZPAlertGeneric.OneOption(title : "Error", message: "Intenta de nuevo", actionTitle: "Aceptar"),animated: true)
          }
        }
      }
@@ -173,7 +194,7 @@ extension SearchJob_ViewController: UITableViewDelegate, UITableViewDataSource{
  
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if bShowSection {
-            return 20
+            return 40
         }else{
             return 100
         }
@@ -206,7 +227,7 @@ extension SearchJob_ViewController: UITableViewDelegate, UITableViewDataSource{
         case 0:
             arrOptionsFilter = arrIngenio
         case 1:
-             arrOptionsFilter = arrDepartamento
+             arrOptionsFilter = areaDeInteres
         default:
             arrOptionsFilter = sortSalari
         }

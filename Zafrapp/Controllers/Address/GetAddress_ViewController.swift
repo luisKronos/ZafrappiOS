@@ -10,6 +10,7 @@ import UIKit
 
 class GetAddress_ViewController: ZPMasterViewController , UIGestureRecognizerDelegate{
     
+    @IBOutlet weak var viewEmpty: UIView!
     @IBOutlet weak var vSelection: CustomSegmentedControl!
     @IBOutlet weak var lycViewSelection: NSLayoutConstraint!
     @IBOutlet weak var search: UISearchBar!
@@ -29,8 +30,10 @@ class GetAddress_ViewController: ZPMasterViewController , UIGestureRecognizerDel
     var arrCompaniesFilter : [company] = []
     var arrUserFilter : [clientData] = []
     var bFiltered = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableAccount.isHidden = true
         search.delegate = self
         configTable ()
         executeServiceCompany(Email: getEmailSaved())
@@ -51,7 +54,7 @@ class GetAddress_ViewController: ZPMasterViewController , UIGestureRecognizerDel
                self.activityIndicatorEnd()
                if (error! as NSError).code == 0 && respService != nil {
                    if respService?.strStatus == "BAD" {
-                           self.present(ZPAlertGeneric.OneOption(title : "Error", message: respService?.strMessage, actionTitle: "Aceptar"),animated: true)
+                           self.present(ZPAlertGeneric.OneOption(title : "Sin compañias", message: respService?.strMessage, actionTitle: "Aceptar"),animated: true)
                    }else {
                     if isSearch {
                         self.bFiltered = true
@@ -63,6 +66,9 @@ class GetAddress_ViewController: ZPMasterViewController , UIGestureRecognizerDel
                         self.arrCompaniesFilter = respService?.allCompanies ?? []
                     }else {
                         self.arrCompanies = respService?.allCompanies ?? []
+                        if self.arrCompanies.count > 0 {
+                            self.tableAccount.isHidden = false
+                        }
                         self.loadUser = true
                     }
                     
@@ -86,7 +92,7 @@ class GetAddress_ViewController: ZPMasterViewController , UIGestureRecognizerDel
                   self.activityIndicatorEnd()
                   if (error! as NSError).code == 0 && respService != nil {
                       if respService?.strStatus == "BAD" {
-                              self.present(ZPAlertGeneric.OneOption(title : "Error", message: respService?.strMessage, actionTitle: "Aceptar"),animated: true)
+                              self.present(ZPAlertGeneric.OneOption(title : "Sin usuarios", message: respService?.strMessage, actionTitle: "Aceptar"),animated: true)
                       }else {
                         if isSearch {
                             self.typeOfCell = 1
@@ -96,7 +102,12 @@ class GetAddress_ViewController: ZPMasterViewController , UIGestureRecognizerDel
                             self.search.searchTextField.isUserInteractionEnabled = true
                             self.arrUserFilter = respService?.arrClientsData ?? []
                         }else {
-                            self.allUser = respService?.arrClientsData ?? []
+//                          self.allUser = respService?.arrClientsData ?? []
+                            self.allUser = []
+                            if self.allUser.count > 0 {
+                                self.tableAccount.isHidden = false
+                            }
+                           
                             self.loadUser = false
                         }
                         self.tableAccount.reloadData()
@@ -168,6 +179,16 @@ extension GetAddress_ViewController: CustomSegmentedControlDelegate{
         typeOfCell = index
         if loadUser && typeOfCell == 1 {
             executeServiceUser(Email: getEmailSaved())
+        }
+        if arrCompanies.isEmpty && typeOfCell == 2{
+            self.tableAccount.isHidden = true
+        }else{
+            self.tableAccount.isHidden = false
+        }
+            if allUser.isEmpty && typeOfCell == 1{
+           self.tableAccount.isHidden = true
+            }else {
+           self.tableAccount.isHidden = false
         }
         tableAccount.reloadData()
     }

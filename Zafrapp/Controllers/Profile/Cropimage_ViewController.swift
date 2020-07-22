@@ -49,7 +49,7 @@ func executeService (DataUser : updateProfileImage?) {
                 if respService?.strStatus == "BAD" {
                         self.present(ZPAlertGeneric.OneOption(title : "Error", message: respService?.strMessage, actionTitle: "Aceptar"),animated: true)
                 }else {
-                        self.saveImage()
+                    self.saveImage(imageFinal: DataUser?.ImgProfile ?? UIImage())
                         self.present(ZPAlertGeneric.OneOption(title : "Foto actualizada", message: respService?.strMessage, actionTitle: "Aceptar", actionHandler: {(_) in
                             self.navigationController?.popToRootViewController(animated: true)
                         }),animated: true)
@@ -62,12 +62,12 @@ func executeService (DataUser : updateProfileImage?) {
         }
     }
     
-    func saveImage () {
+    func saveImage (imageFinal: UIImage) {
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let fileName = "ProfilePicture\(informationClasify.sharedInstance.data?.arrMessage?.strId_user ?? "").jpg"
         let fileURL = documentsDirectory.appendingPathComponent(fileName)
         
-        if let data = image.image?.jpegData(compressionQuality:  1.0),
+        if let data = imageFinal.jpegData(compressionQuality:  1.0),
           !FileManager.default.fileExists(atPath: fileURL.path) {
             do {
                 try data.write(to: fileURL)

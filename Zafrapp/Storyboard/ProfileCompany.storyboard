@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="POl-Zn-QDI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="POl-Zn-QDI">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -70,31 +70,31 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿QUIÉNES SOMOS?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCb-rv-aYT">
-                                                <rect key="frame" x="30" y="254" width="354" height="21"/>
+                                                <rect key="frame" x="30" y="248" width="354" height="21"/>
                                                 <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="18"/>
                                                 <color key="textColor" name="BlueZafrapp"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="luV-TC-gxo">
-                                                <rect key="frame" x="30" y="282.5" width="354" height="0.0"/>
+                                                <rect key="frame" x="30" y="276.5" width="354" height="0.0"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                                 <color key="textColor" name="GreyZafrapp"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿DÓNDE NOS ENCONTRAMOS?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DKj-Qi-9fr">
-                                                <rect key="frame" x="30" y="297.5" width="354" height="21"/>
+                                                <rect key="frame" x="30" y="291.5" width="354" height="21"/>
                                                 <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="18"/>
                                                 <color key="textColor" name="BlueZafrapp"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W0e-QH-QzG">
-                                                <rect key="frame" x="30" y="326" width="354" height="0.0"/>
+                                                <rect key="frame" x="30" y="320" width="354" height="0.0"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                                                 <color key="textColor" name="GreyZafrapp"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="NiJ-7I-Qot">
-                                                <rect key="frame" x="0.0" y="346" width="414" height="317"/>
+                                                <rect key="frame" x="0.0" y="340" width="414" height="323"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="180" id="Y8s-Cl-iYP"/>
                                                 </constraints>
@@ -116,12 +116,12 @@
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="aCN-x1-dHz" secondAttribute="bottom" constant="50" id="2OJ-K0-Qe7"/>
                                             <constraint firstItem="W0e-QH-QzG" firstAttribute="top" secondItem="DKj-Qi-9fr" secondAttribute="bottom" constant="7.5" id="3fM-C1-5YY"/>
+                                            <constraint firstItem="dCb-rv-aYT" firstAttribute="top" secondItem="56T-40-NoG" secondAttribute="bottom" constant="41" id="4ES-bm-903"/>
                                             <constraint firstItem="56T-40-NoG" firstAttribute="leading" secondItem="4bt-fY-iat" secondAttribute="trailing" constant="20" id="4hH-80-Yw2"/>
                                             <constraint firstItem="aCN-x1-dHz" firstAttribute="top" secondItem="ffy-0s-mRD" secondAttribute="bottom" constant="10" id="640-WK-qk9"/>
                                             <constraint firstItem="ffy-0s-mRD" firstAttribute="top" secondItem="NiJ-7I-Qot" secondAttribute="bottom" constant="30" id="AjC-rL-cvg"/>
                                             <constraint firstItem="DKj-Qi-9fr" firstAttribute="top" secondItem="luV-TC-gxo" secondAttribute="bottom" constant="15" id="ByS-Lu-rqS"/>
                                             <constraint firstAttribute="trailing" secondItem="dCb-rv-aYT" secondAttribute="trailing" constant="30" id="EnN-Yo-rzc"/>
-                                            <constraint firstItem="dCb-rv-aYT" firstAttribute="top" secondItem="4bt-fY-iat" secondAttribute="bottom" constant="30" id="GO4-TX-PtU"/>
                                             <constraint firstAttribute="trailing" secondItem="ffy-0s-mRD" secondAttribute="trailing" constant="30" id="HRO-1K-kHG"/>
                                             <constraint firstAttribute="trailing" secondItem="aa2-ES-e6V" secondAttribute="trailing" id="Hbt-Q3-UPt"/>
                                             <constraint firstAttribute="trailing" secondItem="luV-TC-gxo" secondAttribute="trailing" constant="30" id="J6h-Wm-fp0"/>

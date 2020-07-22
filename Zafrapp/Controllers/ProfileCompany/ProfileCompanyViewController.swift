@@ -84,8 +84,9 @@ class ProfileCompanyViewController: ZPMasterViewController {
         }
        
         var otherPlace = ["19.3014924","-99.20509"]
+        let placeService = detail?.strMaps?.components(separatedBy: ",")
         if  !(detail?.strMaps?.isEmpty ?? false){
-            otherPlace = detail?.strMaps?.components(separatedBy: ",") as! [String]
+            otherPlace = placeService ?? otherPlace
         }
         let alt = Double(otherPlace.first ?? "19.286147105572876")!
         let lat = Double(otherPlace.last ?? "-99.18195409079117")!

@@ -13,14 +13,13 @@ import WebKit
 class detailNewsViewController: ZPMasterViewController {
 
     @IBOutlet weak var image: UIImageView!
-    @IBOutlet weak var lblTitle: UILabel!
-    @IBOutlet weak var lblDescription: UILabel!
     @IBOutlet weak var imgPlay: UIImageView!
     @IBOutlet var webView: WKWebView!
-    @IBOutlet weak var btnTime: UIButton!
+    @IBOutlet weak var tableComments: UITableView!
     var detailNews : listaNews?
     var strIdCompany : String?
-  
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,12 +34,17 @@ class detailNewsViewController: ZPMasterViewController {
             imgPlay.isUserInteractionEnabled = true
             imgPlay.addGestureRecognizer(tap)
         }
-
-       adjustText()
+     configTable()
        adjustImageView()
        adjustWebView()
     }
     
+    func configTable () {
+        tableComments.delegate = self
+        tableComments.dataSource = self
+         tableComments.register(UINib(nibName: "NewsBuTTonTableViewCell", bundle: nil), forCellReuseIdentifier: "NewsBuTTonTableViewCell")
+        tableComments.register(UINib(nibName: "CommentsTableViewCell", bundle: nil), forCellReuseIdentifier: "CommentsTableViewCell")
+    }
     
     func showDetailCompany(){
         let storyboard = UIStoryboard(name: "ProfileCompany", bundle: nil)
@@ -50,33 +54,6 @@ class detailNewsViewController: ZPMasterViewController {
         navigationController?.pushViewController(vc,
         animated: true)
     }
-    
-    func compareDate(strDate: String) -> String {
-          let dateSended = strDate.toDate() ?? Date()
-          let currentDate = Date()
-          let format = DateFormatter()
-          format.dateFormat = "yyyy-MM-dd"
-          
-          let dias = daysBetweenDates(startDate: dateSended, endDate: currentDate)
-          
-          switch  dias{
-          case 0:
-              return "Hoy"
-          default:
-              return  strDate
-          }
-           
-      }
-    
-    func daysBetweenDates(startDate: Date, endDate: Date) -> Int
-       {
-         let calendar = Calendar.current
-           let date1 = calendar.startOfDay(for: startDate)
-           let date2 = calendar.startOfDay(for: endDate)
-
-           let components = calendar.dateComponents([.day], from: date1, to: date2)
-           return components.day ?? 0
-       }
     
     
       func loadYoutube(videoID:String) {
@@ -88,16 +65,10 @@ class detailNewsViewController: ZPMasterViewController {
     
     @objc func play(_ sender: UITapGestureRecognizer? = nil) {
         webView.isHidden = false
-        loadYoutube(videoID: "xwwAVRyNmgQ")
+        loadYoutube(videoID: detailNews?.strVideo ?? "")
     }
     
-    func adjustText(){
-        lblTitle.text = detailNews?.strTitle
-        lblDescription.text = detailNews?.strDescription
-        let time = compareDate(strDate: detailNews?.strPublish_date ?? "")
-        btnTime.setTitle("  \(time)", for: .normal)
-        
-    }
+
     func adjustWebView(){
         webView.layer.cornerRadius = 21
         webView.layer.masksToBounds = true
@@ -154,4 +125,37 @@ extension detailNewsViewController : WKNavigationDelegate, WKUIDelegate {
       func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
          self.activityIndicatorEnd()
       }
+}
+
+extension detailNewsViewController : UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return 1
+        }else {
+            return 3
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section == 0 {
+        let NewsDetail = tableView.dequeueReusableCell(withIdentifier: "NewsBuTTonTableViewCell", for: indexPath) as? NewsBuTTonTableViewCell ?? NewsBuTTonTableViewCell()
+            NewsDetail.detailNews = detailNews
+        return NewsDetail
+        }else {
+        let NewsDetail = tableView.dequeueReusableCell(withIdentifier: "CommentsTableViewCell", for: indexPath) as? CommentsTableViewCell ?? CommentsTableViewCell()
+                      
+        return NewsDetail
+        }
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 300
+    }
+    
+ 
 }
