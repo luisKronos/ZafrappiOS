@@ -16,8 +16,9 @@ public class sendComentario_WS : NSObject {
     var serviceError = NSError(domain: "Error", code: 0, userInfo: nil)
     
     func sendComentario(id_news : Int, user_Id : Int, textcometaio : String, bisReply : Bool? = false , with handler : @escaping CompletionBlock){
-       var getInformation = ""
-        let mail = "q@q.com"
+        var getInformation = ""
+        let getMail =  informationClasify.sharedInstance.data
+        let mail =  getMail?.arrMessage?.strEmail ?? ""
         if bisReply! {
              root = basePath().path(Complement: "comment_reply")
              getInformation = "id_news=\(id_news)&id=\(user_Id)&text_comment=\(textcometaio)&mail=\(mail)&id_comment=\(id_news)"

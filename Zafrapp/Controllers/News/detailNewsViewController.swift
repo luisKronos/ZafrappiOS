@@ -54,14 +54,14 @@ class detailNewsViewController: ZPMasterViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        servicePostulation(id_newsData: Int(detailNews?.intNews ?? "0") ?? 0)
+        getAllComments(id_newsData: Int(detailNews?.intNews ?? "0") ?? 0)
     }
     
     @IBAction func sendComent(_ sender: Any) {
         serviceAddComment(INews: Int(detailNews?.intNews ?? "0") ?? 0, IUser: Int(getUserSaved()) ?? 0, Text: textComent.text)
     }
     
-    func servicePostulation (id_newsData : Int) {
+    func getAllComments (id_newsData : Int) {
           let ws = getAllComments_WS ()
            ws.obtainComents(id_news: id_newsData) {[weak self] (respService, error) in
                guard self != nil else { return }
@@ -111,8 +111,8 @@ class detailNewsViewController: ZPMasterViewController {
     }
     
     func scrollToFirstRow(row : Int) {
-             let indexPath = IndexPath(row: row, section: 0)
-             self.tableComments.scrollToRow(at: indexPath, at: .middle, animated: true)
+             let indexPath = IndexPath(row: row, section: 1)
+             self.tableComments.scrollToRow(at: indexPath, at: .top, animated: true)
            }
     
     @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
@@ -141,14 +141,8 @@ class detailNewsViewController: ZPMasterViewController {
     
     func succesComment (){
         viewComent.backgroundColor = UIColor.gray.withAlphaComponent(0.2)
-        textComent.backgroundColor = UIColor.gray.withAlphaComponent(0.2)
-        let newComment = comment()
-        newComment.HasComments = "0"
-        newComment.text_comment = textComent.text
-        newComment.image = getImageSaved()
-        newComment.name = getNameSaved()
-        newComment.id_user = getUserSaved()
-        comentarios.append(newComment)
+        textComent.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
+        getAllComments(id_newsData: Int(detailNews?.intNews ?? "0") ?? 0)
         tableComments.reloadData()
         checkComments()
     }
@@ -161,7 +155,9 @@ class detailNewsViewController: ZPMasterViewController {
                      if respService?.strStatus == "BAD" {
                         self?.present(ZPAlertGeneric.OneOption(title : "Error", message: respService?.strMessage, actionTitle: "Aceptar"),animated: true)
                      }else {
-                        self?.succesComment()
+                        self?.present(ZPAlertGeneric.OneOption(title : "Nuevo comentario", message: respService?.strMessage, actionTitle: "Aceptar", actionHandler:{ (_) in
+                            self?.succesComment()
+                          }),animated: true)
                      }
                  }else if (error! as NSError).code == -1009 {
                   self?.present(ZPAlertGeneric.OneOption(title : "Conexion de internet", message: "No tienes conexion a internet", actionTitle: "Aceptar"),animated: true)
@@ -293,8 +289,6 @@ extension detailNewsViewController : selectButtonCellDelegate {
      guard let url = URL(string: detailNews?.strUrl ?? "https://google.com") else { return }
      UIApplication.shared.open(url)
     }
-    
-    
 }
 
 extension detailNewsViewController : UITextViewDelegate {

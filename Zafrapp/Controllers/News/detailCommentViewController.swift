@@ -44,13 +44,44 @@ class detailCommentViewController: UIViewController {
            txtView.text = "Haz alcanzado el límite de comentarios, sigue esta conversación por WhatsApp"
            btn.isEnabled = false
            viewComment.backgroundColor = UIColor.gray.withAlphaComponent(0.2)
-           txtView.backgroundColor = UIColor.gray.withAlphaComponent(0.2)
+           txtView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
            txtView.isEditable = false
            let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
              viewComment.addGestureRecognizer(tap)
            }
        }
+    func succesComment (){
+        serviceGetReplyComments(id_newsData: Int(comentSelected?.id_news ?? "0") ?? 0)
+        tbl.reloadData()
+        checkComments()
+    }
+    func getImageSaved() -> String {
+                 let getEmail =  informationClasify.sharedInstance.data
+              return  getEmail?.arrMessage?.strImage ?? ""
+           }
+       
+       func getNameSaved () -> String {
+           let getName =  informationClasify.sharedInstance.data
+           return  getName?.arrMessage?.strName ?? ""
+       }
     
+  func addReplyComments (INews : Int, IUser: Int, Text: String) {
+       let ws = sendComentario_WS ()
+     ws.sendComentario(id_news : INews, user_Id : IUser, textcometaio : Text, bisReply : true) {[weak self] (respService, error) in
+            guard self != nil else { return }
+            if (error! as NSError).code == 0 && respService != nil {
+                if respService?.strStatus == "OK" {
+                    self?.present(ZPAlertGeneric.OneOption(title : "Nuevo comentario", message: respService?.strMessage, actionTitle: "Aceptar", actionHandler:{ (_) in
+                         self?.succesComment()
+                    }),animated: true)
+                }
+            }else if (error! as NSError).code == -1009 {
+                      self?.present(ZPAlertGeneric.OneOption(title : "Conexion de internet", message: "No tienes conexion a internet", actionTitle: "Aceptar"),animated: true)
+                }else {
+                    self?.present(ZPAlertGeneric.OneOption(title : "Error", message: "Intenta de nuevo", actionTitle: "Aceptar"),animated: true)
+                }
+        }
+    }
   
     func serviceGetReplyComments (id_newsData : Int) {
         let ws = getAllComments_WS ()
@@ -79,11 +110,12 @@ class detailCommentViewController: UIViewController {
           }
     
     func scrollToFirstRow(row : Int) {
-                let indexPath = IndexPath(row: row, section: 0)
-                self.tbl.scrollToRow(at: indexPath, at: .middle, animated: true)
+                let indexPath = IndexPath(row: row, section: 1)
+                self.tbl.scrollToRow(at: indexPath, at: .top, animated: true)
               }
     
     func settupVIew () {
+        img.downloaded(from: getImageSaved(), contentMode: .scaleToFill)
       txtView.delegate = self
       tbl.delegate = self
       tbl.dataSource = self
@@ -91,7 +123,7 @@ class detailCommentViewController: UIViewController {
     }
     
     @IBAction func btnAction(_ sender: Any) {
-        
+        addReplyComments(INews: Int(comentSelected?.id_news ?? "0") ?? 0, IUser: Int(getUserSaved()) ?? 0, Text: txtView.text)
     }
     
 }
