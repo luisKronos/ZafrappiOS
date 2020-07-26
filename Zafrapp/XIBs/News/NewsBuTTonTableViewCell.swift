@@ -13,6 +13,8 @@ class NewsBuTTonTableViewCell: UITableViewCell {
     @IBOutlet weak var lblDescription: UILabel!
     @IBOutlet weak var strTime: UIButton!
     
+    var delegate : selectButtonCellDelegate?
+    
     var detailNews : listaNews? {
         didSet {
             lblDescription.text = detailNews?.strDescription
@@ -49,10 +51,13 @@ class NewsBuTTonTableViewCell: UITableViewCell {
     }
     
     @IBAction func ActionShowContact(_ sender: UIButton) {
+        delegate?.showContact()
     }
     
     @IBAction func shareData(_ sender: Any) {
+        delegate?.shareData()
     }
     @IBAction func getLinkAction(_ sender: Any) {
+        delegate?.getLinkAction()
     }
 }

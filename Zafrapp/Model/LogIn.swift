@@ -26,6 +26,7 @@ public class responseLogIn: NSObject {
     public var allCompanies : [company]?
     public var arrClientsData : [clientData]?
     public var allVacants : [postulations]?
+    var allComment : [comment]?
 }
 
 public class messageResponse : NSObject {
@@ -66,6 +67,7 @@ public class listaNews : NSObject {
     public var strVideo           : String?
     public var strClient_id       : String?
     public var strUrl             : String?
+    public var intNews            : String?
 }
 
 public class detailCompany {

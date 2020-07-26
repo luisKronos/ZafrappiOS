@@ -65,6 +65,7 @@ public class getNews_WS : NSObject {
             dataNews.strVideo              = dictionary["video"] as? String
             dataNews.strClient_id          = dictionary["client_id"] as? String
             dataNews.strUrl                = dictionary["url"] as? String
+            dataNews.intNews                = dictionary["id_news"] as? String
             
             arrMov.append(dataNews)
                 

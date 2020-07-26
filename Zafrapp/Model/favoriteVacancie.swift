@@ -21,7 +21,4 @@ class UpdateProfile: Codable {
     var strID : String?
     var bisSaved : Bool?
     var bHeApplied : Bool?
-
-
-    
 }

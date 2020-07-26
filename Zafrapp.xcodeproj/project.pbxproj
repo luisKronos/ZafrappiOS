@@ -59,6 +59,10 @@
 		38E3F86D246139DB00DCE563 /* CreateAccount_WS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E3F86C246139DB00DCE563 /* CreateAccount_WS.swift */; };
 		38E3F86F24613DA500DCE563 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38E3F86E24613DA500DCE563 /* Main.storyboard */; };
 		38E3F8712461963200DCE563 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38E3F8702461963200DCE563 /* Profile.storyboard */; };
+		8930DABE24CCE67500E368B0 /* Comments_WS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8930DABD24CCE67500E368B0 /* Comments_WS.swift */; };
+		8930DAC024CCE6B500E368B0 /* CommentsClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8930DABF24CCE6B500E368B0 /* CommentsClass.swift */; };
+		8930DAC224CD1FA300E368B0 /* SendComment_WS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8930DAC124CD1FA300E368B0 /* SendComment_WS.swift */; };
+		8930DAC424CD284F00E368B0 /* detailCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8930DAC324CD284F00E368B0 /* detailCommentViewController.swift */; };
 		8937FEB824A9AB2E000D6834 /* VacanciesSavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8937FEB724A9AB2E000D6834 /* VacanciesSavedViewController.swift */; };
 		8937FEBA24AADA6E000D6834 /* ShowPDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8937FEB924AADA6E000D6834 /* ShowPDFViewController.swift */; };
 		8937FEBC24AAE28C000D6834 /* choosedJob_WS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8937FEBB24AAE28C000D6834 /* choosedJob_WS.swift */; };
@@ -161,6 +165,10 @@
 		38E3F86C246139DB00DCE563 /* CreateAccount_WS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccount_WS.swift; sourceTree = "<group>"; };
 		38E3F86E24613DA500DCE563 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		38E3F8702461963200DCE563 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		8930DABD24CCE67500E368B0 /* Comments_WS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comments_WS.swift; sourceTree = "<group>"; };
+		8930DABF24CCE6B500E368B0 /* CommentsClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsClass.swift; sourceTree = "<group>"; };
+		8930DAC124CD1FA300E368B0 /* SendComment_WS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendComment_WS.swift; sourceTree = "<group>"; };
+		8930DAC324CD284F00E368B0 /* detailCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailCommentViewController.swift; sourceTree = "<group>"; };
 		8937FEB724A9AB2E000D6834 /* VacanciesSavedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacanciesSavedViewController.swift; sourceTree = "<group>"; };
 		8937FEB924AADA6E000D6834 /* ShowPDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShowPDFViewController.swift; path = Zafrapp/Controllers/SearchJob/ShowPDFViewController.swift; sourceTree = SOURCE_ROOT; };
 		8937FEBB24AAE28C000D6834 /* choosedJob_WS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = choosedJob_WS.swift; sourceTree = "<group>"; };
@@ -250,6 +258,7 @@
 			children = (
 				385F4DD92462793B00E92174 /* News_ViewController.swift */,
 				898A0361247635F500F8B1BB /* detailNewsViewController.swift */,
+				8930DAC324CD284F00E368B0 /* detailCommentViewController.swift */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -414,6 +423,7 @@
 				38E3F86A246137CE00DCE563 /* RegisterAccount.swift */,
 				89D3886C249E4D6300A75773 /* Postulation.swift */,
 				89D3887624A6C40700A75773 /* favoriteVacancie.swift */,
+				8930DABF24CCE6B500E368B0 /* CommentsClass.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -435,6 +445,8 @@
 				89D3887824A7024A00A75773 /* SavePosition_WS.swift */,
 				89D3887C24A7B8EF00A75773 /* dataIngenio_WS.swift */,
 				8937FEBD24AB015F000D6834 /* uploadCV_WS.swift */,
+				8930DABD24CCE67500E368B0 /* Comments_WS.swift */,
+				8930DAC124CD1FA300E368B0 /* SendComment_WS.swift */,
 			);
 			path = WServices;
 			sourceTree = "<group>";
@@ -606,6 +618,7 @@
 				385F4DF32462F49500E92174 /* Cropimage_ViewController.swift in Sources */,
 				89A10708246A696800E6A7D0 /* ZpLabel.swift in Sources */,
 				38D99BB5245FA8630038C853 /* Functions.swift in Sources */,
+				8930DAC024CCE6B500E368B0 /* CommentsClass.swift in Sources */,
 				385F4DCB24626C9900E92174 /* RecoverPassword_WS.swift in Sources */,
 				385F4DE924629AE200E92174 /* EditProfile_ViewController.swift in Sources */,
 				89D3887124A01F6A00A75773 /* detailVacanciViewController.swift in Sources */,
@@ -613,7 +626,9 @@
 				38E3F86B246137CE00DCE563 /* RegisterAccount.swift in Sources */,
 				38D99BDA245FDEF80038C853 /* CreateAccount_ViewController.swift in Sources */,
 				D6D7E5B224631DC900724256 /* updateImage_WS.swift in Sources */,
+				8930DABE24CCE67500E368B0 /* Comments_WS.swift in Sources */,
 				89A075912482E730007FF202 /* SecondaryNewsTableViewCell.swift in Sources */,
+				8930DAC424CD284F00E368B0 /* detailCommentViewController.swift in Sources */,
 				385F4DC724626AF700E92174 /* forgotPassword_ViewController.swift in Sources */,
 				898A035D2474CA3700F8B1BB /* NewssCollectionViewCell.swift in Sources */,
 				89A106C224650B8900E6A7D0 /* DataStates.swift in Sources */,
@@ -654,6 +669,7 @@
 				89A0758A2481EFD4007FF202 /* ExtString.swift in Sources */,
 				385F4DED2462E83A00E92174 /* ShowCamera_ViewController.swift in Sources */,
 				385F4DE7246298B300E92174 /* ExtImage.swift in Sources */,
+				8930DAC224CD1FA300E368B0 /* SendComment_WS.swift in Sources */,
 				38D99BC3245FA9450038C853 /* Login_WS.swift in Sources */,
 				895E78C424874FF6004C1F5E /* getCompany_WS.swift in Sources */,
 				89CC0F2724C8010900B64DF5 /* NewsBuTTonTableViewCell.swift in Sources */,
