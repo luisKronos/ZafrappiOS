@@ -8,7 +8,7 @@
 
 import UIKit
 
-class detailCommentViewController: UIViewController {
+class detailCommentViewController: ZPMasterViewController{
     
     @IBOutlet weak var tbl: UITableView!
     @IBOutlet weak var btn: UIButton!
@@ -21,6 +21,8 @@ class detailCommentViewController: UIViewController {
      var comentarios : [comment] = []
     
     override func viewWillAppear(_ animated: Bool) {
+        comentSelected?.bShowAnswer = true
+        comentSelected?.bisMovSelected = true
         serviceGetReplyComments(id_newsData: Int(comentSelected?.id_news ?? "0") ?? 0)
     }
     
@@ -40,7 +42,7 @@ class detailCommentViewController: UIViewController {
          let checkData = comentarios.filter({$0.id_user == user})
          if checkData.count < 2 {
                txtView.text = "Escribe un comentario..."
-         }else if checkData.count == 2{
+         }else {
            txtView.text = "Haz alcanzado el límite de comentarios, sigue esta conversación por WhatsApp"
            btn.isEnabled = false
            viewComment.backgroundColor = UIColor.gray.withAlphaComponent(0.2)
@@ -48,7 +50,7 @@ class detailCommentViewController: UIViewController {
            txtView.isEditable = false
            let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
              viewComment.addGestureRecognizer(tap)
-           }
+         }
        }
     func succesComment (){
         serviceGetReplyComments(id_newsData: Int(comentSelected?.id_news ?? "0") ?? 0)
@@ -102,17 +104,9 @@ class detailCommentViewController: UIViewController {
      }
     
     @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
-           let user = getUserSaved()
-              let indexs = comentarios.firstIndex(where: { (item) -> Bool in
-                item.id_user == user // test if this is the item you're looking for
-              })
-              scrollToFirstRow(row: indexs ?? 0)
-          }
-    
-    func scrollToFirstRow(row : Int) {
-                let indexPath = IndexPath(row: row, section: 1)
-                self.tbl.scrollToRow(at: indexPath, at: .top, animated: true)
-              }
+        print ( comentSelected?.id_client)
+        }
+   
     
     func settupVIew () {
         img.downloaded(from: getImageSaved(), contentMode: .scaleToFill)
@@ -123,7 +117,11 @@ class detailCommentViewController: UIViewController {
     }
     
     @IBAction func btnAction(_ sender: Any) {
-        addReplyComments(INews: Int(comentSelected?.id_news ?? "0") ?? 0, IUser: Int(getUserSaved()) ?? 0, Text: txtView.text)
+        if txtView.text == "Escribe un comentario..."{
+        present(ZPAlertGeneric.OneOption(title : "Nuevo comentario", message: "Ingresa un comentario", actionTitle: "Aceptar"),animated: true)
+        }else {
+           addReplyComments(INews: Int(comentSelected?.id_news ?? "0") ?? 0, IUser: Int(getUserSaved()) ?? 0, Text: txtView.text)
+        }
     }
     
 }
@@ -138,9 +136,11 @@ extension detailCommentViewController : UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let customCell = tableView.dequeueReusableCell(withIdentifier: "CommentsTableViewCell", for: indexPath) as? CommentsTableViewCell ?? CommentsTableViewCell()
+         customCell.selectionStyle = .none
         if indexPath.section == 0 {
             customCell.aComent = comentSelected
         }else {
+            customCell.selectionStyle = .none
             if comentarios.count > 0 {
             let coment = comentarios[indexPath.row]
             customCell.aComent = coment

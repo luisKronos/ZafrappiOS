@@ -26,6 +26,8 @@ class detailNewsViewController: ZPMasterViewController {
     @IBOutlet weak var textComent: UITextView!
     @IBOutlet weak var viewComent: UIView!
     @IBOutlet weak var btnSend: UIButton!
+    @IBOutlet weak var lycComent: NSLayoutConstraint!
+    @IBOutlet weak var lycNew: NSLayoutConstraint!
     
     
     var detailNews : listaNews?
@@ -47,6 +49,9 @@ class detailNewsViewController: ZPMasterViewController {
             imgPlay.isUserInteractionEnabled = true
             imgPlay.addGestureRecognizer(tap)
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        
        configTable()
        adjustImageView()
        adjustWebView()
@@ -58,9 +63,36 @@ class detailNewsViewController: ZPMasterViewController {
     }
     
     @IBAction func sendComent(_ sender: Any) {
-        serviceAddComment(INews: Int(detailNews?.intNews ?? "0") ?? 0, IUser: Int(getUserSaved()) ?? 0, Text: textComent.text)
+        if textComent.text == "Escribe un comentario..."{
+        present(ZPAlertGeneric.OneOption(title : "Nuevo comentario", message: "Ingresa un comentario", actionTitle: "Aceptar"),animated: true)
+        }else {
+           serviceAddComment(INews: Int(detailNews?.intNews ?? "0") ?? 0, IUser: Int(getUserSaved()) ?? 0, Text: textComent.text)
+        }
     }
+    @objc func keyboardNotification(notification: NSNotification) {
+             if let userInfo = notification.userInfo {
+                 let endFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+                 let endFrameY = endFrame?.origin.y ?? 0
+                 let duration:TimeInterval = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
+                 let animationCurveRawNSN = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber
+                 let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIView.AnimationOptions.curveEaseInOut.rawValue
+                 let animationCurve:UIView.AnimationOptions = UIView.AnimationOptions(rawValue: animationCurveRaw)
+                 if endFrameY >= UIScreen.main.bounds.size.height {
+                     self.lycComent?.constant = 0.0
+                 } else {
+                     self.lycComent?.constant = (endFrame?.size.height ?? 0.0)
+                 }
+                 UIView.animate(withDuration: duration,
+                                            delay: TimeInterval(0),
+                                            options: animationCurve,
+                                            animations: { self.view.layoutIfNeeded() },
+                                            completion: nil)
+             }
+         }
     
+    deinit {
+           NotificationCenter.default.removeObserver(self)
+       }
     func getAllComments (id_newsData : Int) {
           let ws = getAllComments_WS ()
            ws.obtainComents(id_news: id_newsData) {[weak self] (respService, error) in
@@ -246,9 +278,11 @@ extension detailNewsViewController : UITableViewDelegate, UITableViewDataSource 
         let customCell = tableView.dequeueReusableCell(withIdentifier: "NewsBuTTonTableViewCell", for: indexPath) as? NewsBuTTonTableViewCell ?? NewsBuTTonTableViewCell()
             customCell.detailNews = detailNews
             customCell.delegate = self
+            customCell.selectionStyle = .none
         return customCell
         }else {
         let customCell = tableView.dequeueReusableCell(withIdentifier: "CommentsTableViewCell", for: indexPath) as? CommentsTableViewCell ?? CommentsTableViewCell()
+            customCell.selectionStyle = .none
             if comentarios.count > 0 {
                 let coment = comentarios[indexPath.row]
                 customCell.aComent = coment

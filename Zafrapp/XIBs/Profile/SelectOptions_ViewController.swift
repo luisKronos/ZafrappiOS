@@ -9,16 +9,8 @@
 import UIKit
 
 class SelectOptions_ViewController: UITableViewCell {
-
     
     @IBOutlet weak var lblText: UILabel!
     @IBOutlet weak var lblImage: UIImageView!
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
     
 }

@@ -129,14 +129,14 @@
                                 </wkWebViewConfiguration>
                             </wkWebView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="w8N-4h-ohw">
-                                <rect key="frame" x="0.0" y="344" width="414" height="385.5"/>
+                                <rect key="frame" x="0.0" y="344" width="414" height="367.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sf7-uD-gcT">
-                                <rect key="frame" x="0.0" y="729.5" width="414" height="83.5"/>
+                                <rect key="frame" x="0.0" y="711.5" width="414" height="101.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a6f-B8-LKk">
-                                        <rect key="frame" x="20" y="14" width="55" height="55"/>
+                                        <rect key="frame" x="20" y="23" width="55" height="55"/>
                                         <color key="backgroundColor" name="DarkBlue"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="55" id="IuR-Bj-aI1"/>
@@ -144,7 +144,7 @@
                                         </constraints>
                                     </imageView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="svF-uT-L7B">
-                                        <rect key="frame" x="83" y="12" width="273" height="59.5"/>
+                                        <rect key="frame" x="83" y="12" width="273" height="77.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="kRG-XT-BSo"/>
@@ -159,7 +159,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8d-k2-a1e">
-                                        <rect key="frame" x="364" y="29.5" width="40" height="24"/>
+                                        <rect key="frame" x="364" y="38.5" width="40" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="PiY-dm-Zdl"/>
                                         </constraints>
@@ -200,7 +200,7 @@
                             <constraint firstItem="kP7-XS-GIZ" firstAttribute="trailing" secondItem="Sf7-uD-gcT" secondAttribute="trailing" id="oVD-eP-qOS"/>
                             <constraint firstItem="ReE-o0-TIs" firstAttribute="top" secondItem="kP7-XS-GIZ" secondAttribute="top" constant="30" id="pao-zk-vLm"/>
                             <constraint firstItem="w8N-4h-ohw" firstAttribute="top" secondItem="ReE-o0-TIs" secondAttribute="bottom" constant="20" id="qAu-1F-hPo"/>
-                            <constraint firstItem="w8N-4h-ohw" firstAttribute="height" secondItem="ptC-fR-3qQ" secondAttribute="height" multiplier="0.43" id="wxT-ej-jBk"/>
+                            <constraint firstItem="w8N-4h-ohw" firstAttribute="height" secondItem="ptC-fR-3qQ" secondAttribute="height" multiplier="0.41" id="wxT-ej-jBk"/>
                             <constraint firstItem="Dyo-JQ-WWo" firstAttribute="height" secondItem="ptC-fR-3qQ" secondAttribute="height" multiplier="0.23" id="xgu-vI-sfr"/>
                             <constraint firstItem="kP7-XS-GIZ" firstAttribute="trailing" secondItem="Dyo-JQ-WWo" secondAttribute="trailing" constant="30" id="zvg-Pn-5fC"/>
                         </constraints>
@@ -215,6 +215,8 @@
                         <outlet property="image" destination="ReE-o0-TIs" id="XtU-7q-X6c"/>
                         <outlet property="imgPlay" destination="txw-fK-xmg" id="2Vn-Rc-AwQ"/>
                         <outlet property="imgUser" destination="a6f-B8-LKk" id="fmz-DU-nd7"/>
+                        <outlet property="lycComent" destination="m1v-kG-BAI" id="sOg-wI-3yu"/>
+                        <outlet property="lycNew" destination="RET-Rw-HsC" id="5N2-fw-cda"/>
                         <outlet property="tableComments" destination="w8N-4h-ohw" id="g8K-te-awa"/>
                         <outlet property="textComent" destination="svF-uT-L7B" id="AAr-kT-5F8"/>
                         <outlet property="viewComent" destination="Sf7-uD-gcT" id="OfN-S3-65k"/>
@@ -235,10 +237,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dVd-TC-PG1">
-                                <rect key="frame" x="0.0" y="729.5" width="414" height="83.5"/>
+                                <rect key="frame" x="0.0" y="718" width="414" height="95"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bPH-Jj-NMU">
-                                        <rect key="frame" x="20" y="14.5" width="55" height="55"/>
+                                        <rect key="frame" x="20" y="20" width="55" height="55"/>
                                         <color key="backgroundColor" name="DarkBlue"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="55" id="7S1-qK-MLW"/>
@@ -251,7 +253,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Bm3-JO-6KD">
-                                        <rect key="frame" x="83" y="12" width="273" height="59.5"/>
+                                        <rect key="frame" x="83" y="12" width="273" height="71"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="XN0-kB-qkO"/>
@@ -266,7 +268,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t7r-WH-nV9">
-                                        <rect key="frame" x="364" y="30" width="40" height="24"/>
+                                        <rect key="frame" x="364" y="35.5" width="40" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="Rh0-NO-ADg"/>
                                         </constraints>
@@ -279,7 +281,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.95546572910000005" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="83.5" id="5Tc-We-aUc"/>
+                                    <constraint firstAttribute="height" constant="95" id="5Tc-We-aUc"/>
                                     <constraint firstAttribute="trailing" secondItem="t7r-WH-nV9" secondAttribute="trailing" constant="10" id="8mt-vl-128"/>
                                     <constraint firstItem="Bm3-JO-6KD" firstAttribute="top" secondItem="dVd-TC-PG1" secondAttribute="top" constant="12" id="AhG-Zh-sCO"/>
                                     <constraint firstItem="bPH-Jj-NMU" firstAttribute="centerY" secondItem="dVd-TC-PG1" secondAttribute="centerY" id="HVR-aW-DDp"/>
@@ -291,7 +293,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="giM-qx-wfG">
-                                <rect key="frame" x="0.0" y="88" width="414" height="641.5"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="630"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                         </subviews>

@@ -43,7 +43,7 @@ public class getAllComments_WS : NSObject {
                 DispatchQueue.main.async(execute: {
                     do {
                    if let json = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String:Any] {
-                            handler(self.parseInformation(fromDicResponse: json), self.serviceError)
+                    handler(self.parseInformation(fromDicResponse: json, bShowResponse: bIsReply!), self.serviceError)
                     }
                 } catch {
                         handler(nil, self.serviceError)
@@ -56,7 +56,7 @@ public class getAllComments_WS : NSObject {
 }
 
     
-      func parseInformation (fromDicResponse dctResponse: [String : Any]) -> responseLogIn? {
+    func parseInformation (fromDicResponse dctResponse: [String : Any], bShowResponse : Bool) -> responseLogIn? {
               let data = responseLogIn ()
              var arrComments : [comment] = []
             data.strStatus = dctResponse["status"] as? String
@@ -78,6 +78,7 @@ public class getAllComments_WS : NSObject {
                     commentario.user_image = data?["user_image"] as? String
                     commentario.company_name = data?["company_name"] as? String
                     commentario.client_image = data?["client_image"] as? String
+                    commentario.bShowAnswer = bShowResponse
                     arrComments.append(commentario)
                 }
               }
