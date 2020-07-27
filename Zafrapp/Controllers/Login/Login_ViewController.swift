@@ -128,6 +128,13 @@ class Login_ViewController: ZPMasterViewController {
 
     }
     
+    @IBAction func btnShowWebSite(_ sender: Any) {
+        guard let url = URL(string: "https://zafrapp.com/") else { return }
+        UIApplication.shared.open(url)
+
+    }
+    
+    
     @IBAction func btnForgotPassw(_ sender: Any) {
         self.performSegue(withIdentifier: "LogInVcToPasswordForgotVc", sender: nil)
     }

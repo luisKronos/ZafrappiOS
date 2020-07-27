@@ -32,21 +32,17 @@ class UserTableViewCell: UITableViewCell {
                 default:
                     return
                 }
-            var phoneOffice = ""
-            var cell = ""
             shadowView()
             lblUser.text = client?.strName
-            if client?.strIs_share_cel == "1"{
-                cell = "\n\(client?.strCelphone ?? "")"
-             }else {
-                cell = ""
-             }
-            if client?.strNumber_office?.isEmpty ?? false || client?.strNumber_office == nil {
-                  phoneOffice = ""
-             }else {
-                  phoneOffice = "\(client?.strNumber_office ?? "") Ext(\(client?.strExt ?? ""))"
-                }
-            lblInformation.text = "\(client?.strEmail ?? "")\n\(client?.strWork_place ?? "")\(cell)\n\(client?.strWork_deparment ?? "")\n\(phoneOffice)"
+            if let url = URL(string: client?.strImage ?? "") {
+            imgUser.downloaded(from: url, contentMode: .scaleAspectFit)
+            imgUser.isHidden = false
+            lblName.backgroundColor = UIColor.white
+            }else {
+             imgUser.isHidden = true
+            }
+     
+            lblInformation.text = "\(client?.strWork_place ?? "")\n\(client?.strWork_deparment ?? "")"
         }
     }
     
@@ -59,6 +55,12 @@ class UserTableViewCell: UITableViewCell {
        return result
     }
     
+    override func prepareForReuse() {
+        lblUser.text = ""
+        lblInformation.text = ""
+        imgUser.image = UIImage(contentsOfFile: "")
+        lblName.text = ""
+    }
     func shadowView () {
         viewBackground.layer.cornerRadius = 25
         viewBackground.layer.shadowColor = UIColor.lightGray.cgColor

@@ -287,11 +287,7 @@ extension GetAddress_ViewController: UITableViewDelegate, UITableViewDataSource 
                  }else {
                     userSelection = allUser[indexPath.row]
                  }
-                    if let url = URL(string: userSelection?.strImage ?? "") {
-                    Usercell.imgUser.downloaded(from: url, contentMode: .scaleAspectFit)
-                    }else {
-                        
-                    }
+                    
                      Usercell.client = userSelection
                      Usercell.selectionStyle = .none
                      return Usercell
@@ -316,7 +312,7 @@ extension GetAddress_ViewController: UITableViewDelegate, UITableViewDataSource 
             return 30
         }else{
             if typeOfCell == 1 {
-                return 145
+                return 110
             }else {
                 return 100
             }

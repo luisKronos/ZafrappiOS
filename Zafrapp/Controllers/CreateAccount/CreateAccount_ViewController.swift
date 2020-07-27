@@ -33,11 +33,6 @@ class CreateAccount_ViewController: ZPMasterViewController {
         }
     }
     @IBOutlet weak var switchPublisPhone: UISwitch!
-    @IBOutlet weak var txtBirthDay: ZPDesignableUITextField!{
-        didSet{
-            txtBirthDay.delegate = self
-        }
-    }
     @IBOutlet weak var txtProfesion: ZPDesignableUITextField!{
         didSet{
             txtProfesion.delegate = self
@@ -64,6 +59,23 @@ class CreateAccount_ViewController: ZPMasterViewController {
             txtOtroIngenio.delegate = self
         }
     }
+    
+    @IBOutlet weak var txtDay: ZPDesignableUITextField!{
+        didSet{
+            txtDay.delegate = self
+        }
+    }
+    @IBOutlet weak var txtMonth: ZPDesignableUITextField!{
+        didSet {
+            txtMonth.delegate = self
+        }
+    }
+    @IBOutlet weak var txtYear: ZPDesignableUITextField!{
+        didSet{
+            txtYear.delegate = self
+        }
+    }
+    
     @IBOutlet weak var lblErrorotroDepartamento: UILabel!
     @IBOutlet weak var lblErrorOtroIngenio: UILabel!
     @IBOutlet weak var lblErrorName: UILabel!
@@ -99,7 +111,7 @@ class CreateAccount_ViewController: ZPMasterViewController {
    
     //MARK:IBAction
     @IBAction func btnRegister(_ sender: Any) {
-        if UITextField.validateAll(textFields: [txtName,txtEmail,txtCelular,txtBirthDay,txtProfesion,txtDepartmentJob,txtPlaceToWork]) && ((txtEmail.validateEmail(field: txtEmail) != nil)) && txtCelular.text?.count == 10 {
+        if UITextField.validateAll(textFields: [txtName,txtEmail,txtCelular,txtDay,txtMonth,txtYear,txtProfesion,txtDepartmentJob,txtPlaceToWork]) && ((txtEmail.validateEmail(field: txtEmail) != nil)) && txtCelular.text?.count == 10 && Int(txtDay.text ?? "0") ?? 0 < 32  && Int(txtMonth.text ?? "0") ?? 0 < 13 && Int(txtYear.text ?? "") ?? 0 < 2020{
             if txtDepartmentJob.text == "Otro" && txtPlaceToWork.text == "Otro (Cuál)"{
                 if !(txtOtroIngenio.text?.isEmpty ?? false) && !(txtOtroDpto.text?.isEmpty ?? false){
                   saveAllAndService (departamento : txtOtroDpto.text! , ingenio: txtOtroIngenio.text!)
@@ -135,7 +147,7 @@ class CreateAccount_ViewController: ZPMasterViewController {
         DatosRegistrar.strName = txtName.text
         DatosRegistrar.strEmail = txtEmail.text
         DatosRegistrar.intPhone = Int(txtCelular.text ?? "")
-        DatosRegistrar.strBirthDay = txtBirthDay.text
+        DatosRegistrar.strBirthDay = "\(txtDay.text ?? "")/\(txtMonth.text ?? "")/\(txtYear.text ?? "")"
         DatosRegistrar.strCurrent_job = txtProfesion.text
         DatosRegistrar.strWork_place = ingenio
         DatosRegistrar.strWork_deparment = departamento
@@ -186,9 +198,11 @@ class CreateAccount_ViewController: ZPMasterViewController {
         }else if txtCelular.text?.count ?? 0 < 10 {
             lbleErrorCellPhone.text = "Ingresa un número válido"
         }
-        if txtBirthDay.text?.isEmpty ?? false{
-                  lblErrorBirthDay.text = "Selecciona una fecha"
-              }
+        if txtYear.text?.isEmpty ?? false || txtMonth.text?.isEmpty ?? false || txtDay.text?.isEmpty ?? false{
+            lblErrorBirthDay.text = "Ingresa una fecha"
+        }else if  Int(txtDay.text ?? "0") ?? 0 > 31  || Int(txtMonth.text ?? "0") ?? 0 > 12 || Int(txtYear.text ?? "") ?? 0 > 2019{
+             lblErrorBirthDay.text = "Ingresa una fecha válida"
+        }
         if txtProfesion.text?.isEmpty ?? false{
                   lblErrorProfession.text = "Selecciona una profesión"
               }
@@ -211,32 +225,6 @@ class CreateAccount_ViewController: ZPMasterViewController {
       txtDepartmentJob.inputView = picker
       txtPlaceToWork.inputView = picker
     }
-    @objc func doneDatePicker(){
-         let formatter = DateFormatter()
-         formatter.dateFormat = "dd/MM/yyyy"
-         txtBirthDay.text = formatter.string(from: datePicker.date)
-         self.view.endEditing(true)
-       }
-
-       @objc func cancelDatePicker(){
-          self.view.endEditing(true)
-        }
-    func showDatePicker(){
-          let loc = Locale(identifier: "es_PE")
-          datePicker.locale = loc
-          datePicker.datePickerMode = .date
-           
-           let doneButton = UIBarButtonItem(title: "Listo", style: UIBarButtonItem.Style.done, target: self, action: #selector(self.doneDatePicker))
-           let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-           let cancelButton = UIBarButtonItem(title: "Cancelar", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.cancelDatePicker))
-
-         let toolbar = UIToolbar()
-         toolbar.sizeToFit()
-         toolbar.setItems([cancelButton, spaceButton, doneButton], animated: false)
-         toolbar.isUserInteractionEnabled = true
-         txtBirthDay.inputAccessoryView = toolbar
-         txtBirthDay.inputView = datePicker
-       }
 }
 
 //MARK: Textfield Delegate
@@ -262,6 +250,7 @@ extension CreateAccount_ViewController : UITextFieldDelegate {
         lblErrorProfession.text = ""
         lblErrorPlaceToWork.text = ""
         lblErrorName.text = ""
+        lblErrorBirthDay.text = ""
         if textField.tag == typeOfDataPicker_Enum.Departamento.rawValue {
             lycHeighDepto.constant = 30
             txtOtroDpto.isHidden = true
@@ -279,7 +268,6 @@ extension CreateAccount_ViewController : UITextFieldDelegate {
             picker.delegate?.pickerView?(picker, didSelectRow: 0, inComponent: 0)
         }else if textField.tag == typeOfDataPicker_Enum.birthDay.rawValue {
             intTypePicker = typeOfDataPicker_Enum.birthDay.rawValue
-            showDatePicker()
             picker.delegate?.pickerView?(picker, didSelectRow: 0, inComponent: 0)
         }
       }

@@ -86,6 +86,15 @@ class CommentsTableViewCell: UITableViewCell {
          }
          return result
       }
+    override func prepareForReuse() {
+        lblName.text = ""
+        lblcomments.text = ""
+        lblDate.text = ""
+        lblAnswers.text = ""
+        imgProfile.image = UIImage(contentsOfFile: "")
+        imgOtherUser.image = UIImage(contentsOfFile: "")
+        labelName.text = ""
+    }
     
     func changeColorLabel (Name:String){
         labelName.text = Name[0 ..< 2]
