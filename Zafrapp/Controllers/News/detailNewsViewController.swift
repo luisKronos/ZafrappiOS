@@ -27,8 +27,6 @@ class detailNewsViewController: ZPMasterViewController {
     @IBOutlet weak var viewComent: UIView!
     @IBOutlet weak var btnSend: UIButton!
     @IBOutlet weak var lycComent: NSLayoutConstraint!
-    @IBOutlet weak var lycNew: NSLayoutConstraint!
-    
     
     var detailNews : listaNews?
     var strIdCompany : String?
@@ -38,6 +36,7 @@ class detailNewsViewController: ZPMasterViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        image.enableZoom()
         strIdCompany = detailNews?.strClient_id
         webView.isHidden = true
         textComent.delegate = self
@@ -78,9 +77,9 @@ class detailNewsViewController: ZPMasterViewController {
                  let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIView.AnimationOptions.curveEaseInOut.rawValue
                  let animationCurve:UIView.AnimationOptions = UIView.AnimationOptions(rawValue: animationCurveRaw)
                  if endFrameY >= UIScreen.main.bounds.size.height {
-                     self.lycComent?.constant = 0.0
+                     self.lycComent.constant = 0.0
                  } else {
-                     self.lycComent?.constant = (endFrame?.size.height ?? 0.0)
+                     self.lycComent.constant = (endFrame?.size.height ?? 0.0)-90
                  }
                  UIView.animate(withDuration: duration,
                                             delay: TimeInterval(0),
@@ -95,8 +94,10 @@ class detailNewsViewController: ZPMasterViewController {
        }
     func getAllComments (id_newsData : Int) {
           let ws = getAllComments_WS ()
+        self.activityIndicatorBegin()
            ws.obtainComents(id_news: id_newsData) {[weak self] (respService, error) in
                guard self != nil else { return }
+                self?.activityIndicatorEnd()
                if (error! as NSError).code == 0 && respService != nil {
                    if respService?.strStatus == "OK" {
                        self?.comentarios = respService?.allComment ?? []
@@ -181,8 +182,10 @@ class detailNewsViewController: ZPMasterViewController {
     
     func serviceAddComment (INews : Int, IUser: Int, Text: String) {
             let ws = sendComentario_WS ()
+        self.activityIndicatorBegin()
              ws.sendComentario(id_news : INews, user_Id : IUser, textcometaio : Text) {[weak self] (respService, error) in
                  guard self != nil else { return }
+                self?.activityIndicatorEnd()
                  if (error! as NSError).code == 0 && respService != nil {
                      if respService?.strStatus == "BAD" {
                         self?.present(ZPAlertGeneric.OneOption(title : "Error", message: respService?.strMessage, actionTitle: "Aceptar"),animated: true)

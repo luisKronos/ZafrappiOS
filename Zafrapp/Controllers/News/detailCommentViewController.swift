@@ -14,8 +14,10 @@ class detailCommentViewController: ZPMasterViewController{
     @IBOutlet weak var btn: UIButton!
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var txtView: UITextView!
-    
+    @IBOutlet weak var lycHeight: NSLayoutConstraint!
     @IBOutlet weak var viewComment: UIView!
+    @IBOutlet weak var lycHeightDetail: NSLayoutConstraint!
+    
     
      var comentSelected : comment?
      var comentarios : [comment] = []
@@ -23,6 +25,10 @@ class detailCommentViewController: ZPMasterViewController{
     override func viewWillAppear(_ animated: Bool) {
         comentSelected?.bShowAnswer = true
         comentSelected?.bisMovSelected = true
+        if comentSelected?.id_user != getUserSaved() {
+            viewComment.isHidden = true
+            lycHeightDetail.constant = 10
+        }
         serviceGetReplyComments(id_newsData: Int(comentSelected?.id_news ?? "0") ?? 0)
     }
     
@@ -30,6 +36,33 @@ class detailCommentViewController: ZPMasterViewController{
         super.viewDidLoad()
         settupVIew()
         checkComments()
+        
+    NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+    
+    @objc func keyboardNotification(notification: NSNotification) {
+        if let userInfo = notification.userInfo {
+            let endFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+            let endFrameY = endFrame?.origin.y ?? 0
+            let duration:TimeInterval = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
+            let animationCurveRawNSN = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber
+            let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIView.AnimationOptions.curveEaseInOut.rawValue
+            let animationCurve:UIView.AnimationOptions = UIView.AnimationOptions(rawValue: animationCurveRaw)
+            if endFrameY >= UIScreen.main.bounds.size.height {
+                self.lycHeight.constant = 0.0
+            } else {
+                self.lycHeight.constant = (endFrame?.size.height ?? 0.0)-90
+            }
+            UIView.animate(withDuration: duration,
+                                       delay: TimeInterval(0),
+                                       options: animationCurve,
+                                       animations: { self.view.layoutIfNeeded() },
+                                       completion: nil)
+        }
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     func getUserSaved() -> String {
@@ -69,8 +102,10 @@ class detailCommentViewController: ZPMasterViewController{
     
   func addReplyComments (INews : Int, IUser: Int, Text: String) {
        let ws = sendComentario_WS ()
+    self.activityIndicatorBegin()
      ws.sendComentario(id_news : INews, user_Id : IUser, textcometaio : Text, bisReply : true) {[weak self] (respService, error) in
             guard self != nil else { return }
+          self?.activityIndicatorEnd()
             if (error! as NSError).code == 0 && respService != nil {
                 if respService?.strStatus == "OK" {
                     self?.present(ZPAlertGeneric.OneOption(title : "Nuevo comentario", message: respService?.strMessage, actionTitle: "Aceptar", actionHandler:{ (_) in
@@ -87,8 +122,10 @@ class detailCommentViewController: ZPMasterViewController{
   
     func serviceGetReplyComments (id_newsData : Int) {
         let ws = getAllComments_WS ()
+         self.activityIndicatorBegin()
         ws.obtainComents(id_news: id_newsData, bIsReply : true) {[weak self] (respService, error) in
              guard self != nil else { return }
+              self?.activityIndicatorEnd()
              if (error! as NSError).code == 0 && respService != nil {
                  if respService?.strStatus == "OK" {
                      self?.comentarios = respService?.allComment ?? []
@@ -102,10 +139,18 @@ class detailCommentViewController: ZPMasterViewController{
             }
          }
      }
+    func showDetailCompany (IdClient: String) {
+              let storyboard = UIStoryboard(name: "ProfileCompany", bundle: nil)
+              let vc = storyboard.instantiateViewController(withIdentifier: "profileVc") as! ProfileCompanyViewController
+              vc.strIdCompany = IdClient
+              vc.modalPresentationStyle = .fullScreen
+              navigationController?.pushViewController(vc,
+              animated: true)
+          }
     
     @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
-        print ( comentSelected?.id_client)
-        }
+        showDetailCompany(IdClient: comentSelected?.id_client ?? "3")
+    }
    
     
     func settupVIew () {

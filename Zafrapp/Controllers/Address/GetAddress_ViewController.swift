@@ -38,6 +38,7 @@ class GetAddress_ViewController: ZPMasterViewController , UIGestureRecognizerDel
         configTable ()
         executeServiceCompany(Email: getEmailSaved())
         addSegmentedControled()
+        swipeDown()
     }
     
     func getEmailSaved() -> String{
@@ -46,6 +47,26 @@ class GetAddress_ViewController: ZPMasterViewController , UIGestureRecognizerDel
            return email ?? ""
        }
     
+    func swipeDown () {
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture))
+           swipeDown.direction = .down
+           self.viewEmpty.addGestureRecognizer(swipeDown)
+    }
+    
+    @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            switch swipeGesture.direction {
+            case .down:
+                if typeOfCell == 1 {
+                 executeServiceUser(Email: getEmailSaved())
+                }else {
+                 executeServiceCompany(Email: getEmailSaved())
+                }
+            default:
+                break
+            }
+         }
+        }
     func executeServiceCompany (Email : String?, companyName : String = "", isSearch : Bool = false, section : Int = 0) {
            self.activityIndicatorBegin()
           let ws = getCompany_WS ()
@@ -65,7 +86,7 @@ class GetAddress_ViewController: ZPMasterViewController , UIGestureRecognizerDel
                         self.search.searchTextField.isUserInteractionEnabled = true
                         self.arrCompaniesFilter = respService?.allCompanies ?? []
                     }else {
-                        self.arrCompanies = respService?.allCompanies ?? []
+                     self.arrCompanies = respService?.allCompanies ?? []
                         if self.arrCompanies.count > 0 {
                             self.tableAccount.isHidden = false
                         }
@@ -102,8 +123,7 @@ class GetAddress_ViewController: ZPMasterViewController , UIGestureRecognizerDel
                             self.search.searchTextField.isUserInteractionEnabled = true
                             self.arrUserFilter = respService?.arrClientsData ?? []
                         }else {
-//                          self.allUser = respService?.arrClientsData ?? []
-                            self.allUser = []
+                          self.allUser = respService?.arrClientsData ?? []
                             if self.allUser.count > 0 {
                                 self.tableAccount.isHidden = false
                             }

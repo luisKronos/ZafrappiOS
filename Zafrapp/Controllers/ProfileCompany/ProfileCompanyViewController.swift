@@ -19,22 +19,27 @@ class ProfileCompanyViewController: ZPMasterViewController {
     @IBOutlet weak var lblOfferJob: UILabel!
     @IBOutlet weak var lblTitleOffer: UILabel!
     @IBOutlet weak var lycChange: NSLayoutConstraint!
-    @IBOutlet weak var lycChange2: NSLayoutConstraint!
     
     var strIdCompany = ""
     var locationManager:CLLocationManager!
     var isIngenio = false
     var hideServices = false
+    var cellPhone = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
          roundImage()
-          executeService(email: getEmailSaved(), idClient: strIdCompany)
+        executeService(email: getEmailSaved(), idClient: strIdCompany)
+        
         }
     
     override func viewWillAppear(_ animated: Bool) {
           self.determineMyCurrentLocation()
       }
+    
+
+    
+   
     
     func determineMyCurrentLocation() {
         locationManager = CLLocationManager()
@@ -74,11 +79,11 @@ class ProfileCompanyViewController: ZPMasterViewController {
         titleCompany.text = detail?.strName_Contact
         lblWho.text = detail?.strDescription
         lblWhere.text = "\(detail?.strState ?? ""), \(detail?.strMunicipio ?? ""), \(detail?.strStreet ?? ""),\(detail?.strNumber_ST ?? ""), CP. \(detail?.strCP ?? "")"
+        cellPhone = detail?.strtel ?? ""
         if hideServices {
          lblOfferJob.text = ""
          lblTitleOffer.text = ""
             lycChange.constant = 0
-            lycChange2.constant = 0
         }else {
          lblOfferJob.text = detail?.strService
         }
@@ -112,14 +117,20 @@ class ProfileCompanyViewController: ZPMasterViewController {
             self.activityIndicatorEnd()
             if (error! as NSError).code == 0 && respService != nil {
                 if respService?.strStatus == "BAD" {
-                        self.present(ZPAlertGeneric.OneOption(title : "Error", message: respService?.strMessage, actionTitle: "Aceptar"),animated: true)
+                        self.present(ZPAlertGeneric.OneOption(title : "Error", message: respService?.strMessage, actionTitle: "Aceptar", actionHandler:{ (_) in
+                            self.navigationController?.popViewController(animated: true)
+                        } ),animated: true)
                 }else {
                     self.updateLabel(detail: respService?.detailCompany)
                 }
             }else if (error! as NSError).code == -1009 {
-              self.present(ZPAlertGeneric.OneOption(title : "Conexion de internet", message: "No tienes conexion a internet", actionTitle: "Aceptar"),animated: true)
+              self.present(ZPAlertGeneric.OneOption(title : "Conexion de internet", message: "No tienes conexion a internet", actionTitle: "Aceptar", actionHandler:{ (_) in
+                  self.navigationController?.popViewController(animated: true)
+              } ),animated: true)
             }else {
-              self.present(ZPAlertGeneric.OneOption(title : "Error", message: "Intenta de nuevo", actionTitle: "Aceptar"),animated: true)
+              self.present(ZPAlertGeneric.OneOption(title : "Error", message: "Intenta de nuevo", actionTitle: "Aceptar", actionHandler:{ (_) in
+                  self.navigationController?.popViewController(animated: true)
+              } ),animated: true)
             }
         }
     }
@@ -131,18 +142,47 @@ class ProfileCompanyViewController: ZPMasterViewController {
             self.activityIndicatorEnd()
             if (error! as NSError).code == 0 && respService != nil {
                 if respService?.strStatus == "BAD" {
-                        self.present(ZPAlertGeneric.OneOption(title : "Error", message: respService?.strMessage, actionTitle: "Aceptar"),animated: true)
+                    self.present(ZPAlertGeneric.OneOption(title : "Error", message: respService?.strMessage, actionTitle: "Aceptar", actionHandler:{ (_) in
+                        self.navigationController?.popViewController(animated: true)
+                    } ),animated: true)
                 }else {
                     self.updateLabel(detail: respService?.detailCompany)
                 }
             }else if (error! as NSError).code == -1009 {
-              self.present(ZPAlertGeneric.OneOption(title : "Conexion de internet", message: "No tienes conexion a internet", actionTitle: "Aceptar"),animated: true)
+              self.present(ZPAlertGeneric.OneOption(title : "Conexion de internet", message: "No tienes conexion a internet", actionTitle: "Aceptar",actionHandler:{ (_) in
+                  self.navigationController?.popViewController(animated: true)
+              } ),animated: true)
             }else {
-              self.present(ZPAlertGeneric.OneOption(title : "Error", message: "Intenta de nuevo", actionTitle: "Aceptar"),animated: true)
+              self.present(ZPAlertGeneric.OneOption(title : "Error", message: "Intenta de nuevo", actionTitle: "Aceptar", actionHandler:{ (_) in
+                  self.navigationController?.popViewController(animated: true)
+              } ),animated: true)
             }
         }
     }
-
+    @IBAction func btnShowWhatsApp(_ sender: Any) {
+        let phoneNumber = cellPhone
+        openWhatsapp(number: phoneNumber)
+    }
+    
+    func openWhatsapp(number:String){
+        let urlWhats = "whatsapp://send?phone=+52\(number)"
+        if let urlString = urlWhats.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed){
+            if let whatsappURL = URL(string: urlString) {
+                if UIApplication.shared.canOpenURL(whatsappURL){
+                    if #available(iOS 10.0, *) {
+                        UIApplication.shared.open(whatsappURL, options: [:], completionHandler: nil)
+                    } else {
+                        UIApplication.shared.openURL(whatsappURL)
+                    }
+                }
+                else {
+                    print("Install Whatsapp")
+                }
+            }
+        }
+    }
+    
+    
     func roundImage () {
         imageRound.layer.cornerRadius = imageRound.frame.height / 2
         imageRound.layer.borderColor = UIColor.white.cgColor
