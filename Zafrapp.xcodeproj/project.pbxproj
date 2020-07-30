@@ -60,9 +60,12 @@
 		38E3F86F24613DA500DCE563 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38E3F86E24613DA500DCE563 /* Main.storyboard */; };
 		38E3F8712461963200DCE563 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38E3F8702461963200DCE563 /* Profile.storyboard */; };
 		8930DABE24CCE67500E368B0 /* Comments_WS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8930DABD24CCE67500E368B0 /* Comments_WS.swift */; };
-		8930DAC024CCE6B500E368B0 /* CommentsClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8930DABF24CCE6B500E368B0 /* CommentsClass.swift */; };
 		8930DAC224CD1FA300E368B0 /* SendComment_WS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8930DAC124CD1FA300E368B0 /* SendComment_WS.swift */; };
 		8930DAC424CD284F00E368B0 /* detailCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8930DAC324CD284F00E368B0 /* detailCommentViewController.swift */; };
+		8930DAC824CFD6A600E368B0 /* ImageScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8930DAC724CFD6A600E368B0 /* ImageScrollViewController.swift */; };
+		8930DB1624D1350400E368B0 /* imageScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8930DB1524D1350400E368B0 /* imageScroll.swift */; };
+		8930DB1C24D1A75B00E368B0 /* splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8930DB1B24D1A75B00E368B0 /* splash.storyboard */; };
+		8930DB1F24D1A7C900E368B0 /* AutoLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8930DB1E24D1A7C900E368B0 /* AutoLoginViewController.swift */; };
 		8937FEB824A9AB2E000D6834 /* VacanciesSavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8937FEB724A9AB2E000D6834 /* VacanciesSavedViewController.swift */; };
 		8937FEBA24AADA6E000D6834 /* ShowPDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8937FEB924AADA6E000D6834 /* ShowPDFViewController.swift */; };
 		8937FEBC24AAE28C000D6834 /* choosedJob_WS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8937FEBB24AAE28C000D6834 /* choosedJob_WS.swift */; };
@@ -166,9 +169,12 @@
 		38E3F86E24613DA500DCE563 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		38E3F8702461963200DCE563 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		8930DABD24CCE67500E368B0 /* Comments_WS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comments_WS.swift; sourceTree = "<group>"; };
-		8930DABF24CCE6B500E368B0 /* CommentsClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsClass.swift; sourceTree = "<group>"; };
 		8930DAC124CD1FA300E368B0 /* SendComment_WS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendComment_WS.swift; sourceTree = "<group>"; };
 		8930DAC324CD284F00E368B0 /* detailCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailCommentViewController.swift; sourceTree = "<group>"; };
+		8930DAC724CFD6A600E368B0 /* ImageScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScrollViewController.swift; sourceTree = "<group>"; };
+		8930DB1524D1350400E368B0 /* imageScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageScroll.swift; sourceTree = "<group>"; };
+		8930DB1B24D1A75B00E368B0 /* splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = splash.storyboard; sourceTree = "<group>"; };
+		8930DB1E24D1A7C900E368B0 /* AutoLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLoginViewController.swift; sourceTree = "<group>"; };
 		8937FEB724A9AB2E000D6834 /* VacanciesSavedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacanciesSavedViewController.swift; sourceTree = "<group>"; };
 		8937FEB924AADA6E000D6834 /* ShowPDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShowPDFViewController.swift; path = Zafrapp/Controllers/SearchJob/ShowPDFViewController.swift; sourceTree = SOURCE_ROOT; };
 		8937FEBB24AAE28C000D6834 /* choosedJob_WS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = choosedJob_WS.swift; sourceTree = "<group>"; };
@@ -259,6 +265,7 @@
 				385F4DD92462793B00E92174 /* News_ViewController.swift */,
 				898A0361247635F500F8B1BB /* detailNewsViewController.swift */,
 				8930DAC324CD284F00E368B0 /* detailCommentViewController.swift */,
+				8930DAC724CFD6A600E368B0 /* ImageScrollViewController.swift */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -375,6 +382,7 @@
 				385F4DCE246277CC00E92174 /* Adrees.storyboard */,
 				385F4DD0246277E700E92174 /* searchJob.storyboard */,
 				895E78BC24873756004C1F5E /* ProfileCompany.storyboard */,
+				8930DB1B24D1A75B00E368B0 /* splash.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -393,6 +401,7 @@
 				89A10707246A696800E6A7D0 /* ZpLabel.swift */,
 				898A0363247649BB00F8B1BB /* SegmentedControllerCustom.swift */,
 				89A07587248198D9007FF202 /* DataInteres.swift */,
+				8930DB1524D1350400E368B0 /* imageScroll.swift */,
 			);
 			path = Generics;
 			sourceTree = "<group>";
@@ -423,7 +432,6 @@
 				38E3F86A246137CE00DCE563 /* RegisterAccount.swift */,
 				89D3886C249E4D6300A75773 /* Postulation.swift */,
 				89D3887624A6C40700A75773 /* favoriteVacancie.swift */,
-				8930DABF24CCE6B500E368B0 /* CommentsClass.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -454,6 +462,7 @@
 		38D99BC6245FB1BF0038C853 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8930DB1D24D1A7AC00E368B0 /* AutoLogin */,
 				8937FEB624A9AB15000D6834 /* vacancies */,
 				895E78BE24873CC7004C1F5E /* ProfileCompany */,
 				385F4DE1246282E200E92174 /* Profile */,
@@ -465,6 +474,14 @@
 				385F4DBD24619FE900E92174 /* Login */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		8930DB1D24D1A7AC00E368B0 /* AutoLogin */ = {
+			isa = PBXGroup;
+			children = (
+				8930DB1E24D1A7C900E368B0 /* AutoLoginViewController.swift */,
+			);
+			path = AutoLogin;
 			sourceTree = "<group>";
 		};
 		8937FEB624A9AB15000D6834 /* vacancies */ = {
@@ -569,6 +586,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8930DB1C24D1A75B00E368B0 /* splash.storyboard in Resources */,
 				895E78BD24873756004C1F5E /* ProfileCompany.storyboard in Resources */,
 				385F4DE024627D6B00E92174 /* SelectOptions_ViewController.xib in Resources */,
 				898A036D247654BF00F8B1BB /* UserTableViewCell.xib in Resources */,
@@ -610,6 +628,7 @@
 				895E78C024873CEF004C1F5E /* ProfileCompanyViewController.swift in Sources */,
 				8937FEBC24AAE28C000D6834 /* choosedJob_WS.swift in Sources */,
 				385F4DEF2462ECD800E92174 /* imageSelected_Viewcontroller.swift in Sources */,
+				8930DB1F24D1A7C900E368B0 /* AutoLoginViewController.swift in Sources */,
 				38D99BAA245FA6B20038C853 /* ZpImage.swift in Sources */,
 				385F4DC324624CCB00E92174 /* ExtLabel.swift in Sources */,
 				8937FEBE24AB015F000D6834 /* uploadCV_WS.swift in Sources */,
@@ -618,7 +637,6 @@
 				385F4DF32462F49500E92174 /* Cropimage_ViewController.swift in Sources */,
 				89A10708246A696800E6A7D0 /* ZpLabel.swift in Sources */,
 				38D99BB5245FA8630038C853 /* Functions.swift in Sources */,
-				8930DAC024CCE6B500E368B0 /* CommentsClass.swift in Sources */,
 				385F4DCB24626C9900E92174 /* RecoverPassword_WS.swift in Sources */,
 				385F4DE924629AE200E92174 /* EditProfile_ViewController.swift in Sources */,
 				89D3887124A01F6A00A75773 /* detailVacanciViewController.swift in Sources */,
@@ -659,6 +677,7 @@
 				89D3886F249FD02300A75773 /* ExtSesrchBar.swift in Sources */,
 				38D99BC8245FB1D30038C853 /* Login_ViewController.swift in Sources */,
 				89A106C424651E3200E6A7D0 /* seccionsProfile_WS.swift in Sources */,
+				8930DAC824CFD6A600E368B0 /* ImageScrollViewController.swift in Sources */,
 				38D99B93245F98AD0038C853 /* SceneDelegate.swift in Sources */,
 				385F4DDF24627D6B00E92174 /* SelectOptions_ViewController.swift in Sources */,
 				89CC0F2B24C8096200B64DF5 /* CommentsTableViewCell.swift in Sources */,
@@ -677,6 +696,7 @@
 				385F4DE32462830F00E92174 /* Profile_ViewController.swift in Sources */,
 				898A03682476510000F8B1BB /* CompaniesTableViewCell.swift in Sources */,
 				38D99BD8245FD5740038C853 /* ExtButton.swift in Sources */,
+				8930DB1624D1350400E368B0 /* imageScroll.swift in Sources */,
 				898A036C247654BF00F8B1BB /* UserTableViewCell.swift in Sources */,
 				38D99BAE245FA76B0038C853 /* ZpButton.swift in Sources */,
 			);

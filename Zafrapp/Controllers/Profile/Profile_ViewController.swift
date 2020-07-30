@@ -129,10 +129,6 @@ class Profile_ViewController: UIViewController {
        let thirthTitle = optionsProfile ()
         thirthTitle.strTitle = "Mi cv"
         thirthTitle.strImage = "cv"
-        //CambiarImagen
-//       let fourthTitle = optionsProfile ()
-//        fourthTitle.strTitle = "Valorar la app"
-//        fourthTitle.strImage = "like"
       let fifthTitle = optionsProfile ()
         fifthTitle.strTitle = "Cerrar sesión"
         fifthTitle.strImage = "LogOut"
@@ -189,6 +185,16 @@ extension Profile_ViewController: UITableViewDelegate , UITableViewDataSource {
     }
     
     func presentLogIn() {
+        
+       UserDefaults.standard.removeObject(forKey: UserDefaultsConstants_Enum.defaultRecoverUser.rawValue)
+        UserDefaults.standard.removeObject(forKey:UserDefaultsConstants_Enum.defaultRecoverDrowssap.rawValue)
+//        let vc = storyboard?.instantiateViewController(withIdentifier: "ViewController")
+//        let navVC = UINavigationController(rootViewController: vc!)
+//        let share = UIApplication.shared.delegate as? AppDelegate
+//        share?.window?.rootViewController = navVC
+//        share?.window?.makeKeyAndVisible()
+        
+        
        let storyboard = UIStoryboard(name: "Login", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "Login_Nav")
         vc.modalPresentationStyle = .fullScreen

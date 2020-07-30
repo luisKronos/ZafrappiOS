@@ -111,3 +111,22 @@ public class clientData : NSObject {
     public var strNumber_office     : String?
     public var strExt               : String?
 }
+
+class comment  {
+    var id_comment: String?
+    var text_comment:String?
+    var id_news:String?
+    var id_client:String?
+    var id_user:String?
+    var reply_comment:String?
+    var date:String?
+    var image:String?
+    var name:String?
+    var HasComments:String?
+    
+    var user_image:String?
+    var company_name : String?
+    var client_image : String?
+    var bShowAnswer : Bool?
+    var bisMovSelected : Bool?
+}

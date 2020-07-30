@@ -17,10 +17,11 @@ class detailCommentViewController: ZPMasterViewController{
     @IBOutlet weak var lycHeight: NSLayoutConstraint!
     @IBOutlet weak var viewComment: UIView!
     @IBOutlet weak var lycHeightDetail: NSLayoutConstraint!
+    @IBOutlet weak var lblNAme: UILabel!
     
-    
-     var comentSelected : comment?
-     var comentarios : [comment] = []
+    var bIsImageIsSaved = false
+    var comentSelected : comment?
+    var comentarios : [comment] = []
     
     override func viewWillAppear(_ animated: Bool) {
         comentSelected?.bShowAnswer = true
@@ -154,12 +155,27 @@ class detailCommentViewController: ZPMasterViewController{
    
     
     func settupVIew () {
-        img.downloaded(from: getImageSaved(), contentMode: .scaleToFill)
+        let imagefromDocuments: UIImage? = getImageFromDocument().fileInDocumentsDirectory(filename: "ProfilePicture\(getUserSaved()).jpg")
+            if  bIsImageIsSaved{
+                self.img.image = imagefromDocuments
+                lblNAme.isHidden = true
+            }else {
+                var urlImage : String? = getImageSaved()
+                urlImage = getImageSaved().isEmpty ? nil : getImageSaved()
+                if let image = urlImage {
+                   img.downloaded(from: image, contentMode: .scaleToFill)
+                   lblNAme.isHidden = true
+                    }else {
+                   lblNAme.isHidden = false
+                 changeLabel().changeColorLabel(Name: getNameSaved(), label: lblNAme)
+                }
+        }
       txtView.delegate = self
       tbl.delegate = self
       tbl.dataSource = self
       tbl.register(UINib(nibName: "CommentsTableViewCell", bundle: nil), forCellReuseIdentifier: "CommentsTableViewCell")
     }
+
     
     @IBAction func btnAction(_ sender: Any) {
         if txtView.text == "Escribe un comentario..."{

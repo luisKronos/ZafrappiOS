@@ -29,13 +29,13 @@
                         <rect key="frame" x="10" y="10" width="300" height="109"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Usuario" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNv-co-gAP">
-                                <rect key="frame" x="90" y="15" width="200" height="17"/>
+                                <rect key="frame" x="90" y="15" width="200" height="14"/>
                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="12"/>
                                 <color key="textColor" name="GreyZafrapp"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Celular" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xqZ-3b-sp9">
-                                <rect key="frame" x="90" y="32" width="200" height="67"/>
+                                <rect key="frame" x="90" y="29" width="200" height="70"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="11"/>
                                 <color key="textColor" name="GreyZafrapp"/>
                                 <nil key="highlightedColor"/>

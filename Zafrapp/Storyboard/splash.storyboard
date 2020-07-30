@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LsZ-6K-7GQ">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Bold.ttf">
+            <string>Poppins-Bold</string>
+        </array>
+        <array key="Poppins-Regular.ttf">
+            <string>Poppins-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Auto Login View Controller-->
+        <scene sceneID="dew-x7-jEi">
+            <objects>
+                <viewController storyboardIdentifier="autoLoginVC" id="zpu-Qk-qCP" customClass="AutoLoginViewController" customModule="Zafrapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ucS-sh-rtX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="www.zafrapp.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="53k-YR-Fmy">
+                                <rect key="frame" x="144" y="130" width="126.5" height="20"/>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cnR-Pd-CMX">
+                                <rect key="frame" x="107" y="228" width="200" height="200"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="PFP-jK-3Db"/>
+                                    <constraint firstAttribute="height" constant="200" id="Wa2-e6-tgp"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="Hmw-qu-k3a">
+                                <rect key="frame" x="147" y="268" width="120" height="120"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¡BIENVENIDO AL GREMIO AZUCARERO DE MÉXICO!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMc-fB-bIe">
+                                <rect key="frame" x="40" y="498" width="334" height="56"/>
+                                <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sembrando proyectos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uf3-hj-Jxl">
+                                <rect key="frame" x="40" y="584" width="334" height="21"/>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Hmw-qu-k3a" firstAttribute="width" secondItem="cnR-Pd-CMX" secondAttribute="width" multiplier="0.6" id="5sf-zz-1KA"/>
+                            <constraint firstItem="53k-YR-Fmy" firstAttribute="top" secondItem="IUa-IX-6PJ" secondAttribute="top" constant="42" id="6aq-nK-jBz"/>
+                            <constraint firstItem="cnR-Pd-CMX" firstAttribute="centerX" secondItem="IUa-IX-6PJ" secondAttribute="centerX" id="CVb-Fx-haH"/>
+                            <constraint firstItem="Hmw-qu-k3a" firstAttribute="centerX" secondItem="cnR-Pd-CMX" secondAttribute="centerX" id="FXR-xN-fo5"/>
+                            <constraint firstItem="fMc-fB-bIe" firstAttribute="centerX" secondItem="IUa-IX-6PJ" secondAttribute="centerX" id="Gd0-To-NFS"/>
+                            <constraint firstItem="53k-YR-Fmy" firstAttribute="centerX" secondItem="IUa-IX-6PJ" secondAttribute="centerX" id="Jz7-TT-Oa2"/>
+                            <constraint firstItem="cnR-Pd-CMX" firstAttribute="top" secondItem="53k-YR-Fmy" secondAttribute="bottom" constant="78" id="Ouy-mT-z8O"/>
+                            <constraint firstItem="fMc-fB-bIe" firstAttribute="leading" secondItem="ucS-sh-rtX" secondAttribute="leading" constant="40" id="Rvx-KK-SI3"/>
+                            <constraint firstItem="uf3-hj-Jxl" firstAttribute="centerX" secondItem="IUa-IX-6PJ" secondAttribute="centerX" id="Vau-0Z-ajU"/>
+                            <constraint firstAttribute="trailing" secondItem="fMc-fB-bIe" secondAttribute="trailing" constant="40" id="Wzh-JR-0te"/>
+                            <constraint firstItem="uf3-hj-Jxl" firstAttribute="top" secondItem="fMc-fB-bIe" secondAttribute="bottom" constant="30" id="bws-dt-gCa"/>
+                            <constraint firstItem="fMc-fB-bIe" firstAttribute="top" secondItem="cnR-Pd-CMX" secondAttribute="bottom" constant="70" id="glu-6t-GQb"/>
+                            <constraint firstAttribute="trailing" secondItem="uf3-hj-Jxl" secondAttribute="trailing" constant="40" id="l2p-mu-kv8"/>
+                            <constraint firstItem="Hmw-qu-k3a" firstAttribute="centerY" secondItem="cnR-Pd-CMX" secondAttribute="centerY" id="n8G-bF-N8X"/>
+                            <constraint firstItem="uf3-hj-Jxl" firstAttribute="leading" secondItem="IUa-IX-6PJ" secondAttribute="leading" constant="40" id="ncv-gt-Q3K"/>
+                            <constraint firstItem="Hmw-qu-k3a" firstAttribute="height" secondItem="cnR-Pd-CMX" secondAttribute="height" multiplier="0.6" id="tyY-jq-i9i"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="IUa-IX-6PJ"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="r5i-Ih-w1O"/>
+                    <connections>
+                        <segue destination="Y0H-Mg-0t4" kind="show" identifier="segueSplashToNews" id="wc0-bI-IH2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p98-8p-ZNg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="962.31884057971024" y="375"/>
+        </scene>
+        <!--TabBarInitial-->
+        <scene sceneID="lKO-df-Oxm">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="TabBarInitial" id="Y0H-Mg-0t4" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="zc5-WN-2bV"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r7h-jR-cZj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1492.0289855072465" y="330.80357142857139"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8t3-Mb-ORY">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LsZ-6K-7GQ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jGy-wR-laV">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="zpu-Qk-qCP" kind="relationship" relationship="rootViewController" id="iT0-v1-qnE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1PQ-3c-vU7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Logo" width="124" height="121"/>
+    </resources>
+</document>

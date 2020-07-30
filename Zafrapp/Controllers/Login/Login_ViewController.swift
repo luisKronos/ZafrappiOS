@@ -51,6 +51,7 @@ class Login_ViewController: ZPMasterViewController {
         
         btnCreateAccountOut.setAttributedTitle(firstSentence, for: .normal)
     }
+    
     func executeService (DataUser : LogInData?) {
         self.activityIndicatorBegin()
        let ws = LogIn_WC ()
@@ -61,7 +62,9 @@ class Login_ViewController: ZPMasterViewController {
                 if respService?.strStatus == "BAD" {
                         self.present(ZPAlertGeneric.OneOption(title : "Error", message: respService?.strMessage, actionTitle: "Aceptar"),animated: true)
                 }else {
+                    if self.isSaveData {
                     self.saveInformation(dataUser: self.information.strName ?? "", dataPassword: self.information.strPass ?? "")
+                     }
                         self.responseInfo = respService ?? responseLogIn()
                         informationClasify.sharedInstance.data = self.responseInfo
                         self.performSegue(withIdentifier: "LoginVcToNews", sender: nil)
@@ -88,8 +91,10 @@ class Login_ViewController: ZPMasterViewController {
     
     
     func saveInformation (dataUser:String, dataPassword: String) {
+        print(UserDefaultsConstants_Enum.defaultRecoverDrowssap.rawValue)
         defaults.set(dataPassword, forKey: UserDefaultsConstants_Enum.defaultRecoverDrowssap.rawValue)
         defaults.set(dataUser, forKey: UserDefaultsConstants_Enum.defaultRecoverUser.rawValue)
+        defaults.set(true, forKey: UserDefaultsConstants_Enum.bIsSaved.rawValue)
     }
     
     func checkFields () {
@@ -117,10 +122,12 @@ class Login_ViewController: ZPMasterViewController {
     @IBAction func btnRememberPassw(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
         if sender.isSelected {
+             isSaveData = true
              if let image = UIImage(named: "iconCheck") {
                 self.imgRemember.image = image
             }
         }else {
+            isSaveData = false
             if let image = UIImage(named: "iconUncheck") {
                 self.imgRemember.image = image
             }

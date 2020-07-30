@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import  MobileCoreServices
 
 class AdjustandCropViewController: UIViewController {
 
@@ -26,6 +27,7 @@ class AdjustandCropViewController: UIViewController {
     var imagePick = UIImage ()
     var bShowPhotoLibrary = false
     var imgToSend : UIImage?
+    var imgSelected = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +43,7 @@ class AdjustandCropViewController: UIViewController {
          {
              if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
                  let myPickerController = UIImagePickerController()
-                 myPickerController.delegate = self;
+                 myPickerController.delegate = self
                  myPickerController.sourceType = .photoLibrary
                  self.present(myPickerController, animated: true, completion: nil)
              }
@@ -58,7 +60,14 @@ class AdjustandCropViewController: UIViewController {
     
     @IBAction func btnCorrect(_ sender: Any) {
         imgToSend = scrollImage.screenshot()
-        performSegue(withIdentifier: "cropImage", sender: nil)
+        if imgSelected {
+          performSegue(withIdentifier: "cropImage", sender: nil)
+        }else {
+            self.present(ZPAlertGeneric.OneOption(title : "Error", message: "Para continuar debes seleccionar una foto", actionTitle:"Aceptar", actionHandler: {(_) in
+                    self.photoLibrary()
+            }),animated: true)
+        }
+       
     }
    
     
@@ -84,8 +93,18 @@ extension AdjustandCropViewController : UIImagePickerControllerDelegate,UINaviga
         } else {
             return
         }
-        imagePick = newImage
-        image.image = imagePick
-        dismiss(animated: true)
+        
+        let assetPath = info[UIImagePickerController.InfoKey.referenceURL] as! NSURL
+           if (assetPath.absoluteString?.hasSuffix("JPG"))! || (assetPath.absoluteString?.hasSuffix("PNG"))! {
+               imagePick = newImage
+               image.image = imagePick
+                imgSelected = true
+                dismiss(animated: true)
+           }else {
+              dismiss(animated: true)
+            self.present(ZPAlertGeneric.OneOption(title : "Error", message: "Sólo puedes seleccionar imagenes de tipo : .JPG y .png", actionTitle: "Aceptar", actionHandler: {(_) in
+                self.photoLibrary()
+            }),animated: true)
+           }
     }
 }

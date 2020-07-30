@@ -11,13 +11,18 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
          UINavigationBar.appearance().tintColor = UIColor.white
-        // Override point for customization after application launch.
-        return true
+            return true
     }
+    
+    func check() {
+        
+        if UserDefaults.standard.bool(forKey: UserDefaultsConstants_Enum.bIsSaved.rawValue) {
+            print ("si entra")
+        }
 
     // MARK: UISceneSession Lifecycle
 

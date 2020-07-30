@@ -12,6 +12,7 @@ import UIKit
 enum UserDefaultsConstants_Enum: String {
     case defaultRecoverUser                         = "username"
     case defaultRecoverDrowssap                     = "password"
+    case bIsSaved                                   = "bSaved"
 }
 
 enum typeOfDataPicker_Enum: Int {

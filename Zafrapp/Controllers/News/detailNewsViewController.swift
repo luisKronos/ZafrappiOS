@@ -27,21 +27,27 @@ class detailNewsViewController: ZPMasterViewController {
     @IBOutlet weak var viewComent: UIView!
     @IBOutlet weak var btnSend: UIButton!
     @IBOutlet weak var lycComent: NSLayoutConstraint!
+    @IBOutlet weak var lblName: UILabel!
     
     var detailNews : listaNews?
     var strIdCompany : String?
     var comentarios : [comment] = []
     var Selection = comment ()
+    var imageIsSaved : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        image.enableZoom()
+        getAllComments(id_newsData: Int(detailNews?.intNews ?? "0") ?? 0)
+        
         strIdCompany = detailNews?.strClient_id
         webView.isHidden = true
         textComent.delegate = self
         if detailNews?.strVideo == nil{
             imgPlay.isHidden = true
+          let tapImage = UITapGestureRecognizer(target: self, action: #selector(showImage))
+            image.isUserInteractionEnabled = true
+            image.addGestureRecognizer(tapImage)
         }else {
             imgPlay.isHidden = false
             let tap = UITapGestureRecognizer(target: self, action: #selector(play))
@@ -55,10 +61,6 @@ class detailNewsViewController: ZPMasterViewController {
        adjustImageView()
        adjustWebView()
         checkComments()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        getAllComments(id_newsData: Int(detailNews?.intNews ?? "0") ?? 0)
     }
     
     @IBAction func sendComent(_ sender: Any) {
@@ -88,6 +90,8 @@ class detailNewsViewController: ZPMasterViewController {
                                             completion: nil)
              }
          }
+    
+    
     
     deinit {
            NotificationCenter.default.removeObserver(self)
@@ -151,7 +155,7 @@ class detailNewsViewController: ZPMasterViewController {
     @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
         let user = getUserSaved()
            let indexs = comentarios.firstIndex(where: { (item) -> Bool in
-             item.id_user == user // test if this is the item you're looking for
+             item.id_user == user
            })
            scrollToFirstRow(row: indexs ?? 0)
        }
@@ -212,7 +216,9 @@ class detailNewsViewController: ZPMasterViewController {
         webView.isHidden = false
         loadYoutube(videoID: detailNews?.strVideo ?? "")
     }
-    
+    @objc func showImage(_ sender: UITapGestureRecognizer? = nil) {
+        performSegue(withIdentifier: "showImage", sender: nil)
+       }
 
     func adjustWebView(){
         webView.layer.cornerRadius = 21
@@ -229,16 +235,51 @@ class detailNewsViewController: ZPMasterViewController {
     image.layer.masksToBounds = true
     image.clipsToBounds = true
     imgUser.layer.cornerRadius = imgUser.frame.size.width / 2
-    imgUser.downloaded(from: getImageSaved(), contentMode: .scaleToFill)
+        let imagefromDocuments: UIImage? = getImageFromDocument().fileInDocumentsDirectory(filename: "ProfilePicture\(getUserSaved()).jpg")
+              if  checkIfImageIsSaved(){
+               self.imgUser.image = imagefromDocuments
+                imageIsSaved = true
+                lblName.isHidden = true
+              }else {
+                var urlImage : String? = getImageSaved()
+                urlImage = getImageSaved().isEmpty ? nil : getImageSaved()
+                if let image = urlImage {
+                 imgUser.downloaded(from: image, contentMode: .scaleToFill)
+                lblName.isHidden = true
+                    }else {
+                lblName.isHidden = false
+                changeLabel().changeColorLabel(Name: getNameSaved(), label: lblName)
+                            }
+                
+              }
+    }
+    
+    func checkIfImageIsSaved()-> Bool {
+        let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
+        let url = NSURL(fileURLWithPath: path)
+        if let pathComponent = url.appendingPathComponent("ProfilePicture\(getUserSaved()).jpg") {
+            let filePath = pathComponent.path
+            let fileManager = FileManager.default
+            if fileManager.fileExists(atPath: filePath) {
+                return true
+            } else {
+                return false
+            }
+        } else {
+            return false
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-                 if (segue.identifier == "DetailNewMessage"){
-                     let vcTableMovements = segue.destination as? detailCommentViewController
-                         vcTableMovements?.comentSelected = Selection
-                     }
-                 }
-         
+      if (segue.identifier == "DetailNewMessage"){
+      let vcTableMovements = segue.destination as? detailCommentViewController
+       vcTableMovements?.comentSelected = Selection
+        vcTableMovements?.bIsImageIsSaved = true
+         }else if (segue.identifier == "showImage"){
+        let vcTableMovements = segue.destination as? ImageScrollViewController
+         vcTableMovements?.urlImage = detailNews?.strImage ?? ""
+        }
+    }
 }
 
 extension detailNewsViewController : WKNavigationDelegate, WKUIDelegate {
