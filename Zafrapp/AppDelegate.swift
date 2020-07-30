@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if UserDefaults.standard.bool(forKey: UserDefaultsConstants_Enum.bIsSaved.rawValue) {
             print ("si entra")
         }
+    }
 
     // MARK: UISceneSession Lifecycle
 
