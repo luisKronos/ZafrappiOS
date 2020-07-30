@@ -17,13 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          UINavigationBar.appearance().tintColor = UIColor.white
             return true
     }
-    
-    func check() {
-        
-        if UserDefaults.standard.bool(forKey: UserDefaultsConstants_Enum.bIsSaved.rawValue) {
-            print ("si entra")
-        }
-    }
 
     // MARK: UISceneSession Lifecycle
 

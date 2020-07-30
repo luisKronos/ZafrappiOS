@@ -66,6 +66,7 @@
 		8930DB1624D1350400E368B0 /* imageScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8930DB1524D1350400E368B0 /* imageScroll.swift */; };
 		8930DB1C24D1A75B00E368B0 /* splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8930DB1B24D1A75B00E368B0 /* splash.storyboard */; };
 		8930DB1F24D1A7C900E368B0 /* AutoLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8930DB1E24D1A7C900E368B0 /* AutoLoginViewController.swift */; };
+		8930DB2224D2808700E368B0 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8930DB2124D2808700E368B0 /* WebKit.framework */; };
 		8937FEB824A9AB2E000D6834 /* VacanciesSavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8937FEB724A9AB2E000D6834 /* VacanciesSavedViewController.swift */; };
 		8937FEBA24AADA6E000D6834 /* ShowPDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8937FEB924AADA6E000D6834 /* ShowPDFViewController.swift */; };
 		8937FEBC24AAE28C000D6834 /* choosedJob_WS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8937FEBB24AAE28C000D6834 /* choosedJob_WS.swift */; };
@@ -175,6 +176,7 @@
 		8930DB1524D1350400E368B0 /* imageScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageScroll.swift; sourceTree = "<group>"; };
 		8930DB1B24D1A75B00E368B0 /* splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = splash.storyboard; sourceTree = "<group>"; };
 		8930DB1E24D1A7C900E368B0 /* AutoLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLoginViewController.swift; sourceTree = "<group>"; };
+		8930DB2124D2808700E368B0 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		8937FEB724A9AB2E000D6834 /* VacanciesSavedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacanciesSavedViewController.swift; sourceTree = "<group>"; };
 		8937FEB924AADA6E000D6834 /* ShowPDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShowPDFViewController.swift; path = Zafrapp/Controllers/SearchJob/ShowPDFViewController.swift; sourceTree = SOURCE_ROOT; };
 		8937FEBB24AAE28C000D6834 /* choosedJob_WS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = choosedJob_WS.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8930DB2224D2808700E368B0 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,6 +330,7 @@
 			children = (
 				38D99B8F245F98AD0038C853 /* Zafrapp */,
 				38D99B8E245F98AD0038C853 /* Products */,
+				8930DB2024D2808600E368B0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -482,6 +486,14 @@
 				8930DB1E24D1A7C900E368B0 /* AutoLoginViewController.swift */,
 			);
 			path = AutoLogin;
+			sourceTree = "<group>";
+		};
+		8930DB2024D2808600E368B0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8930DB2124D2808700E368B0 /* WebKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		8937FEB624A9AB15000D6834 /* vacancies */ = {

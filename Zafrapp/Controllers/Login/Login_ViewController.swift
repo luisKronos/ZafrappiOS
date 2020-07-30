@@ -91,7 +91,6 @@ class Login_ViewController: ZPMasterViewController {
     
     
     func saveInformation (dataUser:String, dataPassword: String) {
-        print(UserDefaultsConstants_Enum.defaultRecoverDrowssap.rawValue)
         defaults.set(dataPassword, forKey: UserDefaultsConstants_Enum.defaultRecoverDrowssap.rawValue)
         defaults.set(dataUser, forKey: UserDefaultsConstants_Enum.defaultRecoverUser.rawValue)
         defaults.set(true, forKey: UserDefaultsConstants_Enum.bIsSaved.rawValue)

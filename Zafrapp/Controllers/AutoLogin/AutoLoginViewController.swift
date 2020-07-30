@@ -18,17 +18,13 @@ class AutoLoginViewController: ZPMasterViewController{
 
         information.strName = UserDefaults.standard.string(forKey: UserDefaultsConstants_Enum.defaultRecoverUser.rawValue)
         information.strPass = UserDefaults.standard.string(forKey: UserDefaultsConstants_Enum.defaultRecoverDrowssap.rawValue)
-        print (UserDefaults.standard.string(forKey: UserDefaultsConstants_Enum.defaultRecoverUser.rawValue))
-        print (UserDefaultsConstants_Enum.defaultRecoverDrowssap.rawValue)
        executeService(DataUser: information)
     }
  
     func executeService (DataUser : LogInData?) {
-           self.activityIndicatorBegin()
           let ws = LogIn_WC ()
            ws.logInClient(Data: DataUser ?? LogInData()) {[weak self] (respService, error) in
                 guard let self = self else { return }
-               self.activityIndicatorEnd()
                if (error! as NSError).code == 0 && respService != nil {
                    if respService?.strStatus == "BAD" {
                         self.present(ZPAlertGeneric.OneOption(title : "Error", message: respService?.strMessage, actionTitle: "Aceptar"),animated: true)
@@ -38,11 +34,29 @@ class AutoLoginViewController: ZPMasterViewController{
                            self.performSegue(withIdentifier: "segueSplashToNews", sender: nil)
                    }
                }else if (error! as NSError).code == -1009 {
-                 self.present(ZPAlertGeneric.OneOption(title : "Conexion de internet", message: "No tienes conexion a internet", actionTitle: "Aceptar"),animated: true)
+                self.present(ZPAlertGeneric.OneOption(title : "Conexion de internet", message: "No tienes conexion a internet", actionTitle: "Aceptar", actionHandler: {(_) in
+                    self.showLogIn ()
+                }),animated: true)
                }else {
-                 self.present(ZPAlertGeneric.OneOption(title : "Error", message: "Intenta de nuevo", actionTitle: "Aceptar"),animated: true)
+                self.present(ZPAlertGeneric.OneOption(title : "Error", message: "Intenta de nuevo", actionTitle: "Aceptar",actionHandler:{(_) in
+                    self.showLogIn ()
+                }),animated: true)
                }
            }
        }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "segueSplashToNews") {
+          let vcLogin = segue.destination as? TabBarManage_ViewController
+          vcLogin?.modalPresentationStyle = .fullScreen
+          vcLogin?.selectedIndex = 0
+        }
+    }
+    func showLogIn () {
+        let storyboard = UIStoryboard(name: "Login", bundle: nil)
+              let vc = storyboard.instantiateViewController(withIdentifier: "Login_Nav")
+              vc.modalPresentationStyle = .fullScreen
+              self.present(vc, animated: true)
+    }
 
 }

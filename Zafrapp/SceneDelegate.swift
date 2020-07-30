@@ -11,13 +11,18 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
-
+    var Splash : AutoLoginViewController?
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+         guard let windowScene = (scene as? UIWindowScene) else { return }
+           if UserDefaults.standard.bool(forKey: UserDefaultsConstants_Enum.bIsSaved.rawValue) {
+                        self.window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+                       let mainStoryboard: UIStoryboard = UIStoryboard(name: "splash", bundle: nil)
+                       let exampleViewController: AutoLoginViewController = mainStoryboard.instantiateViewController(withIdentifier: "autoLoginVC") as! AutoLoginViewController
+                          self.window?.rootViewController = exampleViewController
+                        window?.windowScene = windowScene
+                        window?.makeKeyAndVisible()
+             }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -188,13 +188,7 @@ extension Profile_ViewController: UITableViewDelegate , UITableViewDataSource {
         
        UserDefaults.standard.removeObject(forKey: UserDefaultsConstants_Enum.defaultRecoverUser.rawValue)
         UserDefaults.standard.removeObject(forKey:UserDefaultsConstants_Enum.defaultRecoverDrowssap.rawValue)
-//        let vc = storyboard?.instantiateViewController(withIdentifier: "ViewController")
-//        let navVC = UINavigationController(rootViewController: vc!)
-//        let share = UIApplication.shared.delegate as? AppDelegate
-//        share?.window?.rootViewController = navVC
-//        share?.window?.makeKeyAndVisible()
-        
-        
+        UserDefaults.standard.removeObject(forKey:UserDefaultsConstants_Enum.bIsSaved.rawValue)
        let storyboard = UIStoryboard(name: "Login", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "Login_Nav")
         vc.modalPresentationStyle = .fullScreen
