@@ -26,6 +26,7 @@ class imageSelected_Viewcontroller: UIViewController {
             let vcLogin = segue.destination as? AdjustandCropViewController
             vcLogin?.modalPresentationStyle = .fullScreen
             vcLogin?.imageAdjust = imageSave
+            vcLogin?.imgSelected = true
             }
          }
 

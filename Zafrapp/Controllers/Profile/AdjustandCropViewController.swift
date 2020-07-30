@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import  MobileCoreServices
+import Photos
 
 class AdjustandCropViewController: UIViewController {
 
@@ -62,7 +63,7 @@ class AdjustandCropViewController: UIViewController {
         imgToSend = scrollImage.screenshot()
         if imgSelected {
           performSegue(withIdentifier: "cropImage", sender: nil)
-        }else {
+        }else  {
             self.present(ZPAlertGeneric.OneOption(title : "Error", message: "Para continuar debes seleccionar una foto", actionTitle:"Aceptar", actionHandler: {(_) in
                     self.photoLibrary()
             }),animated: true)

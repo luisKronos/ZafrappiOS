@@ -48,15 +48,19 @@ func executeService (DataUser : updateProfileImage?) {
             if (error! as NSError).code == 0 && respService != nil {
                 if respService?.strStatus == "BAD" {
                         self.present(ZPAlertGeneric.OneOption(title : "Error", message: respService?.strMessage, actionTitle: "Aceptar"),animated: true)
+                    self.imageCrop.isHidden = false
                 }else {
                     self.saveImage(imageFinal: DataUser?.ImgProfile ?? UIImage())
                         self.present(ZPAlertGeneric.OneOption(title : "Foto actualizada", message: respService?.strMessage, actionTitle: "Aceptar", actionHandler: {(_) in
+                             self.imageCrop.isHidden = false
                             self.navigationController?.popToRootViewController(animated: true)
                         }),animated: true)
                 }
             } else if (error! as NSError).code == -1009 {
+                self.imageCrop.isHidden = false
                 self.present(ZPAlertGeneric.OneOption(title : "Conexion de internet", message: "No tienes conexion a internet", actionTitle: "Aceptar"),animated: true)
             }else {
+                self.imageCrop.isHidden = false
                 self.present(ZPAlertGeneric.OneOption(title : "Error", message: "Intenta de nuevo", actionTitle: "Aceptar"),animated: true)
             }
         }
@@ -128,7 +132,7 @@ func executeService (DataUser : updateProfileImage?) {
     @IBAction func acceptAction(_ sender: Any) {
         self.imageCrop.isHidden = true
         let imageAdjust = adjustImage(View: vScreenShoot)
-    
+  
         removeImageLocalPath(localPathName: "ProfilePicture\(informationClasify.sharedInstance.data?.arrMessage?.strId_user ?? "").jpg")
         informationProfile.strEmail = informationClasify.sharedInstance.data?.arrMessage?.strEmail
         informationProfile.ImgProfile = imageAdjust
