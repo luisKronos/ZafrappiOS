@@ -95,17 +95,9 @@ extension AdjustandCropViewController : UIImagePickerControllerDelegate,UINaviga
             return
         }
         
-        let assetPath = info[UIImagePickerController.InfoKey.referenceURL] as! NSURL
-           if (assetPath.absoluteString?.hasSuffix("JPG"))! || (assetPath.absoluteString?.hasSuffix("PNG"))! {
-               imagePick = newImage
-               image.image = imagePick
-                imgSelected = true
-                dismiss(animated: true)
-           }else {
-              dismiss(animated: true)
-            self.present(ZPAlertGeneric.OneOption(title : "Error", message: "Sólo puedes seleccionar imagenes de tipo : .JPG y .png", actionTitle: "Aceptar", actionHandler: {(_) in
-                self.photoLibrary()
-            }),animated: true)
-           }
+         imagePick = newImage
+         image.image = imagePick
+         imgSelected = true
+         dismiss(animated: true)
     }
 }
