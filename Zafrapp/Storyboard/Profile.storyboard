@@ -344,14 +344,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="1300"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h1k-n2-Gix">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1423"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1440"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mxn-44-m83">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="1423"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="1440"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Odz-iB-FcI">
-                                                <rect key="frame" x="40" y="992" width="334" height="130"/>
+                                                <rect key="frame" x="40" y="1009" width="334" height="130"/>
                                                 <subviews>
                                                     <textField opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Teléfono de oficina" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nVS-fS-tNY" customClass="ZPDesignableUITextField" customModule="Zafrapp" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="15" width="334" height="30"/>
@@ -424,13 +424,13 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mi perfil" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cal-E1-Dc0">
-                                                <rect key="frame" x="40" y="10" width="334" height="31.5"/>
+                                                <rect key="frame" x="40" y="10" width="334" height="38"/>
                                                 <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="27"/>
                                                 <color key="textColor" name="DarkBlue"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mNi-4I-jWZ">
-                                                <rect key="frame" x="122" y="61.5" width="170" height="170"/>
+                                                <rect key="frame" x="122" y="68" width="170" height="170"/>
                                                 <color key="backgroundColor" name="GreyZafrapp"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="170" id="5vu-WH-yNR"/>
@@ -443,19 +443,19 @@
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jorge Domínguez" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Vu-38-nwr">
-                                                <rect key="frame" x="40" y="261.5" width="334" height="34"/>
+                                                <rect key="frame" x="40" y="268" width="334" height="41"/>
                                                 <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="29"/>
                                                 <color key="textColor" name="DarkBlue"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jorge.dominguez@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6J-Nq-TeC">
-                                                <rect key="frame" x="40" y="305.5" width="334" height="16.5"/>
+                                                <rect key="frame" x="40" y="319" width="334" height="20"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                                 <color key="textColor" name="GreyZafrapp"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yHc-Aq-Ng6">
-                                                <rect key="frame" x="40" y="342" width="334" height="260"/>
+                                                <rect key="frame" x="40" y="359" width="334" height="260"/>
                                                 <subviews>
                                                     <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Estado" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FXh-XH-fWO" customClass="ZPDesignableUITextField" customModule="Zafrapp" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="334" height="30"/>
@@ -621,7 +621,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4R5-wk-XVj">
-                                                <rect key="frame" x="40" y="602" width="334" height="390"/>
+                                                <rect key="frame" x="40" y="619" width="334" height="390"/>
                                                 <subviews>
                                                     <textField opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Profesión" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BVW-26-tGH" customClass="ZPDesignableUITextField" customModule="Zafrapp" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="10" width="334" height="30"/>
@@ -876,7 +876,7 @@
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5KH-dK-Bxv" customClass="ZPDesignableUIButton" customModule="Zafrapp" customModuleProvider="target">
-                                                <rect key="frame" x="40" y="1341" width="334" height="52"/>
+                                                <rect key="frame" x="40" y="1358" width="334" height="52"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="52" id="F58-mY-DB1"/>
                                                 </constraints>
@@ -894,7 +894,7 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hg8-sk-oN6">
-                                                <rect key="frame" x="40" y="1122" width="334" height="150"/>
+                                                <rect key="frame" x="40" y="1139" width="334" height="150"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    ¿Quieres publicar tu celular?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pFr-xZ-uMl" customClass="ZpLabel" customModule="Zafrapp" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="53" width="334" height="30"/>
@@ -1200,24 +1200,32 @@
                                 <rect key="frame" x="0.0" y="138" width="414" height="493"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oSB-Ma-LKi">
-                                        <rect key="frame" x="0.0" y="4" width="414" height="429"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="493"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="493" id="IR1-8f-che"/>
+                                            <constraint firstAttribute="width" secondItem="oSB-Ma-LKi" secondAttribute="height" multiplier="414:493" id="pAd-AZ-2R9"/>
+                                        </constraints>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circleBack" translatesAutoresizingMaskIntoConstraints="NO" id="f5T-QT-iJm" customClass="circleBack">
-                                        <rect key="frame" x="0.0" y="0.0" width="424" height="493"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="493"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="f5T-QT-iJm" secondAttribute="height" multiplier="414:493" id="KcD-aW-LEX"/>
+                                            <constraint firstAttribute="height" constant="493" id="jZg-J5-cBl"/>
+                                        </constraints>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="f5T-QT-iJm" firstAttribute="leading" secondItem="U2B-gv-kpb" secondAttribute="leading" id="AQh-5Z-2V4"/>
                                     <constraint firstAttribute="bottom" secondItem="f5T-QT-iJm" secondAttribute="bottom" id="LoN-5M-xVL"/>
-                                    <constraint firstAttribute="trailing" secondItem="f5T-QT-iJm" secondAttribute="trailing" constant="-10" id="M5b-jY-rSR"/>
+                                    <constraint firstAttribute="trailing" secondItem="f5T-QT-iJm" secondAttribute="trailing" id="M5b-jY-rSR"/>
                                     <constraint firstAttribute="trailing" secondItem="oSB-Ma-LKi" secondAttribute="trailing" id="QTL-XI-ywy"/>
-                                    <constraint firstItem="oSB-Ma-LKi" firstAttribute="top" secondItem="U2B-gv-kpb" secondAttribute="top" constant="4" id="alN-Yg-Ajo"/>
+                                    <constraint firstItem="oSB-Ma-LKi" firstAttribute="top" secondItem="U2B-gv-kpb" secondAttribute="top" id="alN-Yg-Ajo"/>
                                     <constraint firstItem="f5T-QT-iJm" firstAttribute="top" secondItem="U2B-gv-kpb" secondAttribute="top" id="cHA-Qi-uIM"/>
                                     <constraint firstItem="oSB-Ma-LKi" firstAttribute="leading" secondItem="U2B-gv-kpb" secondAttribute="leading" id="mnx-J2-5pY"/>
-                                    <constraint firstAttribute="bottom" secondItem="oSB-Ma-LKi" secondAttribute="bottom" constant="60" id="qFd-G7-ZqE"/>
+                                    <constraint firstAttribute="bottom" secondItem="oSB-Ma-LKi" secondAttribute="bottom" id="qFd-G7-ZqE"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arrastra la imagen para ajustarla" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Y8-az-alA">
@@ -1273,6 +1281,7 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" secondItem="RKz-D5-13x" secondAttribute="height" multiplier="107:25" id="4Xv-UG-BCt"/>
                                             <constraint firstItem="sXr-UZ-iR5" firstAttribute="top" secondItem="RKz-D5-13x" secondAttribute="top" id="AEZ-9c-bgV"/>
                                             <constraint firstAttribute="trailing" secondItem="sXr-UZ-iR5" secondAttribute="trailing" id="AnA-10-jZb"/>
                                             <constraint firstAttribute="bottom" secondItem="sXr-UZ-iR5" secondAttribute="bottom" id="GNg-WB-c15"/>
@@ -1298,16 +1307,13 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="RKz-D5-13x" firstAttribute="centerY" secondItem="ac0-Oe-WMl" secondAttribute="centerY" id="DWu-1c-Bdl"/>
-                                    <constraint firstItem="RKz-D5-13x" firstAttribute="leading" secondItem="ac0-Oe-WMl" secondAttribute="leading" constant="100" id="NXF-5E-NTd"/>
-                                    <constraint firstItem="RKz-D5-13x" firstAttribute="centerX" secondItem="ac0-Oe-WMl" secondAttribute="centerX" id="Oem-Gb-lC7"/>
-                                    <constraint firstAttribute="trailing" secondItem="RKz-D5-13x" secondAttribute="trailing" constant="100" id="lRH-vI-6bt"/>
+                                    <constraint firstItem="RKz-D5-13x" firstAttribute="centerX" secondItem="ac0-Oe-WMl" secondAttribute="centerX" id="uug-Bv-zol"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ac0-Oe-WMl" firstAttribute="top" secondItem="U2B-gv-kpb" secondAttribute="bottom" id="AtD-Qp-wxf"/>
-                            <constraint firstItem="U2B-gv-kpb" firstAttribute="height" secondItem="ia9-hZ-TUe" secondAttribute="height" multiplier="0.55" id="Elr-xg-BbA"/>
                             <constraint firstItem="8Y8-az-alA" firstAttribute="leading" secondItem="cPf-NT-QeA" secondAttribute="leading" id="FZg-gW-fyc"/>
                             <constraint firstItem="ac0-Oe-WMl" firstAttribute="leading" secondItem="cPf-NT-QeA" secondAttribute="leading" id="XZu-Ca-NNf"/>
                             <constraint firstItem="8Y8-az-alA" firstAttribute="top" secondItem="cPf-NT-QeA" secondAttribute="top" id="bdN-3R-vMU"/>

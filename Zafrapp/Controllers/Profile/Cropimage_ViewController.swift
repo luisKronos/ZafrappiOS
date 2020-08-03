@@ -141,7 +141,7 @@ func executeService (DataUser : updateProfileImage?) {
     
     func adjustImage (View : UIView) -> UIImage{
        let imageCut = View.screenshot()
-        let rect: CGRect = CGRect(x: -70, y: 0, width: 200, height: 200)
+        let rect: CGRect = CGRect(x: -40, y: 30, width: 300, height: 300)
         
         return  imageCut.cropped(rect: rect) ?? UIImage()
     }
