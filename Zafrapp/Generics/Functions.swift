@@ -11,7 +11,7 @@ import UIKit
 
 class basePath {
     func path(Complement:String) -> String{
-        let path = "http://zafrapp.longbit.mx/\(Complement).php"
+        let path = "https://zafrapp.com/\(Complement).php"
         return path
     }
 }
