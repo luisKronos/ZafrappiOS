@@ -9,14 +9,19 @@
 import Foundation
 import UIKit
 
-class basePath {
-    func path(Complement:String) -> String{
-        let path = "https://zafrapp.com/\(Complement).php"
+class BasePath {
+    func path(component: String) -> String {
+        let path: String
+        #if DEBUG
+        path = "http://zafrapp.longbit.mx/\(component).php"
+        #else
+        path  = "https://zafrapp.com/\(component).php"
+        #endif
         return path
     }
 }
 
-class changeLabel{
+class ThemeLabel {
     func changeColorLabel(string:String, label: UILabel){
         label.text = string[0 ..< 2]
         let bas = hash(string)
