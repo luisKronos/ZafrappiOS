@@ -279,7 +279,7 @@ private extension NewsDetailViewController {
                 nameLabel.isHidden = true
             } else {
                 nameLabel.isHidden = false
-                changeLabel().changeColorLabel(string: nameSaved, label: nameLabel)
+                ThemeLabel().changeColorLabel(string: nameSaved, label: nameLabel)
             }
             
         }
