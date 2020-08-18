@@ -11,15 +11,15 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
-    var Splash: AutoLoginViewController?
+    var splash: AutoLoginViewController?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         if UserDefaults.standard.bool(forKey: AppConstants.UserDefaults.isSaved.rawValue) {
-            self.window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+            window = UIWindow(frame: windowScene.coordinateSpace.bounds)
             let mainStoryboard: UIStoryboard = UIStoryboard(name: "splash", bundle: nil)
             let exampleViewController: AutoLoginViewController = mainStoryboard.instantiateViewController(withIdentifier: "autoLoginVC") as! AutoLoginViewController
-            self.window?.rootViewController = exampleViewController
+            window?.rootViewController = exampleViewController
             window?.windowScene = windowScene
             window?.makeKeyAndVisible()
         }
