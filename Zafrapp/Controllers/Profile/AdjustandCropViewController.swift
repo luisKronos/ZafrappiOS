@@ -8,85 +8,111 @@
 
 import UIKit
 import AVFoundation
-import  MobileCoreServices
+import MobileCoreServices
 import Photos
 
 class AdjustandCropViewController: UIViewController {
-
-    @IBOutlet weak var viewBackGround: UIView!
-    @IBOutlet weak var image: UIImageView!
-    @IBOutlet weak var scrollImage: UIScrollView!{
-        didSet {
-               scrollImage.delegate = self
-               scrollImage.minimumZoomScale = 1
-               scrollImage.maximumZoomScale = 2
-           }
+    
+    private enum Constants {
+        enum Segue {
+            static let cropImage = "cropImage"
+        }
     }
     
-    @IBOutlet weak var imageGrid: UIImageView!
-    var imageAdjust : UIImage?
-    var imagePick = UIImage ()
-    var bShowPhotoLibrary = false
-    var imgToSend : UIImage?
-    var imgSelected = false
+    // MARK: - IBOutlets
+    
+    @IBOutlet private var backgroundView: UIView!
+    @IBOutlet private var imageView: UIImageView!
+    @IBOutlet private var gridImageView: UIImageView!
+    @IBOutlet private var imageScrollView: UIScrollView! {
+        didSet {
+            imageScrollView.delegate = self
+            imageScrollView.minimumZoomScale = 1
+            imageScrollView.maximumZoomScale = 2
+        }
+    }
+    
+    // MARK: - Private Properties
+    
+    private var imgToSend: UIImage?
+    private var imagePick = UIImage()
+    
+    // MARK: - Public Properties
+    
+    var adjustedImage: UIImage?
+    var isPhotoLibraryShown = false
+    var isImageSelected = false
+    
+    // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if bShowPhotoLibrary {
-           photoLibrary()
-        }else {
-           image.image = imageAdjust
+        if isPhotoLibraryShown {
+            photoLibrary()
+        } else {
+            imageView.image = adjustedImage
         }
-       
-        viewBackGround.layer.cornerRadius = viewBackGround.frame.size.height/2
-    }
-    func photoLibrary()
-         {
-             if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
-                 let myPickerController = UIImagePickerController()
-                 myPickerController.delegate = self
-                 myPickerController.sourceType = .photoLibrary
-                 self.present(myPickerController, animated: true, completion: nil)
-             }
-         }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         super.prepare(for: segue, sender: sender)
-     if (segue.identifier == "cropImage") {
-           let vcLogin = segue.destination as? Cropimage_ViewController
-             vcLogin?.modalPresentationStyle = .fullScreen
-             vcLogin?.imageService = imgToSend
-      }
+        
+        backgroundView.layer.cornerRadius = backgroundView.frame.size.height/2
     }
     
-    @IBAction func btnCorrect(_ sender: Any) {
-        imgToSend = scrollImage.screenshot()
-        if imgSelected {
-          performSegue(withIdentifier: "cropImage", sender: nil)
-        }else  {
-            self.present(ZPAlertGeneric.OneOption(title : "Error", message: "Para continuar debes seleccionar una foto", actionTitle:"Aceptar", actionHandler: {(_) in
-                    self.photoLibrary()
+    // MARK: - IBActions
+    
+    @IBAction func correctAction(_ sender: Any) {
+        imgToSend = imageScrollView.screenshot()
+        if isImageSelected {
+            performSegue(withIdentifier: "cropImage", sender: nil)
+        } else  {
+            self.present(ZPAlertGeneric.oneOption(title: AppConstants.String.errorTitle, message: "Para continuar debes seleccionar una foto", actionTitle:AppConstants.String.accept, actionHandler: {(_) in
+                self.photoLibrary()
             }),animated: true)
         }
-       
+        
     }
-   
     
-    @IBAction func btnCancel(_ sender: Any) {
-         self.navigationController?.popViewController(animated: true)
+    @IBAction func cancelAction(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
     }
+    
+    // MARK: - Segue Methods
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        if segue.identifier == Constants.Segue.cropImage, let viewController = segue.destination as? CropImageViewController {
+            viewController.modalPresentationStyle = .fullScreen
+            viewController.imageService = imgToSend
+        }
+    }
+    
 }
 
+// MARK: - Private Methods
+
+private extension AdjustandCropViewController {
+    
+    func photoLibrary() {
+        guard UIImagePickerController.isSourceTypeAvailable(.photoLibrary) else { return }
+        let myPickerController = UIImagePickerController()
+        myPickerController.delegate = self
+        myPickerController.sourceType = .photoLibrary
+        present(myPickerController, animated: true, completion: nil)
+    }
+    
+}
 
 // MARK: - UIScrollViewDelegate
+
 extension AdjustandCropViewController: UIScrollViewDelegate {
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-        return image
+        return imageView
     }
 }
-extension AdjustandCropViewController : UIImagePickerControllerDelegate,UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-          var newImage: UIImage
+
+// MARK: - UIImagePickerControllerDelegate
+
+extension AdjustandCropViewController: UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        var newImage: UIImage
         if let possibleImage = info[.editedImage] as? UIImage {
             newImage = possibleImage
         } else if let possibleImage = info[.originalImage] as? UIImage {
@@ -95,9 +121,9 @@ extension AdjustandCropViewController : UIImagePickerControllerDelegate,UINaviga
             return
         }
         
-         imagePick = newImage
-         image.image = imagePick
-         imgSelected = true
-         dismiss(animated: true)
+        imagePick = newImage
+        imageView.image = imagePick
+        isImageSelected = true
+        dismiss(animated: true)
     }
 }

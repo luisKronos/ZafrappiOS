@@ -12,43 +12,43 @@ import UIKit
 private var __maxLengths = [UITextField: Int]()
 @IBDesignable
 public class ZPDesignableUITextField: UITextField {
-
+    
     override public func leftViewRect(forBounds bounds: CGRect) -> CGRect {
         var textRect = super.leftViewRect(forBounds: bounds)
         textRect.origin.x += leftPadding
         return textRect
     }
-
+    
     @IBInspectable var imageRight: Bool = false{
         didSet{
             if imageRight {
-             rightViewMode = UITextField.ViewMode.always
-            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-            let image = UIImage(named: "arrowDown")
-            imageView.image = image
-            rightView = imageView
+                rightViewMode = UITextField.ViewMode.always
+                let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+                let image = UIImage(named: "arrowDown")
+                imageView.image = image
+                rightView = imageView
             }
         }
     }
-
-        
+    
+    
     @IBInspectable var leftSpace: Int = 0 {
-          didSet {
+        didSet {
             setLeftPaddingPoints(CGFloat(leftSpace))
-          }
-      }
-
+        }
+    }
+    
     
     @IBInspectable var leftPadding: CGFloat = 0
     
     @IBInspectable var underlineTxtfield: CGFloat = 0{
         didSet{
             setUnderLine()
-            attributedPlaceholder = NSAttributedString(string: placeholder != nil ?  placeholder! : "", attributes:[NSAttributedString.Key.foregroundColor: UIColor.gray])
+            attributedPlaceholder = NSAttributedString(string: placeholder != nil ?  placeholder!: "", attributes:[NSAttributedString.Key.foregroundColor: UIColor.gray])
         }
     }
-
-    @IBInspectable var color: UIColor = UIColor.lightGray {
+    
+    @IBInspectable var color: UIColor = .lightGray {
         didSet {
             updateView()
         }
@@ -59,9 +59,10 @@ public class ZPDesignableUITextField: UITextField {
         self.clipsToBounds = true
         self.layer.borderWidth = 1.0
         self.layer.borderColor = UIColor.white.cgColor
-
-        attributedPlaceholder = NSAttributedString(string: placeholder != nil ?  placeholder! : "", attributes:[NSAttributedString.Key.foregroundColor: color])
+        
+        attributedPlaceholder = NSAttributedString(string: placeholder != nil ?  placeholder!: "", attributes:[NSAttributedString.Key.foregroundColor: color])
     }
+    
     @IBInspectable var maxLength: Int {
         get {
             guard let l = __maxLengths[self] else {
@@ -74,6 +75,7 @@ public class ZPDesignableUITextField: UITextField {
             addTarget(self, action: #selector(fix), for: .editingChanged)
         }
     }
+    
     @objc func fix(textField: UITextField) {
         if let t = textField.text {
             textField.text = String(t.prefix(maxLength))

@@ -10,13 +10,15 @@ import UIKit
 
 class ImageScrollViewController: UIViewController {
     
-    var urlImage : String?
-    var imageScrollView: ImageScrollView!
-
-    override func viewWillAppear(_ animated: Bool) {
-            let image = UIImage(named: "backGround")!
-            self.imageScrollView.set(image: image)
-      }
+    // MARK: - Private Properties
+    
+    private var imageScrollView: ImageScrollView!
+    
+    // MARK: - Public Properties
+    
+    var urlImage: String?
+    
+    // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +26,7 @@ class ImageScrollViewController: UIViewController {
         imageScrollView = ImageScrollView(frame: view.bounds)
         view.addSubview(imageScrollView)
         setupImageScrollView()
-
+        
         getImageFromWeb(urlImage ?? "") { (image) in
             if let image = image {
                 self.imageScrollView.set(image: image)
@@ -32,6 +34,17 @@ class ImageScrollViewController: UIViewController {
         }
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let image = UIImage(named: "backGround")!
+        imageScrollView.set(image: image)
+    }
+    
+}
+
+// MARK :- Private Methods
+
+private extension ImageScrollViewController {
     
     func setupImageScrollView() {
         imageScrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -41,29 +54,29 @@ class ImageScrollViewController: UIViewController {
         imageScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
     }
     
-      func getImageFromWeb(_ urlString: String, closure: @escaping (UIImage?) -> ()) {
-            guard let url = URL(string: urlString) else {
-    return closure(nil)
-            }
-            let task = URLSession(configuration: .default).dataTask(with: url) { (data, response, error) in
-                guard error == nil else {
-                    print("error: \(String(describing: error))")
-                    return closure(nil)
-                }
-                guard response != nil else {
-                    print("no response")
-                    return closure(nil)
-                }
-                guard data != nil else {
-                    print("no data")
-                    return closure(nil)
-                }
-                DispatchQueue.main.async {
-                    closure(UIImage(data: data!))
-                }
-            }; task.resume()
+    func getImageFromWeb(_ urlString: String, closure: @escaping(UIImage?) ->()) {
+        guard let url = URL(string: urlString) else {
+            return closure(nil)
         }
-
+        let task = URLSession(configuration: .default).dataTask(with: url) { (data, response, error) in
+            guard error == nil else {
+                print("error: \(String(describing: error))")
+                return closure(nil)
+            }
+            guard response != nil else {
+                print("no response")
+                return closure(nil)
+            }
+            guard data != nil else {
+                print("no data")
+                return closure(nil)
+            }
+            DispatchQueue.main.async {
+                closure(UIImage(data: data!))
+            }
+        }
+        task.resume()
+    }
 }
 
 

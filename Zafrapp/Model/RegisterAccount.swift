@@ -8,42 +8,51 @@
 
 import Foundation
 
-public class registerAccount : NSObject {
-    public var strName              : String?
-    public var strEmail             : String?
-    public var intPhone             : Int?
-    public var bShareCel            : Bool?
-    public var strBirthDay          : String?
-    public var strCurrent_job       : String?
-    public var bIs_search_work      : Bool?
-    public var strWork_place        : String?
-    public var strWork_deparment    : String?
-    public var strPassword          : String?
+struct RegisterAccount {
+    var name: String?
+    var email: String?
+    var phone: Int?
+    var isCellphoneShared: Bool?
+    var birthdate: String?
+    var currentJob: String?
+    var isSearchingJob: Bool?
+    var workPlace: String?
+    var workDepartment: String?
+    var password: String?
 }
 
-public class optionsProfile : NSObject {
-    public var strTitle    : String?
-    public var strImage    : String?
+struct OptionsProfile {
+    var title: String?
+    var image: String?
 }
 
-public class updateData : NSObject {
-    public var strEmail             : String?
-    public var strCurrent_job       : String?
-    public var bIs_search_work      : Bool?
-    public var bShow_Cell           : Bool?
-    public var strWork_place        : String?
-    public var strWork_deparment    : String?
-    public var strInterest          : String?
-    public var strState              : String?
-    public var strMunicipio          : String?
-    public var strStreet             : String?
-    public var strNumberStreet       : String?
-    public var intCP                 : Int?
-    public var strId_Adress          : String?
-    public var strId_user            : String?
-    public var intCellPhone          : Int?
-    public var intNumber_Office      : Int?
-    public var intExt                : Int?
+struct UpdateData {
+    var email: String?
+    var currentJob: String?
+    var isSearchingWork: Bool?
+    var isCellShown: Bool?
+    var workPlace: String?
+    var workDepartment: String?
+    var interest: String?
+    var state: String?
+    var suburb: String?
+    var street: String?
+    var streetNumber: String?
+    var zip: Int?
+    var addressId: String?
+    var userId: String?
+    var cellphone: Int?
+    var officeNumber: Int?
+    var `extension`: Int?
     
-    public var strAreaDeInteres      : String?
+    var interestArea: String?
 }
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  

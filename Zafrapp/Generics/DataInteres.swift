@@ -8,25 +8,25 @@
 
 import Foundation
 
-class areaOfInteres {
+class InterestedArea {
     
-   var ArrFabrica = ["Batey","Molinos","Calderas","Cristalización","Envase","Instrumentación","Campo","Maquinaria","Mantenimiento","Planta de Fuerza","Clarificación","Evaporación","Centrifugación","Servicios Generales","Destilería","Seguridad Industrial","Refinería de Azúcar","Taller Mecánico", "Cogeneración Energía Eléctrica"]
+    var fabrics = ["Batey","Molinos","Calderas","Cristalización","Envase","Instrumentación","Campo","Maquinaria","Mantenimiento","Planta de Fuerza","Clarificación","Evaporación","Centrifugación","Servicios Generales","Destilería","Seguridad Industrial","Refinería de Azúcar","Taller Mecánico", "Cogeneración Energía Eléctrica"]
     
-     var ArrCampo = ["Cosecha","Siembra y Cultivo","Laboratorio de Campo","Maquinaria Agrícola"]
+    var fields = ["Cosecha","Siembra y Cultivo","Laboratorio de Campo","Maquinaria Agrícola"]
     
-    var ArrAdmin = ["Almacén de materiales","Almacén de producto terminado","Administración(Compras, cuentas por pagar, cuentas por cobrar, etc)","Recursos Humanos"]
-    var arrOtro = ["Estudiante o pasante","Proveedor","Otro (cuál)"]
+    var administrations = ["Almacén de materiales","Almacén de producto terminado","Administración(Compras, cuentas por pagar, cuentas por cobrar, etc)","Recursos Humanos"]
+    var others = ["Estudiante o pasante","Proveedor","Otro (cuál)"]
     
-    func returnAreaInterest (Area : String) -> String {
-        if ArrFabrica.contains(Area){
+    func returnAreaInterest(area: String) -> String {
+        if fabrics.contains(area){
             return "fábrica"
-        }else if ArrCampo.contains(Area){
+        } else if fields.contains(area){
             return "campo"
-        }else if ArrAdmin.contains(Area){
+        } else if administrations.contains(area){
             return "admin"
-        }else if arrOtro.contains(Area){
+        } else if others.contains(area){
             return "otro"
-        }else {
+        } else {
             return ""
         }
     }

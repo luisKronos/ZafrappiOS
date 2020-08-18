@@ -117,7 +117,7 @@ class ImageScrollView: UIScrollView, UIScrollViewDelegate {
         }
         
         let toScale = maxScale
-        let finalScale = (currectScale == minScale) ? toScale : minScale
+        let finalScale = (currectScale == minScale) ? toScale: minScale
         let zoomRect = self.zoomRect(scale: finalScale, center: point)
         self.zoom(to: zoomRect, animated: animated)
     }

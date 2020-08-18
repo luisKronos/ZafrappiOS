@@ -10,12 +10,12 @@ import Foundation
 import UIKit
 
 @IBDesignable
-public class ZPDesignableUIButton : UIButton {
+public class ZPDesignableUIButton: UIButton {
     
     public enum Style: Int {
-          case login              = 0
-          case next               = 1
-      }
+        case login = 0
+        case next = 1
+    }
     
     @IBInspectable public var style: Int = 0 {
         didSet { set(style: Style(rawValue: style) ?? .login) }
@@ -24,11 +24,11 @@ public class ZPDesignableUIButton : UIButton {
     private func set(style: Style) {
         switch style {
         case .login:
-            self.backgroundColor = #colorLiteral(red: 0, green: 0.6883265376, blue: 0.9128565192, alpha: 1)
-            self.layer.cornerRadius = self.frame.size.height / 2
+            backgroundColor = #colorLiteral(red: 0, green: 0.6883265376, blue: 0.9128565192, alpha: 1)
+            layer.cornerRadius = frame.size.height / 2
         case .next :
-            self.backgroundColor = UIColor.blue
-            self.layer.cornerRadius = self.frame.size.height / 2
+            backgroundColor = .blue
+            layer.cornerRadius = frame.size.height / 2
         }
     }
 }

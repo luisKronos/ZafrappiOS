@@ -46,7 +46,7 @@
         <!--Search Job View Controller-->
         <scene sceneID="5bP-7z-CC8">
             <objects>
-                <viewController storyboardIdentifier="AddressVc" id="12j-QX-fn9" customClass="SearchJob_ViewController" customModule="Zafrapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddressVc" id="12j-QX-fn9" customClass="SearchJobViewController" customModule="Zafrapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H0X-gY-ajg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -65,7 +65,7 @@
                                         </constraints>
                                         <state key="normal" image="filter"/>
                                         <connections>
-                                            <action selector="btnfilter:" destination="12j-QX-fn9" eventType="touchUpInside" id="xty-3L-8hu"/>
+                                            <action selector="filterAction:" destination="12j-QX-fn9" eventType="touchUpInside" id="xty-3L-8hu"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -125,9 +125,9 @@
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="emptyTableView" destination="DXo-wL-gX3" id="LZA-VO-80D"/>
                         <outlet property="searchBar" destination="Yfd-kM-ZgQ" id="rAg-Iz-ncL"/>
-                        <outlet property="tableData" destination="LLQ-AM-WLi" id="Qjl-Bg-HAS"/>
-                        <outlet property="vwEmptyTable" destination="DXo-wL-gX3" id="LZA-VO-80D"/>
+                        <outlet property="tableView" destination="LLQ-AM-WLi" id="Qjl-Bg-HAS"/>
                         <segue destination="b1M-Zc-C8x" kind="show" identifier="segueDetailVacanci" id="OSc-85-Bzu"/>
                     </connections>
                 </viewController>
@@ -135,10 +135,10 @@
             </objects>
             <point key="canvasLocation" x="811.59420289855075" y="152.67857142857142"/>
         </scene>
-        <!--Detail Vacanci View Controller-->
+        <!--Vacancy Detail View Controller-->
         <scene sceneID="mcK-VU-Iwh">
             <objects>
-                <viewController storyboardIdentifier="profileVc" id="b1M-Zc-C8x" customClass="detailVacanciViewController" customModule="Zafrapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="profileVc" id="b1M-Zc-C8x" customClass="VacancyDetailViewController" customModule="Zafrapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T5Y-hj-Wx0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -334,7 +334,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="btnPostulation:" destination="b1M-Zc-C8x" eventType="touchUpInside" id="8bz-o2-L1Y"/>
+                                                    <action selector="postulationAction:" destination="b1M-Zc-C8x" eventType="touchUpInside" id="8bz-o2-L1Y"/>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Continue" translatesAutoresizingMaskIntoConstraints="NO" id="hQN-FV-QnC">
@@ -376,7 +376,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="btnSaveVacancie:" destination="b1M-Zc-C8x" eventType="touchUpInside" id="dpA-Hk-V88"/>
+                                                    <action selector="saveVacancyAction:" destination="b1M-Zc-C8x" eventType="touchUpInside" id="dpA-Hk-V88"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingenio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1qk-HX-nNo">
@@ -470,25 +470,25 @@
                         <barButtonItem key="backBarButtonItem" title="    " id="1qs-wf-pes"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="btnCheck" destination="MUG-4f-YTi" id="omy-rO-MHe"/>
-                        <outlet property="btnPostulated" destination="pTs-Sx-sVk" id="bmA-Dq-ayO"/>
-                        <outlet property="btnVancanciSaved" destination="MUG-4f-YTi" id="6BP-yY-aB3"/>
-                        <outlet property="imgCompany" destination="rJo-GV-x6u" id="hiw-cN-V4I"/>
-                        <outlet property="lblActivities" destination="pdX-gZ-oXC" id="26I-Um-YwW"/>
-                        <outlet property="lblDate" destination="8Am-MT-6lD" id="jAc-OC-Pig"/>
-                        <outlet property="lblDescription" destination="9kr-13-Olm" id="Cgv-mO-ReL"/>
-                        <outlet property="lblFriday" destination="WH4-YN-Efe" id="gz4-Dt-pfl"/>
-                        <outlet property="lblMonday" destination="x7M-8f-Z5f" id="2jb-Jn-GWV"/>
-                        <outlet property="lblNameCompany" destination="CAp-Wn-XQK" id="MnM-Qq-nRi"/>
-                        <outlet property="lblPlaceAndSalary" destination="KGU-wx-WwG" id="lDr-wD-vaG"/>
-                        <outlet property="lblPosition" destination="1qk-HX-nNo" id="REY-Ob-3nO"/>
-                        <outlet property="lblRequirments" destination="Veb-nC-7te" id="LnV-x8-Lb8"/>
-                        <outlet property="lblSaturday" destination="tNN-th-kKc" id="BUg-gj-rtC"/>
-                        <outlet property="lblSunday" destination="L9y-pq-SEb" id="eFh-wQ-jM1"/>
-                        <outlet property="lblThursday" destination="ZlV-NE-Hph" id="ahd-C3-9gN"/>
-                        <outlet property="lblTimeforJob" destination="6s1-vG-8zl" id="W6f-G0-Oim"/>
-                        <outlet property="lblWednesday" destination="max-Sp-6IB" id="Ems-Y3-cf7"/>
-                        <outlet property="lblthusday" destination="AdK-Ts-aQ9" id="RIW-MD-1zP"/>
+                        <outlet property="activityLabel" destination="pdX-gZ-oXC" id="26I-Um-YwW"/>
+                        <outlet property="checkButton" destination="MUG-4f-YTi" id="omy-rO-MHe"/>
+                        <outlet property="companyImageView" destination="rJo-GV-x6u" id="hiw-cN-V4I"/>
+                        <outlet property="companyNameLabel" destination="CAp-Wn-XQK" id="MnM-Qq-nRi"/>
+                        <outlet property="dateLabel" destination="8Am-MT-6lD" id="jAc-OC-Pig"/>
+                        <outlet property="descriptionLabel" destination="9kr-13-Olm" id="Cgv-mO-ReL"/>
+                        <outlet property="fridayLabel" destination="WH4-YN-Efe" id="gz4-Dt-pfl"/>
+                        <outlet property="mondayLabel" destination="x7M-8f-Z5f" id="2jb-Jn-GWV"/>
+                        <outlet property="placeAndSalaryLabel" destination="KGU-wx-WwG" id="lDr-wD-vaG"/>
+                        <outlet property="positionLabel" destination="1qk-HX-nNo" id="REY-Ob-3nO"/>
+                        <outlet property="postulatedButton" destination="pTs-Sx-sVk" id="bmA-Dq-ayO"/>
+                        <outlet property="requirementLabel" destination="Veb-nC-7te" id="LnV-x8-Lb8"/>
+                        <outlet property="saturdayLabel" destination="tNN-th-kKc" id="BUg-gj-rtC"/>
+                        <outlet property="saveVacancyButton" destination="MUG-4f-YTi" id="6BP-yY-aB3"/>
+                        <outlet property="sundayLabel" destination="L9y-pq-SEb" id="eFh-wQ-jM1"/>
+                        <outlet property="thursdayLabel" destination="AdK-Ts-aQ9" id="RIW-MD-1zP"/>
+                        <outlet property="timeForJobLabel" destination="6s1-vG-8zl" id="W6f-G0-Oim"/>
+                        <outlet property="tuesdayLabel" destination="ZlV-NE-Hph" id="dT5-m0-wkY"/>
+                        <outlet property="wednesdayLabel" destination="max-Sp-6IB" id="Ems-Y3-cf7"/>
                         <segue destination="SQl-Dm-cb4" kind="show" identifier="segueGetTheJob" id="vpA-ie-p3V"/>
                     </connections>
                 </viewController>
@@ -496,10 +496,10 @@
             </objects>
             <point key="canvasLocation" x="1592.753623188406" y="159.375"/>
         </scene>
-        <!--ProfileCV View Controller-->
+        <!--Profile View Controller-->
         <scene sceneID="DqD-Ff-Za1">
             <objects>
-                <viewController storyboardIdentifier="cvProfileVc" id="SQl-Dm-cb4" customClass="ProfileCV_ViewController" customModule="Zafrapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="cvProfileVc" id="SQl-Dm-cb4" customClass="CVProfileViewController" customModule="Zafrapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ioe-NU-hh5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -657,13 +657,13 @@
                         <barButtonItem key="backBarButtonItem" title="    " id="BFJ-wq-vfh"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="btnDelete" destination="bM2-pi-u62" id="RnP-4l-3Qz"/>
-                        <outlet property="btnUpdateCV" destination="dQj-c9-ebX" id="xWO-0Z-ORC"/>
-                        <outlet property="imgProfileCV" destination="YfH-I3-aT8" id="ScR-I3-Deh"/>
-                        <outlet property="lblEmail" destination="hCS-gO-Moy" id="nle-RU-Wtb"/>
-                        <outlet property="lblName" destination="GMg-sI-NL0" id="rIX-8a-4ct"/>
-                        <outlet property="titleCV" destination="fFp-AD-wbR" id="GNm-qI-xqD"/>
-                        <outlet property="vwCv" destination="anx-8K-HmA" id="nFL-QU-CS9"/>
+                        <outlet property="cvProfileImageView" destination="YfH-I3-aT8" id="ScR-I3-Deh"/>
+                        <outlet property="cvTitleLabel" destination="fFp-AD-wbR" id="GNm-qI-xqD"/>
+                        <outlet property="cvView" destination="anx-8K-HmA" id="nFL-QU-CS9"/>
+                        <outlet property="deleteButton" destination="bM2-pi-u62" id="RnP-4l-3Qz"/>
+                        <outlet property="emailLabel" destination="hCS-gO-Moy" id="nle-RU-Wtb"/>
+                        <outlet property="nameLabel" destination="GMg-sI-NL0" id="rIX-8a-4ct"/>
+                        <outlet property="updateCvButton" destination="dQj-c9-ebX" id="xWO-0Z-ORC"/>
                         <segue destination="na8-JW-P12" kind="show" identifier="segueShowPDF" id="PYS-xu-bS3"/>
                     </connections>
                 </viewController>
@@ -671,10 +671,10 @@
             </objects>
             <point key="canvasLocation" x="2422" y="159"/>
         </scene>
-        <!--ShowPDF View Controller-->
+        <!--View Controller-->
         <scene sceneID="Ydn-LX-Gak">
             <objects>
-                <viewController id="na8-JW-P12" customClass="ShowPDFViewController" customModule="Zafrapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="na8-JW-P12" customClass="PDFViewController" customModule="Zafrapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cfz-rR-fbl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -699,7 +699,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="C3A-01-G5f"/>
                     <connections>
-                        <outlet property="webKit" destination="4xl-9W-IxO" id="7EK-1R-mgR"/>
+                        <outlet property="webView" destination="4xl-9W-IxO" id="7EK-1R-mgR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xxd-ud-VPA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -10,62 +10,79 @@ import UIKit
 
 class UserTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var viewBackground: UIView!
-    @IBOutlet weak var lblUser: UILabel!
-    @IBOutlet weak var lblInformation: UILabel!
-    @IBOutlet weak var imgUser: UIImageView!
-    @IBOutlet weak var lblName: UILabel!
-    var client : clientData?{
+    // MARK: - IBOutlets
+    
+    @IBOutlet private var containerView: UIView!
+    @IBOutlet private var userLabel: UILabel!
+    @IBOutlet private var informationLabel: UILabel!
+    @IBOutlet private var userImageView: UIImageView!
+    @IBOutlet private var nameLabel: UILabel!
+    
+    // MARK: - Properties
+    
+    var client: ClientData? {
         didSet{
-                lblName.text = client?.strName?[0 ..< 2]
-                let bas = strHash(client?.strName ?? "ZP")
-                let hash = bas % 4
-                switch hash {
-                case 0:
-                    lblName.backgroundColor = UIColor.blue
-                case 1:
-                     lblName.backgroundColor = UIColor.green
-                case 2:
-                   lblName.backgroundColor = UIColor.red
-                case 3:
-                     lblName.backgroundColor = UIColor.yellow
-                default:
-                    return
-                }
-            shadowView()
-            lblUser.text = client?.strName
-            if let url = URL(string: client?.strImage ?? "") {
-            imgUser.downloaded(from: url, contentMode: .scaleAspectFit)
-            imgUser.isHidden = false
-            lblName.backgroundColor = UIColor.white
-            }else {
-             imgUser.isHidden = true
+            nameLabel.text = client?.name?[0 ..< 2]
+            let bas = hash(string: client?.name ?? "ZP")
+            let hash = bas % 4
+            switch hash {
+            case 0:
+                nameLabel.backgroundColor = .blue
+            case 1:
+                nameLabel.backgroundColor = .green
+            case 2:
+                nameLabel.backgroundColor = .red
+            case 3:
+                nameLabel.backgroundColor = .yellow
+            default:
+                return
             }
-     
-            lblInformation.text = "\(client?.strWork_place ?? "")\n\(client?.strWork_deparment ?? "")"
+            shadowView()
+            userLabel.text = client?.name
+            
+            if let url = URL(string: client?.image ?? "") {
+                userImageView.downloaded(from: url, contentMode: .scaleAspectFit)
+                userImageView.isHidden = false
+                nameLabel.backgroundColor = .white
+            } else {
+                userImageView.isHidden = true
+            }
+            
+            informationLabel.text = "\(client?.workPlace ?? "")\n\(client?.workDepartment ?? "")"
         }
     }
     
-    func strHash(_ str: String) -> UInt64 {
-       var result = UInt64 (5381)
-       let buf = [UInt8](str.utf8)
-       for b in buf {
-           result = 127 * (result & 0x00ffffffffffffff) + UInt64(b)
-       }
-       return result
+    override func prepareForReuse() {
+        userLabel.text = ""
+        informationLabel.text = ""
+        userImageView.image = UIImage(contentsOfFile: "")
+        nameLabel.text = ""
+    }
+}
+
+// MARK: - Private Methods
+
+private extension UserTableViewCell {
+    
+    // MARK: - Configuration methods
+    
+    func shadowView() {
+        containerView.layer.cornerRadius = 25
+        containerView.layer.shadowColor = UIColor.lightGray.cgColor
+        containerView.layer.shadowOffset = CGSize(width: 0.5, height: 0.5)
+        containerView.layer.shadowRadius = 5.0
+        containerView.layer.shadowOpacity = 0.5
     }
     
-    override func prepareForReuse() {
-        lblUser.text = ""
-        lblInformation.text = ""
-        imgUser.image = UIImage(contentsOfFile: "")
-        lblName.text = ""
+    // MARK: - Hash methods
+    
+    func hash(string: String) -> UInt64 {
+        var result = UInt64(5381)
+        let buffer = [UInt8](string.utf8)
+        for byte in buffer {
+            result = 127 * (result & 0x00ffffffffffffff) + UInt64(byte)
+        }
+        return result
     }
-    func shadowView () {
-        viewBackground.layer.cornerRadius = 25
-        viewBackground.layer.shadowColor = UIColor.lightGray.cgColor
-        viewBackground.layer.shadowOffset = CGSize(width: 0.5, height: 0.5)
-        viewBackground.layer.shadowRadius = 5.0
-        viewBackground.layer.shadowOpacity = 0.5
-    }
+    
 }

@@ -65,8 +65,8 @@
                         <barButtonItem key="backBarButtonItem" title="    " id="mmg-tz-pgR"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="selectionView" destination="7wD-ba-ya7" id="bUL-VL-8De"/>
                         <outlet property="tableView" destination="ipB-Bb-705" id="HoV-wI-wF8"/>
-                        <outlet property="viewSelection" destination="7wD-ba-ya7" id="bUL-VL-8De"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Czz-ob-6No" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -76,7 +76,7 @@
         <!--Profile View Controller-->
         <scene sceneID="uOc-ak-0X7">
             <objects>
-                <viewController id="dTZ-55-6WC" customClass="Profile_ViewController" customModule="Zafrapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="dTZ-55-6WC" customClass="ProfileViewController" customModule="Zafrapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="G2p-IU-xS7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -154,11 +154,11 @@
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="imgProfile" destination="0jE-7i-dW5" id="LUU-ei-ZhA"/>
-                        <outlet property="lblEmail" destination="S6V-W3-pgt" id="KwP-Nk-sUg"/>
-                        <outlet property="lblName" destination="fgG-Gw-qLL" id="0RN-12-qxM"/>
+                        <outlet property="emailLabel" destination="S6V-W3-pgt" id="KwP-Nk-sUg"/>
+                        <outlet property="nameLabel" destination="fgG-Gw-qLL" id="0RN-12-qxM"/>
+                        <outlet property="profileImageView" destination="0jE-7i-dW5" id="LUU-ei-ZhA"/>
                         <outlet property="scrollView" destination="1e3-jJ-hPF" id="z1J-HL-UDx"/>
-                        <outlet property="tblOptions" destination="pzo-nU-rPX" id="rXl-hG-9SP"/>
+                        <outlet property="tableView" destination="pzo-nU-rPX" id="rXl-hG-9SP"/>
                         <segue destination="JBU-rH-yc8" kind="show" identifier="segueEditarDatos" id="9ot-U5-3h0"/>
                         <segue destination="OOF-qF-esN" kind="show" identifier="ShowCamera" id="7rJ-he-sFO"/>
                         <segue destination="ek6-cy-mKd" kind="show" identifier="segueCVProfile" id="dxQ-Fe-qL6"/>
@@ -172,7 +172,7 @@
         <!--Change Picture View Controller-->
         <scene sceneID="m0O-MZ-2pv">
             <objects>
-                <viewController id="OOF-qF-esN" customClass="changePicture_ViewController" customModule="Zafrapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="OOF-qF-esN" customClass="ChangePictureViewController" customModule="Zafrapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sKt-r7-xrc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -222,7 +222,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="btnSelectImage:" destination="OOF-qF-esN" eventType="touchUpInside" id="rQ1-bc-bnp"/>
+                                    <action selector="selectImageAction:" destination="OOF-qF-esN" eventType="touchUpInside" id="rQ1-bc-bnp"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -246,7 +246,7 @@
                         <barButtonItem key="backBarButtonItem" title="         " id="CZD-CJ-4db"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="viewBackground" destination="d4b-Zs-Y4H" id="nV7-i9-mp5"/>
+                        <outlet property="backgroundView" destination="d4b-Zs-Y4H" id="nV7-i9-mp5"/>
                         <segue destination="sus-bc-JjN" kind="show" identifier="InitCamera" id="B7L-2v-o5z"/>
                         <segue destination="kgo-cJ-Oa4" kind="show" identifier="chooseImageFromLybrary" id="lqz-ol-oAR"/>
                     </connections>
@@ -255,10 +255,10 @@
             </objects>
             <point key="canvasLocation" x="-43" y="983"/>
         </scene>
-        <!--Show Camera View Controller-->
+        <!--Camera View Controller-->
         <scene sceneID="WQ6-OE-61s">
             <objects>
-                <viewController id="sus-bc-JjN" customClass="ShowCamera_ViewController" customModule="Zafrapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="sus-bc-JjN" customClass="CameraViewController" customModule="Zafrapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KZH-QF-bk8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -283,7 +283,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="takePhoto:" destination="sus-bc-JjN" eventType="touchUpInside" id="2Aj-CM-wB9"/>
+                                    <action selector="takePhotoAction:" destination="sus-bc-JjN" eventType="touchUpInside" id="2Aj-CM-wB9"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n2J-gX-r2g">
@@ -294,7 +294,7 @@
                                 </constraints>
                                 <state key="normal" image="Camera"/>
                                 <connections>
-                                    <action selector="switchcamera:" destination="sus-bc-JjN" eventType="touchUpInside" id="022-pM-YYd"/>
+                                    <action selector="switchCameraAction:" destination="sus-bc-JjN" eventType="touchUpInside" id="022-pM-YYd"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ArrowRaound" translatesAutoresizingMaskIntoConstraints="NO" id="b0F-FK-af7">
@@ -335,7 +335,7 @@
         <!--Edit Profile View Controller-->
         <scene sceneID="AIF-rU-XoQ">
             <objects>
-                <viewController storyboardIdentifier="editProfileVC" id="JBU-rH-yc8" customClass="EditProfile_ViewController" customModule="Zafrapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="editProfileVC" id="JBU-rH-yc8" customClass="EditProfileViewController" customModule="Zafrapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="P4j-2s-jL4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1300"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -344,14 +344,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="1300"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h1k-n2-Gix">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1440"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1423"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mxn-44-m83">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="1440"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="1423"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Odz-iB-FcI">
-                                                <rect key="frame" x="40" y="1009" width="334" height="130"/>
+                                                <rect key="frame" x="40" y="992" width="334" height="130"/>
                                                 <subviews>
                                                     <textField opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Teléfono de oficina" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nVS-fS-tNY" customClass="ZPDesignableUITextField" customModule="Zafrapp" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="15" width="334" height="30"/>
@@ -424,13 +424,13 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mi perfil" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cal-E1-Dc0">
-                                                <rect key="frame" x="40" y="10" width="334" height="38"/>
+                                                <rect key="frame" x="40" y="10" width="334" height="31.5"/>
                                                 <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="27"/>
                                                 <color key="textColor" name="DarkBlue"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mNi-4I-jWZ">
-                                                <rect key="frame" x="122" y="68" width="170" height="170"/>
+                                                <rect key="frame" x="122" y="61.5" width="170" height="170"/>
                                                 <color key="backgroundColor" name="GreyZafrapp"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="170" id="5vu-WH-yNR"/>
@@ -443,19 +443,19 @@
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jorge Domínguez" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Vu-38-nwr">
-                                                <rect key="frame" x="40" y="268" width="334" height="41"/>
+                                                <rect key="frame" x="40" y="261.5" width="334" height="34"/>
                                                 <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="29"/>
                                                 <color key="textColor" name="DarkBlue"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jorge.dominguez@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6J-Nq-TeC">
-                                                <rect key="frame" x="40" y="319" width="334" height="20"/>
+                                                <rect key="frame" x="40" y="305.5" width="334" height="16.5"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                                 <color key="textColor" name="GreyZafrapp"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yHc-Aq-Ng6">
-                                                <rect key="frame" x="40" y="359" width="334" height="260"/>
+                                                <rect key="frame" x="40" y="342" width="334" height="260"/>
                                                 <subviews>
                                                     <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Estado" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FXh-XH-fWO" customClass="ZPDesignableUITextField" customModule="Zafrapp" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="334" height="30"/>
@@ -621,7 +621,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4R5-wk-XVj">
-                                                <rect key="frame" x="40" y="619" width="334" height="390"/>
+                                                <rect key="frame" x="40" y="602" width="334" height="390"/>
                                                 <subviews>
                                                     <textField opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Profesión" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BVW-26-tGH" customClass="ZPDesignableUITextField" customModule="Zafrapp" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="10" width="334" height="30"/>
@@ -876,7 +876,7 @@
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5KH-dK-Bxv" customClass="ZPDesignableUIButton" customModule="Zafrapp" customModuleProvider="target">
-                                                <rect key="frame" x="40" y="1358" width="334" height="52"/>
+                                                <rect key="frame" x="40" y="1341" width="334" height="52"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="52" id="F58-mY-DB1"/>
                                                 </constraints>
@@ -894,7 +894,7 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hg8-sk-oN6">
-                                                <rect key="frame" x="40" y="1139" width="334" height="150"/>
+                                                <rect key="frame" x="40" y="1122" width="334" height="150"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    ¿Quieres publicar tu celular?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pFr-xZ-uMl" customClass="ZpLabel" customModule="Zafrapp" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="53" width="334" height="30"/>
@@ -1027,60 +1027,60 @@
                     <navigationItem key="navigationItem" id="Na9-AF-jb5"/>
                     <size key="freeformSize" width="414" height="1300"/>
                     <connections>
-                        <outlet property="imgProfile" destination="mNi-4I-jWZ" id="Hxo-3H-VW7"/>
-                        <outlet property="lblCP" destination="t0i-p6-ODR" id="KA7-Pf-2wG"/>
-                        <outlet property="lblEmail" destination="V6J-Nq-TeC" id="Yot-Ea-eLL"/>
-                        <outlet property="lblErrorCellPhone" destination="ttk-eX-tRC" id="NYE-1V-aKP"/>
-                        <outlet property="lblErrorDepartamento" destination="uy8-cB-Pc5" id="mWN-IM-KtG"/>
-                        <outlet property="lblErrorEstado" destination="BoP-fS-K1W" id="J7c-l4-dTp"/>
-                        <outlet property="lblErrorExt" destination="V7R-4X-GUV" id="oLg-8J-biS"/>
-                        <outlet property="lblErrorIngenio" destination="Pfb-pi-LsC" id="YyE-1o-PX6"/>
-                        <outlet property="lblErrorInteres" destination="mGe-hD-Khv" id="7dD-JQ-H0X"/>
-                        <outlet property="lblErrorMunicipio" destination="Iuw-Ws-Ph2" id="lSU-VV-FEb"/>
-                        <outlet property="lblErrorNumber" destination="Vy3-Af-zjb" id="B8l-di-6CR"/>
-                        <outlet property="lblErrorOtherDepartment" destination="K7E-SR-vng" id="kdk-px-DDG"/>
-                        <outlet property="lblErrorOtherIngenio" destination="x7Y-qF-AoE" id="r7B-QS-LhS"/>
-                        <outlet property="lblErrorOtherInterest" destination="EBd-tS-4fK" id="rLl-qo-kez"/>
-                        <outlet property="lblErrorPhoneOffice" destination="4ZD-Qg-Jk2" id="ffE-nh-rpn"/>
-                        <outlet property="lblErrorProfesion" destination="bAM-Y1-0l1" id="zJa-kg-mbb"/>
-                        <outlet property="lblErrorStreet" destination="rNH-Zm-s3U" id="dBC-wP-h9v"/>
-                        <outlet property="lblName" destination="0Vu-38-nwr" id="b1y-UX-gJ2"/>
-                        <outlet property="lblSearchJob" destination="7Ta-U8-gX2" id="wWt-vV-v7z"/>
-                        <outlet property="lblShowCell" destination="pFr-xZ-uMl" id="t2W-Pu-Dih"/>
-                        <outlet property="lycCurrentIngenio" destination="8Nv-8h-5XC" id="AZE-wR-j4Q"/>
-                        <outlet property="lycHeightJob" destination="cHr-GF-cVu" id="BJB-Yc-SXI"/>
-                        <outlet property="lycInterest" destination="dVN-hk-Kta" id="z5u-4X-emY"/>
-                        <outlet property="switchIsSearchJob" destination="2lq-eT-xdS" id="H8U-Ms-QCE"/>
-                        <outlet property="switchShowCell" destination="7eu-8w-7cP" id="4zt-nI-JGl"/>
-                        <outlet property="txtCellPhone" destination="LA5-M4-aDC" id="efe-qO-Lbh"/>
-                        <outlet property="txtCodigoPostal" destination="ER2-xm-ckj" id="wLn-aJ-Ea6"/>
-                        <outlet property="txtDepartament" destination="r8U-3v-5af" id="FHA-3m-S1P"/>
-                        <outlet property="txtEstado" destination="FXh-XH-fWO" id="55E-hS-LSa"/>
-                        <outlet property="txtExt" destination="0y7-tX-x8p" id="jTC-4f-UMf"/>
-                        <outlet property="txtIngenio" destination="NgU-XB-qTf" id="7sg-a9-DsH"/>
-                        <outlet property="txtInterest" destination="tlf-Ap-0ho" id="pud-Sq-xOD"/>
-                        <outlet property="txtJob" destination="gGu-wm-8uT" id="wXg-yX-JIJ"/>
-                        <outlet property="txtMunicipio" destination="b0s-F3-pqp" id="G2o-1b-LPU"/>
-                        <outlet property="txtNumber" destination="qyf-u4-nPM" id="zXv-hE-DA8"/>
-                        <outlet property="txtOtherIngenio" destination="Nfs-LL-44Y" id="E4m-Of-ZQJ"/>
-                        <outlet property="txtOtherInterest" destination="6R5-Jw-bEC" id="whZ-fq-mAJ"/>
-                        <outlet property="txtPhoneOffice" destination="nVS-fS-tNY" id="3gQ-Fd-0b4"/>
-                        <outlet property="txtProfession" destination="BVW-26-tGH" id="Nq6-Ig-Hlr"/>
-                        <outlet property="txtStreet" destination="S8T-LZ-puF" id="VFh-ET-6Vg"/>
-                        <outlet property="viewAddress" destination="yHc-Aq-Ng6" id="gBQ-6C-tlU"/>
-                        <outlet property="viewCellPhone" destination="Odz-iB-FcI" id="Lye-Tq-YDd"/>
-                        <outlet property="viewInterest" destination="4R5-wk-XVj" id="2Dc-L2-XEd"/>
-                        <outlet property="viewPhone" destination="hg8-sk-oN6" id="PMH-OF-K9j"/>
+                        <outlet property="addressView" destination="yHc-Aq-Ng6" id="gBQ-6C-tlU"/>
+                        <outlet property="cellphoneErrorLabel" destination="ttk-eX-tRC" id="NYE-1V-aKP"/>
+                        <outlet property="cellphoneTextField" destination="LA5-M4-aDC" id="efe-qO-Lbh"/>
+                        <outlet property="cellphoneView" destination="Odz-iB-FcI" id="Lye-Tq-YDd"/>
+                        <outlet property="departamentTextField" destination="r8U-3v-5af" id="FHA-3m-S1P"/>
+                        <outlet property="departmentErrorLabel" destination="uy8-cB-Pc5" id="mWN-IM-KtG"/>
+                        <outlet property="emailLabel" destination="V6J-Nq-TeC" id="Yot-Ea-eLL"/>
+                        <outlet property="extensionErrorLabel" destination="V7R-4X-GUV" id="oLg-8J-biS"/>
+                        <outlet property="extensionTextField" destination="0y7-tX-x8p" id="jTC-4f-UMf"/>
+                        <outlet property="ingenioErrorLabel" destination="Pfb-pi-LsC" id="YyE-1o-PX6"/>
+                        <outlet property="ingenioTextField" destination="NgU-XB-qTf" id="7sg-a9-DsH"/>
+                        <outlet property="interesErrorLabel" destination="mGe-hD-Khv" id="7dD-JQ-H0X"/>
+                        <outlet property="interestTextField" destination="tlf-Ap-0ho" id="pud-Sq-xOD"/>
+                        <outlet property="interestView" destination="4R5-wk-XVj" id="2Dc-L2-XEd"/>
+                        <outlet property="jobSearchLabel" destination="7Ta-U8-gX2" id="wWt-vV-v7z"/>
+                        <outlet property="jobTextField" destination="gGu-wm-8uT" id="wXg-yX-JIJ"/>
+                        <outlet property="lycCurrentIngenioConstraint" destination="8Nv-8h-5XC" id="AZE-wR-j4Q"/>
+                        <outlet property="lycHeightJobConstraint" destination="cHr-GF-cVu" id="BJB-Yc-SXI"/>
+                        <outlet property="lycInterestConstraint" destination="dVN-hk-Kta" id="z5u-4X-emY"/>
+                        <outlet property="nameLabel" destination="0Vu-38-nwr" id="b1y-UX-gJ2"/>
+                        <outlet property="numberErrorLabel" destination="Vy3-Af-zjb" id="B8l-di-6CR"/>
+                        <outlet property="numberTextField" destination="qyf-u4-nPM" id="zXv-hE-DA8"/>
+                        <outlet property="officePhone" destination="nVS-fS-tNY" id="3gQ-Fd-0b4"/>
+                        <outlet property="officePhoneErrorLabel" destination="4ZD-Qg-Jk2" id="ffE-nh-rpn"/>
+                        <outlet property="otherDepartmentErrorLabel" destination="K7E-SR-vng" id="kdk-px-DDG"/>
+                        <outlet property="otherIngenioErrorLabel" destination="x7Y-qF-AoE" id="r7B-QS-LhS"/>
+                        <outlet property="otherIngenioTextField" destination="Nfs-LL-44Y" id="E4m-Of-ZQJ"/>
+                        <outlet property="otherInterestErrorLabel" destination="EBd-tS-4fK" id="rLl-qo-kez"/>
+                        <outlet property="otherInterestTextField" destination="6R5-Jw-bEC" id="whZ-fq-mAJ"/>
+                        <outlet property="phoneView" destination="hg8-sk-oN6" id="PMH-OF-K9j"/>
+                        <outlet property="professionErrorLabel" destination="bAM-Y1-0l1" id="zJa-kg-mbb"/>
+                        <outlet property="professionTextField" destination="BVW-26-tGH" id="Nq6-Ig-Hlr"/>
+                        <outlet property="profileImageView" destination="mNi-4I-jWZ" id="Hxo-3H-VW7"/>
+                        <outlet property="searchJobSwitch" destination="2lq-eT-xdS" id="H8U-Ms-QCE"/>
+                        <outlet property="showCellLabel" destination="pFr-xZ-uMl" id="t2W-Pu-Dih"/>
+                        <outlet property="showCellSwitch" destination="7eu-8w-7cP" id="4zt-nI-JGl"/>
+                        <outlet property="stateErrorLabel" destination="BoP-fS-K1W" id="J7c-l4-dTp"/>
+                        <outlet property="stateTextField" destination="FXh-XH-fWO" id="55E-hS-LSa"/>
+                        <outlet property="streetErrorLabel" destination="rNH-Zm-s3U" id="dBC-wP-h9v"/>
+                        <outlet property="streetTextField" destination="S8T-LZ-puF" id="VFh-ET-6Vg"/>
+                        <outlet property="suburbErrorLabel" destination="Iuw-Ws-Ph2" id="lSU-VV-FEb"/>
+                        <outlet property="suburbTextField" destination="b0s-F3-pqp" id="G2o-1b-LPU"/>
+                        <outlet property="zipLabel" destination="t0i-p6-ODR" id="KA7-Pf-2wG"/>
+                        <outlet property="zipTextField" destination="ER2-xm-ckj" id="wLn-aJ-Ea6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zsh-zH-Zbr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1792.753623188406" y="124.55357142857142"/>
         </scene>
-        <!--Image Selected Viewcontroller-->
+        <!--Image Viewcontroller-->
         <scene sceneID="atw-Zz-ord">
             <objects>
-                <viewController storyboardIdentifier="previewVC" id="Gct-m3-uS2" customClass="imageSelected_Viewcontroller" customModule="Zafrapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="previewVC" id="Gct-m3-uS2" customClass="ImageViewcontroller" customModule="Zafrapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pZS-aL-5O5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1114,7 +1114,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="retakePhoto:" destination="Gct-m3-uS2" eventType="touchUpInside" id="Bca-1p-VHo"/>
+                                            <action selector="retakePhotoAction:" destination="Gct-m3-uS2" eventType="touchUpInside" id="Bca-1p-VHo"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tn2-Vx-tda">
@@ -1129,7 +1129,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="selectPhoto:" destination="Gct-m3-uS2" eventType="touchUpInside" id="clB-u5-UDx"/>
+                                            <action selector="selectPhotoAction:" destination="Gct-m3-uS2" eventType="touchUpInside" id="clB-u5-UDx"/>
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Line" translatesAutoresizingMaskIntoConstraints="NO" id="tJ8-ZO-2lv">
@@ -1188,10 +1188,10 @@
             </objects>
             <point key="canvasLocation" x="977" y="1758"/>
         </scene>
-        <!--Cropimage View Controller-->
+        <!--Crop Image View Controller-->
         <scene sceneID="teM-ZE-odE">
             <objects>
-                <viewController id="Jpd-Lx-fnC" customClass="Cropimage_ViewController" customModule="Zafrapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Jpd-Lx-fnC" customClass="CropImageViewController" customModule="Zafrapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ia9-hZ-TUe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1331,10 +1331,10 @@
                         <barButtonItem key="backBarButtonItem" title="   " id="vOm-nq-cCi"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="image" destination="oSB-Ma-LKi" id="1gT-ve-B2w"/>
-                        <outlet property="imageCrop" destination="f5T-QT-iJm" id="h8o-m3-K5U"/>
-                        <outlet property="vBackgroundButton" destination="RKz-D5-13x" id="Lrk-4e-Khc"/>
-                        <outlet property="vScreenShoot" destination="U2B-gv-kpb" id="g1D-nb-HP3"/>
+                        <outlet property="backgroundButtonView" destination="RKz-D5-13x" id="Lrk-4e-Khc"/>
+                        <outlet property="cropImageView" destination="f5T-QT-iJm" id="h8o-m3-K5U"/>
+                        <outlet property="imageView" destination="oSB-Ma-LKi" id="1gT-ve-B2w"/>
+                        <outlet property="screenshotView" destination="U2B-gv-kpb" id="g1D-nb-HP3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J1a-db-d6c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1407,7 +1407,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="btnCancel:" destination="kgo-cJ-Oa4" eventType="touchUpInside" id="kue-10-xxv"/>
+                                            <action selector="cancelAction:" destination="kgo-cJ-Oa4" eventType="touchUpInside" id="kue-10-xxv"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D3I-Ec-j7D">
@@ -1422,7 +1422,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="btnCorrect:" destination="kgo-cJ-Oa4" eventType="touchUpInside" id="hmF-ob-gLy"/>
+                                            <action selector="correctAction:" destination="kgo-cJ-Oa4" eventType="touchUpInside" id="hmF-ob-gLy"/>
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Line" translatesAutoresizingMaskIntoConstraints="NO" id="Of2-26-gsz">
@@ -1475,10 +1475,10 @@
                         <barButtonItem key="backBarButtonItem" title="   " id="tXi-TV-iFp"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="image" destination="0OV-TZ-zMr" id="xac-bP-XS6"/>
-                        <outlet property="imageGrid" destination="ElG-Gb-oFk" id="nKm-en-IwR"/>
-                        <outlet property="scrollImage" destination="p4L-Ll-kox" id="40K-8y-oZS"/>
-                        <outlet property="viewBackGround" destination="Rpx-68-Wbj" id="jEL-IV-oYH"/>
+                        <outlet property="backgroundView" destination="Rpx-68-Wbj" id="jEL-IV-oYH"/>
+                        <outlet property="gridImageView" destination="ElG-Gb-oFk" id="nKm-en-IwR"/>
+                        <outlet property="imageScrollView" destination="p4L-Ll-kox" id="40K-8y-oZS"/>
+                        <outlet property="imageView" destination="0OV-TZ-zMr" id="xac-bP-XS6"/>
                         <segue destination="Jpd-Lx-fnC" kind="show" identifier="cropImage" id="h1n-pL-lSb"/>
                     </connections>
                 </viewController>
@@ -1488,7 +1488,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="XCi-mJ-DJQ"/>
+        <segue reference="lqz-ol-oAR"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="ArrowRaound" width="17" height="17"/>

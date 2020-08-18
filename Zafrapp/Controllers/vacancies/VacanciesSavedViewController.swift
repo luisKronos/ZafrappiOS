@@ -9,134 +9,172 @@
 import UIKit
 
 class VacanciesSavedViewController: ZPMasterViewController {
-
-    @IBOutlet weak var viewSelection: UIView!
-    @IBOutlet weak var tableView: UITableView!
-    var arrPostulations : [postulations]?
-    var arrSaved : [postulations]?
-    var postulationsOption = 1
-    var saved = 2
-    var typeOfData = 0
-    var genericArr : [postulations]?
+    
+    private enum Constants {
+        enum Storyboard {
+            static let searchJob = "searchJob"
+        }
+        enum ViewController {
+            static let profile = "profileVc"
+        }
+        enum TableView {
+            static let companiesCellIdentifier = "CompaniesTableViewCell"
+            static let heightRow: CGFloat = 100
+        }
+    }
+    
+    // MARK: - IBOutlets
+    
+    @IBOutlet private var selectionView: UIView!
+    @IBOutlet private var tableView: UITableView!
+    
+    // MARK: - Properties
+    
+    private var postulations: [Postulation]?
+    private var postulastionsSaved: [Postulation]?
+    private var postulationOption = 1
+    private var saved = 2
+    private var typeOfData = 0
+    private var genericPostulations: [Postulation]?
+    
+    // MARK: - Computed Properties
+    
+    private var userId: Int {
+        let getIDUser =  InformationClasify.sharedInstance.data
+        let id = getIDUser?.messageResponse?.userId ?? ""
+        return Int(id) ?? 0
+    }
+    
+    
+    private var emailSaved: String {
+        let getEmail =  InformationClasify.sharedInstance.data
+        return  getEmail?.messageResponse?.email ?? ""
+    }
+    
+    // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configTable()
-        executeService(Status: 2)
+        executeService(status: 2)
         addSegmentedControled()
     }
     
-    func addSegmentedControled () {
-           let codeSegmented = CustomSegmentedControl(frame: CGRect(x: 0, y: 0, width: self.viewSelection.frame.width , height: self.viewSelection.frame.height), buttonTitle: ["Mis vacantes marcadas","Mis postulaciones"])
-           codeSegmented.delegate = self
-           codeSegmented.backgroundColor = .clear
-           self.viewSelection.addSubview(codeSegmented)
-       }
-    
-    func configTable () {
-           tableView.separatorStyle = .none
-           tableView.delegate = self
-           tableView.dataSource = self
-           tableView.register(UINib(nibName: "CompaniesTableViewCell", bundle: nil), forCellReuseIdentifier: "CompaniesTableViewCell")
-       }
-    
-    func getEmailSaved() -> String {
-           let getEmail =  informationClasify.sharedInstance.data
-        return  getEmail?.arrMessage?.strEmail ?? ""
-             }
-    
-    func getIDUser() -> Int {
-        let getIDUser =  informationClasify.sharedInstance.data
-        let id = getIDUser?.arrMessage?.strId_user ?? ""
-        return Int(id) ?? 0
-            }
-    
-    func showDetailCompany(vacanciSelected : postulations){
-           let storyboard = UIStoryboard(name: "searchJob", bundle: nil)
-           let vc = storyboard.instantiateViewController(withIdentifier: "profileVc") as! detailVacanciViewController
-           vc.dataVacanci = vacanciSelected
-           vc.changeData = false
-           vc.modalPresentationStyle = .fullScreen
-           navigationController?.pushViewController(vc,
-           animated: true)
-       }
-       
-    
-    func executeService (Status : Int) {
-     self.activityIndicatorBegin()
-    let ws = getPostulations_WS ()
-        ws.obtainPostulations(mail: getEmailSaved(), status:Status, id_user:getIDUser()  ) {[weak self] (respService, error) in
-          guard let self = self else { return }
-            self.activityIndicatorEnd()
-         if (error! as NSError).code == 0 && respService != nil {
-             if respService?.strStatus == "BAD" {
-                     self.present(ZPAlertGeneric.OneOption(title : "Error", message: respService?.strMessage, actionTitle: "Aceptar"),animated: true)
-             }else{
-                if  Status == self.saved {
-                    self.arrSaved = respService?.allVacants
-                    self.genericArr = respService?.allVacants
-                }else if Status == self.postulationsOption {
-                    self.genericArr = respService?.allVacants
-                    self.arrPostulations = respService?.allVacants
-                }
-            self.tableView.reloadData()
-             }
-         }else if (error! as NSError).code == -1009 {
-           self.present(ZPAlertGeneric.OneOption(title : "Conexion de internet", message: "No tienes conexion a internet", actionTitle: "Intenta de nuevo", actionHandler: {action in
-            self.executeService(Status: Status)}), animated: true)
-         }else {
-           self.present(ZPAlertGeneric.OneOption(title : "Error", message: "Intenta de nuevo", actionTitle: "Aceptar"),animated: true)
-         }
-       }
-     }
 }
 
-extension VacanciesSavedViewController : CustomSegmentedControlDelegate{
+// MARK: - Private Methods
+
+private extension VacanciesSavedViewController {
+    
+    func addSegmentedControled() {
+        let codeSegmented = CustomSegmentedControl(frame: CGRect(x: 0, y: 0, width: self.selectionView.frame.width , height: self.selectionView.frame.height), buttonTitle: ["Mis vacantes marcadas","Mis postulaciones"])
+        codeSegmented.delegate = self
+        codeSegmented.backgroundColor = .clear
+        self.selectionView.addSubview(codeSegmented)
+    }
+    
+    func configTable() {
+        tableView.separatorStyle = .none
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UINib(nibName: "CompaniesTableViewCell", bundle: nil), forCellReuseIdentifier: "CompaniesTableViewCell")
+    }
+    
+    func showDetailCompany(vacancySelected: Postulation){
+        let storyboard = UIStoryboard(name: Constants.Storyboard.searchJob, bundle: nil)
+        
+        guard let vc = storyboard.instantiateViewController(withIdentifier: Constants.ViewController.profile) as? VacancyDetailViewController else {
+            return
+        }
+        
+        vc.vancancy = vacancySelected
+        vc.isDataChanged = false
+        vc.modalPresentationStyle = .fullScreen
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func executeService(status: Int) {
+        activityIndicatorBegin()
+        let service = PostulationService()
+        
+        service.obtainPostulations(mail: emailSaved, status: status, userId: userId) { [weak self] (respService, error) in
+            guard let self = self else { return }
+            self.activityIndicatorEnd()
+            if let error = error {
+                let nserror = error as NSError
+
+                if nserror.code == 0 && respService != nil {
+                    if respService?.status == AppConstants.ErrorCode.bad {
+                        self.present(ZPAlertGeneric.oneOption(title: AppConstants.String.errorTitle, message: respService?.message, actionTitle: AppConstants.String.accept),animated: true)
+                    } else {
+                        if status == self.saved {
+                            self.postulastionsSaved = respService?.vacants
+                            self.genericPostulations = respService?.vacants
+                        } else if status == self.postulationOption {
+                            self.genericPostulations = respService?.vacants
+                            self.postulations = respService?.vacants
+                        }
+                        self.tableView.reloadData()
+                    }
+                } else if nserror.code == AppConstants.ErrorCode.noInternetConnection {
+                    self.present(ZPAlertGeneric.oneOption(title: AppConstants.String.internetConnection, message: AppConstants.String.internetConnectionMessage, actionTitle: AppConstants.String.tryAgain, actionHandler: {action in
+                        self.executeService(status: status)}), animated: true)
+                }
+            } else {
+                self.present(ZPAlertGeneric.oneOption(title: AppConstants.String.errorTitle, message: AppConstants.String.tryAgain, actionTitle: AppConstants.String.accept),animated: true)
+            }
+        }
+    }
+}
+
+// MARK: - Custom Segment Control Delegate
+
+extension VacanciesSavedViewController: CustomSegmentedControlDelegate {
     
     func changeToIndex(index: Int) {
         typeOfData = index
-        if index == postulationsOption {
-            genericArr = arrPostulations
-            self.tableView.reloadData()
-        }else {
-            genericArr = arrSaved
-            self.tableView.reloadData()
-        }
+        genericPostulations = index == postulationOption ? postulations : postulastionsSaved
+        self.tableView.reloadData()
         
-        if index == postulationsOption && arrPostulations?.count == nil{
-           executeService(Status: 1)
+        if index == postulationOption, postulations?.count == nil {
+            executeService(status: 1)
         }
     }
 }
 
-extension VacanciesSavedViewController : UITableViewDelegate, UITableViewDataSource {
+// MARK: - TableView Delgates
+
+extension VacanciesSavedViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return genericArr?.count ?? 0
+        return genericPostulations?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let companiescell = tableView.dequeueReusableCell(withIdentifier: "CompaniesTableViewCell", for: indexPath) as? CompaniesTableViewCell ?? CompaniesTableViewCell()
-        let companySel  = genericArr?[indexPath.row]
+        let companiescell = tableView.dequeueReusableCell(withIdentifier: Constants.TableView.companiesCellIdentifier, for: indexPath) as? CompaniesTableViewCell ?? CompaniesTableViewCell()
+        let companySel  = genericPostulations?[indexPath.row]
         companiescell.dataVacancies = companySel
-         companiescell.selectionStyle = .none
-        companiescell.imageChecK = true
-         return companiescell
+        companiescell.selectionStyle = .none
+        companiescell.isCheckMarked = true
+        return companiescell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return Constants.TableView.heightRow
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selected = genericArr?[indexPath.row] ?? postulations()
+        let selected = genericPostulations?[indexPath.row] ?? Postulation()
+        
         if typeOfData == 0 {
-            selected.bisSaved = true
-            selected.bIsPostulated = false
-        }else if typeOfData == 1{
-            selected.bIsPostulated = true
-            selected.bisSaved = false
+            selected.isSaved = true
+            selected.isPostulated = false
+        } else if typeOfData == 1{
+            selected.isPostulated = true
+            selected.isSaved = false
         }
         
-        showDetailCompany(vacanciSelected: selected)
+        showDetailCompany(vacancySelected: selected)
     }
 }

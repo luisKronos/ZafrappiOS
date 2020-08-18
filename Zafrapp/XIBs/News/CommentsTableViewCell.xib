@@ -121,13 +121,13 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="imgOtherUser" destination="dCc-YH-00h" id="Kjl-HT-t0Q"/>
-                <outlet property="imgProfile" destination="qBY-8g-06g" id="sJw-cs-RrW"/>
-                <outlet property="labelName" destination="amT-bj-v60" id="EsF-Vk-nAS"/>
-                <outlet property="lblAnswers" destination="ipm-hr-oJy" id="OdF-WR-Ltb"/>
-                <outlet property="lblDate" destination="cvR-rG-Lqh" id="p9t-8O-jZh"/>
-                <outlet property="lblName" destination="IGN-DO-Lvr" id="8Ai-Pr-iOc"/>
-                <outlet property="lblcomments" destination="xDg-Z0-QcH" id="Dcx-TQ-V86"/>
+                <outlet property="answerLabel" destination="ipm-hr-oJy" id="OdF-WR-Ltb"/>
+                <outlet property="commentLabel" destination="xDg-Z0-QcH" id="Dcx-TQ-V86"/>
+                <outlet property="dateLabel" destination="cvR-rG-Lqh" id="p9t-8O-jZh"/>
+                <outlet property="initialLabel" destination="amT-bj-v60" id="EsF-Vk-nAS"/>
+                <outlet property="nameLabel" destination="IGN-DO-Lvr" id="8Ai-Pr-iOc"/>
+                <outlet property="otherUserImageView" destination="dCc-YH-00h" id="Kjl-HT-t0Q"/>
+                <outlet property="profileImageView" destination="qBY-8g-06g" id="sJw-cs-RrW"/>
             </connections>
             <point key="canvasLocation" x="128.98550724637681" y="103.125"/>
         </tableViewCell>

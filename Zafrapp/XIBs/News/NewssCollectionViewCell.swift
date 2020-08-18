@@ -12,12 +12,12 @@ protocol showNewSelectedDelegate {
     func show(New:listaNews)
 }
 
-class NewssCollectionViewCell: UICollectionViewCell, UIScrollViewDelegate {
+class NewsCollectionViewCell: UICollectionViewCell, UIScrollViewDelegate {
 
-    @IBOutlet weak var image: UIImageView!
-    @IBOutlet weak var lblTime: UILabel!
-    @IBOutlet weak var lblTitle: UILabel!
-    @IBOutlet weak var lblDescription: UILabel!
+    @IBOutlet var image: UIImageView!
+    @IBOutlet private var lblTime: UILabel!
+    @IBOutlet private var lblTitle: UILabel!
+    @IBOutlet private var lblDescription: UILabel!
     
     
     var noticia : listaNews? {

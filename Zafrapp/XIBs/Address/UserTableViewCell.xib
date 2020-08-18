@@ -85,11 +85,11 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="Alj-F0-4sl"/>
             <connections>
-                <outlet property="imgUser" destination="uwY-nH-Gp3" id="F92-RG-GJW"/>
-                <outlet property="lblInformation" destination="xqZ-3b-sp9" id="zgd-Be-vp1"/>
-                <outlet property="lblName" destination="OMM-qp-ndH" id="6HM-pb-cKs"/>
-                <outlet property="lblUser" destination="JNv-co-gAP" id="ldK-BV-Ouk"/>
-                <outlet property="viewBackground" destination="3av-1W-5qe" id="ThP-wQ-39a"/>
+                <outlet property="containerView" destination="3av-1W-5qe" id="ThP-wQ-39a"/>
+                <outlet property="informationLabel" destination="xqZ-3b-sp9" id="zgd-Be-vp1"/>
+                <outlet property="nameLabel" destination="OMM-qp-ndH" id="6HM-pb-cKs"/>
+                <outlet property="userImageView" destination="uwY-nH-Gp3" id="F92-RG-GJW"/>
+                <outlet property="userLabel" destination="JNv-co-gAP" id="ldK-BV-Ouk"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="125.55803571428571"/>
         </tableViewCell>
