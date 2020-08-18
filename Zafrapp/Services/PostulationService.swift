@@ -10,7 +10,7 @@ import Foundation
 
 class PostulationService: NSObject {
     
-    var root = basePath().path(Complement: "get_positions")
+    var root = BasePath.path(component: "get_positions")
     var serviceError = NSError(domain: AppConstants.String.errorTitle, code: 0, userInfo: nil)
     
     func obtainPostulations(mail: String, status: Int? = 0 , userId: Int? = 0, with handler: @escaping ResponseCompletionClosure){

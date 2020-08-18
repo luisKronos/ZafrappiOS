@@ -10,7 +10,7 @@ import Foundation
 
 class RecoverPasswordService: NSObject {
     
-    var root = basePath().path(Complement: "recover_pass_user")
+    var root = BasePath.path(component: "recover_pass_user")
     var serviceError = NSError(domain: "recover_pass", code: 0, userInfo: nil)
     
     func recoverPass(Email: String , with handler: @escaping ResponseCompletionClosure){

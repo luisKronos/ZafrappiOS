@@ -10,7 +10,7 @@ import Foundation
 
 class SeccionsProfileService: NSObject {
     
-    var root = basePath().path(Complement: "update_data_user")
+    var root = BasePath.path(component: "update_data_user")
     var serviceError = NSError(domain: AppConstants.String.errorTitle, code: 0, userInfo: nil)
     
     func updateInfoProfile(data: UpdateData, seccion: Int , with handler: @escaping ResponseCompletionClosure){

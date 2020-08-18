@@ -10,7 +10,7 @@ import Foundation
 
 class NewsService: NSObject {
     
-    var root = basePath().path(Complement: "get_news")
+    var root = BasePath.path(component: "get_news")
     var serviceError = NSError(domain: AppConstants.String.errorTitle, code: 0, userInfo: nil)
     
     func newsList(interest: String , with handler: @escaping ResponseCompletionClosure){

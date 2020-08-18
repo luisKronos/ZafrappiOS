@@ -10,7 +10,7 @@ import Foundation
 
 public class SendCommentService: NSObject {
     
-    var root = basePath().path(Complement: "add_comment")
+    var root = BasePath.path(component: "add_comment")
     var serviceError = NSError(domain: AppConstants.String.errorTitle, code: 0, userInfo: nil)
     
     func sendComentario(id_news: Int, user_Id: Int, textcometaio: String, bisReply: Bool? = false , with handler: @escaping ResponseCompletionClosure){
@@ -18,7 +18,7 @@ public class SendCommentService: NSObject {
         let getMail =  InformationClasify.sharedInstance.data
         let mail =  getMail?.messageResponse?.email ?? ""
         if bisReply! {
-            root = basePath().path(Complement: "comment_reply")
+            root = BasePath.path(component: "comment_reply")
             getInformation = "id_news=\(id_news)&id=\(user_Id)&text_comment=\(textcometaio)&mail=\(mail)&id_comment=\(id_news)"
         } else {
             getInformation = "id_news=\(id_news)&user_id=\(user_Id)&text_comment=\(textcometaio)"

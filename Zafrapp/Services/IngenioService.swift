@@ -10,7 +10,7 @@ import Foundation
 
 class IngenioService: NSObject {
     
-    var root = basePath().path(Complement: "get_ingenio")
+    var root = BasePath.path(component: "get_ingenio")
     var serviceError = NSError(domain: AppConstants.String.errorTitle, code: 0, userInfo: nil)
     
     func getDataIngenio(Id_Ingenio: String, with handler: @escaping ResponseCompletionClosure){

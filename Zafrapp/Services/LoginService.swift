@@ -12,7 +12,7 @@ typealias ResponseCompletionClosure = (_ dictLog: Response? , Error?) -> Void
 
 class LoginService {
     
-    var root = basePath().path(Complement: "login_user")
+    var root = BasePath.path(component: "login_user")
     var serviceError = NSError(domain: AppConstants.String.errorTitle, code: 0, userInfo: nil)
     
     func logInClient(Data: LogInData , with handler: @escaping ResponseCompletionClosure){

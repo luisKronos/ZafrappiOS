@@ -10,7 +10,7 @@ import Foundation
 
 class UserService: NSObject {
     
-    var root = basePath().path(Complement: "get_users")
+    var root = BasePath.path(component: "get_users")
     var serviceError = NSError(domain: AppConstants.String.errorTitle, code: 0, userInfo: nil)
     
     func updateInfoProfile(mail: String, userName: String, IsSearch: Bool, section: Int, with handler: @escaping ResponseCompletionClosure){

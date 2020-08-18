@@ -10,7 +10,7 @@ import Foundation
 
 class CompanyService: NSObject {
     
-    var root = basePath().path(Complement: "get_companies")
+    var root = BasePath.path(component: "get_companies")
     var serviceError = NSError(domain: AppConstants.String.errorTitle, code: 0, userInfo: nil)
     
     func updateInfoProfile(mail: String,companyName: String, IsSearch: Bool,section: Int, with handler: @escaping ResponseCompletionClosure){

@@ -10,7 +10,7 @@ import Foundation
 
 class PositionService: NSObject {
     
-    var root = basePath().path(Complement: "save_positions")
+    var root = BasePath.path(component: "save_positions")
     var serviceError = NSError(domain: "save_positions", code: 0, userInfo: nil)
     
     func savePosition(idVacant: String, idUser: String , with handler: @escaping ResponseCompletionClosure){

@@ -11,7 +11,7 @@ import UIKit
 
 class UpdateimageService: NSObject {
     
-    var root = basePath().path(Complement: "update_image_user")
+    var root = BasePath.path(component: "update_image_user")
     var serviceError = NSError(domain: "update_image", code: 0, userInfo: nil)
     
     func upDateImage(data: UpdateProfileImage , with handler: @escaping ResponseCompletionClosure) {

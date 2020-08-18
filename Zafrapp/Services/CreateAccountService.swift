@@ -10,7 +10,7 @@ import Foundation
 
 class CreateAccountService: NSObject {
     
-    var root = basePath().path(Complement: "create_user")
+    var root = BasePath.path(component: "create_user")
     var serviceError = NSError(domain: AppConstants.String.errorTitle, code: 0, userInfo: nil)
     
     func createAccount(Data: RegisterAccount , with handler: @escaping ResponseCompletionClosure){

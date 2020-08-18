@@ -10,7 +10,7 @@ import Foundation
 
 class CVService: NSObject {
     
-    var root = basePath().path(Complement: "update_cv")
+    var root = BasePath.path(component: "update_cv")
     var serviceError = NSError(domain: "update_cv", code: 0, userInfo: nil)
     
     func savePosition(mail: String, strPDF: String , with handler: @escaping ResponseCompletionClosure){

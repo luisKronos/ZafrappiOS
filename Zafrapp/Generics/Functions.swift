@@ -10,12 +10,12 @@ import Foundation
 import UIKit
 
 class BasePath {
-    func path(component: String) -> String {
+    static func path(component: String) -> String {
         let path: String
         #if DEBUG
         path = "http://zafrapp.longbit.mx/\(component).php"
         #else
-        path  = "https://zafrapp.com/\(component).php"
+        path = "https://zafrapp.com/\(component).php"
         #endif
         return path
     }

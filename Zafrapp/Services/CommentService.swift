@@ -10,13 +10,13 @@ import Foundation
 
 class CommentService: NSObject {
     
-    var root = basePath().path(Complement: "show_comments")
+    var root = BasePath.path(component: "show_comments")
     var serviceError = NSError(domain: AppConstants.String.errorTitle, code: 0, userInfo: nil)
     
     func obtainComents(id_news: Int, isReply: Bool? = false , with handler: @escaping ResponseCompletionClosure){
         var getInformation = ""
         if isReply ?? false {
-            root = basePath().path(Complement: "show_replies")
+            root = BasePath.path(component: "show_replies")
             getInformation = "id_comment=\(id_news)"
         } else {
             getInformation = "id_news=\(id_news)"

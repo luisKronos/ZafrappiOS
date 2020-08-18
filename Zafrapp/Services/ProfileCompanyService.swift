@@ -10,13 +10,13 @@ import Foundation
 
 class ProfileCompanyService: NSObject {
     
-    var root = basePath().path(Complement: "get_companies")
+    var root = BasePath.path(component: "get_companies")
     var serviceError = NSError(domain: AppConstants.String.errorTitle, code: 0, userInfo: nil)
     
     func updateInfoProfile(mail: String, clienID: String, isIngenio: Bool , with handler: @escaping ResponseCompletionClosure){
         var getInformation = ""
         if isIngenio {
-            root = basePath().path(Complement: "get_ingenio")
+            root = BasePath.path(component: "get_ingenio")
             getInformation =  "mail=\(mail)&id_ingenio=\(clienID)"
         } else {
             getInformation =  "mail=\(mail)&id_client=\(clienID)"

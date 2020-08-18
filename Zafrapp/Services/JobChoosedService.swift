@@ -10,7 +10,7 @@ import Foundation
 
 class JobChoosedService: NSObject {
     
-    var root = basePath().path(Complement: "save_positions")
+    var root = BasePath.path(component: "save_positions")
     var serviceError = NSError(domain: AppConstants.String.errorTitle, code: 0, userInfo: nil)
     
     func obtainPostulations(idVacante: Int ,id_user: Int , id_ingenio: Int,  with handler: @escaping ResponseCompletionClosure){
