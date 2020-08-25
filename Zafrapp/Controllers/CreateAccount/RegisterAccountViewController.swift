@@ -176,7 +176,7 @@ private extension RegisterAccountViewController {
     func executeService(userData: RegisterAccount?) {
         self.activityIndicatorBegin()
         let service = CreateAccountService()
-        service.createAccount(Data: userData ?? RegisterAccount()) {[weak self] (respService, error) in
+        service.createAccount(data: userData ?? RegisterAccount()) {[weak self] (respService, error) in
             guard let self = self else { return }
             self.activityIndicatorEnd()
             if (error! as NSError).code == 0 && respService != nil {

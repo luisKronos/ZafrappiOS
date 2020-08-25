@@ -56,7 +56,7 @@ private extension AutoLoginViewController {
     
     func executeService(userData: LogInData?) {
         let service = LoginService()
-        service.logInClient(Data: userData ?? LogInData()) { [weak self] (response, error) in
+        service.logInClient(data: userData ?? LogInData()) { [weak self] (response, error) in
             guard let self = self else { return }
             
             if let error = error {

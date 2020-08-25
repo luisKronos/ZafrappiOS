@@ -116,7 +116,7 @@ private extension LoginViewController {
     func executeService(userData: LogInData?) {
         self.activityIndicatorBegin()
         let service = LoginService()
-        service.logInClient(Data: userData ?? LogInData()) {[weak self] (respService, error) in
+        service.logInClient(data: userData ?? LogInData()) {[weak self] (respService, error) in
             guard let self = self else { return }
             self.activityIndicatorEnd()
             if (error! as NSError).code == 0 && respService != nil {

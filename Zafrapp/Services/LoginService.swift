@@ -15,10 +15,10 @@ class LoginService {
     var root = BasePath.path(component: "login_user")
     var serviceError = NSError(domain: AppConstants.String.errorTitle, code: 0, userInfo: nil)
     
-    func logInClient(Data: LogInData , with handler: @escaping ResponseCompletionClosure){
+    func logInClient(data: LogInData , with handler: @escaping ResponseCompletionClosure){
         
         let headers = ["Content-Type": "application/x-www-form-urlencoded"]
-        let getInformation = "mail=\(Data.name ?? "")&password=\(Data.password ?? "")"
+        let getInformation = "mail=\(data.name ?? "")&password=\(data.password ?? "")"
         let postData = NSMutableData(data: getInformation.data(using: String.Encoding.utf8)!)
         
         let request = NSMutableURLRequest(url: NSURL(string: root)! as URL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)

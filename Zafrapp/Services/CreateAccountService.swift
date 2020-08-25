@@ -13,10 +13,10 @@ class CreateAccountService: NSObject {
     var root = BasePath.path(component: "create_user")
     var serviceError = NSError(domain: AppConstants.String.errorTitle, code: 0, userInfo: nil)
     
-    func createAccount(Data: RegisterAccount , with handler: @escaping ResponseCompletionClosure){
-        let bSearch_job = (Data.isSearchingJob ?? false) ? 1: 0
-        let share_cell = (Data.isCellphoneShared ?? false) ? 1: 0
-        let getInformation = "name=\(Data.name ?? "")&mail=\(Data.email ?? "")&celphone=\(Data.phone ?? 0)&is_share_cel=\(share_cell)&birthdate=\(Data.birthdate ?? "")&current_job=\(Data.currentJob ?? "")&is_search_work=\(bSearch_job)&work_place=\(Data.workPlace ?? "")&work_deparment=\(Data.workDepartment ?? "")&password=\(Data.password ?? "")"
+    func createAccount(data: RegisterAccount , with handler: @escaping ResponseCompletionClosure){
+        let bSearch_job = (data.isSearchingJob ?? false) ? 1: 0
+        let share_cell = (data.isCellphoneShared ?? false) ? 1: 0
+        let getInformation = "name=\(data.name ?? "")&mail=\(data.email ?? "")&celphone=\(data.phone ?? 0)&is_share_cel=\(share_cell)&birthdate=\(data.birthdate ?? "")&current_job=\(data.currentJob ?? "")&is_search_work=\(bSearch_job)&work_place=\(data.workPlace ?? "")&work_deparment=\(data.workDepartment ?? "")&password=\(data.password ?? "")"
         
         let headers = ["Content-Type": "application/x-www-form-urlencoded"]
         let postData = NSMutableData(data: getInformation.data(using: String.Encoding.utf8)!)
