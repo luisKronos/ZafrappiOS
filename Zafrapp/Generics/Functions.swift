@@ -9,38 +9,43 @@
 import Foundation
 import UIKit
 
-class basePath {
-    func path(Complement:String) -> String{
-        let path = "https://zafrapp.com/\(Complement).php"
+class BasePath {
+    static func path(component: String) -> String {
+        let path: String
+        #if DEBUG
+        path = "http://zafrapp.longbit.mx/\(component).php"
+        #else
+        path = "https://zafrapp.com/\(component).php"
+        #endif
         return path
     }
 }
 
-class changeLabel{
-    func changeColorLabel (Name:String, label : UILabel){
-         label.text = Name[0 ..< 2]
-         let bas = strHash(Name)
-         let hash = bas % 4
-              switch hash {
-                 case 0:
-                     label.backgroundColor = UIColor.blue
-                 case 1:
-                     label.backgroundColor = UIColor.green
-                 case 2:
-                     label.backgroundColor = UIColor.red
-                 case 3:
-                     label.backgroundColor = UIColor.yellow
-                 default:
-                     return
+class ThemeLabel {
+    func changeColorLabel(string:String, label: UILabel){
+        label.text = string[0 ..< 2]
+        let bas = hash(string)
+        let hash = bas % 4
+        switch hash {
+        case 0:
+            label.backgroundColor = .blue
+        case 1:
+            label.backgroundColor = .green
+        case 2:
+            label.backgroundColor = .red
+        case 3:
+            label.backgroundColor = .yellow
+        default:
+            return
         }
-     }
+    }
     
-    func strHash(_ str: String) -> UInt64 {
-            var result = UInt64 (5381)
-            let buf = [UInt8](str.utf8)
-            for b in buf {
-                result = 127 * (result & 0x00ffffffffffffff) + UInt64(b)
-            }
-            return result
+    func hash(_ string: String) -> UInt64 {
+        var result = UInt64 (5381)
+        let buf = [UInt8](string.utf8)
+        for b in buf {
+            result = 127 * (result & 0x00ffffffffffffff) + UInt64(b)
         }
+        return result
+    }
 }

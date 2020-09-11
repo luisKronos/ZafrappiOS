@@ -9,18 +9,26 @@
 import Foundation
 import UIKit
 
-class ZPMasterViewController : UIViewController {
+class ZPMasterViewController: UIViewController {
+    
+    // MARK: - Properties
+    
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     let greyView = UIView()
     
+    // MARK: - View Life Cycle
+    
     override func viewDidLoad() {
-          super.viewDidLoad()
-          hideKeyboardWhenTapped()
-      }
+        super.viewDidLoad()
+        hideKeyboardWhenTapped()
+    }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
+    
+    // MARK: - Activity Indicator Methods
+    
     func activityIndicatorBegin() {
         activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0,y: 0,width: 50,height: 50))
         activityIndicator.center = self.view.center
@@ -28,16 +36,17 @@ class ZPMasterViewController : UIViewController {
         activityIndicator.style = UIActivityIndicatorView.Style.large
         view.addSubview(activityIndicator)
         activityIndicator.startAnimating()
-        self.view.isUserInteractionEnabled = false
+        view.isUserInteractionEnabled = false
         
-        greyView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
+        greyView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
         greyView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         greyView.alpha = 0.5
-        self.view.addSubview(greyView)
+        view.addSubview(greyView)
     }
+    
     func activityIndicatorEnd() {
-           self.activityIndicator.stopAnimating()
-           self.view.isUserInteractionEnabled = true
-           self.greyView.removeFromSuperview()
-       }
+        activityIndicator.stopAnimating()
+        view.isUserInteractionEnabled = true
+        greyView.removeFromSuperview()
+    }
 }

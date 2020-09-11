@@ -10,43 +10,52 @@ import UIKit
 
 class CompaniesTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var vBackground: UIView!
-    @IBOutlet weak var imgLogo: UIImageView!
-    @IBOutlet weak var lblNameCompany: UILabel!
-    @IBOutlet weak var lblEmail: UILabel!
-    @IBOutlet weak var lblPhone: UILabel!
-    @IBOutlet weak var imgSelection: UIImageView!
-    var imageChecK = false
+    // MARK: - IBOutlets
     
-    var dataCompany : company? {
+    @IBOutlet private var containerView: UIView!
+    @IBOutlet private var logoImageView: UIImageView!
+    @IBOutlet private var companyNameLabel: UILabel!
+    @IBOutlet private var emailLabel: UILabel!
+    @IBOutlet private var phoneLabel: UILabel!
+    @IBOutlet private var selectionImageView: UIImageView!
+    
+    // MARK: - Public Propeties
+    
+    var isCheckMarked = false
+    
+    var dataCompany: Company? {
         didSet{
-            lblNameCompany.text = dataCompany?.strCompany_name
-            lblEmail.text = dataCompany?.strMail
-            lblPhone.text = dataCompany?.strCelPhone
+            companyNameLabel.text = dataCompany?.companyName
+            emailLabel.text = dataCompany?.mail
+            phoneLabel.text = dataCompany?.cellphone
             shadowView()
         }
     }
     
-    var dataVacancies : postulations? {
+    var dataVacancies: Postulation? {
         didSet{
-         imgLogo.downloaded(from: dataVacancies?.strImage ?? "", contentMode: .scaleToFill)
-            lblNameCompany.text = dataVacancies?.strPosition
-            lblEmail.text = "\(dataVacancies?.strWork_Place ?? "") - \(dataVacancies?.strState ?? "")"
-            lblPhone.text = "\(dataVacancies?.strRange_Salary ?? "") - \(dataVacancies?.strPucblishDate ?? "")"
+         logoImageView.downloaded(from: dataVacancies?.image ?? "", contentMode: .scaleToFill)
+            companyNameLabel.text = dataVacancies?.position
+            emailLabel.text = "\(dataVacancies?.workPlace ?? "") - \(dataVacancies?.state ?? "")"
+            phoneLabel.text = "\(dataVacancies?.salaryRange ?? "") - \(dataVacancies?.publishedDate ?? "")"
             shadowView()
             
-            if dataVacancies?.bIsPostulated ?? false || dataVacancies?.bisSaved ?? false || imageChecK {
-             imgSelection.image = UIImage(named: "check-circle")
+            if dataVacancies?.isPostulated ?? false || dataVacancies?.isSaved ?? false || isCheckMarked {
+             selectionImageView.image = UIImage(named: "check-circle")
             }
         }
     }
+}
+
+extension CompaniesTableViewCell {
+    // MARK: - Configuration Methods
     
-    func shadowView () {
-         vBackground.layer.cornerRadius = 25
-         vBackground.layer.shadowColor = UIColor.lightGray.cgColor
-         vBackground.layer.shadowOffset = CGSize(width: 0.5, height: 0.5)
-         vBackground.layer.shadowRadius = 5.0
-         vBackground.layer.shadowOpacity = 0.5
+    func shadowView() {
+         containerView.layer.cornerRadius = 25
+         containerView.layer.shadowColor = UIColor.lightGray.cgColor
+         containerView.layer.shadowOffset = CGSize(width: 0.5, height: 0.5)
+         containerView.layer.shadowRadius = 5.0
+         containerView.layer.shadowOpacity = 0.5
      }
     
 }

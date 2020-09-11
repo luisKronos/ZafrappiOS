@@ -89,12 +89,12 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="imgLogo" destination="WT7-UF-GXs" id="mty-sS-eMg"/>
-                <outlet property="imgSelection" destination="kUr-hz-Fp4" id="xYn-nl-TMe"/>
-                <outlet property="lblEmail" destination="zh8-2y-59d" id="3FC-qY-QbW"/>
-                <outlet property="lblNameCompany" destination="hRY-G4-9lb" id="DZC-5H-kUq"/>
-                <outlet property="lblPhone" destination="LeA-fT-uMu" id="mQV-rM-Px6"/>
-                <outlet property="vBackground" destination="cuH-OP-2i6" id="zpE-CV-utl"/>
+                <outlet property="companyNameLabel" destination="hRY-G4-9lb" id="DZC-5H-kUq"/>
+                <outlet property="containerView" destination="cuH-OP-2i6" id="zpE-CV-utl"/>
+                <outlet property="emailLabel" destination="zh8-2y-59d" id="3FC-qY-QbW"/>
+                <outlet property="logoImageView" destination="WT7-UF-GXs" id="mty-sS-eMg"/>
+                <outlet property="phoneLabel" destination="LeA-fT-uMu" id="mQV-rM-Px6"/>
+                <outlet property="selectionImageView" destination="kUr-hz-Fp4" id="xYn-nl-TMe"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="141.62946428571428"/>
         </tableViewCell>

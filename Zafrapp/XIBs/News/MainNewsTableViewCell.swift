@@ -9,54 +9,62 @@
 import UIKit
 
 class MainNewsTableViewCell: UITableViewCell {
-    @IBOutlet weak var collectionNews: UICollectionView!
-    var listOfNews : [listaNews] = []{
+    
+    // MARK: - Private IBOutlet
+    
+    @IBOutlet private var newsCollection: UICollectionView!
+    
+    var listOfNews: [NewsList] = []{
         didSet{
-            collectionNews.dataSource = self
-            collectionNews.delegate = self
-            collectionNews.register(UINib(nibName: "NewssCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "NewssCollectionViewCell")
-            collectionNews.showsHorizontalScrollIndicator = false
+            newsCollection.dataSource = self
+            newsCollection.delegate = self
+            newsCollection.register(UINib(nibName: "NewsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "NewsCollectionViewCell")
+            newsCollection.showsHorizontalScrollIndicator = false
             let layout = self.returnNewsPrincipal()
-            collectionNews.collectionViewLayout = layout
-            collectionNews.reloadData()
+            newsCollection.collectionViewLayout = layout
+            newsCollection.reloadData()
         }
     }
     
-    var delegateNextPage : showNewSelectedDelegate?
+    var delegateNextPage: ShowNewSelectedDelegate?
     
-   func returnNewsPrincipal()-> UICollectionViewLayout{
+    func returnNewsPrincipal()-> UICollectionViewLayout{
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 20
         layout.minimumInteritemSpacing = 0.1
-        let size = CGSize(width: self.collectionNews.frame.size.width - 100 , height: collectionNews.frame.size.height - 40)
-        layout.sectionInset = UIEdgeInsets (top: 20, left: 20, bottom: 20, right: 20)
+        let size = CGSize(width: self.newsCollection.frame.size.width - 100 , height: newsCollection.frame.size.height - 40)
+        layout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
         layout.itemSize = size
         
         return layout
     }
 }
-extension MainNewsTableViewCell : UICollectionViewDelegate, UICollectionViewDataSource{
+
+// MARK: - Collection View Delegates
+
+extension MainNewsTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if listOfNews.count == 0 {
+        if listOfNews.isEmpty {
             return 2
-        }else {
+        } else {
             return listOfNews.count
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionNews.dequeueReusableCell(withReuseIdentifier: "NewssCollectionViewCell", for: indexPath) as! NewssCollectionViewCell
+        let cell = newsCollection.dequeueReusableCell(withReuseIdentifier: "NewsCollectionViewCell", for: indexPath) as! NewsCollectionViewCell
         cell.layer.cornerRadius = 24
-        if listOfNews.count > 0 {
+        if !listOfNews.isEmpty {
             let oneNews = listOfNews[indexPath.row]
-             cell.noticia = oneNews
-        cell.image.downloaded(from: oneNews.strImage ?? "", contentMode : .scaleToFill)
+            cell.noticia = oneNews
+            cell.imageView.downloaded(from: oneNews.image ?? "", contentMode: .scaleToFill)
+        }
+        return cell
     }
-    return cell
-    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let new = listOfNews[indexPath.row]
-        delegateNextPage?.show(New: new)
+        delegateNextPage?.show(new: new)
     }
 }

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3JF-za-9cm">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -25,17 +24,17 @@
         <!--Login View Controller-->
         <scene sceneID="qfn-3p-P4P">
             <objects>
-                <viewController storyboardIdentifier="Login_VC" id="uWA-K8-l4H" customClass="Login_ViewController" customModule="Zafrapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login_VC" id="uWA-K8-l4H" customClass="LoginViewController" customModule="Zafrapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IUs-3y-rWW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gQd-XZ-iUM">
-                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SUu-2C-dcv">
-                                <rect key="frame" x="107" y="108" width="200" height="200"/>
+                                <rect key="frame" x="200" y="64" width="200" height="200"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="75J-jZ-gGd"/>
@@ -43,7 +42,7 @@
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Usuario" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HIi-mp-fKP" customClass="ZPDesignableUITextField" customModule="Zafrapp" customModuleProvider="target">
-                                <rect key="frame" x="42" y="338" width="330" height="50"/>
+                                <rect key="frame" x="42" y="294" width="516" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="FHC-cw-qdd"/>
@@ -61,7 +60,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C2O-BI-J5d" customClass="ZPDesignableUITextField" customModule="Zafrapp" customModuleProvider="target">
-                                <rect key="frame" x="40" y="408" width="334" height="50"/>
+                                <rect key="frame" x="40" y="364" width="520" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="WBI-Fw-gQ0"/>
@@ -79,7 +78,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="za8-jU-3JS" customClass="ZPDesignableUIButton" customModule="Zafrapp" customModuleProvider="target">
-                                <rect key="frame" x="40" y="478" width="334" height="50"/>
+                                <rect key="frame" x="40" y="434" width="520" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Bdb-Zm-QI0"/>
                                 </constraints>
@@ -93,14 +92,14 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="btnLog:" destination="uWA-K8-l4H" eventType="touchUpInside" id="H9e-rV-zaj"/>
+                                    <action selector="loginAction:" destination="uWA-K8-l4H" eventType="touchUpInside" id="H9e-rV-zaj"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tXp-V4-eq3">
-                                <rect key="frame" x="40" y="543" width="334" height="52"/>
+                                <rect key="frame" x="40" y="499" width="520" height="52"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5m0-OY-e8N">
-                                        <rect key="frame" x="0.0" y="0.0" width="167" height="52"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="260" height="52"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="11"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -111,11 +110,11 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="btnRememberPassw:" destination="uWA-K8-l4H" eventType="touchUpInside" id="AVR-eh-ew0"/>
+                                            <action selector="rememberPasswordAction:" destination="uWA-K8-l4H" eventType="touchUpInside" id="AVR-eh-ew0"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mFH-7e-Ial">
-                                        <rect key="frame" x="167" y="0.0" width="167" height="52"/>
+                                        <rect key="frame" x="260" y="0.0" width="260" height="52"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="11"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -123,7 +122,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="btnForgotPassw:" destination="uWA-K8-l4H" eventType="touchUpInside" id="DQn-OZ-Ily"/>
+                                            <action selector="forgotPasswordAction:" destination="uWA-K8-l4H" eventType="touchUpInside" id="DQn-OZ-Ily"/>
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconUncheck" translatesAutoresizingMaskIntoConstraints="NO" id="zcO-sC-lxh">
@@ -160,7 +159,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ici-Ph-2YO">
-                                <rect key="frame" x="40" y="611" width="334" height="30"/>
+                                <rect key="frame" x="40" y="567" width="520" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="cdy-iC-6aN"/>
                                 </constraints>
@@ -169,36 +168,36 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnCreateAccount:" destination="uWA-K8-l4H" eventType="touchUpInside" id="BGm-2k-FNx"/>
+                                    <action selector="createAccountAction:" destination="uWA-K8-l4H" eventType="touchUpInside" id="BGm-2k-FNx"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6O2-Dl-nSZ">
-                                <rect key="frame" x="207" y="388" width="0.0" height="0.0"/>
+                                <rect key="frame" x="300" y="344" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                 <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c6S-Jy-Lvl">
-                                <rect key="frame" x="207" y="458" width="0.0" height="0.0"/>
+                                <rect key="frame" x="300" y="414" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                 <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="Sym-dd-jHT">
-                                <rect key="frame" x="147" y="148" width="120" height="120"/>
+                                <rect key="frame" x="240" y="104" width="120" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="E4H-hc-80X"/>
                                     <constraint firstAttribute="width" constant="120" id="gQz-X2-8RA"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EGA-KU-cn1">
-                                <rect key="frame" x="20" y="839" width="374" height="32"/>
+                                <rect key="frame" x="20" y="543" width="560" height="32"/>
                                 <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="17"/>
                                 <state key="normal" title="www.zafrap.com">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnShowWebSite:" destination="uWA-K8-l4H" eventType="touchUpInside" id="KSv-Oh-fiB"/>
+                                    <action selector="websiteAction:" destination="uWA-K8-l4H" eventType="touchUpInside" id="KSv-Oh-fiB"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -242,12 +241,12 @@
                         <barButtonItem key="backBarButtonItem" title="     " id="3np-i7-wOD"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="btnCreateAccountOut" destination="ici-Ph-2YO" id="tDn-sM-SJp"/>
-                        <outlet property="imgRemember" destination="zcO-sC-lxh" id="e9U-Ii-FFx"/>
-                        <outlet property="lblPasswordError" destination="c6S-Jy-Lvl" id="ez3-TJ-LAB"/>
-                        <outlet property="lblUserError" destination="6O2-Dl-nSZ" id="9vM-tl-Oa9"/>
-                        <outlet property="txtPassword" destination="C2O-BI-J5d" id="mud-oh-vcl"/>
-                        <outlet property="txtUser" destination="HIi-mp-fKP" id="rmL-TR-9Ii"/>
+                        <outlet property="createAccountButton" destination="ici-Ph-2YO" id="tDn-sM-SJp"/>
+                        <outlet property="passwordErrorLabel" destination="c6S-Jy-Lvl" id="ez3-TJ-LAB"/>
+                        <outlet property="passwordTextField" destination="C2O-BI-J5d" id="mud-oh-vcl"/>
+                        <outlet property="rememberImageView" destination="zcO-sC-lxh" id="e9U-Ii-FFx"/>
+                        <outlet property="userErrorLabel" destination="6O2-Dl-nSZ" id="9vM-tl-Oa9"/>
+                        <outlet property="userTextField" destination="HIi-mp-fKP" id="rmL-TR-9Ii"/>
                         <segue destination="YgB-pU-Krn" kind="show" identifier="LogInVcToRegisterVc" id="PPD-rc-X1f"/>
                         <segue destination="nBx-3p-VlF" kind="show" identifier="LogInVcToPasswordForgotVc" id="CWQ-c0-oQy"/>
                         <segue destination="kBE-a8-cVd" kind="presentation" identifier="LoginVcToNews" id="VZM-YI-OXW"/>
@@ -257,10 +256,10 @@
             </objects>
             <point key="canvasLocation" x="-4931.884057971015" y="164.73214285714286"/>
         </scene>
-        <!--Create Account View Controller-->
+        <!--Register Account View Controller-->
         <scene sceneID="Hpe-o8-UUj">
             <objects>
-                <viewController id="YgB-pU-Krn" customClass="CreateAccount_ViewController" customModule="Zafrapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="YgB-pU-Krn" customClass="RegisterAccountViewController" customModule="Zafrapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pss-nr-E3m">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -520,7 +519,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="btnRegister:" destination="YgB-pU-Krn" eventType="touchUpInside" id="xeT-cg-DoX"/>
+                                                    <action selector="registerAction:" destination="YgB-pU-Krn" eventType="touchUpInside" id="xeT-cg-DoX"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZP7-zA-eIq">
@@ -806,53 +805,53 @@
                     <navigationItem key="navigationItem" id="1rb-jA-wHB"/>
                     <size key="freeformSize" width="414" height="896"/>
                     <connections>
-                        <outlet property="imgBackground" destination="vYy-wx-OGs" id="tu0-g1-nDN"/>
-                        <outlet property="lblErrorBirthDay" destination="Zjw-9c-8mh" id="v3b-do-gxc"/>
-                        <outlet property="lblErrorCurrentJob" destination="EpE-Nz-enB" id="1dk-3w-W6o"/>
-                        <outlet property="lblErrorEmail" destination="8ui-eJ-mvc" id="HzO-0U-8Zj"/>
-                        <outlet property="lblErrorName" destination="ZP7-zA-eIq" id="nF1-ra-gka"/>
-                        <outlet property="lblErrorOtroIngenio" destination="FTv-by-Gnm" id="dGL-Xn-8QG"/>
-                        <outlet property="lblErrorPassword" destination="iu9-oI-fSN" id="5tb-4f-mHX"/>
-                        <outlet property="lblErrorPlaceToWork" destination="9Um-EP-wk2" id="4fA-4o-W8R"/>
-                        <outlet property="lblErrorProfession" destination="Q9f-fg-c7d" id="0RA-mu-4ix"/>
-                        <outlet property="lblErrorotroDepartamento" destination="6gM-7S-a5B" id="1Sm-fB-OwT"/>
-                        <outlet property="lbleErrorCellPhone" destination="q3N-o0-Qo0" id="ckg-oL-KcC"/>
-                        <outlet property="lycHeighDepto" destination="nKC-1n-T5K" id="fXc-Vn-Vwm"/>
-                        <outlet property="lyvHeightIngenio" destination="cne-2m-pJ0" id="8gT-7M-bnz"/>
-                        <outlet property="switchLookingJob" destination="kND-Sz-ozx" id="8sb-82-tuI"/>
-                        <outlet property="switchPublisPhone" destination="Cig-52-5oW" id="l47-oz-Opk"/>
-                        <outlet property="txtCelular" destination="3Uh-2L-LXC" id="1sV-so-u9X"/>
-                        <outlet property="txtDay" destination="6Ej-Ol-bbD" id="w9G-kV-fBT"/>
-                        <outlet property="txtDepartmentJob" destination="fdk-d3-nLi" id="FMj-yV-tad"/>
-                        <outlet property="txtEmail" destination="qwm-yl-xKH" id="S5f-2M-yVL"/>
-                        <outlet property="txtMonth" destination="LvE-dh-gbu" id="d62-Zt-c0y"/>
-                        <outlet property="txtName" destination="zgi-Wr-CHJ" id="qfl-Se-qtq"/>
-                        <outlet property="txtOtroDpto" destination="kMS-e9-3FT" id="KPq-Ak-Jla"/>
-                        <outlet property="txtOtroIngenio" destination="hhb-O5-OMj" id="qaz-BX-5A4"/>
-                        <outlet property="txtPassword" destination="r4Q-A2-IVe" id="5lk-OD-WO7"/>
-                        <outlet property="txtPlaceToWork" destination="0Pz-0n-owp" id="Koc-Va-5GJ"/>
-                        <outlet property="txtProfesion" destination="9fC-QU-PYZ" id="9S2-qX-Ujb"/>
-                        <outlet property="txtYear" destination="I8U-Op-PYj" id="ESC-Po-sD1"/>
+                        <outlet property="backgroundImageView" destination="vYy-wx-OGs" id="tu0-g1-nDN"/>
+                        <outlet property="birthdayErrorLabel" destination="Zjw-9c-8mh" id="v3b-do-gxc"/>
+                        <outlet property="cellphoneErrorLabel" destination="q3N-o0-Qo0" id="ckg-oL-KcC"/>
+                        <outlet property="cellphoneTextField" destination="3Uh-2L-LXC" id="1sV-so-u9X"/>
+                        <outlet property="currentJobErrorLabel" destination="EpE-Nz-enB" id="1dk-3w-W6o"/>
+                        <outlet property="dayTextField" destination="6Ej-Ol-bbD" id="w9G-kV-fBT"/>
+                        <outlet property="emailErrorLabel" destination="8ui-eJ-mvc" id="HzO-0U-8Zj"/>
+                        <outlet property="emailTextField" destination="qwm-yl-xKH" id="S5f-2M-yVL"/>
+                        <outlet property="jobDepartmentTextField" destination="fdk-d3-nLi" id="FMj-yV-tad"/>
+                        <outlet property="lycDepartmentHeighConstraint" destination="nKC-1n-T5K" id="fXc-Vn-Vwm"/>
+                        <outlet property="lyvIngenioHeightConstraint" destination="cne-2m-pJ0" id="8gT-7M-bnz"/>
+                        <outlet property="monthTextField" destination="LvE-dh-gbu" id="d62-Zt-c0y"/>
+                        <outlet property="nameErrorLabel" destination="ZP7-zA-eIq" id="nF1-ra-gka"/>
+                        <outlet property="nameTextField" destination="zgi-Wr-CHJ" id="qfl-Se-qtq"/>
+                        <outlet property="otherDeparmentErrorLabel" destination="6gM-7S-a5B" id="1Sm-fB-OwT"/>
+                        <outlet property="otherDeparmentTextField" destination="kMS-e9-3FT" id="KPq-Ak-Jla"/>
+                        <outlet property="otherIngenioErrorLabel" destination="FTv-by-Gnm" id="dGL-Xn-8QG"/>
+                        <outlet property="otherIngenioTextField" destination="hhb-O5-OMj" id="qaz-BX-5A4"/>
+                        <outlet property="passwordErrorLabel" destination="iu9-oI-fSN" id="5tb-4f-mHX"/>
+                        <outlet property="passwordTextField" destination="r4Q-A2-IVe" id="5lk-OD-WO7"/>
+                        <outlet property="placeWorkErrorLabel" destination="9Um-EP-wk2" id="4fA-4o-W8R"/>
+                        <outlet property="professionErrorLabel" destination="Q9f-fg-c7d" id="0RA-mu-4ix"/>
+                        <outlet property="professionTextField" destination="9fC-QU-PYZ" id="9S2-qX-Ujb"/>
+                        <outlet property="publishPhoneSwitch" destination="Cig-52-5oW" id="l47-oz-Opk"/>
+                        <outlet property="searchJobSwitch" destination="kND-Sz-ozx" id="8sb-82-tuI"/>
+                        <outlet property="workPlaceTextField" destination="0Pz-0n-owp" id="Koc-Va-5GJ"/>
+                        <outlet property="yearTextField" destination="I8U-Op-PYj" id="ESC-Po-sD1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AJ9-Bq-Nvq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-4034.7826086956525" y="164.73214285714286"/>
         </scene>
-        <!--Account Succes View Controller-->
+        <!--Account Success View Controller-->
         <scene sceneID="xB7-Vc-0xR">
             <objects>
-                <viewController storyboardIdentifier="SucessAccountVC" id="WBB-mF-5jZ" customClass="AccountSucces_ViewController" customModule="Zafrapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SucessAccountVC" id="WBB-mF-5jZ" customClass="AccountSuccessViewController" customModule="Zafrapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a1E-6M-0xk">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uBo-l6-zhm">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iSg-Jd-NmR" customClass="ZPDesignableUIButton" customModule="Zafrapp" customModuleProvider="target">
-                                <rect key="frame" x="40" y="780" width="334" height="52"/>
+                                <rect key="frame" x="40" y="518" width="520" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="raC-kr-RnM"/>
                                 </constraints>
@@ -866,31 +865,31 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="Continue:" destination="WBB-mF-5jZ" eventType="touchUpInside" id="VsE-b6-W8F"/>
-                                    <action selector="btnRegister:" destination="YgB-pU-Krn" eventType="touchUpInside" id="FWi-Rn-ZTd"/>
+                                    <action selector="continueAction:" destination="WBB-mF-5jZ" eventType="touchUpInside" id="VsE-b6-W8F"/>
+                                    <action selector="registerAction:" destination="YgB-pU-Krn" eventType="touchUpInside" id="FWi-Rn-ZTd"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkCircle" translatesAutoresizingMaskIntoConstraints="NO" id="oie-vI-GkM">
-                                <rect key="frame" x="153" y="124" width="108" height="108"/>
+                                <rect key="frame" x="246" y="80" width="108" height="108"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="108" id="kIC-jE-YMv"/>
                                     <constraint firstAttribute="width" constant="108" id="sw5-u3-qT0"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cuenta Registrada!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZaJ-Rv-D1e">
-                                <rect key="frame" x="40" y="322" width="334" height="35"/>
+                                <rect key="frame" x="40" y="278" width="520" height="29.5"/>
                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¡Tu cuenta ha sido registrada exitosamente, completa tu perfil y descubre todo lo que tenemos para ti!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X96-IP-Wh0">
-                                <rect key="frame" x="40" y="427" width="334" height="63"/>
+                                <rect key="frame" x="40" y="377.5" width="520" height="35"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Continue" translatesAutoresizingMaskIntoConstraints="NO" id="5oM-XG-8Q4">
-                                <rect key="frame" x="324" y="786" width="40" height="40"/>
+                                <rect key="frame" x="510" y="524" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="YRR-3x-Ori"/>
                                     <constraint firstAttribute="height" constant="40" id="xXm-uF-4Y6"/>
@@ -951,17 +950,17 @@
         <!--Forgot Password View Controller-->
         <scene sceneID="KQM-JR-g01">
             <objects>
-                <viewController id="nBx-3p-VlF" customClass="forgotPassword_ViewController" customModule="Zafrapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="nBx-3p-VlF" customClass="ForgotPasswordViewController" customModule="Zafrapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OuY-ZM-g3L">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z2H-FH-sb3">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gdv-Vr-79B" customClass="ZPDesignableUIButton" customModule="Zafrapp" customModuleProvider="target">
-                                <rect key="frame" x="40" y="780" width="334" height="52"/>
+                                <rect key="frame" x="40" y="518" width="520" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="vf5-EM-2Pc"/>
                                 </constraints>
@@ -975,32 +974,32 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="btnRegister:" destination="YgB-pU-Krn" eventType="touchUpInside" id="70t-Ll-VAh"/>
                                     <action selector="continuar:" destination="uj2-PG-FVh" eventType="touchUpInside" id="6Pr-8n-kEa"/>
-                                    <action selector="continuar:" destination="nBx-3p-VlF" eventType="touchUpInside" id="75u-6G-wLD"/>
+                                    <action selector="continueAction:" destination="nBx-3p-VlF" eventType="touchUpInside" id="75u-6G-wLD"/>
+                                    <action selector="registerAction:" destination="YgB-pU-Krn" eventType="touchUpInside" id="70t-Ll-VAh"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Continue" translatesAutoresizingMaskIntoConstraints="NO" id="XO2-gl-qAz">
-                                <rect key="frame" x="324" y="786" width="40" height="40"/>
+                                <rect key="frame" x="510" y="524" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="ET5-Rh-dez"/>
                                     <constraint firstAttribute="height" constant="40" id="FeH-XH-3Ks"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Olvide mi contraseña" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ScI-Nm-OZo">
-                                <rect key="frame" x="89" y="238" width="236.5" height="35"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Olvide mi contraseña" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ScI-Nm-OZo">
+                                <rect key="frame" x="182" y="9.5" width="236.5" height="29.5"/>
                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Ingresa el correo electrónico con el que registraste tu cuenta y te enviaremos un enlace para renovar tu contraseña." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ay-Z5-XdM">
-                                <rect key="frame" x="40" y="343" width="334" height="63"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingresa el correo electrónico con el que registraste tu cuenta y te enviaremos un enlace para renovar tu contraseña." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ay-Z5-XdM">
+                                <rect key="frame" x="40" y="109" width="520" height="35"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Zs-ke-otN" customClass="ZPDesignableUITextField" customModule="Zafrapp" customModuleProvider="target">
-                                <rect key="frame" x="40" y="481" width="334" height="52"/>
+                                <rect key="frame" x="40" y="219" width="520" height="52"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="Y4G-V6-VJP"/>
@@ -1018,7 +1017,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MlG-nG-Dgc">
-                                <rect key="frame" x="207" y="533" width="0.0" height="0.0"/>
+                                <rect key="frame" x="300" y="271" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="13"/>
                                 <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1051,9 +1050,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="656-Si-4d0"/>
                     <connections>
-                        <outlet property="lblErrorPassword" destination="MlG-nG-Dgc" id="ZTI-ew-zza"/>
-                        <outlet property="lycHeight" destination="VSH-ii-V4u" id="wDO-0Y-hWH"/>
-                        <outlet property="txtEmail" destination="6Zs-ke-otN" id="6zO-rN-gSE"/>
+                        <outlet property="emailTextField" destination="6Zs-ke-otN" id="6zO-rN-gSE"/>
+                        <outlet property="lycHeightConstraint" destination="VSH-ii-V4u" id="wDO-0Y-hWH"/>
+                        <outlet property="passwordErrorLabel" destination="MlG-nG-Dgc" id="ZTI-ew-zza"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W6o-e7-oYc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1064,17 +1063,17 @@
         <!--Exit Change Email View Controller-->
         <scene sceneID="kqN-73-n70">
             <objects>
-                <viewController storyboardIdentifier="SucessChangePasswordVC" id="AaR-yI-o8u" customClass="ExitChangeEmail_ViewController" customModule="Zafrapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SucessChangePasswordVC" id="AaR-yI-o8u" customClass="ExitChangeEmailViewController" customModule="Zafrapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AfU-iX-pML">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eMA-EL-cI9">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gMU-A0-l7Y" customClass="ZPDesignableUIButton" customModule="Zafrapp" customModuleProvider="target">
-                                <rect key="frame" x="40" y="780" width="334" height="52"/>
+                                <rect key="frame" x="40" y="518" width="520" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="Qau-jo-uwz"/>
                                 </constraints>
@@ -1088,32 +1087,32 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="GoOnAction:" destination="AaR-yI-o8u" eventType="touchUpInside" id="Sma-af-GPb"/>
-                                    <action selector="btnRegister:" destination="YgB-pU-Krn" eventType="touchUpInside" id="v8K-sD-lWY"/>
+                                    <action selector="goAction:" destination="AaR-yI-o8u" eventType="touchUpInside" id="Sma-af-GPb"/>
+                                    <action selector="registerAction:" destination="YgB-pU-Krn" eventType="touchUpInside" id="v8K-sD-lWY"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Continue" translatesAutoresizingMaskIntoConstraints="NO" id="BPX-Ff-I8O">
-                                <rect key="frame" x="324" y="786" width="40" height="40"/>
+                                <rect key="frame" x="510" y="524" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="33N-On-ZTY"/>
                                     <constraint firstAttribute="width" constant="40" id="xT7-Lh-we2"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkCircle" translatesAutoresizingMaskIntoConstraints="NO" id="hku-SV-Co0">
-                                <rect key="frame" x="153" y="124" width="108" height="108"/>
+                                <rect key="frame" x="246" y="80" width="108" height="108"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="108" id="Sul-RQ-0T3"/>
                                     <constraint firstAttribute="height" constant="108" id="cM0-sg-6wd"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enlace enviado" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b25-KN-FvG">
-                                <rect key="frame" x="40" y="322" width="334" height="35"/>
+                                <rect key="frame" x="40" y="278" width="520" height="29.5"/>
                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¡Revisa tu bandeja de entrada o carpeta de no deseados para renovar tu contraseña!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1E-7q-XJ6">
-                                <rect key="frame" x="40" y="427" width="334" height="42"/>
+                                <rect key="frame" x="40" y="377.5" width="520" height="35"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>

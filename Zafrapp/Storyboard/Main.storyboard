@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -16,10 +16,10 @@
             </objects>
             <point key="canvasLocation" x="-4105" y="-160"/>
         </scene>
-        <!--Tab Bar Manage View Controller-->
+        <!--Tab Bar Manager View Controller-->
         <scene sceneID="vxC-vi-h4n">
             <objects>
-                <tabBarController storyboardIdentifier="TabBarInitial" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0KZ-Xv-mEw" customClass="TabBarManage_ViewController" customModule="Zafrapp" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarInitial" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0KZ-Xv-mEw" customClass="TabBarManagerViewController" customModule="Zafrapp" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QkB-vv-Xtr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -59,7 +59,7 @@
         <!--contactsNavBar-->
         <scene sceneID="Gkh-Sr-7qZ">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="AddressVc" storyboardName="Adrees" referencedIdentifier="contactsNavBar" id="XzF-iz-JFO" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="AddressVc" storyboardName="Address" referencedIdentifier="contactsNavBar" id="XzF-iz-JFO" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="IconPeaple" id="wWe-Eq-Bfa"/>
                     <navigationItem key="navigationItem" id="OFO-Dl-Pqe"/>
                 </viewControllerPlaceholder>

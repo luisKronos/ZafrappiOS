@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-public class ZpLabel : UILabel {
+public class ZpLabel: UILabel {
     @IBInspectable var showUnderline: Int = 0 {
         didSet {
             if showUnderline == 1 {
@@ -18,5 +18,4 @@ public class ZpLabel : UILabel {
             }
         }
     }
-
 }

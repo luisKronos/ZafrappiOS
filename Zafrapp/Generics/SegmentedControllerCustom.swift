@@ -24,7 +24,7 @@ class CustomSegmentedControl: UIView {
     
     weak var delegate:CustomSegmentedControlDelegate?
     
-    public private(set) var selectedIndex : Int = 0
+    public private(set) var selectedIndex: Int = 0
     
     convenience init(frame:CGRect,buttonTitle:[String]) {
         self.init(frame: frame)
@@ -33,10 +33,9 @@ class CustomSegmentedControl: UIView {
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        self.backgroundColor = UIColor.white
+        self.backgroundColor = .white
         updateView()
     }
-    
     
     func setButtonTitles(buttonTitles:[String]) {
         self.buttonTitles = buttonTitles

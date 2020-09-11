@@ -10,107 +10,117 @@ import UIKit
 
 class CommentsTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var lblName: UILabel!
-    @IBOutlet weak var lblcomments: UILabel!
-    @IBOutlet weak var lblDate: UILabel!
-    @IBOutlet weak var lblAnswers: UILabel!
-    @IBOutlet weak var imgProfile: UIImageView!
-    @IBOutlet weak var imgOtherUser: UIImageView!
-    @IBOutlet weak var labelName: UILabel!
+    // MARK: - IBOutlets
     
-    var aComent : comment?{
+    @IBOutlet private var nameLabel: UILabel!
+    @IBOutlet private var commentLabel: UILabel!
+    @IBOutlet private var dateLabel: UILabel!
+    @IBOutlet private var answerLabel: UILabel!
+    @IBOutlet private var profileImageView: UIImageView!
+    @IBOutlet private var otherUserImageView: UIImageView!
+    @IBOutlet private var initialLabel: UILabel!
+    
+    // MARK: - Properties
+    
+    var aComent: Comment? {
         didSet{
-          
-            if aComent?.id_user == getUserSaved() && (aComent?.bShowAnswer ?? false) {
-                imgOtherUser.isHidden = true
-                if let image = aComent?.user_image {
-                imgProfile.downloaded(from: image, contentMode: .scaleToFill)
-                    labelName.isHidden = true
-                }else {
-                    labelName.isHidden = false
-                    changeColorLabel(Name: aComent?.name ?? "")
+            if aComent?.userId == getUserSaved() && (aComent?.isAnswerShown ?? false) {
+                otherUserImageView.isHidden = true
+                if let image = aComent?.userImageString {
+                    profileImageView.downloaded(from: image, contentMode: .scaleToFill)
+                    initialLabel.isHidden = true
+                } else {
+                    initialLabel.isHidden = false
+                    changeColorLabel(name: aComent?.name ?? "")
                 }
             }
-            if aComent?.id_user != getUserSaved() && (aComent?.bShowAnswer ?? false) {
-                imgOtherUser.isHidden = false
-                imgProfile.isHidden = true
-                if let image = aComent?.user_image {
-                imgOtherUser.downloaded(from: image, contentMode: .scaleToFill)
-                    labelName.isHidden = true
-                }else {
-                   labelName.isHidden = false
-                    changeColorLabel(Name: aComent?.name ?? "")
+            if aComent?.userId != getUserSaved() && (aComent?.isAnswerShown ?? false) {
+                otherUserImageView.isHidden = false
+                profileImageView.isHidden = true
+                if let image = aComent?.userImageString {
+                    otherUserImageView.downloaded(from: image, contentMode: .scaleToFill)
+                    initialLabel.isHidden = true
+                } else {
+                    initialLabel.isHidden = false
+                    changeColorLabel(name: aComent?.name ?? "")
                 }
             }
-            if aComent?.bisMovSelected ?? false &&  aComent?.bShowAnswer ?? false {
-                imgOtherUser.isHidden = false
-                imgProfile.isHidden = true
+            if aComent?.isMovSelected ?? false &&  aComent?.isAnswerShown ?? false {
+                otherUserImageView.isHidden = false
+                profileImageView.isHidden = true
                 if let image = aComent?.image {
-                imgOtherUser.downloaded(from: image, contentMode: .scaleToFill)
-                    labelName.isHidden = true
-                }else {
-                    labelName.isHidden = false
-                    changeColorLabel(Name: aComent?.name ?? "")
+                    otherUserImageView.downloaded(from: image, contentMode: .scaleToFill)
+                    initialLabel.isHidden = true
+                } else {
+                    initialLabel.isHidden = false
+                    changeColorLabel(name: aComent?.name ?? "")
                 }
             }
             
-            if !(aComent?.bShowAnswer ?? false) {
-             lblAnswers.text = Int(aComent?.HasComments ?? "0") ?? 0 > 0 ? "Ver respuestas" : ""
-             imgOtherUser.isHidden = true
-              if let imag = aComent?.image {
-                    imgProfile.downloaded(from: imag, contentMode: .scaleToFill)
-                labelName.isHidden = true
-              }else {
-                labelName.isHidden = false
-                changeColorLabel(Name: aComent?.name ?? "")
+            if !(aComent?.isAnswerShown ?? false) {
+                answerLabel.text = Int(aComent?.hasCommentsString ?? "0") ?? 0 > 0 ? "Ver respuestas": ""
+                otherUserImageView.isHidden = true
+                if let imag = aComent?.image {
+                    profileImageView.downloaded(from: imag, contentMode: .scaleToFill)
+                    initialLabel.isHidden = true
+                } else {
+                    initialLabel.isHidden = false
+                    changeColorLabel(name: aComent?.name ?? "")
                 }
             }
             
-            lblName.text = aComent?.name
-            lblcomments.text = aComent?.text_comment
+            nameLabel.text = aComent?.name
+            commentLabel.text = aComent?.text
             let dateMonth = String(aComent?.date?.prefix(10) ?? "")
-            lblDate.text = dateMonth
+            dateLabel.text = dateMonth
         }
     }
     
-    func getUserSaved() -> String {
-          let getUser =  informationClasify.sharedInstance.data
-          return  getUser?.arrMessage?.strId_user ?? ""
-            }
-    
-    func strHash(_ str: String) -> UInt64 {
-         var result = UInt64 (5381)
-         let buf = [UInt8](str.utf8)
-         for b in buf {
-             result = 127 * (result & 0x00ffffffffffffff) + UInt64(b)
-         }
-         return result
-      }
     override func prepareForReuse() {
-        lblName.text = ""
-        lblcomments.text = ""
-        lblDate.text = ""
-        lblAnswers.text = ""
-        imgProfile.image = UIImage(contentsOfFile: "")
-        imgOtherUser.image = UIImage(contentsOfFile: "")
-        labelName.text = ""
+        nameLabel.text = ""
+        commentLabel.text = ""
+        dateLabel.text = ""
+        answerLabel.text = ""
+        profileImageView.image = UIImage(contentsOfFile: "")
+        otherUserImageView.image = UIImage(contentsOfFile: "")
+        initialLabel.text = ""
     }
     
-    func changeColorLabel (Name:String){
-        labelName.text = Name[0 ..< 2]
-        let bas = strHash(Name)
+}
+
+// MARK: - Private Methods
+
+private extension CommentsTableViewCell {
+    
+    func getUserSaved() -> String {
+        let getUser =  InformationClasify.sharedInstance.data
+        return  getUser?.messageResponse?.userId ?? ""
+    }
+    
+    func hash(for string: String) -> UInt64 {
+        var result = UInt64(5381)
+        let buf = [UInt8](string.utf8)
+        for b in buf {
+            result = 127 * (result & 0x00ffffffffffffff) + UInt64(b)
+        }
+        return result
+    }
+    
+    func changeColorLabel(name:String){
+        initialLabel.text = name[0 ..< 2]
+        let bas = hash(for: name)
         let hash = bas % 4
-             switch hash {
-                case 0:
-                    labelName.backgroundColor = UIColor.blue
-                case 1:
-                    labelName.backgroundColor = UIColor.green
-                case 2:
-                    labelName.backgroundColor = UIColor.red
-                case 3:
-                    labelName.backgroundColor = UIColor.yellow
-                default:
-                    return
-                }
+        switch hash {
+        case 0:
+            initialLabel.backgroundColor = .blue
+        case 1:
+            initialLabel.backgroundColor = .green
+        case 2:
+            initialLabel.backgroundColor = .red
+        case 3:
+            initialLabel.backgroundColor = .yellow
+        default:
+            return
+        }
     }
 }
