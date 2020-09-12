@@ -10,6 +10,14 @@ import UIKit
 
 class RegisterAccountViewController: ZPMasterViewController {
     
+    // MARK: - Constants
+    
+    private enum Constants {
+        enum String {
+            static let privacyPoliciesUrl = "https://zafrapp.com/docs/aviso-de-privacidad.pdf"
+            static let termsAndConditionsUrl = "https://zafrapp.com/docs/terminos-y-condiciones.pdf"
+        }
+    }
     // MARK: - IBOutlets
     @IBOutlet private var backgroundImageView: UIImageView!
     @IBOutlet private var passwordTextField: ZPDesignableUITextField! {
@@ -129,6 +137,26 @@ class RegisterAccountViewController: ZPMasterViewController {
             self.present(ZPAlertGeneric.oneOption(title: "Campos incompletos", message: "Completar todos los campos", actionTitle: AppConstants.String.accept),animated: true)
             checkFields()
         }
+    }
+    
+    @IBAction func openTermsAndConditionsAction(_ sender: Any) {
+        guard let termsAndCoditionsUrl = URL(string: Constants.String.termsAndConditionsUrl) else {
+            return
+        }
+        guard UIApplication.shared.canOpenURL(termsAndCoditionsUrl) else {
+            return
+        }
+        UIApplication.shared.open(termsAndCoditionsUrl, options: [:], completionHandler: nil)
+    }
+    
+    @IBAction func openPrivacyPoliciesAction(_ sender: Any) {
+        guard let privacyPoliciesUrl = URL(string: Constants.String.privacyPoliciesUrl) else {
+            return
+        }
+        guard UIApplication.shared.canOpenURL(privacyPoliciesUrl) else {
+            return
+        }
+        UIApplication.shared.open(privacyPoliciesUrl, options: [:], completionHandler: nil)
     }
     
 }
