@@ -16,6 +16,18 @@ class RegisterAccountViewController: ZPMasterViewController {
         enum String {
             static let privacyPoliciesUrl = "https://zafrapp.com/docs/aviso-de-privacidad.pdf"
             static let termsAndConditionsUrl = "https://zafrapp.com/docs/terminos-y-condiciones.pdf"
+            static let termsAndConditions = "Términos y Condiciones"
+            static let privacyPolicies = "Políticas de Privacidad"
+            static let and = " y"
+        }
+        
+        enum Font {
+            static let termsAndCondition = UIFont.systemFont(ofSize: 15.0)
+            static let privacyPolicies = UIFont.systemFont(ofSize: 15.0)
+        }
+        
+        enum Color {
+            static let termsAndConditonsTitle = UIColor(red: 180/255, green: 180/255, blue: 180/255, alpha: 1.0)
         }
     }
     // MARK: - IBOutlets
@@ -96,6 +108,8 @@ class RegisterAccountViewController: ZPMasterViewController {
     @IBOutlet private var passwordErrorLabel: UILabel!
     @IBOutlet private var lycDepartmentHeighConstraint: NSLayoutConstraint!
     @IBOutlet private var lyvIngenioHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private var termsAndConditionsButton: UIButton!
+    @IBOutlet private var privacyPoliciesButton: UIButton!
     
     // MARK: - Private Properties
     
@@ -110,6 +124,7 @@ class RegisterAccountViewController: ZPMasterViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureButton()
         lyvIngenioHeightConstraint.constant = 80
         lycDepartmentHeighConstraint.constant = 30
         otherDeparmentTextField.isHidden = true
@@ -164,6 +179,34 @@ class RegisterAccountViewController: ZPMasterViewController {
 // MARK :- Private Methods
 
 private extension RegisterAccountViewController {
+    
+    func configureButton() {
+        
+        let style = NSMutableParagraphStyle()
+        style.alignment = NSTextAlignment.center
+        style.lineBreakMode = NSLineBreakMode.byWordWrapping
+
+        let attributes: [NSAttributedString.Key : Any] = [
+            NSAttributedString.Key.foregroundColor: Constants.Color.termsAndConditonsTitle,
+            NSAttributedString.Key.underlineStyle : NSUnderlineStyle.single.rawValue,
+            NSAttributedString.Key.font : Constants.Font.termsAndCondition,
+            NSAttributedString.Key.paragraphStyle : style
+        ]
+        
+        let termsAndConditionsAttributedString = NSMutableAttributedString(string: Constants.String.termsAndConditions, attributes: attributes)
+        
+        var andAttributes = attributes
+        andAttributes.removeValue(forKey: NSAttributedString.Key.underlineStyle)
+        
+        let andAttributedString = NSAttributedString(string: Constants.String.and, attributes: andAttributes)
+        
+        termsAndConditionsAttributedString.append(andAttributedString)
+        termsAndConditionsButton.setAttributedTitle(termsAndConditionsAttributedString, for: .normal)
+        
+        let privacyPoliciesAttributedString = NSMutableAttributedString(string: Constants.String.privacyPolicies, attributes: attributes)
+        
+        privacyPoliciesButton.setAttributedTitle(privacyPoliciesAttributedString, for: .normal)
+    }
     
     func checkOptionalesDptEIngenio() {
         if !(otherIngenioTextField.text?.isEmpty ?? false) && workPlaceTextField.text == "Otro (Cuál)" {
