@@ -70,7 +70,7 @@ class PostulationService: NSObject {
         if let arrAllPostulations = responseDictionary["vacants"] as? [Any] {
             for postulation in arrAllPostulations {
                 let dataUser = postulation as? NSDictionary
-                var dataJob = Postulation()
+                let dataJob = Postulation()
                 
                 dataJob.vacant       = dataUser?["id_vacant"] as? String
                 dataJob.position      = dataUser?["position"] as? String
