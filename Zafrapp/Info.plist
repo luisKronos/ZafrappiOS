@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<true/>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -30,9 +32,9 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>The aplication needs to use the camera of the device</string>
+	<string>Permite tomar la foto de perfil.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>Permite ubicar las empresas cerca de ti.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Poppins-Light.ttf</string>
