@@ -54,9 +54,9 @@ extension UIImage {
         UIGraphicsBeginImageContextWithOptions(rect.size, false, 0)
         let context = UIGraphicsGetCurrentContext()
         
-        context?.translateBy(x: 0.0, y: self.size.height)
+        context?.translateBy(x: 0.0, y: size.height)
         context?.scaleBy(x: 1.0, y: -1.0)
-        context?.draw(cgImage, in: CGRect(x: rect.minX, y: rect.minY, width: self.size.width, height: self.size.height), byTiling: false)
+        context?.draw(cgImage, in: CGRect(x: rect.minX, y: rect.minY, width: size.width, height: size.height), byTiling: false)
         
         
         let croppedImage = UIGraphicsGetImageFromCurrentImageContext()
@@ -100,4 +100,5 @@ extension UIImage {
         
         self.init(data: imageData)
     }
+    
 }
