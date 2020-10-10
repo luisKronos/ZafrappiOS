@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -31,12 +32,12 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="edt-hV-vXm">
                         <rect key="frame" x="0.0" y="0.0" width="341" height="273"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Fi-f4-6cd">
-                                <rect key="frame" x="0.0" y="20" width="341" height="253"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Fi-f4-6cd">
+                                <rect key="frame" x="0.0" y="0.0" width="341" height="273"/>
                                 <color key="backgroundColor" name="BlueZafrapp"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hace una hora" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s0c-aP-E2s">
-                                <rect key="frame" x="10" y="144" width="92" height="16.5"/>
+                                <rect key="frame" x="10" y="140.5" width="104" height="20"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -60,7 +61,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" name="GreyZafrapp"/>
+                                <color key="backgroundColor" red="0.70588235290000001" green="0.70588235290000001" blue="0.70588235290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="VJL-VH-lCt" firstAttribute="top" secondItem="gs2-WF-Yv3" secondAttribute="bottom" id="80X-2X-F91"/>
                                     <constraint firstItem="gs2-WF-Yv3" firstAttribute="top" secondItem="pf0-X5-UiE" secondAttribute="top" constant="8" id="PqL-w8-dK0"/>
@@ -81,7 +82,7 @@
                             <constraint firstItem="pf0-X5-UiE" firstAttribute="leading" secondItem="edt-hV-vXm" secondAttribute="leading" id="SGS-Fx-rfH"/>
                             <constraint firstItem="pf0-X5-UiE" firstAttribute="top" secondItem="s0c-aP-E2s" secondAttribute="bottom" constant="3.5" id="Wi3-3W-mgk"/>
                             <constraint firstAttribute="bottom" secondItem="pf0-X5-UiE" secondAttribute="bottom" id="k0l-0u-2UZ"/>
-                            <constraint firstItem="3Fi-f4-6cd" firstAttribute="top" secondItem="edt-hV-vXm" secondAttribute="top" constant="20" id="o7L-zd-Hzr"/>
+                            <constraint firstItem="3Fi-f4-6cd" firstAttribute="top" secondItem="edt-hV-vXm" secondAttribute="top" id="o7L-zd-Hzr"/>
                             <constraint firstAttribute="trailing" secondItem="pf0-X5-UiE" secondAttribute="trailing" id="qoa-VV-05W"/>
                             <constraint firstAttribute="bottom" secondItem="3Fi-f4-6cd" secondAttribute="bottom" id="t4u-4o-igp"/>
                             <constraint firstAttribute="trailing" secondItem="3Fi-f4-6cd" secondAttribute="trailing" id="wqR-h2-5m6"/>
@@ -89,13 +90,13 @@
                     </view>
                 </subviews>
             </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="edt-hV-vXm" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="1Ch-hQ-3GT"/>
                 <constraint firstItem="edt-hV-vXm" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="bSO-gW-j0N"/>
                 <constraint firstAttribute="trailing" secondItem="edt-hV-vXm" secondAttribute="trailing" id="gAT-PZ-dha"/>
                 <constraint firstAttribute="bottom" secondItem="edt-hV-vXm" secondAttribute="bottom" id="sx9-A8-ivg"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="341" height="273"/>
             <connections>
                 <outlet property="descriptionLabel" destination="VJL-VH-lCt" id="5rs-bv-k5E"/>
