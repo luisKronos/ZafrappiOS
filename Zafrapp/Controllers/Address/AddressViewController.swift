@@ -54,6 +54,10 @@ class AddressViewController: ZPMasterViewController , UIGestureRecognizerDelegat
         swipeDown()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        selectionSegmentedControl.setNeedsDisplay()
+    }
     // MARK: - IBActions
     
     @IBAction func filterAction(_ sender: Any) {
@@ -200,10 +204,18 @@ private extension AddressViewController {
     }
     
     func addSegmentedControled() {
-        let codeSegmented = CustomSegmentedControl(frame: CGRect(x: 0, y: 0, width: self.segmentedControllerCustomView.frame.width , height: self.segmentedControllerCustomView.frame.height), buttonTitle: ["Empresas","Contacto"])
+        let codeSegmented = CustomSegmentedControl(frame: .zero, buttonTitle: ["Empresas","Contacto"])
+        codeSegmented.translatesAutoresizingMaskIntoConstraints = false
         codeSegmented.delegate = self
         codeSegmented.backgroundColor = .clear
-        self.segmentedControllerCustomView.addSubview(codeSegmented)
+        segmentedControllerCustomView.addSubview(codeSegmented)
+        
+        NSLayoutConstraint.activate([
+            codeSegmented.topAnchor.constraint(equalTo: segmentedControllerCustomView.topAnchor),
+            codeSegmented.bottomAnchor.constraint(equalTo: segmentedControllerCustomView.bottomAnchor),
+            codeSegmented.leadingAnchor.constraint(equalTo: segmentedControllerCustomView.leadingAnchor),
+            codeSegmented.trailingAnchor.constraint(equalTo: segmentedControllerCustomView.trailingAnchor)
+        ])
     }
 }
 
