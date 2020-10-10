@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class EditProfileViewController: ZPMasterViewController {
     
@@ -154,6 +155,10 @@ class EditProfileViewController: ZPMasterViewController {
         adjustImageRound()
         searchJobSwitch.addTarget(self, action: #selector(onSwitchValueChanged), for: .touchUpInside)
         informationUser = InformationClasify.sharedInstance.data
+        
+        // Disable IQKeyboardManager because of how tag were set
+        // needs to refactor this view to use IQKeyboardManager
+        IQKeyboardManager.shared.enableAutoToolbar = false
     }
     
     // MARK: -  IBAction
