@@ -31,6 +31,7 @@ class AdjustandCropViewController: UIViewController {
             imageScrollView.maximumZoomScale = 2
         }
     }
+    @IBOutlet private var cropView: UIView!
     
     // MARK: - Private Properties
     
@@ -53,21 +54,22 @@ class AdjustandCropViewController: UIViewController {
             imageView.image = adjustedImage
         }
         
-        backgroundView.layer.cornerRadius = backgroundView.frame.size.height/2
+        backgroundView.layer.cornerRadius = backgroundView.frame.size.height / 2
     }
     
     // MARK: - IBActions
     
     @IBAction func correctAction(_ sender: Any) {
-        imgToSend = imageScrollView.screenshot()
+        // Resize image because trimming white space makes uimage has a big size
+        imgToSend = imageCropped?.resize(scaledToWidth: gridImageView.frame.width)
+        
         if isImageSelected {
             performSegue(withIdentifier: "cropImage", sender: nil)
         } else  {
-            self.present(ZPAlertGeneric.oneOption(title: AppConstants.String.errorTitle, message: "Para continuar debes seleccionar una foto", actionTitle:AppConstants.String.accept, actionHandler: {(_) in
+            present(ZPAlertGeneric.oneOption(title: AppConstants.String.errorTitle, message: "Para continuar debes seleccionar una foto", actionTitle:AppConstants.String.accept, actionHandler: {(_) in
                 self.photoLibrary()
             }),animated: true)
         }
-        
     }
     
     @IBAction func cancelAction(_ sender: Any) {
@@ -125,5 +127,30 @@ extension AdjustandCropViewController: UIImagePickerControllerDelegate,UINavigat
         imageView.image = imagePick
         isImageSelected = true
         dismiss(animated: true)
+    }
+}
+
+private extension AdjustandCropViewController {
+    var imageCropped: UIImage? {
+        // To avoid getting grid on new image
+        gridImageView.isHidden = true
+        // To get a white background and use trim methods to remove what is not necessary
+        imageScrollView.backgroundColor = .white
+        
+        UIGraphicsBeginImageContextWithOptions(gridImageView.frame.size, true, 0.0)
+        guard let context = UIGraphicsGetCurrentContext() else {
+            return nil
+        }
+        context.translateBy(x: -gridImageView.frame.origin.x, y: -gridImageView.frame.origin.y)
+        cropView.layer.render(in: context)
+        var image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        image = image?.trim()
+
+        // Restore previuos state
+        imageScrollView.backgroundColor = .black
+        gridImageView.isHidden = false
+        
+        return image
     }
 }
