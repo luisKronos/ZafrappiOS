@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -56,6 +56,9 @@
 		38E3F86D246139DB00DCE563 /* CreateAccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E3F86C246139DB00DCE563 /* CreateAccountService.swift */; };
 		38E3F86F24613DA500DCE563 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38E3F86E24613DA500DCE563 /* Main.storyboard */; };
 		38E3F8712461963200DCE563 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38E3F8702461963200DCE563 /* Profile.storyboard */; };
+		847A658F252C00E400AB4540 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 847A658E252C00E400AB4540 /* IQKeyboardManagerSwift */; };
+		847A6592252C08E000AB4540 /* ZafrappTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A6591252C08E000AB4540 /* ZafrappTheme.swift */; };
+		84D40DDB25302AEC006F3152 /* UIImage+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D40DDA25302AEC006F3152 /* UIImage+Utilities.swift */; };
 		84E75E6E24E8AECA00C2470F /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E75E6D24E8AECA00C2470F /* AppConstants.swift */; };
 		8930DABE24CCE67500E368B0 /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8930DABD24CCE67500E368B0 /* CommentService.swift */; };
 		8930DAC224CD1FA300E368B0 /* SendCommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8930DAC124CD1FA300E368B0 /* SendCommentService.swift */; };
@@ -163,6 +166,8 @@
 		38E3F86C246139DB00DCE563 /* CreateAccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountService.swift; sourceTree = "<group>"; };
 		38E3F86E24613DA500DCE563 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		38E3F8702461963200DCE563 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		847A6591252C08E000AB4540 /* ZafrappTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZafrappTheme.swift; sourceTree = "<group>"; };
+		84D40DDA25302AEC006F3152 /* UIImage+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Utilities.swift"; sourceTree = "<group>"; };
 		84E75E6D24E8AECA00C2470F /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		8930DABD24CCE67500E368B0 /* CommentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentService.swift; sourceTree = "<group>"; };
 		8930DAC124CD1FA300E368B0 /* SendCommentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCommentService.swift; sourceTree = "<group>"; };
@@ -223,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8930DB2224D2808700E368B0 /* WebKit.framework in Frameworks */,
+				847A658F252C00E400AB4540 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +394,7 @@
 			isa = PBXGroup;
 			children = (
 				84E75E6D24E8AECA00C2470F /* AppConstants.swift */,
+				847A6591252C08E000AB4540 /* ZafrappTheme.swift */,
 				38D99BA9245FA6B20038C853 /* ZpImage.swift */,
 				38D99BAB245FA7360038C853 /* ZpTextField.swift */,
 				38D99BAD245FA76B0038C853 /* ZpButton.swift */,
@@ -416,6 +423,7 @@
 				89A106C9246A030C00E6A7D0 /* UISwitch+Configuration.swift */,
 				89A075892481EFD4007FF202 /* String+Utilities.swift */,
 				89D3887A24A706BC00A75773 /* UserDefautls+Utilities.swift */,
+				84D40DDA25302AEC006F3152 /* UIImage+Utilities.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -547,6 +555,9 @@
 			dependencies = (
 			);
 			name = Zafrapp;
+			packageProductDependencies = (
+				847A658E252C00E400AB4540 /* IQKeyboardManagerSwift */,
+			);
 			productName = Zafrapp;
 			productReference = 38D99B8D245F98AD0038C853 /* Zafrapp.app */;
 			productType = "com.apple.product-type.application";
@@ -575,6 +586,9 @@
 				Base,
 			);
 			mainGroup = 38D99B84245F98AD0038C853;
+			packageReferences = (
+				847A658D252C00E400AB4540 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+			);
 			productRefGroup = 38D99B8E245F98AD0038C853 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -658,12 +672,14 @@
 				38E3F86D246139DB00DCE563 /* CreateAccountService.swift in Sources */,
 				89D3886B249E4B8E00A75773 /* PostulationService.swift in Sources */,
 				898A0362247635F500F8B1BB /* NewsDetailViewController.swift in Sources */,
+				84D40DDB25302AEC006F3152 /* UIImage+Utilities.swift in Sources */,
 				89A07588248198D9007FF202 /* DataInteres.swift in Sources */,
 				385F4DDA2462793B00E92174 /* NewsViewController.swift in Sources */,
 				38D99BB0245FA79D0038C853 /* ZpMasterViewController.swift in Sources */,
 				89D3887724A6C40700A75773 /* favoriteVacancie.swift in Sources */,
 				89A07584247EE39B007FF202 /* AdjustandCropViewController.swift in Sources */,
 				89D3887D24A7B8EF00A75773 /* IngenioService.swift in Sources */,
+				847A6592252C08E000AB4540 /* ZafrappTheme.swift in Sources */,
 				38D99BBD245FA8FC0038C853 /* Int+Utilities.swift in Sources */,
 				385F4DC924626B4400E92174 /* ExitChangeEmailViewController.swift in Sources */,
 				38D99BAC245FA7360038C853 /* ZpTextField.swift in Sources */,
@@ -900,6 +916,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		847A658D252C00E400AB4540 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.5.6;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		847A658E252C00E400AB4540 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 847A658D252C00E400AB4540 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 38D99B85245F98AD0038C853 /* Project object */;
 }
