@@ -20,7 +20,7 @@ class MainNewsTableViewCell: UITableViewCell {
             newsCollection.delegate = self
             newsCollection.register(UINib(nibName: "NewsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "NewsCollectionViewCell")
             newsCollection.showsHorizontalScrollIndicator = false
-            let layout = self.returnNewsPrincipal()
+            let layout = returnNewsPrincipal()
             newsCollection.collectionViewLayout = layout
             newsCollection.reloadData()
         }
@@ -54,7 +54,7 @@ extension MainNewsTableViewCell: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = newsCollection.dequeueReusableCell(withReuseIdentifier: "NewsCollectionViewCell", for: indexPath) as! NewsCollectionViewCell
-        cell.layer.cornerRadius = 24
+        cell.layer.cornerRadius = 20.0
         if !listOfNews.isEmpty {
             let oneNews = listOfNews[indexPath.row]
             cell.noticia = oneNews
