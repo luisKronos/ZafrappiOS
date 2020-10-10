@@ -15,6 +15,9 @@ class CVProfileViewController: ZPMasterViewController {
         enum Segue {
             static let showPDF = "segueShowPDF"
         }
+        enum String {
+            static let resume = NSLocalizedString("Currículum", comment: "")
+        }
     }
     
     // MARK: - IBOutlets
@@ -26,6 +29,7 @@ class CVProfileViewController: ZPMasterViewController {
     @IBOutlet private var cvTitleLabel: UILabel!
     @IBOutlet private var updateCvButton: ZPDesignableUIButton!
     @IBOutlet private var deleteButton: UIButton!
+    @IBOutlet private var resumeLabel: UILabel!
     
     // MARK: - Private Properties
     
@@ -38,13 +42,12 @@ class CVProfileViewController: ZPMasterViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        getEmailSaved()
+        configureLabel()
+        configureResumeView()
+        configureGestureRecognizer()
         adjustImageRound()
         shadowView()
-        let tap = UITapGestureRecognizer(target: self, action: #selector(tapFunction))
-        cvView.isUserInteractionEnabled = true
-        cvView.addGestureRecognizer(tap)
+        
         
         let getName =  InformationClasify.sharedInstance.data
         let imagefromDocuments: UIImage? = getImageFromDocument().fileInDocumentsDirectory(filename: "ProfilePicture\(getName?.messageResponse?.userId ?? "").jpg")
@@ -53,24 +56,20 @@ class CVProfileViewController: ZPMasterViewController {
     
     // MARK: - IBActions
     
-    @IBAction func btnUpdateCV(_ sender: Any) {
+    @IBAction func updateResumeAction(_ sender: Any) {
         hasCV = !hasCV
         if !hasCV {
             cvTitleLabel.text = "Subir CV"
             updateCvButton.isEnabled = true
             deleteButton.setTitle("", for: .normal)
-            updateCvButton.backgroundColor = #colorLiteral(red: 0.1490196078, green: 0.6, blue: 0.9843137255, alpha: 1)
-            deleteButton.setImage(UIImage(named: "longArrowUp"), for: .normal)
         }
     }
     
-    @IBAction func btnUpload(_ sender: Any) {
-        //        if !alreadyHasCV {
+    @IBAction func uploadAction(_ sender: Any) {
         let documentPicker = UIDocumentPickerViewController(documentTypes: [String(kUTTypePDF)], in: .import)
         //Call Delegate
         documentPicker.delegate = self
         self.present(documentPicker, animated: true)
-        //        }
     }
     
     // MARK: - Segue Methods
@@ -88,20 +87,18 @@ class CVProfileViewController: ZPMasterViewController {
 
 private extension CVProfileViewController {
     
-    
-    @objc func tapFunction(sender:UITapGestureRecognizer) {
-        guard hasCV else { return }
-        performSegue(withIdentifier: Constants.Segue.showPDF, sender: nil)
+    func configureLabel() {
+        resumeLabel.text = Constants.String.resume
     }
     
     func adjustImageRound() {
-        self.cvProfileImageView.layer.cornerRadius = cvProfileImageView.frame.size.height / 2
-        self.cvProfileImageView.layer.borderColor = #colorLiteral(red: 0.337254902, green: 0.3882352941, blue: 1, alpha: 1)
-        self.cvProfileImageView.layer.borderWidth = 2
-        self.cvProfileImageView.clipsToBounds = true
+        cvProfileImageView.layer.cornerRadius = cvProfileImageView.frame.size.height / 2
+        cvProfileImageView.layer.borderColor = #colorLiteral(red: 0.337254902, green: 0.3882352941, blue: 1, alpha: 1)
+        cvProfileImageView.layer.borderWidth = 2
+        cvProfileImageView.clipsToBounds = true
     }
     
-    func getEmailSaved() {
+    func configureResumeView() {
         let getEmail =  InformationClasify.sharedInstance.data
         emailLabel.text = getEmail?.messageResponse?.email
         nameLabel.text = getEmail?.messageResponse?.name
@@ -114,11 +111,17 @@ private extension CVProfileViewController {
             updateCvButton.setTitle("Actualizar", for: .normal)
         } else {
             deleteButton.setTitle("", for: .normal)
-            deleteButton.setImage(UIImage(named: "longArrowUp"), for: .normal)
             cvTitleLabel.text = "Subir CV"
             hasCV = false
             updateCvButton.setTitle("Subir", for: .normal)
         }
+    }
+    
+    func configureGestureRecognizer() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(showResume(sender:)))
+        tapGestureRecognizer.numberOfTapsRequired = 1
+        cvView.isUserInteractionEnabled = true
+        cvView.addGestureRecognizer(tapGestureRecognizer)
     }
     
     func updateCV(mail: String, strPdf: String) {
@@ -139,6 +142,7 @@ private extension CVProfileViewController {
                     self.cvTitleLabel.text = self.titlePDF
                     self.present(ZPAlertGeneric.oneOption(title: "Éxito", message:"Tu CV se ha actualizado correctamente", actionTitle: AppConstants.String.accept),animated: true)
                 }
+                self.hasCV = !self.hasCV
             } else if (error! as NSError).code == AppConstants.ErrorCode.noInternetConnection {
                 self.present(ZPAlertGeneric.oneOption(title: AppConstants.String.internetConnection, message: AppConstants.String.internetConnectionMessage, actionTitle: AppConstants.String.accept),animated: true)
             } else {
@@ -174,6 +178,11 @@ private extension CVProfileViewController {
         cvView.layer.shadowRadius = 5.0
         cvView.layer.shadowOpacity = 0.5
     }
+    
+    @objc func showResume(sender: UITapGestureRecognizer) {
+        guard hasCV else { return }
+        performSegue(withIdentifier: Constants.Segue.showPDF, sender: nil)
+    }
 }
 
 // MARK: - UIDocumentPickerDelegate
@@ -182,7 +191,7 @@ extension CVProfileViewController: UIDocumentPickerDelegate {
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         let size = fileSize(forURL: urls.first!)
         if size < 0.5 {
-            let fileData = try! Data.init(contentsOf: urls.first!)
+            let fileData = try! Data(contentsOf: urls.first!)
             titlePDF =  urls.first!.lastPathComponent
             let base64 = fileData.base64EncodedString(options: NSData.Base64EncodingOptions.init(rawValue: 0))
             let getEmail =  InformationClasify.sharedInstance.data
