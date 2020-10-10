@@ -19,7 +19,7 @@ class AddressViewController: ZPMasterViewController , UIGestureRecognizerDelegat
     
     // MARK: - Private Properties
     
-    private var companyOptionsTitle = ["Servicio","Ubicacion"]
+    private var companyOptionsTitle = ["Servicio","Ubicación"]
     private var titleOptionsUser = ["Ingenio","Departamento"]
     private var isSectionShown = false
     private var options: [String] = []
