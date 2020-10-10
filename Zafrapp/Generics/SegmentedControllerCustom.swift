@@ -1,5 +1,5 @@
 //
-//  SegmentedControllerCustom.swift
+//  CustomSegmentedControl.swift
 //  Zafrapp
 //
 //  Created by Mayte Dominguez on 21/05/20.
@@ -73,8 +73,8 @@ class CustomSegmentedControl: UIView {
 extension CustomSegmentedControl {
     private func updateView() {
         createButton()
-        configSelectorView()
         configStackView()
+        configSelectorView()
     }
     
     private func configStackView() {
@@ -84,10 +84,13 @@ extension CustomSegmentedControl {
         stack.distribution = .fillEqually
         addSubview(stack)
         stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        stack.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        stack.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
-        stack.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+        
+        NSLayoutConstraint.activate([
+            stack.topAnchor.constraint(equalTo: self.topAnchor),
+            stack.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            stack.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            stack.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+        ])
     }
     
     private func configSelectorView() {
@@ -100,7 +103,7 @@ extension CustomSegmentedControl {
     private func createButton() {
         buttons = [UIButton]()
         buttons.removeAll()
-        subviews.forEach({$0.removeFromSuperview()})
+        subviews.forEach { $0.removeFromSuperview() }
         for buttonTitle in buttonTitles {
             let button = UIButton(type: .system)
             button.setTitle(buttonTitle, for: .normal)
