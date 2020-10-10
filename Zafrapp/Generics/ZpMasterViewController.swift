@@ -33,7 +33,12 @@ class ZPMasterViewController: UIViewController {
         activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0,y: 0,width: 50,height: 50))
         activityIndicator.center = self.view.center
         activityIndicator.hidesWhenStopped = true
-        activityIndicator.style = UIActivityIndicatorView.Style.large
+        if #available(iOS 13.0, *) {
+            activityIndicator.style = .large
+        } else {
+            // Fallback on earlier versions
+            activityIndicator.style = .white
+        }
         view.addSubview(activityIndicator)
         activityIndicator.startAnimating()
         view.isUserInteractionEnabled = false

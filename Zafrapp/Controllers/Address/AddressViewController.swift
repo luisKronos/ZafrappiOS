@@ -67,7 +67,13 @@ class AddressViewController: ZPMasterViewController , UIGestureRecognizerDelegat
             lycSelectionViewConstraint.constant = 0
             searchBar.showsCancelButton = false
             isSerching = true
-            searchBar.searchTextField.isUserInteractionEnabled = false
+            if #available(iOS 13.0, *) {
+                searchBar.searchTextField.isUserInteractionEnabled = false
+            } else {
+                // Fallback on earlier versions
+                let searchTextField = searchBar.value(forKey: "searchField") as? UITextField
+                searchTextField?.isUserInteractionEnabled = false
+            }
             isFiltered = false
             tableView.reloadData()
         } else {
@@ -78,7 +84,13 @@ class AddressViewController: ZPMasterViewController , UIGestureRecognizerDelegat
             isSectionShown = false
             tableView.reloadData()
             button.isSelected = false
-            searchBar.searchTextField.isUserInteractionEnabled = true
+            if #available(iOS 13.0, *) {
+                searchBar.searchTextField.isUserInteractionEnabled = true
+            } else {
+                // Fallback on earlier versions
+                let searchTextField = searchBar.value(forKey: "searchField") as? UITextField
+                searchTextField?.isUserInteractionEnabled = true
+            }
         }
     }
     
@@ -124,7 +136,13 @@ private extension AddressViewController {
                         self.isTextSearched = true
                         self.isSerching = false
                         self.isSectionShown = false
-                        self.searchBar.searchTextField.isUserInteractionEnabled = true
+                        if #available(iOS 13.0, *) {
+                            self.searchBar.searchTextField.isUserInteractionEnabled = true
+                        } else {
+                            // Fallback on earlier versions
+                            let searchTextField = self.searchBar.value(forKey: "searchField") as? UITextField
+                            searchTextField?.isUserInteractionEnabled = true
+                        }
                         self.companiesFiltered = respService?.allCompanies ?? []
                     } else {
                         self.companies = respService?.allCompanies ?? []
@@ -161,7 +179,13 @@ private extension AddressViewController {
                         self.isTextSearched = true
                         self.isSerching = false
                         self.isSectionShown = false
-                        self.searchBar.searchTextField.isUserInteractionEnabled = true
+                        if #available(iOS 13.0, *) {
+                            self.searchBar.searchTextField.isUserInteractionEnabled = true
+                        } else {
+                            // Fallback on earlier versions
+                            let searchTextField = self.searchBar.value(forKey: "searchField") as? UITextField
+                            searchTextField?.isUserInteractionEnabled = true
+                        }
                         self.usersFiltered = respService?.clientDataArray ?? []
                     } else {
                         self.allUsers = respService?.clientDataArray ?? []

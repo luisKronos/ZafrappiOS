@@ -92,7 +92,13 @@ private extension SearchJobViewController {
     
     func configureTableView() {
         searchBar.delegate = self
-        searchBar.searchTextField.clearButtonMode = .never
+        if #available(iOS 13.0, *) {
+            searchBar.searchTextField.clearButtonMode = .never
+        } else {
+            // Fallback on earlier versions
+            let searchTextField = searchBar.value(forKey: "searchField") as? UITextField
+            searchTextField?.clearButtonMode = .never
+        }
         tableView.register(UINib(nibName: "CompaniesTableViewCell", bundle: nil), forCellReuseIdentifier: "CompaniesTableViewCell")
         tableView.separatorStyle = .none
         tableView.delegate = self
