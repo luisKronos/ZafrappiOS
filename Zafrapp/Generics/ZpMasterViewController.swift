@@ -20,7 +20,7 @@ class ZPMasterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        hideKeyboardWhenTapped()
+        configureKeyboard()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
