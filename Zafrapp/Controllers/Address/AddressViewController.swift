@@ -406,16 +406,16 @@ extension AddressViewController: UITableViewDelegate, UITableViewDataSource {
         if cellType == 0 {
             let titleSelected = companyOptionsTitle[section]
             if titleSelected == "Ubicacion" {
-                options = ArrEstados
+                options = statesArray
             } else if titleSelected == "Servicio" {
                 options = AppConstants.services
             }
         } else {
             let titleSelected = titleOptionsUser[section]
             if titleSelected == "Ingenio" {
-                options = arrIngenio
+                options = ingenioArray
             } else if titleSelected == "Departamento" {
-                options = arrDepartamento
+                options = departamentoArray
             }
         }
         tableView.reloadData()

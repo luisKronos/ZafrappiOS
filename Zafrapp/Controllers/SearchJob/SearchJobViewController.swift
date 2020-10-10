@@ -246,7 +246,7 @@ extension SearchJobViewController: UITableViewDelegate, UITableViewDataSource {
         
         switch section {
         case 0:
-            filterOptionsSelected = arrIngenio
+            filterOptionsSelected = ingenioArray
         case 1:
             filterOptionsSelected = AppConstants.interestAreas
         default:

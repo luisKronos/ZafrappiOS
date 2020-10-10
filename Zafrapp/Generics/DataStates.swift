@@ -8,15 +8,15 @@
 
 import Foundation
 
-var arrIngenio = ["Ingenio El Dorado S.A. de C.V.","Ingenio Puga SA de CV","Ingenio El Molino SA de CV",
+var ingenioArray = ["Ingenio El Dorado S.A. de C.V.","Ingenio Puga SA de CV","Ingenio El Molino SA de CV",
 "Ingenio Tala SA de CV","Ingenio San Francisco Ameca SA de CV","Cia Azucarera del Ingenio Bellavista SA de CV","Ingenio Xicotencatl SA de CV","Ingenio El Mante SA de CV","Ingenio San Miguel del Naranjo SA de CV","Piasa Ingenio Plan de San Luis SA de CV","Ingenio Alianza Popular SA de CV","Ingenio Plan de Ayala SA de CV","Ingenio Panuco SAPI de CV","Ingenio El Higo SA de CV","Ingenio Melchor Ocampo SA de CV","Ingenio José Maria Morelos SA de CV","Ingenio Tamazula SA de CV","Ingenio Quesería SA de CV","Ingenio Santa Clara SA de CV","Ingenio Lázaro Cárdenas SA de CV","Ingenio Pedernales SA de CV","Central Casasano SA de CV","Corporativo Azucarero Emiliano Zapata SA  de CV",
 "Industrial Azucarera Atencingo SA de CV","Ingenio Mahuixtlan SA de CV","Ingenio La Gloria SA de CV",
 "Ingenio Azucarero Modelo SA de CV","Ingenio Central Progreso SA de CV","Central San Miguelito SA de CV","Ingenio El Carmen SA de CV","Ingenio San Nicolás SA de CV","Ingenio Calipam SA de CV",
 "Central La Providencia SA de CV","Ingenio San José de Abajo SA de CV","Central Energética de Atoyac SA de CV","Central Motzorongo SA de CV","Ingenio El Refugio SA de CV","Ingenio La Margarita SA de CV",
 "Central Potrero SA de CV","Ingenio Constancia SA de CV","Ingenio Tres Valles SA de CV","Ingenio Adolfo López Mateos SA de CV","Industrias Azucarera San Cristóbal SA de CV","Grupo San Pedro SA de CV",
-"Cia Industrial Azucarera SA de CV","Ingenio Presidente Benito Juárez SA de CV","Ingenio Santa Rosalia SA de CV","Cia Azucarera La Fe SA de CV","Azsuremex SA de CV","Ingenio San Rafael de Pucté SA de CV","Impulsora Azucarera del Trópico SA de CV","Otro (Cuál)"
+"Cia Industrial Azucarera SA de CV","Ingenio Presidente Benito Juárez SA de CV","Ingenio Santa Rosalia SA de CV","Cia Azucarera La Fe SA de CV","Azsuremex SA de CV","Ingenio San Rafael de Pucté SA de CV","Impulsora Azucarera del Trópico SA de CV"
 ]
-var arrDepartamento = ["Batey","Molinos","Calderas","Cristalización","Envase","Instrumentación","Campo","Maquinaria","Mantenimiento","Planta de Fuerza","Clarificación","Evaporación","Centrifugación","Servicios Generales","Destilería","Recursos Humanos","Laboratorio","Almacén de materiales","Almacén de producto terminado","Administración(Compras, cuentas por pagar, cuentas por cobrar, etc)","Estudiante o Pasante","Otro"]
+var departamentoArray = ["Batey","Molinos","Calderas","Cristalización","Envase","Instrumentación","Campo","Maquinaria","Mantenimiento","Planta de Fuerza","Clarificación","Evaporación","Centrifugación","Servicios Generales","Destilería","Recursos Humanos","Laboratorio","Almacén de materiales","Almacén de producto terminado","Administración(Compras, cuentas por pagar, cuentas por cobrar, etc)","Estudiante o Pasante"]
 
 enum CameraDirection {
     case front
@@ -24,9 +24,9 @@ enum CameraDirection {
 }
 
 
-var arrAreasDeInteres = ["Batey","Molinos","Calderas","Cristalización","Envase","Instrumentación","Campo", "Maquinaria","Mantenimiento","Planta de Fuerza","Clarificación","Evaporación","Centrifugación","Servicios Generales","Destilería","Seguridad Industrial","Refinería de Azúcar","Taller Mecánico","Cogeneración Energía Eléctrica","Cosecha","Siembra y Cultivo","Laboratorio de Campo","Maquinaria Agrícola","Almacén de materiales","Almacén de producto terminado","Administración(Compras, cuentas por pagar, cuentas por cobrar, etc)","Recursos Humanos","Estudiante o pasante","Proveedor","Otro (cuál)"]
+var interestArray = ["Batey","Molinos","Calderas","Cristalización","Envase","Instrumentación","Campo", "Maquinaria","Mantenimiento","Planta de Fuerza","Clarificación","Evaporación","Centrifugación","Servicios Generales","Destilería","Seguridad Industrial","Refinería de Azúcar","Taller Mecánico","Cogeneración Energía Eléctrica","Cosecha","Siembra y Cultivo","Laboratorio de Campo","Maquinaria Agrícola","Almacén de materiales","Almacén de producto terminado","Administración(Compras, cuentas por pagar, cuentas por cobrar, etc)","Recursos Humanos","Estudiante o pasante","Proveedor","Otro (cuál)"]
 
-var ArrEstados = ["Aguascalientes","Baja California","Baja California Sur","Campeche","Chiapas","Chihuahua","Coahuila","Colima","CDMX Ciudad de México","Durango","Estado de México","Guanajuato","Guerrero","Hidalgo","Jalisco","Michoacán de Ocampo","Morelos","Nayarit","Nuevo León","Oaxaca","Puebla","Querétaro","Quintana Roo","San Luis Potosí","Sinaloa","Sonora","Tabasco","Tamaulipas","Tlaxcala","Veracruz","Yucatán","Zacatecas"
+var statesArray = ["Aguascalientes","Baja California","Baja California Sur","Campeche","Chiapas","Chihuahua","Coahuila","Colima","CDMX Ciudad de México","Durango","Estado de México","Guanajuato","Guerrero","Hidalgo","Jalisco","Michoacán de Ocampo","Morelos","Nayarit","Nuevo León","Oaxaca","Puebla","Querétaro","Quintana Roo","San Luis Potosí","Sinaloa","Sonora","Tabasco","Tamaulipas","Tlaxcala","Veracruz","Yucatán","Zacatecas"
 ]
 
 class SuburbInformation {
