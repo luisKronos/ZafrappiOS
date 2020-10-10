@@ -7,8 +7,17 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class EditProfileViewController: ZPMasterViewController {
+    
+    // MARK: - Constants
+    
+    private enum Constants {
+        enum String {
+            static let instructions = NSLocalizedString("Para actualizar tus datos presiona el botón de guardar, cada vez que modifiques al menos un campo por sección", comment: "")
+        }
+    }
     
     // MARK: - IBOutlet
     
@@ -97,6 +106,7 @@ class EditProfileViewController: ZPMasterViewController {
         }
     }
     
+    @IBOutlet private var instructionsLabel: UILabel!
     @IBOutlet private var showCellLabel: ZpLabel!
     @IBOutlet private var jobSearchLabel: ZpLabel!
     @IBOutlet private var cellphoneView: UIView!
@@ -140,10 +150,15 @@ class EditProfileViewController: ZPMasterViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureLabel()
         addData()
         adjustImageRound()
         searchJobSwitch.addTarget(self, action: #selector(onSwitchValueChanged), for: .touchUpInside)
         informationUser = InformationClasify.sharedInstance.data
+        
+        // Disable IQKeyboardManager because of how tag were set
+        // needs to refactor this view to use IQKeyboardManager
+        IQKeyboardManager.shared.enableAutoToolbar = false
     }
     
     // MARK: -  IBAction
@@ -228,6 +243,12 @@ class EditProfileViewController: ZPMasterViewController {
 
 private extension EditProfileViewController {
     
+    func configureLabel() {
+        instructionsLabel.numberOfLines = 0
+        instructionsLabel.font = ZafrappTheme.Font.Profile.instruction
+        instructionsLabel.text = Constants.String.instructions
+    }
+    
     @objc func onSwitchValueChanged(_ switchS: UISwitch) {
         if switchS.tag == EditProfilePickerType.work.rawValue {
             sectionUpdated = EditProfilePickerType.work.rawValue
@@ -260,8 +281,6 @@ private extension EditProfileViewController {
     
     func addData() {
         lycHeightJobConstraint.constant = 330
-        lycInterestConstraint.constant = 25
-        lycCurrentIngenioConstraint.constant = 25
         otherIngenioTextField.isHidden = true
         otherInterestTextField.isHidden = true
         departamentTextField.isHidden = true
@@ -560,7 +579,7 @@ extension EditProfileViewController: UITextFieldDelegate {
             case .state:
                 suburbTextField.text = ""
                 sectionUpdated = EditProfilePickerType.state.rawValue
-                dataPicker = ArrEstados
+                dataPicker = statesArray
                 textFieldWithPicker()
                 picker.delegate?.pickerView?(picker, didSelectRow: 0, inComponent: 0)
                 picker.selectRow(0, inComponent: 0, animated: true)
@@ -578,14 +597,14 @@ extension EditProfileViewController: UITextFieldDelegate {
             case .interestArea:
                 sectionUpdated = EditProfilePickerType.interestArea.rawValue
                 changeColorBackgroundView()
-                dataPicker = arrAreasDeInteres
+                dataPicker = interestArray
                 textFieldWithPicker()
                 picker.delegate?.pickerView?(picker, didSelectRow: 0, inComponent: 0)
                 picker.selectRow(0, inComponent: 0, animated: true)
             case .ingenio:
                 sectionUpdated = EditProfilePickerType.ingenio.rawValue
                 changeColorBackgroundView()
-                dataPicker = arrIngenio
+                dataPicker = ingenioArray
                 textFieldWithPicker()
                 picker.delegate?.pickerView?(picker, didSelectRow: 0, inComponent: 0)
                 picker.selectRow(0, inComponent: 0, animated: true)
@@ -595,7 +614,7 @@ extension EditProfileViewController: UITextFieldDelegate {
             case .department:
                 sectionUpdated = EditProfilePickerType.department.rawValue
                 changeColorBackgroundView()
-                dataPicker = arrDepartamento
+                dataPicker = departamentoArray
                 textFieldWithPicker()
                 picker.delegate?.pickerView?(picker, didSelectRow: 0, inComponent: 0)
                 picker.selectRow(0, inComponent: 0, animated: true)

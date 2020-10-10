@@ -40,7 +40,7 @@ private extension SecondaryNewsTableViewCell {
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 20
         layout.minimumInteritemSpacing = 0.1
-        let size = CGSize(width: self.secondaryNewsCollection.frame.size.width / 2.6 , height: 150)
+        let size = CGSize(width: self.secondaryNewsCollection.frame.size.width / 2.4 , height: 150)
         layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 20, right: 20)
         layout.itemSize = size
         
@@ -61,7 +61,7 @@ extension SecondaryNewsTableViewCell: UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = secondaryNewsCollection.dequeueReusableCell(withReuseIdentifier: "NewsCollectionViewCell", for: indexPath) as! NewsCollectionViewCell
-        cell.layer.cornerRadius = 24
+        cell.layer.cornerRadius = 20.0
         if !listOfSecondaryNews.isEmpty {
             let oneNews = listOfSecondaryNews[indexPath.row]
             cell.noticiaSecondary = oneNews

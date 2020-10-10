@@ -51,11 +51,11 @@ extension CompaniesTableViewCell {
     // MARK: - Configuration Methods
     
     func shadowView() {
-         containerView.layer.cornerRadius = 25
-         containerView.layer.shadowColor = UIColor.lightGray.cgColor
-         containerView.layer.shadowOffset = CGSize(width: 0.5, height: 0.5)
-         containerView.layer.shadowRadius = 5.0
-         containerView.layer.shadowOpacity = 0.5
-     }
+        containerView.layer.cornerRadius = 15.0
+        containerView.layer.shadowColor = UIColor.lightGray.cgColor
+        containerView.layer.shadowOffset = CGSize(width: 0.5, height: 0.5)
+        containerView.layer.shadowRadius = 5.0
+        containerView.layer.shadowOpacity = 0.5
+    }
     
 }

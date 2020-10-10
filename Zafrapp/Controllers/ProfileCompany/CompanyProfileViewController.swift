@@ -11,6 +11,21 @@ import MapKit
 
 class CompanyProfileViewController: ZPMasterViewController {
     
+    // MARK: - Constants
+    
+    private enum Constants {
+        enum String {
+            static let whoAreWe = NSLocalizedString("¿Quiénes somos?", comment: "")
+            static let whereAreWe = NSLocalizedString("¿Dónde nos encontramos?", comment: "")
+            static let offer = NSLocalizedString("¿Qué ofrecemos?", comment: "")
+            static let contact = NSLocalizedString("Contáctanos", comment: "")
+        }
+        static let contactContainerCornerRadius: CGFloat = 10.0
+    }
+    
+    @IBOutlet private var whoAreWeTitleLabel: UILabel!
+    @IBOutlet private var whereAreWeTitleLabel: UILabel!
+    @IBOutlet private var offerTitleLabel: UILabel!
     @IBOutlet private var roundImageView: UIImageView!
     @IBOutlet private var companyTitleLabel: UILabel!
     @IBOutlet private var whoLabel: UILabel!
@@ -19,6 +34,8 @@ class CompanyProfileViewController: ZPMasterViewController {
     @IBOutlet private var jobOfferLabel: UILabel!
     @IBOutlet private var offerJobLabel: UILabel!
     @IBOutlet private var lycChangeConstraint: NSLayoutConstraint!
+    @IBOutlet private var contactContainerView: UIView!
+    @IBOutlet private var contactLabel: UILabel!
     
     // MARK: - Private Properties
     
@@ -41,6 +58,8 @@ class CompanyProfileViewController: ZPMasterViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureLabels()
+        configureContactView()
         roundImage()
         executeService(email: emailSaved, clientId: companyId)
     }
@@ -60,6 +79,23 @@ class CompanyProfileViewController: ZPMasterViewController {
 // MARK: - Private Methods
 
 private extension CompanyProfileViewController {
+    
+    func configureLabels() {
+        whoAreWeTitleLabel.text = Constants.String.whoAreWe.uppercased()
+        whereAreWeTitleLabel.text = Constants.String.whereAreWe.uppercased()
+        offerTitleLabel.text = Constants.String.offer.uppercased()
+        
+        whoAreWeTitleLabel.textColor = ZafrappTheme.Color.blue
+        whereAreWeTitleLabel.textColor = ZafrappTheme.Color.blue
+        offerTitleLabel.textColor = ZafrappTheme.Color.blue
+    }
+    
+    func configureContactView() {
+        contactContainerView.backgroundColor = ZafrappTheme.Color.green
+        contactContainerView.layer.cornerRadius = Constants.contactContainerCornerRadius
+        contactLabel.text = Constants.String.contact
+        contactLabel.textColor = .white
+    }
     
     func determineMyCurrentLocation() {
         locationManager = CLLocationManager()

@@ -19,7 +19,7 @@ class AddressViewController: ZPMasterViewController , UIGestureRecognizerDelegat
     
     // MARK: - Private Properties
     
-    private var companyOptionsTitle = ["Servicio","Ubicacion"]
+    private var companyOptionsTitle = ["Servicio","Ubicación"]
     private var titleOptionsUser = ["Ingenio","Departamento"]
     private var isSectionShown = false
     private var options: [String] = []
@@ -54,6 +54,10 @@ class AddressViewController: ZPMasterViewController , UIGestureRecognizerDelegat
         swipeDown()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        selectionSegmentedControl.setNeedsDisplay()
+    }
     // MARK: - IBActions
     
     @IBAction func filterAction(_ sender: Any) {
@@ -63,7 +67,13 @@ class AddressViewController: ZPMasterViewController , UIGestureRecognizerDelegat
             lycSelectionViewConstraint.constant = 0
             searchBar.showsCancelButton = false
             isSerching = true
-            searchBar.searchTextField.isUserInteractionEnabled = false
+            if #available(iOS 13.0, *) {
+                searchBar.searchTextField.isUserInteractionEnabled = false
+            } else {
+                // Fallback on earlier versions
+                let searchTextField = searchBar.value(forKey: "searchField") as? UITextField
+                searchTextField?.isUserInteractionEnabled = false
+            }
             isFiltered = false
             tableView.reloadData()
         } else {
@@ -74,7 +84,13 @@ class AddressViewController: ZPMasterViewController , UIGestureRecognizerDelegat
             isSectionShown = false
             tableView.reloadData()
             button.isSelected = false
-            searchBar.searchTextField.isUserInteractionEnabled = true
+            if #available(iOS 13.0, *) {
+                searchBar.searchTextField.isUserInteractionEnabled = true
+            } else {
+                // Fallback on earlier versions
+                let searchTextField = searchBar.value(forKey: "searchField") as? UITextField
+                searchTextField?.isUserInteractionEnabled = true
+            }
         }
     }
     
@@ -120,7 +136,13 @@ private extension AddressViewController {
                         self.isTextSearched = true
                         self.isSerching = false
                         self.isSectionShown = false
-                        self.searchBar.searchTextField.isUserInteractionEnabled = true
+                        if #available(iOS 13.0, *) {
+                            self.searchBar.searchTextField.isUserInteractionEnabled = true
+                        } else {
+                            // Fallback on earlier versions
+                            let searchTextField = self.searchBar.value(forKey: "searchField") as? UITextField
+                            searchTextField?.isUserInteractionEnabled = true
+                        }
                         self.companiesFiltered = respService?.allCompanies ?? []
                     } else {
                         self.companies = respService?.allCompanies ?? []
@@ -157,7 +179,13 @@ private extension AddressViewController {
                         self.isTextSearched = true
                         self.isSerching = false
                         self.isSectionShown = false
-                        self.searchBar.searchTextField.isUserInteractionEnabled = true
+                        if #available(iOS 13.0, *) {
+                            self.searchBar.searchTextField.isUserInteractionEnabled = true
+                        } else {
+                            // Fallback on earlier versions
+                            let searchTextField = self.searchBar.value(forKey: "searchField") as? UITextField
+                            searchTextField?.isUserInteractionEnabled = true
+                        }
                         self.usersFiltered = respService?.clientDataArray ?? []
                     } else {
                         self.allUsers = respService?.clientDataArray ?? []
@@ -200,10 +228,18 @@ private extension AddressViewController {
     }
     
     func addSegmentedControled() {
-        let codeSegmented = CustomSegmentedControl(frame: CGRect(x: 0, y: 0, width: self.segmentedControllerCustomView.frame.width , height: self.segmentedControllerCustomView.frame.height), buttonTitle: ["Empresas","Contacto"])
+        let codeSegmented = CustomSegmentedControl(frame: .zero, buttonTitle: ["Empresas","Contacto"])
+        codeSegmented.translatesAutoresizingMaskIntoConstraints = false
         codeSegmented.delegate = self
         codeSegmented.backgroundColor = .clear
-        self.segmentedControllerCustomView.addSubview(codeSegmented)
+        segmentedControllerCustomView.addSubview(codeSegmented)
+        
+        NSLayoutConstraint.activate([
+            codeSegmented.topAnchor.constraint(equalTo: segmentedControllerCustomView.topAnchor),
+            codeSegmented.bottomAnchor.constraint(equalTo: segmentedControllerCustomView.bottomAnchor),
+            codeSegmented.leadingAnchor.constraint(equalTo: segmentedControllerCustomView.leadingAnchor),
+            codeSegmented.trailingAnchor.constraint(equalTo: segmentedControllerCustomView.trailingAnchor)
+        ])
     }
 }
 
@@ -394,16 +430,16 @@ extension AddressViewController: UITableViewDelegate, UITableViewDataSource {
         if cellType == 0 {
             let titleSelected = companyOptionsTitle[section]
             if titleSelected == "Ubicacion" {
-                options = ArrEstados
+                options = statesArray
             } else if titleSelected == "Servicio" {
                 options = AppConstants.services
             }
         } else {
             let titleSelected = titleOptionsUser[section]
             if titleSelected == "Ingenio" {
-                options = arrIngenio
+                options = ingenioArray
             } else if titleSelected == "Departamento" {
-                options = arrDepartamento
+                options = departamentoArray
             }
         }
         tableView.reloadData()

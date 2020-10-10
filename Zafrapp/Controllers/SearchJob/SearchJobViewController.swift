@@ -24,7 +24,7 @@ class SearchJobViewController: ZPMasterViewController, UIGestureRecognizerDelega
     private var isSearching = false
     private var isFilterSelected = false
     private var vacanciSelected: Postulation?
-    private var filterOptions = ["Ingenio", "Área de interes", "Salario"]
+    private var filterOptions = ["Ingenio", "Área de interés", "Salario"]
     private var sortSalaryOptions = ["Mayor a menor", "Menor a mayor"]
     private var filterOptionsSelected: [String] = []
     private var isSectionShown = false
@@ -92,7 +92,13 @@ private extension SearchJobViewController {
     
     func configureTableView() {
         searchBar.delegate = self
-        searchBar.searchTextField.clearButtonMode = .never
+        if #available(iOS 13.0, *) {
+            searchBar.searchTextField.clearButtonMode = .never
+        } else {
+            // Fallback on earlier versions
+            let searchTextField = searchBar.value(forKey: "searchField") as? UITextField
+            searchTextField?.clearButtonMode = .never
+        }
         tableView.register(UINib(nibName: "CompaniesTableViewCell", bundle: nil), forCellReuseIdentifier: "CompaniesTableViewCell")
         tableView.separatorStyle = .none
         tableView.delegate = self
@@ -246,7 +252,7 @@ extension SearchJobViewController: UITableViewDelegate, UITableViewDataSource {
         
         switch section {
         case 0:
-            filterOptionsSelected = arrIngenio
+            filterOptionsSelected = ingenioArray
         case 1:
             filterOptionsSelected = AppConstants.interestAreas
         default:

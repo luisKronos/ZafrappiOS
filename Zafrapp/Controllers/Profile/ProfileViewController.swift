@@ -106,7 +106,7 @@ private extension ProfileViewController {
     }
     
     func adjustImageRound() {
-        profileImageView.layer.cornerRadius = profileImageView.frame.size.height / 2
+        profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2
         profileImageView.layer.borderColor = #colorLiteral(red: 0.1490196078, green: 0.6, blue: 0.9843137255, alpha: 1)
         profileImageView.layer.borderWidth = 2
         profileImageView.clipsToBounds = true

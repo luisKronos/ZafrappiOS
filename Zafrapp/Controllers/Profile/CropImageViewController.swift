@@ -7,13 +7,19 @@
 //
 
 import UIKit
+import os
 
 class CropImageViewController: ZPMasterViewController {
+    
+    // MARK: - Constants
+    
+    private enum Constants {
+        static let overlayMargin: CGFloat = 40.0
+    }
     
     // MARK: - IBOutlets
     
     @IBOutlet private var imageView: UIImageView!
-    @IBOutlet private var cropImageView: UIImageView!
     @IBOutlet private var backgroundButtonView: UIView!
     @IBOutlet private var screenshotView: UIView!
     
@@ -22,6 +28,7 @@ class CropImageViewController: ZPMasterViewController {
     private var panGesture = UIPanGestureRecognizer()
     private var indicator = UIActivityIndicatorView()
     private var informationProfile = UpdateProfileImage()
+    private var overlayView: UIView?
     
     // MARK: - Public Properties
     
@@ -33,29 +40,25 @@ class CropImageViewController: ZPMasterViewController {
         super.viewDidLoad()
         imageView.image = imageService
         backgroundButtonView.layer.cornerRadius = backgroundButtonView.frame.size.height / 2
-        panGesture = UIPanGestureRecognizer(target: self, action: #selector(draggedView(_:)))
-        imageView.isUserInteractionEnabled = true
-        imageView.addGestureRecognizer(panGesture)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        cropImageView.isHidden = false
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        // configure overlay here, to get the correct frame
+        configureOverlay()
     }
     
     // MARK: - IBActions
     
     @IBAction func cancelAction(_ sender: Any) {
-        self.navigationController?.popToRootViewController(animated: true)
+        navigationController?.popToRootViewController(animated: true)
     }
     
     @IBAction func acceptAction(_ sender: Any) {
-        self.cropImageView.isHidden = true
-        let imageAdjust = adjustImage(View: screenshotView)
-        
         removeImage(at: "ProfilePicture\(InformationClasify.sharedInstance.data?.messageResponse?.userId ?? "").jpg")
         informationProfile.email = InformationClasify.sharedInstance.data?.messageResponse?.email
-        informationProfile.profileImage = imageAdjust
+        informationProfile.profileImage = imageCropped
         executeService(data: informationProfile)
     }
     
@@ -65,11 +68,77 @@ class CropImageViewController: ZPMasterViewController {
 
 private extension CropImageViewController {
     
-    @objc func draggedView(_ sender:UIPanGestureRecognizer){
-        self.view.bringSubviewToFront(imageView)
-        let translation = sender.translation(in: self.view)
-        imageView.center = CGPoint(x: imageView.center.x + translation.x, y: imageView.center.y + translation.y)
-        sender.setTranslation(CGPoint.zero, in: self.view)
+    // MARK: - Computed Properties
+    
+    var imageCropped: UIImage? {
+        // To avoid getting overlay on new image
+        overlayView?.isHidden = true
+    
+        UIGraphicsBeginImageContextWithOptions(overlayCircleFrame.size, true, 0.0)
+        guard let context = UIGraphicsGetCurrentContext() else {
+            return nil
+        }
+        context.translateBy(x: -overlayCircleFrame.origin.x, y: -overlayCircleFrame.origin.y)
+        screenshotView.layer.render(in: context)
+        var image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        image = image?.trim()
+
+        // Restore previuos state
+        overlayView?.isHidden = false
+        
+        return image
+    }
+    
+    var overlayCircleFrame: CGRect {
+        let size = screenshotView.frame.width - Constants.overlayMargin * 2
+        return CGRect(x: Constants.overlayMargin , y: screenshotView.bounds.midY - size / 2, width: size, height: size)
+    }
+    
+    // MARK: - Configure methods
+    
+    func configureOverlay() {
+        if let overlayView = overlayView {
+            overlayView.removeFromSuperview()
+            panGesture.removeTarget(self, action: nil)
+        }
+        
+        overlayView = createOverlay(frame: CGRect(x: 0.0, y: 0.0, width: screenshotView.frame.width, height: screenshotView.frame.height),
+                                    xOffset: screenshotView.frame.midX,
+                                    yOffset: screenshotView.frame.midY,
+                                    radius: screenshotView.frame.width / 2 - Constants.overlayMargin)
+        
+        panGesture = UIPanGestureRecognizer(target: self, action: #selector(draggedView(_:)))
+        overlayView?.isUserInteractionEnabled = true
+        overlayView?.addGestureRecognizer(panGesture)
+        
+        if let overlayView = overlayView {
+            screenshotView.addSubview(overlayView)
+        }
+    }
+    
+    @objc func draggedView(_ sender: UIPanGestureRecognizer){
+        view.bringSubviewToFront(imageView)
+        let translation = sender.translation(in: screenshotView)
+        let overlayFrame: CGRect = self.overlayCircleFrame
+        let oldCenter = imageView.center
+        let center = CGPoint(x: imageView.center.x + translation.x, y: imageView.center.y + translation.y)
+
+        // set new center to update frame
+        imageView.center = center
+        
+        let newImageViewFrame = imageView.frame
+        
+        // validates image view does not go out of overlay frame
+        // if so, set old center
+        if newImageViewFrame.maxX < overlayFrame.maxX ||
+            newImageViewFrame.maxY < overlayFrame.maxY ||
+            newImageViewFrame.minX > overlayFrame.minX ||
+            newImageViewFrame.minY > overlayFrame.minY {
+            imageView.center = oldCenter
+        }
+        
+        sender.setTranslation(.zero, in: view)
     }
     
     func executeService(data: UpdateProfileImage?) {
@@ -82,19 +151,15 @@ private extension CropImageViewController {
             if (error! as NSError).code == 0 && respService != nil {
                 if respService?.status == AppConstants.ErrorCode.bad {
                     self.present(ZPAlertGeneric.oneOption(title: AppConstants.String.errorTitle, message: respService?.message, actionTitle: AppConstants.String.accept),animated: true)
-                    self.cropImageView.isHidden = false
                 } else {
                     self.saveImage(imageFinal: data?.profileImage ?? UIImage())
                     self.present(ZPAlertGeneric.oneOption(title: "Foto actualizada", message: respService?.message, actionTitle: AppConstants.String.accept, actionHandler: {(_) in
-                        self.cropImageView.isHidden = false
                         self.navigationController?.popToRootViewController(animated: true)
                     }),animated: true)
                 }
             } else if (error! as NSError).code == AppConstants.ErrorCode.noInternetConnection {
-                self.cropImageView.isHidden = false
                 self.present(ZPAlertGeneric.oneOption(title: AppConstants.String.internetConnection, message: AppConstants.String.internetConnectionMessage, actionTitle: AppConstants.String.accept),animated: true)
             } else {
-                self.cropImageView.isHidden = false
                 self.present(ZPAlertGeneric.oneOption(title: AppConstants.String.errorTitle, message: AppConstants.String.tryAgain, actionTitle: AppConstants.String.accept),animated: true)
             }
         }
@@ -109,18 +174,19 @@ private extension CropImageViewController {
             !FileManager.default.fileExists(atPath: fileURL.path) {
             do {
                 try data.write(to: fileURL)
-                print("file saved")
+                os_log("file saved")
             } catch {
-                print("error saving file:", error)
+                os_log("error saving file: %s", error.localizedDescription)
             }
         }
     }
     
-    func adjustImage(View: UIView) -> UIImage{
-        let imageCut = View.screenshot()
-        let rect: CGRect = CGRect(x: -40, y: 30, width: 300, height: 300)
-        
-        return  imageCut.cropped(rect: rect) ?? UIImage()
+    func adjustImage() -> UIImage {
+        let image = screenshotView.screenshot()
+        let size = screenshotView.frame.width - Constants.overlayMargin * 2
+        let rect: CGRect = CGRect(x: -Constants.overlayMargin , y: screenshotView.bounds.midY - size / 2, width: size, height: size)
+       
+        return  image.cropped(rect: rect) ?? UIImage()
     }
     
     func cropToBounds(image: UIImage, width: Double, height: Double) -> UIImage {
@@ -165,4 +231,31 @@ private extension CropImageViewController {
         }
     }
     
+    // MARK: - Overlay View
+    /// This overlay allow us to get a rect of circle position, to validate image view does not go beyond it
+    
+    func createOverlay(frame: CGRect, xOffset: CGFloat, yOffset: CGFloat, radius: CGFloat) -> UIView {
+        let overlayView = UIView(frame: frame)
+        overlayView.backgroundColor = UIColor.black.withAlphaComponent(0.8)
+    
+        let path = CGMutablePath()
+        path.addArc(center: CGPoint(x: frame.midX, y: frame.midY),
+                    radius: radius,
+                    startAngle: 0.0,
+                    endAngle: 2.0 * .pi,
+                    clockwise: false)
+        path.addRect(CGRect(origin: .zero, size: overlayView.frame.size))
+     
+        let maskLayer = CAShapeLayer()
+        maskLayer.backgroundColor = UIColor.black.cgColor
+        maskLayer.path = path
+        maskLayer.fillRule = CAShapeLayerFillRule.evenOdd
+        maskLayer.fillRule = .evenOdd
+        
+        overlayView.layer.mask = maskLayer
+        overlayView.clipsToBounds = true
+
+        return overlayView
+    }
 }
+

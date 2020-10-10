@@ -171,7 +171,7 @@ private extension VacancyDetailViewController {
         changeColorLabel(label: mondayLabel, changeColor: daysReturn.first?.bCheck ?? false)
         changeColorLabel(label: tuesdayLabel, changeColor: daysReturn[1].bCheck ?? false)
         changeColorLabel(label: wednesdayLabel, changeColor: daysReturn[2].bCheck ?? false)
-        changeColorLabel(label: tuesdayLabel, changeColor: daysReturn[3].bCheck ?? false)
+        changeColorLabel(label: thursdayLabel, changeColor: daysReturn[3].bCheck ?? false)
         changeColorLabel(label: fridayLabel, changeColor: daysReturn[4].bCheck ?? false)
         changeColorLabel(label: saturdayLabel, changeColor: daysReturn[5].bCheck ?? false)
         changeColorLabel(label: sundayLabel, changeColor: daysReturn.last?.bCheck ?? false)

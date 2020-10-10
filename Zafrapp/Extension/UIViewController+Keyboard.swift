@@ -8,17 +8,10 @@
 
 import Foundation
 import UIKit
+import IQKeyboardManagerSwift
 
 extension UIViewController {
-    public func hideKeyboardWhenTapped() {
-          let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,
-                                                                   action: #selector(dismissKeyboard))
-          tap.cancelsTouchesInView = false
-          view.addGestureRecognizer(tap)
-      }
-    
-    @objc public func dismissKeyboard() {
-          view.endEditing(true)
-      }
-      
+    func configureKeyboard() {
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
+    }
 }
