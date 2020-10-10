@@ -24,7 +24,7 @@ class SearchJobViewController: ZPMasterViewController, UIGestureRecognizerDelega
     private var isSearching = false
     private var isFilterSelected = false
     private var vacanciSelected: Postulation?
-    private var filterOptions = ["Ingenio", "Área de interes", "Salario"]
+    private var filterOptions = ["Ingenio", "Área de interés", "Salario"]
     private var sortSalaryOptions = ["Mayor a menor", "Menor a mayor"]
     private var filterOptionsSelected: [String] = []
     private var isSectionShown = false
