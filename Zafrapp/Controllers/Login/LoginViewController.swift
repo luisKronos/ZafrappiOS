@@ -10,6 +10,16 @@ import UIKit
 
 class LoginViewController: ZPMasterViewController {
     
+    // MARK: - Constants
+    
+    private enum Constants {
+        enum String {
+            static let link = "www.zafrapp.com"
+            static let mail = NSLocalizedString("Correo", comment: "")
+            static let password = NSLocalizedString("Contraseña", comment: "")
+        }
+    }
+    
     // MARK: - IBOutlets
     
     @IBOutlet private var userTextField: ZPDesignableUITextField! {
@@ -26,6 +36,7 @@ class LoginViewController: ZPMasterViewController {
     @IBOutlet private var passwordErrorLabel: UILabel!
     @IBOutlet private var createAccountButton: UIButton!
     @IBOutlet private var rememberImageView: UIImageView!
+    @IBOutlet private var linkButton: UIButton!
     
     // MARK: - Properties
     
@@ -39,6 +50,8 @@ class LoginViewController: ZPMasterViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         customTextButtonRegister()
+        configureLinkButton()
+        configureTextFields()
     }
     
     // MARK: - IBActions
@@ -100,6 +113,18 @@ class LoginViewController: ZPMasterViewController {
 // MARK :- Private Methods
 
 private extension LoginViewController {
+    
+    func configureLinkButton() {
+        linkButton.setTitle(Constants.String.link, for: .normal)
+        linkButton.setTitleColor(.white, for: .normal)
+    }
+    
+    func configureTextFields() {
+        userTextField.placeholder = Constants.String.mail
+        userTextField.textColor = ZafrappTheme.Color.gray
+        passwordTextField.placeholder = Constants.String.password
+        passwordTextField.textColor = ZafrappTheme.Color.gray
+    }
     
     func customTextButtonRegister() {
         let attributeNormal = [ NSAttributedString.Key.font: UIFont(name: "Poppins-Light", size: 13.0)!, NSAttributedString.Key.foregroundColor: UIColor.white]
