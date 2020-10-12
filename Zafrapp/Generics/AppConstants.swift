@@ -10,7 +10,7 @@ import Foundation
 
 enum AppConstants {
 
-    static let services = ["Combustoleo", "Materiales para laboratorio", "Aceites, grasas y lubricantes", "Combustibles(diesel y gasolina)","Productos químicos de fábrica","Reactivos laboratorio","Artículos industriales", "Tornillería","Fierros, aceros y aleaciones no ferrosas", "Materiales de construcción","Válvulas, tuercas y conexiones", "Empaquetadoras y juntas", "Soldadura y gases", "Material eléctrico", "Ferretería varios (incluye herramientas)"]
+    static let services = ["Combustóleo", "Materiales para laboratorio", "Aceites, grasas y lubricantes", "Combustibles(diesel y gasolina)","Productos químicos de fábrica","Reactivos laboratorio","Artículos industriales", "Tornillería","Fierros, aceros y aleaciones no ferrosas", "Materiales de construcción","Válvulas, tuercas y conexiones", "Empaquetadoras y juntas", "Soldadura y gases", "Material eléctrico", "Ferretería varios (incluye herramientas)"]
 
     static let interestAreas = ["Fábrica", "Campo", "Administración", "Otro"]
     

@@ -336,7 +336,7 @@ extension RegisterAccountViewController: UITextFieldDelegate {
             lycDepartmentHeighConstraint.constant = 30
             otherDeparmentTextField.isHidden = true
             pickerType = PickerDataType.suburb.rawValue
-            workPlaces = arrDepartamento
+            workPlaces = departamentoArray
             showPickerView()
             picker.delegate?.pickerView?(picker, didSelectRow: 0, inComponent: 0)
             picker.selectRow(0, inComponent: 0, animated: true)
@@ -344,7 +344,7 @@ extension RegisterAccountViewController: UITextFieldDelegate {
             otherIngenioTextField.isHidden = true
             lyvIngenioHeightConstraint.constant = 80
             pickerType = PickerDataType.ingenio.rawValue
-            workPlaces = arrIngenio
+            workPlaces = ingenioArray
             showPickerView()
             picker.delegate?.pickerView?(picker, didSelectRow: 0, inComponent: 0)
         } else if textField.tag == PickerDataType.birthDay.rawValue {

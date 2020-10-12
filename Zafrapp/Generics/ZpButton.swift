@@ -18,7 +18,9 @@ public class ZPDesignableUIButton: UIButton {
     }
     
     @IBInspectable public var style: Int = 0 {
-        didSet { set(style: Style(rawValue: style) ?? .login) }
+        didSet {
+            set(style: Style(rawValue: style) ?? .login)
+        }
     }
     
     private func set(style: Style) {
